@@ -5,11 +5,9 @@
 			[style.transform]="'translateX(-' + currentSlide() * 100 + '%)'"
 		>
 			@for (item of carouselData(); track item.image) {
-				<ng-container>
-					<a [routerLink]="item.path" class="carousel__item">
-						<img [src]="item.image" alt="carousel item" />
-					</a>
-				</ng-container>
+				<a [routerLink]="item.path" class="carousel__item">
+					<img [src]="item.image" alt="carousel item" />
+				</a>
 			}
 		</div>
 	</div>

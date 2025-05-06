@@ -32,7 +32,7 @@ export class MainCarouselComponent implements OnInit {
 			this.currentSlide.update(
 				(prev) => (prev + 1) % this.carouselData().length,
 			);
-		}, 2000);
+		}, 5000);
 
 		this.#destroyRef.onDestroy(() => {
 			clearInterval(autoPlayInterval);
