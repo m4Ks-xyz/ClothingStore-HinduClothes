@@ -1,5 +1,16 @@
 <div class="realtive">
 	<div class="carousel-container overflow-x-hidden">
-		
+		<div
+			class="carousel"
+			[style.transform]="'translateX(-' + currentSlide() * 100 + '%)'"
+		>
+			@for (item of carouselData(); track item.image) {
+				<ng-container>
+					<a [routerLink]="item.path" class="carousel__item">
+						<img [src]="item.image" alt="carousel item" />
+					</a>
+				</ng-container>
+			}
+		</div>
 	</div>
 </div>
