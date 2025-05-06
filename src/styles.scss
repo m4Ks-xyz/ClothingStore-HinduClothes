@@ -15,10 +15,11 @@ body {
 }
 
 .box {
+	height: 100%;
 	padding: 1rem;
 	box-shadow: var(--box-shadow);
 }
 
 .hideScrollbar::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
