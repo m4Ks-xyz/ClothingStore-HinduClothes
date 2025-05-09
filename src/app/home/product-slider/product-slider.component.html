@@ -1,7 +1,7 @@
-<div class="p-5 lg:px-20 lg:py-10">
-	<p class="text-2xl font-semibold opacity-75">{{ title() }}</p>
+<div class="container p-8 lg:px-20 lg:py-10 2xl:max-w-320">
+	<p class="pb-2.5 text-2xl font-semibold opacity-75">{{ title() }}</p>
 
-	<div class="flex-warp flex justify-center">
+	<div class="flex flex-col justify-center gap-4 md:flex-row">
 		@for (item of products(); track item.imageUrl) {
 			<app-home-product-card [product]="item" />
 		}

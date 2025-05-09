@@ -1,14 +1,20 @@
 <div
-	class="box duraiton-500 item-center w-15rem mx-3 flex cursor-pointer flex-col overflow-hidden rounded-lg transition-all hover:scale-105"
+	class="box flex h-full cursor-pointer flex-col overflow-hidden rounded-lg transition-all duration-500 hover:scale-105"
 >
-	<div class="h-13rem w-10rem">
-		<img [src]="product().imageUrl" alt="" />
+	<div class="relative h-116 w-full">
+		<img
+			class="absolute inset-0 h-full w-full object-cover object-center"
+			[src]="product().imageUrl"
+			alt="{{ product().title }}"
+		/>
 	</div>
 
-	<div class="p-4">
-		<h3 class="font-medium text-white">
+	<div class="flex min-h-20 flex-col justify-between p-4">
+		<h3 class="color-primary text-sm font-medium">
 			{{ product().brand }}
 		</h3>
-		<p class="mt-2 text-gray-500">{{ product().title }}</p>
+		<p class="mt-2 line-clamp-2 text-xs text-gray-500">
+			{{ product().title }}
+		</p>
 	</div>
 </div>

@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@use 'tailwindcss';
+@import 'tailwindcss';
+
+@theme {
+	--color-primary: #742365;
+}
 
 :root {
 	--background: #0b0b0b;
@@ -15,8 +19,6 @@ body {
 }
 
 .box {
-	height: 100%;
-	padding: 1rem;
 	box-shadow: var(--box-shadow);
 }
 
