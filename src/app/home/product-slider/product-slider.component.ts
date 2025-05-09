@@ -3,8 +3,8 @@ import { HomeProductCardComponent } from '../home-product-card/home-product-card
 import { WomenGouns } from '../model/gouns-model';
 import { MenJeans } from '../model/men-jeans.model';
 import { MenKurta } from '../model/men-kurta-model';
-import { WomenKurta } from '../model/women-kurta-model';
 import { Shoes } from '../model/shoes-model';
+import { WomenKurta } from '../model/women-kurta-model';
 
 @Component({
 	selector: 'app-product-slider',

@@ -3,17 +3,15 @@ export interface MenJeans {
 	brand: string;
 	title: string;
 	color: string;
-	discountedPrice: number;
 	price: number;
-	discountProcent?: number;
+	discountPercent: number;
 	size: {
 		name: string;
 		quantity: number;
 	}[];
-
 	quantity: number;
-	topLevelCategory?: 'Men';
-	secondLevelCategory?: 'Clothing';
-	thirdLevelCategory?: 'men_jeans';
+	topLevelCategory: string;
+	secondLevelCategory: string;
+	thirdLevelCategory: string;
 	description: string;
 }

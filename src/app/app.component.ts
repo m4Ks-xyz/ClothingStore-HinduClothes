@@ -9,6 +9,4 @@ import { HomeComponent } from './home/home.component';
 	styleUrl: './app.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
-	title = 'ClothingStore';
-}
+export class AppComponent {}

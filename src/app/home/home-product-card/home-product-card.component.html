@@ -10,11 +10,12 @@
 	</div>
 
 	<div class="flex min-h-20 flex-col justify-between p-4">
-		<h3 class="color-primary text-sm font-medium">
-			{{ product().brand }}
-		</h3>
-		<p class="mt-2 line-clamp-2 text-xs text-gray-500">
+		<p class="text-s mt-2 line-clamp-2 leading-tight">
 			{{ product().title }}
+		</p>
+
+		<p class="text-s mt-2 line-clamp-2 leading-tight">
+			{{ product().price | currency: "INR" }}
 		</p>
 	</div>
 </div>

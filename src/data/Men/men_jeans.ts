@@ -5,9 +5,9 @@ export const menJeans = [
 		brand: 'LAHEJA',
 		title: 'Men Regular Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 599,
+
 		price: 1999,
-		discountPersent: 70,
+		discountPercent: 70,
 		size: [
 			{
 				name: 'S',
@@ -23,9 +23,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -35,9 +35,9 @@ export const menJeans = [
 		brand: 'COPER BUCK',
 		title: 'Men Regular Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 898,
+
 		price: 2399,
-		discountPersent: 62,
+		discountPercent: 62,
 		size: [
 			{
 				name: 'S',
@@ -53,9 +53,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -65,9 +65,9 @@ export const menJeans = [
 		brand: 'Spykar',
 		title: 'Men Skinny Low Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 1099,
+
 		price: 2799,
-		discountPersent: 62,
+		discountPercent: 62,
 		size: [
 			{
 				name: 'S',
@@ -83,9 +83,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -95,9 +95,9 @@ export const menJeans = [
 		brand: 'UNITED DENIM',
 		title: 'Men Slim Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 429,
+
 		price: 1749,
-		discountPersent: 75,
+		discountPercent: 75,
 		size: [
 			{
 				name: 'S',
@@ -113,9 +113,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -125,9 +125,9 @@ export const menJeans = [
 		brand: 'comfits',
 		title: 'Men Slim Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 399,
+
 		price: 1299,
-		discountPersent: 69,
+		discountPercent: 69,
 		size: [
 			{
 				name: 'S',
@@ -143,9 +143,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -155,9 +155,9 @@ export const menJeans = [
 		brand: 'HIGHLANDER',
 		title: 'Men Tapered Fit Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 701,
+
 		price: 1799,
-		discountPersent: 61,
+		discountPercent: 61,
 		size: [
 			{
 				name: 'S',
@@ -173,9 +173,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -185,9 +185,9 @@ export const menJeans = [
 		brand: 'Crishtaliyo 2fashion',
 		title: 'Men Slim Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 494,
+
 		price: 1799,
-		discountPersent: 72,
+		discountPercent: 72,
 		size: [
 			{
 				name: 'S',
@@ -203,9 +203,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -215,9 +215,9 @@ export const menJeans = [
 		brand: 'COPER BUCK',
 		title: 'Men Regular Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 898,
+
 		price: 2399,
-		discountPersent: 62,
+		discountPercent: 62,
 		size: [
 			{
 				name: 'S',
@@ -233,9 +233,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -245,9 +245,9 @@ export const menJeans = [
 		brand: 'HIGHLANDER',
 		title: 'Men Tapered Fit Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 610,
+
 		price: 1299,
-		discountPersent: 53,
+		discountPercent: 53,
 		size: [
 			{
 				name: 'S',
@@ -263,9 +263,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -275,9 +275,9 @@ export const menJeans = [
 		brand: 'Urbano Fashion',
 		title: 'Men Slim Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 699,
+
 		price: 1399,
-		discountPersent: 50,
+		discountPercent: 50,
 		size: [
 			{
 				name: 'S',
@@ -293,9 +293,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -305,9 +305,9 @@ export const menJeans = [
 		brand: 'ZAYSH',
 		title: 'Men Slim Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 380,
+
 		price: 1299,
-		discountPersent: 70,
+		discountPercent: 70,
 		size: [
 			{
 				name: 'S',
@@ -323,9 +323,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -335,9 +335,9 @@ export const menJeans = [
 		brand: 'COPER BUCK',
 		title: 'Men Regular Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 799,
+
 		price: 2499,
-		discountPersent: 68,
+		discountPercent: 68,
 		size: [
 			{
 				name: 'S',
@@ -353,9 +353,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -365,9 +365,9 @@ export const menJeans = [
 		brand: 'QARSH',
 		title: 'Men Slim Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 410,
+
 		price: 1799,
-		discountPersent: 77,
+		discountPercent: 77,
 		size: [
 			{
 				name: 'S',
@@ -383,9 +383,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -395,9 +395,9 @@ export const menJeans = [
 		brand: 'linaria',
 		title: 'Men Slim Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 349,
+
 		price: 1099,
-		discountPersent: 68,
+		discountPercent: 68,
 		size: [
 			{
 				name: 'S',
@@ -413,9 +413,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -425,9 +425,9 @@ export const menJeans = [
 		brand: 'LOUIS PHILIPPE',
 		title: 'Men Slim Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 1799,
+
 		price: 2999,
-		discountPersent: 42,
+		discountPercent: 42,
 		size: [
 			{
 				name: 'S',
@@ -443,9 +443,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -455,9 +455,9 @@ export const menJeans = [
 		brand: 'QARSH',
 		title: 'Men Slim Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 430,
+
 		price: 1799,
-		discountPersent: 76,
+		discountPercent: 76,
 		size: [
 			{
 				name: 'S',
@@ -473,9 +473,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -485,9 +485,9 @@ export const menJeans = [
 		brand: 'ZAYSH',
 		title: 'Men Jogger Fit Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 400,
+
 		price: 1299,
-		discountPersent: 69,
+		discountPercent: 69,
 		size: [
 			{
 				name: 'S',
@@ -503,9 +503,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -515,9 +515,9 @@ export const menJeans = [
 		brand: 'LAHEJA',
 		title: 'Men Regular Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 599,
+
 		price: 1999,
-		discountPersent: 70,
+		discountPercent: 70,
 		size: [
 			{
 				name: 'S',
@@ -533,9 +533,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -545,9 +545,9 @@ export const menJeans = [
 		brand: 'linaria',
 		title: 'Men Slim Mid Rise Black, White Jeans',
 		color: 'black',
-		discountedPrice: 899,
+
 		price: 1899,
-		discountPersent: 52,
+		discountPercent: 52,
 		size: [
 			{
 				name: 'S',
@@ -563,9 +563,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -575,9 +575,9 @@ export const menJeans = [
 		brand: 'HIGHLANDER',
 		title: 'Men Slim Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 721,
+
 		price: 1849,
-		discountPersent: 61,
+		discountPercent: 61,
 		size: [
 			{
 				name: 'S',
@@ -593,9 +593,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -605,9 +605,9 @@ export const menJeans = [
 		brand: 'ZAYSH',
 		title: 'Men Jogger Fit Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 429,
+
 		price: 1299,
-		discountPersent: 66,
+		discountPercent: 66,
 		size: [
 			{
 				name: 'S',
@@ -623,9 +623,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -635,9 +635,9 @@ export const menJeans = [
 		brand: 'Veirdo',
 		title: 'Men Slim Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 1399,
+
 		price: 2999,
-		discountPersent: 55,
+		discountPercent: 55,
 		size: [
 			{
 				name: 'S',
@@ -653,9 +653,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -665,9 +665,9 @@ export const menJeans = [
 		brand: 'Calvin Klein Jeans',
 		title: 'Men Regular Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 4399,
+
 		price: 7999,
-		discountPersent: 45,
+		discountPercent: 45,
 		size: [
 			{
 				name: 'S',
@@ -683,9 +683,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -695,9 +695,9 @@ export const menJeans = [
 		brand: 'Roadster',
 		title: 'Men Slim Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 660,
+
 		price: 1999,
-		discountPersent: 66,
+		discountPercent: 66,
 		size: [
 			{
 				name: 'S',
@@ -713,9 +713,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -725,9 +725,9 @@ export const menJeans = [
 		brand: 'Styzon',
 		title: 'Men Boyfriend Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 739,
+
 		price: 1799,
-		discountPersent: 58,
+		discountPercent: 58,
 		size: [
 			{
 				name: 'S',
@@ -743,9 +743,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -755,9 +755,9 @@ export const menJeans = [
 		brand: 'Roadster',
 		title: 'Men Regular Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 561,
+
 		price: 1699,
-		discountPersent: 66,
+		discountPercent: 66,
 		size: [
 			{
 				name: 'S',
@@ -773,9 +773,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -785,9 +785,9 @@ export const menJeans = [
 		brand: 'stylophile',
 		title: 'Men Slim Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 899,
+
 		price: 1499,
-		discountPersent: 40,
+		discountPercent: 40,
 		size: [
 			{
 				name: 'S',
@@ -803,9 +803,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -815,9 +815,9 @@ export const menJeans = [
 		brand: 'CANTABIL',
 		title: 'Men Regular Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 1399,
+
 		price: 2999,
-		discountPersent: 55,
+		discountPercent: 55,
 		size: [
 			{
 				name: 'S',
@@ -833,9 +833,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -845,9 +845,9 @@ export const menJeans = [
 		brand: 'linaria',
 		title: 'Men Slim Mid Rise Black, White Jeans',
 		color: 'black',
-		discountedPrice: 899,
+
 		price: 1899,
-		discountPersent: 52,
+		discountPercent: 52,
 		size: [
 			{
 				name: 'S',
@@ -863,9 +863,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -875,9 +875,9 @@ export const menJeans = [
 		brand: 'Supernova Inc.',
 		title: 'Men Slim Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 499,
+
 		price: 1399,
-		discountPersent: 64,
+		discountPercent: 64,
 		size: [
 			{
 				name: 'S',
@@ -893,9 +893,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -905,9 +905,9 @@ export const menJeans = [
 		brand: 'Veirdo',
 		title: 'Men Slim Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 1399,
+
 		price: 2999,
-		discountPersent: 55,
+		discountPercent: 55,
 		size: [
 			{
 				name: 'S',
@@ -923,9 +923,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -935,9 +935,9 @@ export const menJeans = [
 		brand: 'CANTABIL',
 		title: 'Men Regular Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 1149,
+
 		price: 2499,
-		discountPersent: 55,
+		discountPercent: 55,
 		size: [
 			{
 				name: 'S',
@@ -953,9 +953,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -965,9 +965,9 @@ export const menJeans = [
 		brand: 'Supernova Inc.',
 		title: 'Men Slim Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 499,
+
 		price: 1399,
-		discountPersent: 64,
+		discountPercent: 64,
 		size: [
 			{
 				name: 'S',
@@ -983,9 +983,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -995,9 +995,9 @@ export const menJeans = [
 		brand: "LEVI'S",
 		title: 'Men Skinny Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 2099,
+
 		price: 3999,
-		discountPersent: 48,
+		discountPercent: 48,
 		size: [
 			{
 				name: 'S',
@@ -1013,9 +1013,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -1025,9 +1025,9 @@ export const menJeans = [
 		brand: 'linaria',
 		title: 'Men Slim Mid Rise Black, White Jeans',
 		color: 'black',
-		discountedPrice: 899,
+
 		price: 1899,
-		discountPersent: 52,
+		discountPercent: 52,
 		size: [
 			{
 				name: 'S',
@@ -1043,9 +1043,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -1055,9 +1055,9 @@ export const menJeans = [
 		brand: 'HIGHLANDER',
 		title: 'Men Slim Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 662,
+
 		price: 1699,
-		discountPersent: 61,
+		discountPercent: 61,
 		size: [
 			{
 				name: 'S',
@@ -1073,9 +1073,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -1085,9 +1085,9 @@ export const menJeans = [
 		brand: '0-DEGREE',
 		title: 'Men Slim Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 916,
+
 		price: 3999,
-		discountPersent: 77,
+		discountPercent: 77,
 		size: [
 			{
 				name: 'S',
@@ -1103,9 +1103,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -1115,9 +1115,9 @@ export const menJeans = [
 		brand: 'STUDIO NEXX',
 		title: 'Men Regular Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 739,
+
 		price: 1499,
-		discountPersent: 50,
+		discountPercent: 50,
 		size: [
 			{
 				name: 'S',
@@ -1133,9 +1133,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -1145,9 +1145,9 @@ export const menJeans = [
 		brand: 'HIGHLANDER',
 		title: 'Plus Size Men Regular Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 697,
+
 		price: 2249,
-		discountPersent: 69,
+		discountPercent: 69,
 		size: [
 			{
 				name: 'S',
@@ -1163,9 +1163,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},
@@ -1175,9 +1175,9 @@ export const menJeans = [
 		brand: 'HIGHLANDER',
 		title: 'Men Slim Mid Rise Black Jeans',
 		color: 'black',
-		discountedPrice: 721,
+
 		price: 1849,
-		discountPersent: 61,
+		discountPercent: 61,
 		size: [
 			{
 				name: 'S',
@@ -1193,9 +1193,9 @@ export const menJeans = [
 			},
 		],
 		quantity: 100,
-		topLavelCategory: 'Men',
-		secondLavelCategory: 'Clothing',
-		thirdLavelCategory: 'men_jeans',
+		topLevelCategory: 'Men',
+		secondLevelCategory: 'Clothing',
+		thirdLevelCategory: 'men_jeans',
 		description:
 			'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
 	},

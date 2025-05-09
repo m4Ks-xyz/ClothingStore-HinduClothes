@@ -3,8 +3,6 @@ export interface WomenGouns {
 	brand: string;
 	title: string;
 	color: string;
-	selling_price: string;
-	price: string;
-	disscount: string;
-	size: string | null;
+	price: number;
+	discount: number;
 }

@@ -3,17 +3,16 @@ export interface MenKurta {
 	brand: string;
 	title: string;
 	color: string;
-	discountedPrice: number;
+
 	price: number;
-	discountPersent: number;
+	discountProcent: number;
 	size: {
 		name: string;
 		quantity: number;
 	}[];
-
 	quantity: number;
-	topLavelCategory: string;
-	secondLavelCategory: string;
-	thirdLavelCategory: string;
+	topLevelCategory: string;
+	secondLevelCategory: string;
+	thirdLevelCategory: string;
 	description: string;
 }

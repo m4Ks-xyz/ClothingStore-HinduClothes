@@ -5,10 +5,8 @@ export const gounsPage1 = [
 		brand: 'Riya Creation',
 		title: 'Houndstooth Rayon Blend Stitched Anarkali Gown',
 		color: 'Blue',
-		selling_price: '₹466',
-		price: '₹999',
-		disscount: '53% off',
-		size: '',
+		price: 999,
+		discount: 53,
 	},
 	{
 		imageUrl:
@@ -16,10 +14,8 @@ export const gounsPage1 = [
 		brand: 'SAPONHARSH',
 		title: 'Printed Viscose Rayon Stitched Anarkali Gown',
 		color: 'Red',
-		selling_price: '₹449',
-		price: '₹1,099',
-		disscount: '59% off',
-		size: '',
+		price: 1099,
+		discount: 59,
 	},
 	{
 		imageUrl:
@@ -27,10 +23,8 @@ export const gounsPage1 = [
 		brand: 'NE STYLE',
 		title: 'Printed Crepe Stitched Anarkali Gown',
 		color: 'Beige',
-		selling_price: '₹298',
-		price: '₹1,599',
-		disscount: '81% off',
-		size: '',
+		price: 1599,
+		discount: 81,
 	},
 	{
 		imageUrl:
@@ -38,10 +32,8 @@ export const gounsPage1 = [
 		brand: 'NE STYLE',
 		title: 'Printed Crepe Stitched Anarkali Gown',
 		color: 'Beige',
-		selling_price: '₹298',
-		price: '₹1,599',
-		disscount: '81% off',
-		size: '',
+		price: 1599,
+		discount: 81,
 	},
 	{
 		imageUrl:
@@ -49,10 +41,8 @@ export const gounsPage1 = [
 		brand: 'NE STYLE',
 		title: 'Printed Crepe Stitched Anarkali Gown',
 		color: 'Light Green',
-		selling_price: '₹284',
-		price: '₹1,599',
-		disscount: '82% off',
-		size: '',
+		price: 1599,
+		discount: 82,
 	},
 	{
 		imageUrl:
@@ -60,10 +50,8 @@ export const gounsPage1 = [
 		brand: 'NE STYLE',
 		title: 'Printed Crepe Stitched Anarkali Gown',
 		color: 'Dark Blue',
-		selling_price: '₹298',
-		price: '₹1,599',
-		disscount: '81% off',
-		size: '',
+		price: 1599,
+		discount: 81,
 	},
 	{
 		imageUrl:
@@ -71,10 +59,8 @@ export const gounsPage1 = [
 		brand: 'Zinariya Fab',
 		title: 'Embroidered Net Semi Stitched Anarkali Gown',
 		color: 'Pink',
-		selling_price: '₹499',
-		price: '₹2,099',
-		disscount: '76% off',
-		size: '',
+		price: 2099,
+		discount: 76,
 	},
 	{
 		imageUrl:
@@ -82,10 +68,8 @@ export const gounsPage1 = [
 		brand: 'GLFashion',
 		title: 'Solid Rayon Blend Stitched Anarkali Gown',
 		color: 'Grey',
-		selling_price: '₹689',
-		price: '₹1,199',
-		disscount: '42% off',
-		size: '',
+		price: 1199,
+		discount: 42,
 	},
 	{
 		imageUrl:
@@ -93,10 +77,8 @@ export const gounsPage1 = [
 		brand: 'Zinariya Fab',
 		title: 'Embroidered Net Semi Stitched Anarkali Gown',
 		color: 'Pink',
-		selling_price: '₹499',
-		price: '₹3,099',
-		disscount: '83% off',
-		size: '',
+		price: 3099,
+		discount: 83,
 	},
 	{
 		imageUrl:
@@ -104,10 +86,8 @@ export const gounsPage1 = [
 		brand: 'Zinariya Fab',
 		title: 'Embroidered Net Semi Stitched Anarkali Gown',
 		color: 'Pink',
-		selling_price: '₹499',
-		price: '₹2,099',
-		disscount: '76% off',
-		size: '',
+		price: 2099,
+		discount: 76,
 	},
 	{
 		imageUrl:
@@ -115,10 +95,8 @@ export const gounsPage1 = [
 		brand: 'GLFashion',
 		title: 'Solid Rayon Blend Semi Stitched Anarkali Gown',
 		color: 'Light Blue',
-		selling_price: '₹555',
-		price: '₹999',
-		disscount: '44% off',
-		size: '',
+		price: 999,
+		discount: 44,
 	},
 	{
 		imageUrl:
@@ -126,10 +104,8 @@ export const gounsPage1 = [
 		brand: 'GLFashion',
 		title: 'Solid Rayon Blend Stitched Anarkali Gown',
 		color: 'Maroon',
-		selling_price: '₹769',
-		price: '₹1,199',
-		disscount: '35% off',
-		size: '',
+		price: 1199,
+		discount: 35,
 	},
 	{
 		imageUrl:
@@ -137,10 +113,8 @@ export const gounsPage1 = [
 		brand: 'Annsh Apparel',
 		title: 'Printed Rayon Blend Stitched Anarkali Gown',
 		color: 'Yellow',
-		selling_price: '₹444',
-		price: '₹2,599',
-		disscount: '82% off',
-		size: '',
+		price: 2599,
+		discount: 82,
 	},
 	{
 		imageUrl:
@@ -148,10 +122,8 @@ export const gounsPage1 = [
 		brand: 'NE STYLE',
 		title: 'Printed Crepe Stitched Anarkali Gown',
 		color: 'Beige',
-		selling_price: '₹298',
-		price: '₹1,599',
-		disscount: '81% off',
-		size: '',
+		price: 1599,
+		discount: 81,
 	},
 	{
 		imageUrl:
@@ -159,10 +131,8 @@ export const gounsPage1 = [
 		brand: 'Zinariya Fab',
 		title: 'Net Semi Stitched Anarkali Gown',
 		color: 'Grey',
-		selling_price: '₹499',
-		price: '₹3,099',
-		disscount: '83% off',
-		size: '',
+		price: 3099,
+		discount: 83,
 	},
 	{
 		imageUrl:
@@ -170,10 +140,8 @@ export const gounsPage1 = [
 		brand: 'NE STYLE',
 		title: 'Printed Crepe Stitched Anarkali Gown',
 		color: 'Beige',
-		selling_price: '₹298',
-		price: '₹1,599',
-		disscount: '81% off',
-		size: '',
+		price: 1599,
+		discount: 81,
 	},
 	{
 		imageUrl:
@@ -181,10 +149,8 @@ export const gounsPage1 = [
 		brand: 'GLFashion',
 		title: 'Solid Rayon Blend Stitched Anarkali Gown',
 		color: 'Multicolor',
-		selling_price: '₹779',
-		price: '₹1,199',
-		disscount: '35% off',
-		size: '',
+		price: 1199,
+		discount: 35,
 	},
 	{
 		imageUrl:
@@ -192,10 +158,8 @@ export const gounsPage1 = [
 		brand: 'GLFashion',
 		title: 'Solid Rayon Blend Stitched Anarkali Gown',
 		color: 'Grey',
-		selling_price: '₹679',
-		price: '₹1,199',
-		disscount: '43% off',
-		size: '',
+		price: 1199,
+		discount: 43,
 	},
 	{
 		imageUrl:
@@ -203,10 +167,8 @@ export const gounsPage1 = [
 		brand: 'Femvy',
 		title: 'Dyed Georgette Stitched Anarkali Gown',
 		color: 'Black',
-		selling_price: '₹499',
-		price: '₹1,599',
-		disscount: '68% off',
-		size: '',
+		price: 1599,
+		discount: 68,
 	},
 	{
 		imageUrl:
@@ -214,10 +176,8 @@ export const gounsPage1 = [
 		brand: 'Zinariya Fab',
 		title: 'Embroidered Net Semi Stitched Anarkali Gown',
 		color: 'Maroon',
-		selling_price: '₹499',
-		price: '₹3,099',
-		disscount: '83% off',
-		size: '',
+		price: 3099,
+		discount: 83,
 	},
 	{
 		imageUrl:
@@ -225,10 +185,8 @@ export const gounsPage1 = [
 		brand: 'Sanwalisakhi',
 		title: 'Pure Cotton Stitched Flared/A-line Gown',
 		color: 'Multicolor',
-		selling_price: '₹636',
-		price: '₹1,999',
-		disscount: '68% off',
-		size: '',
+		price: 1999,
+		discount: 68,
 	},
 	{
 		imageUrl:
@@ -236,10 +194,8 @@ export const gounsPage1 = [
 		brand: 'BLACK SCISSOR',
 		title: 'Geometric Print Georgette Stitched Flared/A-line Gown',
 		color: 'Yellow',
-		selling_price: '₹749',
-		price: '₹2,499',
-		disscount: '70% off',
-		size: '',
+		price: 2499,
+		discount: 70,
 	},
 	{
 		imageUrl:
@@ -247,10 +203,8 @@ export const gounsPage1 = [
 		brand: 'Zinariya Fab',
 		title: 'Net Semi Stitched Anarkali Gown',
 		color: 'Purple',
-		selling_price: '₹674',
-		price: '₹3,099',
-		disscount: '78% off',
-		size: '',
+		price: 3099,
+		discount: 78,
 	},
 	{
 		imageUrl:
@@ -258,10 +212,8 @@ export const gounsPage1 = [
 		brand: 'Zinariya Fab',
 		title: 'Net Semi Stitched Anarkali Gown',
 		color: 'Green',
-		selling_price: '₹674',
-		price: '₹3,099',
-		disscount: '78% off',
-		size: '',
+		price: 3099,
+		discount: 78,
 	},
 	{
 		imageUrl:
@@ -269,10 +221,8 @@ export const gounsPage1 = [
 		brand: 'NE STYLE',
 		title: 'Printed Crepe Stitched Anarkali Gown',
 		color: 'Light Green',
-		selling_price: '₹297',
-		price: '₹1,599',
-		disscount: '81% off',
-		size: '',
+		price: 1599,
+		discount: 81,
 	},
 	{
 		imageUrl:
@@ -280,10 +230,8 @@ export const gounsPage1 = [
 		brand: 'NE STYLE',
 		title: 'Printed Crepe Stitched Anarkali Gown',
 		color: 'Light Green',
-		selling_price: '₹300',
-		price: '₹1,599',
-		disscount: '81% off',
-		size: '',
+		price: 1599,
+		discount: 81,
 	},
 	{
 		imageUrl:
@@ -291,10 +239,8 @@ export const gounsPage1 = [
 		brand: 'Zinariya Fab',
 		title: 'Net Semi Stitched Anarkali Gown',
 		color: 'Yellow',
-		selling_price: '₹499',
-		price: '₹3,099',
-		disscount: '83% off',
-		size: '',
+		price: 3099,
+		discount: 83,
 	},
 	{
 		imageUrl:
@@ -302,10 +248,8 @@ export const gounsPage1 = [
 		brand: 'Femvy',
 		title: 'Solid Georgette Stitched Flared/A-line Gown',
 		color: 'Blue',
-		selling_price: '₹499',
-		price: '₹1,999',
-		disscount: '75% off',
-		size: '',
+		price: 1999,
+		discount: 75,
 	},
 	{
 		imageUrl:
@@ -313,10 +257,8 @@ export const gounsPage1 = [
 		brand: 'Femvy',
 		title: 'Solid Georgette Stitched Flared/A-line Gown',
 		color: 'Black',
-		selling_price: '₹499',
-		price: '₹1,999',
-		disscount: '75% off',
-		size: '',
+		price: 1999,
+		discount: 75,
 	},
 	{
 		imageUrl:
@@ -324,10 +266,8 @@ export const gounsPage1 = [
 		brand: 'ftDiva',
 		title: 'Paisley Rayon Blend Stitched Anarkali Gown',
 		color: 'Pink',
-		selling_price: '₹649',
-		price: '₹2,999',
-		disscount: '78% off',
-		size: '',
+		price: 2999,
+		discount: 78,
 	},
 	{
 		imageUrl:
@@ -335,10 +275,8 @@ export const gounsPage1 = [
 		brand: 'Zinariya Fab',
 		title: 'Embroidered Net Semi Stitched Anarkali Gown',
 		color: 'Grey',
-		selling_price: '₹680',
-		price: '₹2,999',
-		disscount: '77% off',
-		size: '',
+		price: 2999,
+		discount: 77,
 	},
 	{
 		imageUrl:
@@ -346,10 +284,8 @@ export const gounsPage1 = [
 		brand: 'Femvy',
 		title: 'Solid Georgette Stitched Flared/A-line Gown',
 		color: 'Blue',
-		selling_price: '₹499',
-		price: '₹1,999',
-		disscount: '75% off',
-		size: '',
+		price: 1999,
+		discount: 75,
 	},
 	{
 		imageUrl:
@@ -357,10 +293,8 @@ export const gounsPage1 = [
 		brand: 'Zinariya Fab',
 		title: 'Net Semi Stitched Anarkali Gown',
 		color: 'Green',
-		selling_price: '₹499',
-		price: '₹3,099',
-		disscount: '83% off',
-		size: '',
+		price: 3099,
+		discount: 83,
 	},
 	{
 		imageUrl:
@@ -368,10 +302,8 @@ export const gounsPage1 = [
 		brand: 'Femvy',
 		title: 'Dyed Georgette Stitched Anarkali Gown',
 		color: 'Red',
-		selling_price: '₹499',
-		price: '₹1,599',
-		disscount: '68% off',
-		size: '',
+		price: 1599,
+		discount: 68,
 	},
 	{
 		imageUrl:
@@ -379,10 +311,8 @@ export const gounsPage1 = [
 		brand: 'Smart Shop',
 		title: 'Embroidered Net Semi Stitched Anarkali Gown',
 		color: 'White',
-		selling_price: '₹499',
-		price: '₹1,999',
-		disscount: '75% off',
-		size: '',
+		price: 1999,
+		discount: 75,
 	},
 	{
 		imageUrl:
@@ -390,10 +320,8 @@ export const gounsPage1 = [
 		brand: 'ftDiva',
 		title: 'Floral Print Rayon Blend Stitched Anarkali Gown',
 		color: 'Pink',
-		selling_price: '₹749',
-		price: '₹2,999',
-		disscount: '75% off',
-		size: '',
+		price: 2999,
+		discount: 75,
 	},
 	{
 		imageUrl:
@@ -401,10 +329,8 @@ export const gounsPage1 = [
 		brand: 'ftDiva',
 		title: 'Printed Rayon Blend Stitched Anarkali Gown',
 		color: 'Blue',
-		selling_price: '₹729',
-		price: '₹2,999',
-		disscount: '75% off',
-		size: '',
+		price: 2999,
+		discount: 75,
 	},
 	{
 		imageUrl:
@@ -412,10 +338,8 @@ export const gounsPage1 = [
 		brand: 'Zinariya Fab',
 		title: 'Embroidered Net Semi Stitched Anarkali Gown',
 		color: 'Purple',
-		selling_price: '₹499',
-		price: '₹2,099',
-		disscount: '76% off',
-		size: '',
+		price: 2099,
+		discount: 76,
 	},
 	{
 		imageUrl:
@@ -423,10 +347,8 @@ export const gounsPage1 = [
 		brand: 'Zinariya Fab',
 		title: 'Net Semi Stitched Anarkali Gown',
 		color: 'Green',
-		selling_price: '₹499',
-		price: '₹3,099',
-		disscount: '83% off',
-		size: '',
+		price: 3099,
+		discount: 83,
 	},
 	{
 		imageUrl:
@@ -434,9 +356,7 @@ export const gounsPage1 = [
 		brand: 'Zinariya Fab',
 		title: 'Embroidered Net Semi Stitched Anarkali Gown',
 		color: 'Red',
-		selling_price: '₹499',
-		price: '₹3,099',
-		disscount: '83% off',
-		size: '',
+		price: 3099,
+		discount: 83,
 	},
 ];
