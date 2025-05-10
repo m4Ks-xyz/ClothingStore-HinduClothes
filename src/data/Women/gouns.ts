@@ -28,15 +28,6 @@ export const gounsPage1 = [
 	},
 	{
 		imageUrl:
-			'https://rukminim1.flixcart.com/image/612/612/kzfvzww0/gown/l/z/g/16-s-short-sleeve-stitched-gown-badami-ne-style-60-original-imagbg8m9dpz4wtw.jpeg?q=70',
-		brand: 'NE STYLE',
-		title: 'Printed Crepe Stitched Anarkali Gown',
-		color: 'Beige',
-		price: 1599,
-		discount: 81,
-	},
-	{
-		imageUrl:
 			'https://rukminim1.flixcart.com/image/612/612/kzfvzww0/gown/n/t/z/17-xl-short-sleeve-stitched-gown-rama-green-ne-style-60-original-imagbg8mwdhswgzh.jpeg?q=70',
 		brand: 'NE STYLE',
 		title: 'Printed Crepe Stitched Anarkali Gown',

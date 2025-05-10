@@ -1,8 +1,52 @@
-<nav>
-	<div class="fixed top-0 right-0 left-0 z-50 flex h-16 bg-[#fffefe]">
-		<div class="flex h-16 items-center justify-between">
-			<div>
-				<img class="w-12" src="logo.png" alt="Hindu Clothes" />
+<nav [class]="sidenavOpen() ? 'pb-15' : 'pb-0'">
+	<div
+		class="bg-#fffefe fixed top-0 right-0 left-0 z-50 flex h-16 justify-center"
+		[class]="sidenavOpen() ? 'bg-[#fffefe]' : 'bg-transparent'"
+	>
+		<div class="container flex">
+			<div class="absolute top-0 left-0 flex w-screen">
+				<mat-drawer-container
+					class="flex h-screen w-screen"
+					[style.display]="sidenavOpen() ? 'none' : 'block'"
+				>
+					<mat-drawer
+						[opened]="!sidenavOpen()"
+						#drawer
+						class="z-55"
+						mode="side"
+					>
+						<p>Auto-resizing sidenav</p>
+						@if (filterToggle()) {
+							<p>Lorem, ipsum dolor sit amet consectetur.</p>
+						}
+						<button
+							(click)="filterToggle.set(!filterToggle())"
+							mat-raised-button
+						>
+							Toggle extra text
+						</button>
+					</mat-drawer>
+				</mat-drawer-container>
+				<div
+					[class]="sidenavOpen() ? 'hidden' : 'block w-full'"
+					(click)="sidenavOpen.set(!sidenavOpen())"
+				></div>
+			</div>
+			<div class="flex w-full items-center justify-between px-3 py-2">
+				<div>
+					<img class="w-16" src="logo.png" alt="Hindu Clothes " />
+				</div>
+
+				<button
+					class="flex transition-all duration-200 ease-in-out"
+					mat-icon-button
+					[style.color]="sidenavOpen() ? '#89361b' : 'transparent'"
+					(click)="sidenavOpen.set(!sidenavOpen())"
+				>
+					<mat-icon class="h-16 w-16 items-center justify-center">
+						menu</mat-icon
+					>
+				</button>
 			</div>
 		</div>
 	</div>

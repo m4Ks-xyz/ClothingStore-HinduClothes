@@ -6,7 +6,6 @@ import { gounsPage1 } from '../../data/Women/gouns';
 import { lengaCholi } from '../../data/Women/lenghaCholi';
 import { womenKurta } from '../../data/Women/womenKurta';
 import { MainCarouselComponent } from '../main-carousel/main-carousel.component';
-import { NavbarComponent } from '../navbar/navbar.component';
 import { WomenGouns } from './model/gouns-model';
 import { LengaCholi } from './model/lenga-choli-model';
 import { MenJeans } from './model/men-jeans.model';
@@ -17,7 +16,7 @@ import { ProductSliderComponent } from './product-slider/product-slider.componen
 
 @Component({
 	selector: 'app-home',
-	imports: [MainCarouselComponent, ProductSliderComponent, NavbarComponent],
+	imports: [MainCarouselComponent, ProductSliderComponent],
 	templateUrl: './home.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
