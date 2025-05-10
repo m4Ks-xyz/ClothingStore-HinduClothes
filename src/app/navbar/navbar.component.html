@@ -1,15 +1,20 @@
 <nav [class]="sidenavOpen() ? 'pb-0' : 'pb-15'" class="lg:b-15">
 	<div
-		class="bg-#fffefe fixed top-0 right-0 left-0 z-50 flex h-16 justify-center transition-all duration-200 ease-in-out"
-		[class]="sidenavOpen() ? 'bg-transparent' : 'bg-[#fffefe]'"
+		class="fixed top-0 right-0 left-0 z-50 flex h-16 justify-center text-lg transition-all duration-200 ease-in-out"
+		[class]="sidenavOpen() ? 'bg-transparent' : 'bg-white'"
 	>
 		<div class="container flex">
 			<div
 				class="absolute top-0 left-0 flex transition-all duration-300 ease-in-out"
 				[class]="sidenavOpen() ? 'translate-x-0' : '-translate-x-full'"
 			>
-				<mat-drawer-container class="top-0 left-0 flex h-screen w-screen">
+				<mat-drawer-container class="top-0 left-0 flex h-screen max-w-screen">
 					<mat-drawer [opened]="sidenavOpen()" #drawer class="z-55" mode="side">
+						<mat-icon
+							(click)="sidenavOpen.set(!sidenavOpen())"
+							class="icon-close absolute top-0 right-0 m-2 cursor-pointer text-white"
+							>close</mat-icon
+						>
 						<p>Auto-resizing sidenav</p>
 						@if (filterToggle()) {
 							<p>Lorem, ipsum dolor sit amet consectetur.</p>
@@ -23,21 +28,80 @@
 					</mat-drawer>
 				</mat-drawer-container>
 				<div
-					class="block w-full"
+					class="absolute top-0 left-0 h-screen w-screen"
+					[class]="sidenavOpen() ? 'block' : 'hidden'"
 					(click)="sidenavOpen.set(!sidenavOpen())"
 				></div>
 			</div>
-			<div class="flex w-full items-center justify-between px-3 py-2">
-				<div>
-					<img
-						class="w-16"
-						src="logo.png"
-						alt="Hindu Clothes "
-						[class]="sidenavOpen() ? 'invisible' : 'block'"
-					/>
+			<div
+				class="flex w-full items-center justify-between px-3 py-2 font-medium"
+			>
+				<div class="flex items-center gap-2 text-black">
+					<a href="/">
+						<img
+							class="w-17 cursor-pointer"
+							src="logo.png"
+							alt="Hindu Clothes "
+							[class]="sidenavOpen() ? 'invisible' : 'block'"
+						/>
+					</a>
 
-					<div class="">
-						<a routerLink="/">Hindu Clothes</a>
+					<div class="hidden cursor-pointer items-center gap-4 lg:flex">
+						<h1
+							class="hover:text-primary transition-colors duration-200 ease-in-out"
+							routerLink="/"
+						>
+							Hindu Clothes
+						</h1>
+						<a
+							class="hover:text-primary transition-colors duration-200 ease-in-out"
+							routerLink="/"
+							>Men</a
+						>
+						<a
+							class="hover:text-primary transition-colors duration-200 ease-in-out"
+							routerLink="/"
+							>Women</a
+						>
+					</div>
+				</div>
+
+				<div
+					class="hidden items-center gap-2 text-black transition-all duration-200 ease-in-out lg:flex"
+					[class]="sidenavOpen() ? 'invisible' : 'block'"
+				>
+					<mat-icon class="icon m-2 cursor-pointer">shopping_cart</mat-icon>
+
+					<button mat-raised-button class="button">
+						<mat-icon class="mr-2">login</mat-icon>
+						LOGIN
+					</button>
+
+					<div class="hide">
+						<div
+							[matMenuTriggerFor]="menu"
+							class="hover:text-primary flex cursor-pointer items-center space-x-2 rounded-3xl p-2 transition-all duration-300 ease-in-out"
+						>
+							<img
+								class="w-8 rounded-2xl border-1 border-solid"
+								src="https://png.pngtree.com/png-vector/20220807/ourmid/pngtree-man-avatar-wearing-gray-suit-png-image_6102786.png"
+							/>
+							<p>Max</p>
+						</div>
+						<mat-menu class="profile-menu bg-white!" #menu="matMenu">
+							<button mat-menu-item>
+								<mat-icon class="text-black!">manage_accounts</mat-icon>
+								<span class="text-black!">Profile</span>
+							</button>
+							<button mat-menu-item>
+								<mat-icon class="text-black!">shopping_bag</mat-icon>
+								<span class="text-black!">Orders </span>
+							</button>
+							<button mat-menu-item>
+								<mat-icon class="text-black!">logout</mat-icon>
+								<span class="text-black!"> Logout</span>
+							</button>
+						</mat-menu>
 					</div>
 				</div>
 

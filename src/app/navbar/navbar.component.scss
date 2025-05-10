@@ -1,4 +1,38 @@
- 
 .mat-mdc-icon-button {
-  color: #89361b
+	color: #89361b;
+}
+
+.icon-close {
+	width: auto;
+	height: auto;
+	font-size: 2.125rem;
+}
+
+.profile-menu {
+	color: black !important;
+}
+.mat-mdc-menu-panel {
+	box-shadow: unset !important;
+}
+
+.icon {
+	transition: all 200ms ease-in-out;
+
+	&:hover {
+		color: #89361b;
+	}
+}
+
+.button {
+	text-transform: uppercase;
+	transition: all 200ms ease-in-out;
+
+	&:hover {
+		background-color: #89361b;
+		color: white;
+	}
+}
+
+.hide {
+	display: none;
 }
