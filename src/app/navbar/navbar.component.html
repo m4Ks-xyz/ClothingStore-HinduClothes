@@ -1,20 +1,15 @@
-<nav [class]="sidenavOpen() ? 'pb-15' : 'pb-0'">
+<nav [class]="sidenavOpen() ? 'pb-0' : 'pb-15'" class="lg:b-15">
 	<div
-		class="bg-#fffefe fixed top-0 right-0 left-0 z-50 flex h-16 justify-center"
-		[class]="sidenavOpen() ? 'bg-[#fffefe]' : 'bg-transparent'"
+		class="bg-#fffefe fixed top-0 right-0 left-0 z-50 flex h-16 justify-center transition-all duration-200 ease-in-out"
+		[class]="sidenavOpen() ? 'bg-transparent' : 'bg-[#fffefe]'"
 	>
 		<div class="container flex">
-			<div class="absolute top-0 left-0 flex w-screen">
-				<mat-drawer-container
-					class="flex h-screen w-screen"
-					[style.display]="sidenavOpen() ? 'none' : 'block'"
-				>
-					<mat-drawer
-						[opened]="!sidenavOpen()"
-						#drawer
-						class="z-55"
-						mode="side"
-					>
+			<div
+				class="absolute top-0 left-0 flex transition-all duration-300 ease-in-out"
+				[class]="sidenavOpen() ? 'translate-x-0' : '-translate-x-full'"
+			>
+				<mat-drawer-container class="top-0 left-0 flex h-screen w-screen">
+					<mat-drawer [opened]="sidenavOpen()" #drawer class="z-55" mode="side">
 						<p>Auto-resizing sidenav</p>
 						@if (filterToggle()) {
 							<p>Lorem, ipsum dolor sit amet consectetur.</p>
@@ -28,19 +23,28 @@
 					</mat-drawer>
 				</mat-drawer-container>
 				<div
-					[class]="sidenavOpen() ? 'hidden' : 'block w-full'"
+					class="block w-full"
 					(click)="sidenavOpen.set(!sidenavOpen())"
 				></div>
 			</div>
 			<div class="flex w-full items-center justify-between px-3 py-2">
 				<div>
-					<img class="w-16" src="logo.png" alt="Hindu Clothes " />
+					<img
+						class="w-16"
+						src="logo.png"
+						alt="Hindu Clothes "
+						[class]="sidenavOpen() ? 'invisible' : 'block'"
+					/>
+
+					<div class="">
+						<a routerLink="/">Hindu Clothes</a>
+					</div>
 				</div>
 
 				<button
-					class="flex transition-all duration-200 ease-in-out"
+					class="flex lg:hidden!"
 					mat-icon-button
-					[style.color]="sidenavOpen() ? '#89361b' : 'transparent'"
+					[class]="{ invisible: sidenavOpen() }"
 					(click)="sidenavOpen.set(!sidenavOpen())"
 				>
 					<mat-icon class="h-16 w-16 items-center justify-center">
