@@ -1,34 +1,93 @@
-<nav [class]="sidenavOpen() ? 'pb-0' : 'pb-15'" class="lg:b-15">
+<nav
+	[class]="sidenavOpen() ? 'pb-0' : 'pb-15'"
+	class="lg:b-15 lg:relative"
+	(mouseleave)="showMenContent.set(false)"
+	(mouseleave)="showWomenContent.set(false)"
+>
 	<div
 		class="fixed top-0 right-0 left-0 z-50 flex h-16 justify-center text-lg transition-all duration-200 ease-in-out"
 		[class]="sidenavOpen() ? 'bg-transparent' : 'bg-white'"
 	>
 		<div class="container flex">
-			<div
-				class="absolute top-0 left-0 flex transition-all duration-300 ease-in-out"
-				[class]="sidenavOpen() ? 'translate-x-0' : '-translate-x-full'"
-			>
-				<mat-drawer-container class="top-0 left-0 flex h-screen max-w-screen">
+			<div class="absolute top-0 left-0 flex lg:hidden">
+				<mat-drawer-container
+					[class]="sidenavOpen() ? 'translate-x-0' : '-translate-x-full'"
+					class="top-0 left-0 flex h-screen max-w-screen bg-transparent! transition-all duration-300 ease-in-out"
+				>
 					<mat-drawer [opened]="sidenavOpen()" #drawer class="z-55" mode="side">
-						<mat-icon
-							(click)="sidenavOpen.set(!sidenavOpen())"
-							class="icon-close absolute top-0 right-0 m-2 cursor-pointer text-white"
-							>close</mat-icon
-						>
-						<p>Auto-resizing sidenav</p>
-						@if (filterToggle()) {
-							<p>Lorem, ipsum dolor sit amet consectetur.</p>
-						}
-						<button
-							(click)="filterToggle.set(!filterToggle())"
-							mat-raised-button
-						>
-							Toggle extra text
-						</button>
+						<div class="mat-drawer-inner-container text-font bg-white p-4">
+							<mat-icon
+								(click)="sidenavOpen.set(!sidenavOpen())"
+								class="icon-close absolute right-1/2 bottom-24 translate-x-1/2 cursor-pointer"
+								>close</mat-icon
+							>
+							<div class="flex w-full items-center justify-between pb-4">
+								<h1 class="text-2xl font-bold">Hindu Store</h1>
+								<img
+									class="w-17 cursor-pointer"
+									src="logo.png"
+									alt="Hindu Clothes "
+								/>
+							</div>
+							<div class="flex flex-col">
+								<div
+									class="font hover:text-primary cursor-pointer text-2xl"
+									(click)="filterToggleMen.set(!filterToggleMen())"
+									mat-raised-button
+								>
+									Men
+								</div>
+								@if (filterToggleMen()) {
+									<div class="flex flex-col pb-4">
+										<a
+											class="hover:text-primary cursor-pointer p-1"
+											routerLink="/"
+											>Clothing</a
+										>
+										<a
+											class="hover:text-primary cursor-pointer p-1"
+											routerLink="/"
+											>Accessories</a
+										>
+										<a
+											class="hover:text-primary cursor-pointer p-1"
+											routerLink="/"
+											>Brands</a
+										>
+									</div>
+								}
+								<div
+									class="font hover:text-primary cursor-pointer text-2xl"
+									(click)="filterToggleWomen.set(!filterToggleWomen())"
+									mat-raised-button
+								>
+									Women
+								</div>
+								@if (filterToggleWomen()) {
+									<div class="flex flex-col">
+										<a
+											class="hover:text-primary cursor-pointer p-1"
+											routerLink="/"
+											>Clothing</a
+										>
+										<a
+											class="hover:text-primary cursor-pointer p-1"
+											routerLink="/"
+											>Accessories</a
+										>
+										<a
+											class="hover:text-primary cursor-pointer p-1"
+											routerLink="/"
+											>Brands</a
+										>
+									</div>
+								}
+							</div>
+						</div>
 					</mat-drawer>
 				</mat-drawer-container>
 				<div
-					class="absolute top-0 left-0 h-screen w-screen"
+					class="absolute top-0 left-0 h-screen w-screen backdrop-blur"
 					[class]="sidenavOpen() ? 'block' : 'hidden'"
 					(click)="sidenavOpen.set(!sidenavOpen())"
 				></div>
@@ -36,7 +95,7 @@
 			<div
 				class="flex w-full items-center justify-between px-3 py-2 font-medium"
 			>
-				<div class="flex items-center gap-2 text-black">
+				<div class="text-font flex items-center gap-2">
 					<a href="/">
 						<img
 							class="w-17 cursor-pointer"
@@ -48,17 +107,23 @@
 
 					<div class="hidden cursor-pointer items-center gap-4 lg:flex">
 						<h1
+							(mouseenter)="showMenContent.set(false)"
+							(mouseenter)="showWomenContent.set(false)"
 							class="hover:text-primary transition-colors duration-200 ease-in-out"
 							routerLink="/"
 						>
 							Hindu Clothes
 						</h1>
 						<a
+							(mouseenter)="showMenContent.set(true)"
+							(mouseenter)="showWomenContent.set(false)"
 							class="hover:text-primary transition-colors duration-200 ease-in-out"
 							routerLink="/"
 							>Men</a
 						>
 						<a
+							(mouseenter)="showWomenContent.set(true)"
+							(mouseenter)="showMenContent.set(false)"
 							class="hover:text-primary transition-colors duration-200 ease-in-out"
 							routerLink="/"
 							>Women</a
@@ -67,7 +132,7 @@
 				</div>
 
 				<div
-					class="hidden items-center gap-2 text-black transition-all duration-200 ease-in-out lg:flex"
+					class="text-font hidden items-center gap-2 transition-all duration-200 ease-in-out lg:flex"
 					[class]="sidenavOpen() ? 'invisible' : 'block'"
 				>
 					<mat-icon class="icon m-2 cursor-pointer">shopping_cart</mat-icon>
@@ -77,10 +142,10 @@
 						LOGIN
 					</button>
 
-					<div class="hide">
+					<div class="">
 						<div
 							[matMenuTriggerFor]="menu"
-							class="hover:text-primary flex cursor-pointer items-center space-x-2 rounded-3xl p-2 transition-all duration-300 ease-in-out"
+							class="hide hover:text-primary flex cursor-pointer items-center space-x-2 rounded-3xl p-2 transition-all duration-300 ease-in-out"
 						>
 							<img
 								class="w-8 rounded-2xl border-1 border-solid"
@@ -88,18 +153,19 @@
 							/>
 							<p>Max</p>
 						</div>
+
 						<mat-menu class="profile-menu bg-white!" #menu="matMenu">
 							<button mat-menu-item>
-								<mat-icon class="text-black!">manage_accounts</mat-icon>
-								<span class="text-black!">Profile</span>
+								<mat-icon class="text-font!">manage_accounts</mat-icon>
+								<span class="text-font!">Profile</span>
 							</button>
 							<button mat-menu-item>
-								<mat-icon class="text-black!">shopping_bag</mat-icon>
-								<span class="text-black!">Orders </span>
+								<mat-icon class="text-font!">shopping_bag</mat-icon>
+								<span class="text-font!">Orders </span>
 							</button>
 							<button mat-menu-item>
-								<mat-icon class="text-black!">logout</mat-icon>
-								<span class="text-black!"> Logout</span>
+								<mat-icon class="text-font!">logout</mat-icon>
+								<span class="text-font!"> Logout</span>
 							</button>
 						</mat-menu>
 					</div>
@@ -117,5 +183,15 @@
 				</button>
 			</div>
 		</div>
+		<app-navbar-content
+			[content]="content().men"
+			[showWomenContent]="showWomenContent()"
+			[showMenContent]="showMenContent()"
+		/>
+		<app-navbar-content
+			[content]="content().women"
+			[showWomenContent]="showWomenContent()"
+			[showMenContent]="showMenContent()"
+		/>
 	</div>
 </nav>
