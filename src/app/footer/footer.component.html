@@ -1,0 +1,73 @@
+<footer>
+	<div class="flex justify-center bg-white p-8 text-black">
+		<div class="container flex flex-col space-x-8 lg:flex-row">
+			<div class="flex flex-col pb-3">
+				<h3 class="pb-3 text-xl">Contact Us</h3>
+				<div
+					href="maps.app.goo.gl/jyz7afNAa4e9zvPL9"
+					class="hover:text-primary flex cursor-pointer items-center space-x-3 p-2"
+				>
+					<mat-icon>location_on</mat-icon>
+					<p>Warsaw 02-900, Aleja Wilanowska 89</p>
+				</div>
+				<div
+					class="hover:text-primary flex cursor-pointer items-center space-x-3 p-2"
+				>
+					<mat-icon>mail</mat-icon>
+					<a href="mailto:konradurbanski&#64;gmail.com"
+						>konradurbanski&#64;gmail.com</a
+					>
+				</div>
+				<div
+					class="hover:text-primary flex cursor-pointer items-center space-x-3 p-2"
+				>
+					<mat-icon>phone</mat-icon>
+					<a href="tel:+48743432343">+48 743 432 343</a>
+				</div>
+			</div>
+
+			<div
+				class="container flex flex-col items-center space-y-6 lg:w-full lg:flex-row lg:items-start lg:justify-evenly lg:space-y-0"
+			>
+				@for (item of footerContent(); track item.id) {
+					<div class="flex w-full flex-col lg:w-auto">
+						<h3 class="hidden pb-3 text-xl lg:block">{{ item.name }}</h3>
+						<div
+							class="flex cursor-pointer justify-between lg:hidden"
+							(click)="toggleSection(item.id)"
+						>
+							<h3 class="pb-3 text-xl">{{ item.name }}</h3>
+
+							<mat-icon class="lg:hidden!">{{
+								!getToggledContentId(item.id)() ? "add" : "remove"
+							}}</mat-icon>
+						</div>
+						@if (getToggledContentId(item.id)()) {
+							<div class="flex flex-col lg:hidden">
+								@for (content of item.items; track content.id) {
+									<a class="hover:text-primary p-1" href="/">{{
+										content.name
+									}}</a>
+								}
+							</div>
+						}
+
+						<div class="hidden flex-col lg:flex">
+							@for (content of item.items; track content.id) {
+								<a class="hover:text-primary p-1" href="/">{{
+									content.name
+								}}</a>
+							}
+						</div>
+					</div>
+				}
+			</div>
+		</div>
+	</div>
+	<div
+		class="hover:text-primary cursor-pointer bg-white py-3 text-center text-black"
+		href="https://github.com/m4Ks-xyz?tab=repositories"
+	>
+		<h3>Hindu Store | Maksymilian Tomowiak &copy; 2025</h3>
+	</div>
+</footer>

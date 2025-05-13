@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	input,
+	output,
+} from '@angular/core';
 import { MenuCategory } from '../../home/model/menu-content-model';
 
 @Component({
@@ -11,4 +16,6 @@ export class NavbarContentComponent {
 	showMenContent = input.required<boolean>();
 	showWomenContent = input.required<boolean>();
 	content = input.required<MenuCategory>();
+
+	hideNavContent = output(); // pytanie czy routing zamknie to czy nie ???
 }

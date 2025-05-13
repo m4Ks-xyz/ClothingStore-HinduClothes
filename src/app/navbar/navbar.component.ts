@@ -25,6 +25,11 @@ export class NavbarComponent {
 	readonly filterToggleWomen = signal<boolean>(false);
 	readonly sidenavOpen = signal<boolean>(false);
 	readonly showMenContent = signal<boolean>(false);
-	readonly showWomenContent = signal<boolean>(true);
+	readonly showWomenContent = signal<boolean>(false);
 	readonly content = signal<MenuContent>(menuContent);
+
+	hideNavContent(): void {
+		this.showMenContent.set(false);
+		this.showWomenContent.set(false);
+	}
 }

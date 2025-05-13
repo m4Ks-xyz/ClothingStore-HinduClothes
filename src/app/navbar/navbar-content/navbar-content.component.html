@@ -9,7 +9,7 @@
 					? 'block'
 					: 'hidden'
 		"
-		class="bg-accent text-font absolute top-16 left-0 z-55 flex w-screen items-start justify-center gap-16 p-16"
+		class="bg-accent text-font border-primary absolute top-16 left-0 z-55 flex w-screen items-start justify-center gap-16 border-t-2 border-solid p-16"
 	>
 		@for (section of content().sections; track section.id) {
 			<div class="flex items-center justify-center gap-8">
@@ -17,7 +17,11 @@
 					<h3 class="pb-2 text-2xl font-bold">{{ section.name }}</h3>
 
 					@for (item of section.items; track item.id) {
-						<a class="hover:text-primary cursor-pointer p-1" routerLink="/">
+						<a
+							class="hover:text-primary cursor-pointer p-1"
+							routerLink="/"
+							(click)="hideNavContent.emit()"
+						>
 							<p class="">{{ item.name }}</p>
 						</a>
 					}
@@ -29,6 +33,7 @@
 			<div class="flex w-64 flex-col gap-2">
 				<div class="relative w-full">
 					<img
+						(click)="hideNavContent.emit()"
 						class="cursor-pointer rounded-2xl object-cover object-top"
 						[src]="featured.src"
 					/>

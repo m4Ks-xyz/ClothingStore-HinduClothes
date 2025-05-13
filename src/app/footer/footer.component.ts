@@ -1,0 +1,35 @@
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { footerContent } from '../../data/footer-content';
+import { FooterContent } from '../home/model/footer-content-model';
+
+@Component({
+	selector: 'app-footer',
+	imports: [MatIconModule],
+	templateUrl: './footer.component.html',
+	changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class FooterComponent {
+	readonly categoriesToggle = signal(false);
+	readonly informationToggle = signal(false);
+	readonly useFulLinksToggle = signal(false);
+	readonly footerContent = signal<FooterContent>(footerContent);
+
+	getToggledContentId(id: string) {
+		switch (id) {
+			case 'categories':
+				return this.categoriesToggle;
+			case 'information':
+				return this.informationToggle;
+			case 'useFulLinks':
+				return this.useFulLinksToggle;
+			default:
+				throw new Error(`Unknown toggle ID: ${id}`);
+		}
+	}
+
+	toggleSection(id: string) {
+		const toggle = this.getToggledContentId(id);
+		toggle.set(!toggle());
+	}
+}

@@ -1,8 +1,7 @@
 <nav
 	[class]="sidenavOpen() ? 'pb-0' : 'pb-15'"
 	class="lg:b-15 lg:relative"
-	(mouseleave)="showMenContent.set(false)"
-	(mouseleave)="showWomenContent.set(false)"
+	(mouseleave)="hideNavContent()"
 >
 	<div
 		class="fixed top-0 right-0 left-0 z-50 flex h-16 justify-center text-lg transition-all duration-200 ease-in-out"
@@ -21,17 +20,27 @@
 								class="icon-close absolute right-1/2 bottom-24 translate-x-1/2 cursor-pointer"
 								>close</mat-icon
 							>
-							<div class="flex w-full items-center justify-between pb-4">
+							<div
+								class="flex w-full items-center justify-between pb-4"
+								href=""
+							>
 								<h1 class="text-2xl font-bold">Hindu Store</h1>
 								<img
+									href="/"
 									class="w-17 cursor-pointer"
 									src="logo.png"
 									alt="Hindu Clothes "
 								/>
 							</div>
 							<div class="flex flex-col">
+								<p
+									class="hover:text-primary cursor-pointer text-2xl"
+									routerLink="/"
+								>
+									Home
+								</p>
 								<div
-									class="font hover:text-primary cursor-pointer text-2xl"
+									class="hover:text-primary cursor-pointer text-2xl"
 									(click)="filterToggleMen.set(!filterToggleMen())"
 									mat-raised-button
 								>
@@ -57,7 +66,7 @@
 									</div>
 								}
 								<div
-									class="font hover:text-primary cursor-pointer text-2xl"
+									class="hover:text-primary cursor-pointer text-2xl"
 									(click)="filterToggleWomen.set(!filterToggleWomen())"
 									mat-raised-button
 								>
@@ -185,10 +194,12 @@
 		</div>
 		<app-navbar-content
 			[content]="content().men"
+			(hideNavContent)="hideNavContent()"
 			[showWomenContent]="showWomenContent()"
 			[showMenContent]="showMenContent()"
 		/>
 		<app-navbar-content
+			(hideNavContent)="hideNavContent()"
 			[content]="content().women"
 			[showWomenContent]="showWomenContent()"
 			[showMenContent]="showMenContent()"
