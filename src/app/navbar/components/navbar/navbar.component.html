@@ -32,6 +32,7 @@
 									alt="Hindu Clothes "
 								/>
 							</div>
+							<!-- TODO data and render with @for like in footer -->
 							<div class="flex flex-col">
 								<p
 									class="hover:text-primary cursor-pointer text-2xl"
@@ -150,34 +151,6 @@
 						<mat-icon class="mr-2">login</mat-icon>
 						LOGIN
 					</button>
-
-					<div class="">
-						<div
-							[matMenuTriggerFor]="menu"
-							class="hide hover:text-primary flex cursor-pointer items-center space-x-2 rounded-3xl p-2 transition-all duration-300 ease-in-out"
-						>
-							<img
-								class="w-8 rounded-2xl border-1 border-solid"
-								src="https://png.pngtree.com/png-vector/20220807/ourmid/pngtree-man-avatar-wearing-gray-suit-png-image_6102786.png"
-							/>
-							<p>Max</p>
-						</div>
-
-						<mat-menu class="profile-menu bg-white!" #menu="matMenu">
-							<button mat-menu-item>
-								<mat-icon class="text-font!">manage_accounts</mat-icon>
-								<span class="text-font!">Profile</span>
-							</button>
-							<button mat-menu-item>
-								<mat-icon class="text-font!">shopping_bag</mat-icon>
-								<span class="text-font!">Orders </span>
-							</button>
-							<button mat-menu-item>
-								<mat-icon class="text-font!">logout</mat-icon>
-								<span class="text-font!"> Logout</span>
-							</button>
-						</mat-menu>
-					</div>
 				</div>
 
 				<button

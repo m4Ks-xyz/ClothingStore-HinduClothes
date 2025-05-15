@@ -1,11 +1,13 @@
+import { NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { footerContent } from '../../data/footer-content';
-import { FooterContent } from '../home/model/footer-content-model';
+import { AccordionComponent } from '../../../shared/components/accordion/accordion.component';
+import { footerContent } from '../../constants/footer-content.constants';
+import { FooterContent } from '../../models/footer-content-model';
 
 @Component({
 	selector: 'app-footer',
-	imports: [MatIconModule],
+	imports: [MatIconModule, AccordionComponent, NgTemplateOutlet],
 	templateUrl: './footer.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })

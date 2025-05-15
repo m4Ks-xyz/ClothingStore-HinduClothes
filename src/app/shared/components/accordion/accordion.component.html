@@ -1,0 +1,29 @@
+<div class="w-full lg:w-auto">
+	<h3 class="flex w-full flex-col lg:w-auto">
+		<button
+			[attr.ariaExpanded]="isOpen()"
+			[attr.aria-controls]="randomId()"
+			[id]="randomId()"
+			type="button"
+			class="flex cursor-pointer items-center justify-between pb-3 lg:hidden"
+			(click)="isOpen.set(!isOpen())"
+		>
+			<span class="text-xl">{{ name() }}</span>
+			<span>
+				<mat-icon>{{ !isOpen() ? "add" : "remove" }}</mat-icon>
+			</span>
+		</button>
+	</h3>
+
+	<div
+		[id]="randomId()"
+		role="region"
+		[attr.aria-labelledby]="randomId()"
+		class="text-start"
+		[class]="!isOpen() ? 'hidden' : ''"
+	>
+		<fieldset>
+			<ng-content />
+		</fieldset>
+	</div>
+</div>

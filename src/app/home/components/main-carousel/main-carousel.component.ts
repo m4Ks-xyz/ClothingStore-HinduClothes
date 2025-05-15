@@ -7,7 +7,7 @@ import {
 	signal,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { mainCarouselData } from '../../data/main-carousel';
+import { mainCarouselData } from './constants/main-carousel';
 
 @Component({
 	selector: 'app-main-carousel',

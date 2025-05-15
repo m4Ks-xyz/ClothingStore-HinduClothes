@@ -1,0 +1,62 @@
+<footer>
+	<div class="flex justify-center bg-white p-8 text-black">
+		<div class="container flex flex-col space-x-8 lg:flex-row">
+			<address class="pb-3 not-italic">
+				<h3 class="pb-3 text-xl">Contact Us</h3>
+				<a
+					href="https://www.google.pl/maps/place/Warszawa/@52.2330974,20.8966151,11z/data=!3m1!4b1!4m6!3m5!1s0x471ecc669a869f01:0x72f0be2a88ead3fc!8m2!3d52.2296756!4d21.0122287!16zL20vMDgxbV8?entry=tts&g_ep=EgoyMDI1MDUwNy4wIPu8ASoASAFQAw%3D%3D&skid=ae411dd9-0e86-4ccb-8ff1-ff637405d773"
+					target="_blank"
+					class="hover:text-primary flex items-center space-x-3 p-2"
+				>
+					<mat-icon>location_on</mat-icon>
+					<p>Warsaw 02-900, Aleja Wilanowska 89</p>
+				</a>
+				<a
+					href="mailto:konradurbanski&#64;gmail.com"
+					class="hover:text-primary flex items-center space-x-3 p-2"
+				>
+					<mat-icon>mail</mat-icon>
+					<span>konradurbanski&#64;gmail.com</span>
+				</a>
+				<a
+					href="tel:+48743432343"
+					class="hover:text-primary flex items-center space-x-3 p-2"
+				>
+					<mat-icon>phone</mat-icon>
+					<span>+48 743 432 343</span>
+				</a>
+			</address>
+
+			<div
+				class="container flex flex-col items-center gap-y-2 lg:w-full lg:flex-row lg:items-start lg:justify-evenly lg:space-y-0"
+			>
+				@for (item of footerContent(); track item.id) {
+					<app-accordion class="block w-full items-start lg:hidden" [name]="item.name">
+						<ng-container [ngTemplateOutlet]="accordionContent"> </ng-container>
+					</app-accordion>
+
+					<div class="hidden w-full lg:block">
+						<p class="text-xl">{{ item.name }}</p>
+						<ng-container [ngTemplateOutlet]="accordionContent" />
+					</div>
+
+					<ng-template #accordionContent>
+						<div class="flex w-full flex-col">
+							@for (content of item.items; track content.id) {
+								<a class="hover:text-primary p-1" href="/">{{
+									content.name
+								}}</a>
+							}
+						</div>
+					</ng-template>
+				}
+			</div>
+		</div>
+	</div>
+	<a
+		class="hover:text-primary cursor-pointer bg-white py-3 text-center text-black"
+		href="https://github.com/m4Ks-xyz?tab=repositories"
+	>
+		<h3>Hindu Store | Maksymilian Tomowiak &copy; 2025</h3>
+	</a>
+</footer>

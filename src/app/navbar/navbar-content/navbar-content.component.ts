@@ -4,7 +4,7 @@ import {
 	input,
 	output,
 } from '@angular/core';
-import { MenuCategory } from '../../home/model/menu-content-model';
+import { MenuCategory } from '../models/menu-content-model';
 
 @Component({
 	selector: 'app-navbar-content',
@@ -13,9 +13,9 @@ import { MenuCategory } from '../../home/model/menu-content-model';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarContentComponent {
-	showMenContent = input.required<boolean>();
-	showWomenContent = input.required<boolean>();
-	content = input.required<MenuCategory>();
+	readonly showMenContent = input.required<boolean>();
+	readonly showWomenContent = input.required<boolean>();
+	readonly content = input.required<MenuCategory>();
 
 	hideNavContent = output(); // pytanie czy routing zamknie to czy nie ???
 }
