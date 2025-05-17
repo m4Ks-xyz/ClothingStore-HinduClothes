@@ -11,7 +11,8 @@
 
 :root {
 	// Angular Material button styling
-
+	--mat-sys-on-primary: white;
+	--mat-sys-primary: #89361b;
 	--mdc-filled-button-label-text-color: white;
 	--mdc-filled-button-container-color: black;
 	--mdc-protected-button-container-color: white;

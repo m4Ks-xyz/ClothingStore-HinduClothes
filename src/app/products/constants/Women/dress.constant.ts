@@ -5,7 +5,7 @@ export const dressPage1 = [
 		brand: 'MADAME',
 		title: 'Women Asymmetric Pink Dress',
 		price: 2499,
-		discountPrice: 50,
+		discount: 50,
 		size: [
 			{
 				name: 'S',
@@ -33,7 +33,7 @@ export const dressPage1 = [
 		brand: 'Daevish',
 		title: 'Women Maxi Blue Dress',
 		price: 1899,
-		discountPrice: 82,
+		discount: 82,
 		size: [
 			{
 				name: 'S',
@@ -61,7 +61,7 @@ export const dressPage1 = [
 		brand: 'ZWERLON',
 		title: 'Women A-line Purple Dress',
 		price: 1999,
-		discountPrice: 75,
+		discount: 75,
 		size: [
 			{
 				name: 'S',
@@ -89,7 +89,7 @@ export const dressPage1 = [
 		brand: 'Purshottam Wala',
 		title: 'Women Fit and Flare Black Dress',
 		price: 2099,
-		discountPrice: 82,
+		discount: 82,
 		size: [
 			{
 				name: 'S',
@@ -118,7 +118,7 @@ export const dressPage1 = [
 		brand: 'Purshottam Wala',
 		title: 'Women Fit and Flare Blue Dress',
 		price: 2099,
-		discountPrice: 82,
+		discount: 82,
 		size: [
 			{
 				name: 'S',
@@ -146,7 +146,7 @@ export const dressPage1 = [
 		brand: 'NEYSA',
 		title: 'Women Two Piece Dress Light Green Dress',
 		price: 1799,
-		discountPrice: 54,
+		discount: 54,
 		size: [
 			{
 				name: 'S',
@@ -174,7 +174,7 @@ export const dressPage1 = [
 		brand: 'Leriya Fashion',
 		title: 'Women A-line Maroon Dress',
 		price: 1599,
-		discountPrice: 78,
+		discount: 78,
 		size: [
 			{
 				name: 'S',
@@ -202,7 +202,7 @@ export const dressPage1 = [
 		brand: 'Selvia',
 		title: 'Women A-line Black Dress',
 		price: 2497,
-		discountPrice: 80,
+		discount: 80,
 		size: [
 			{
 				name: 'S',
@@ -230,7 +230,7 @@ export const dressPage1 = [
 		brand: 'BuyNewTrend',
 		title: 'Women Sheath Dark Blue Dress',
 		price: 1499,
-		discountPrice: 70,
+		discount: 70,
 		size: [
 			{
 				name: 'S',
@@ -258,7 +258,7 @@ export const dressPage1 = [
 		brand: 'W',
 		title: 'Women A-line Green, White Dress',
 		price: 1999,
-		discountPrice: 64,
+		discount: 64,
 		size: [
 			{
 				name: 'S',
@@ -286,7 +286,7 @@ export const dressPage1 = [
 		brand: 'Sheetal Associates',
 		title: 'Women Maxi Grey Dress',
 		price: 1999,
-		discountPrice: 65,
+		discount: 65,
 		size: [
 			{
 				name: 'S',
@@ -314,7 +314,7 @@ export const dressPage1 = [
 		brand: 'Selvia',
 		title: 'Women Asymmetric Black Dress',
 		price: 1997,
-		discountPrice: 85,
+		discount: 85,
 		size: [
 			{
 				name: 'S',
@@ -342,7 +342,7 @@ export const dressPage1 = [
 		brand: 'Selvia',
 		title: 'Women A-line Pink Dress',
 		price: 2330,
-		discountPrice: 78,
+		discount: 78,
 		size: [
 			{
 				name: 'S',
@@ -370,7 +370,7 @@ export const dressPage1 = [
 		brand: 'Purshottam Wala',
 		title: 'Women Fit and Flare Blue Dress',
 		price: 1799,
-		discountPrice: 80,
+		discount: 80,
 		size: [
 			{
 				name: 'S',
@@ -398,7 +398,7 @@ export const dressPage1 = [
 		brand: 'OK QUEST',
 		title: 'Women Fit and Flare Black, Red Dress',
 		price: 1289,
-		discountPrice: 47,
+		discount: 47,
 		size: [
 			{
 				name: 'S',
@@ -426,7 +426,7 @@ export const dressPage1 = [
 		brand: 'W',
 		title: 'Women A-line Yellow Dress',
 		price: 2799,
-		discountPrice: 70,
+		discount: 70,
 		size: [
 			{
 				name: 'S',
@@ -454,7 +454,7 @@ export const dressPage1 = [
 		brand: 'Leriya Fashion',
 		title: 'Women A-line Pink Dress',
 		price: 2999,
-		discountPrice: 64,
+		discount: 64,
 		size: [
 			{
 				name: 'S',
@@ -482,7 +482,7 @@ export const dressPage1 = [
 		brand: 'Purshottam Wala',
 		title: 'Women Ethnic Dress Black Dress',
 		price: 1799,
-		discountPrice: 80,
+		discount: 80,
 		size: [
 			{
 				name: 'S',
@@ -510,7 +510,7 @@ export const dressPage1 = [
 		brand: 'BuyNewTrend',
 		title: 'Women Bodycon Black Dress',
 		price: 1499,
-		discountPrice: 70,
+		discount: 70,
 		size: [
 			{
 				name: 'S',
@@ -538,7 +538,7 @@ export const dressPage1 = [
 		brand: 'Dressberry',
 		title: 'Women Fit and Flare Blue Dress',
 		price: 1999,
-		discountPrice: 52,
+		discount: 52,
 		size: [
 			{
 				name: 'S',
@@ -566,7 +566,7 @@ export const dressPage1 = [
 		brand: 'ZWERLON',
 		title: 'Women A-line Light Green, White Dress',
 		price: 1999,
-		discountPrice: 75,
+		discount: 75,
 		size: [
 			{
 				name: 'S',
@@ -594,7 +594,7 @@ export const dressPage1 = [
 		brand: 'PURVAJA',
 		title: 'Women Fit and Flare Multicolor Dress',
 		price: 2699,
-		discountPrice: 86,
+		discount: 86,
 		size: [
 			{
 				name: 'S',
@@ -622,7 +622,7 @@ export const dressPage1 = [
 		brand: 'Rudraaksha',
 		title: 'Women Fit and Flare Pink Dress With Mask',
 		price: 1999,
-		discountPrice: 82,
+		discount: 82,
 		size: [
 			{
 				name: 'S',
@@ -650,7 +650,7 @@ export const dressPage1 = [
 		brand: 'J TURRITOPSIS',
 		title: 'Women Skater Multicolor Dress',
 		price: 1199,
-		discountPrice: 58,
+		discount: 58,
 		size: [
 			{
 				name: 'S',
@@ -678,7 +678,7 @@ export const dressPage1 = [
 		brand: 'W',
 		title: 'Women Gown Blue Dress',
 		price: 5999,
-		discountPrice: 55,
+		discount: 55,
 		size: [
 			{
 				name: 'S',
@@ -707,7 +707,7 @@ export const dressPage1 = [
 		brand: 'AAYU',
 		title: 'Women A-line Maroon, White Dress',
 		price: 1499,
-		discountPrice: 70,
+		discount: 70,
 		size: [
 			{
 				name: 'S',
@@ -735,7 +735,7 @@ export const dressPage1 = [
 		brand: 'Vaani Creation',
 		title: 'Women Shift Beige Dress',
 		price: 1999,
-		discountPrice: 85,
+		discount: 85,
 		size: [
 			{
 				name: 'S',
@@ -763,7 +763,7 @@ export const dressPage1 = [
 		brand: 'Aurelia',
 		title: 'Women Fit and Flare Grey Dress',
 		price: 3999,
-		discountPrice: 60,
+		discount: 60,
 		size: [
 			{
 				name: 'S',
@@ -791,7 +791,7 @@ export const dressPage1 = [
 		brand: 'W',
 		title: 'Women Fit and Flare Yellow Dress',
 		price: 4999,
-		discountPrice: 64,
+		discount: 64,
 		size: [
 			{
 				name: 'S',
@@ -819,7 +819,7 @@ export const dressPage1 = [
 		brand: 'Daevish',
 		title: 'Women Maxi Maroon Dress',
 		price: 1899,
-		discountPrice: 82,
+		discount: 82,
 		size: [
 			{
 				name: 'S',
@@ -847,7 +847,7 @@ export const dressPage1 = [
 		brand: 'Sheetal Associates',
 		title: 'Women A-line Purple Dress',
 		price: 3999,
-		discountPrice: 65,
+		discount: 65,
 		size: [
 			{
 				name: 'S',
@@ -875,7 +875,7 @@ export const dressPage1 = [
 		brand: 'Miss Chase',
 		title: 'Women Gown Brown Dress',
 		price: 2899,
-		discountPrice: 68,
+		discount: 68,
 		size: [
 			{
 				name: 'S',
@@ -903,7 +903,7 @@ export const dressPage1 = [
 		brand: 'Selvia',
 		title: 'Women Ruffled Brown Dress',
 		price: 2063,
-		discountPrice: 83,
+		discount: 83,
 		size: [
 			{
 				name: 'S',
@@ -931,7 +931,7 @@ export const dressPage1 = [
 		brand: 'MomToBe',
 		title: 'Women Fit and Flare Maroon Dress',
 		price: 2798,
-		discountPrice: 69,
+		discount: 69,
 		size: [
 			{
 				name: 'S',
@@ -959,7 +959,7 @@ export const dressPage1 = [
 		brand: 'W',
 		title: 'Women Maxi Purple Dress',
 		price: 4599,
-		discountPrice: 65,
+		discount: 65,
 		size: [
 			{
 				name: 'S',
@@ -987,7 +987,7 @@ export const dressPage1 = [
 		brand: 'Leriya Fashion',
 		title: 'Women A-line Blue Dress',
 		price: 4999,
-		discountPrice: 64,
+		discount: 64,
 		size: [
 			{
 				name: 'S',
@@ -1015,7 +1015,7 @@ export const dressPage1 = [
 		brand: 'Daevish',
 		title: 'Women Maxi Black Dress',
 		price: 1899,
-		discountPrice: 82,
+		discount: 82,
 		size: [
 			{
 				name: 'S',

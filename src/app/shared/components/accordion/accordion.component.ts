@@ -5,7 +5,7 @@ import {
 	signal,
 } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { generateRandomId } from '../../utils/math/random-id-util';
+import { generateUUID } from '../../utils/math/random-uuid-util';
 
 @Component({
 	selector: 'app-accordion',
@@ -17,5 +17,5 @@ export class AccordionComponent {
 	readonly name = input.required();
 	readonly isOpen = signal(false);
 
-	readonly randomId = signal(generateRandomId());
+	readonly randomId = signal(generateUUID());
 }

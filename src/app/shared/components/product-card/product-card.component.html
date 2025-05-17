@@ -1,0 +1,57 @@
+<div class="productCard m-3 w-56 cursor-pointer transition-all hover:shadow-lg">
+	<div class="relative h-80">
+		<img
+			class="h-full w-full object-cover"
+			[src]="item().imageUrl"
+			[alt]="item().title"
+		/>
+
+		<!-- Discount badge -->
+		@if (item().discount > 0) {
+			<div
+				class="absolute top-2 right-2 rounded bg-red-500 px-2 py-1 text-white"
+			>
+				-{{ item().discount }}%
+			</div>
+		}
+	</div>
+
+	<div class="p-4">
+		<!-- Brand -->
+		<p class="text-sm font-medium text-gray-600">{{ item().brand }}</p>
+
+		<!-- Title -->
+		<h3 class="mt-1 line-clamp-2 text-base font-semibold text-white">
+			{{ item().title }}
+		</h3>
+
+		<!-- Price and discount -->
+		<div class="mt-2 flex items-center gap-2">
+			<span class="text-lg font-bold">{{
+				item().price * (1 - item().discount / 100) | currency: "INR"
+			}}</span>
+			@if (item().discount > 0) {
+				<span class="text-sm text-red-500 line-through">{{
+					item().price | currency: "INR"
+				}}</span>
+			}
+		</div>
+
+		<!-- Available sizes -->
+		<div class="mt-2 flex gap-2">
+			@for (size of item().size; track size.name) {
+				<span
+					class="flex items-center justify-center px-2 py-1 text-xs"
+					[class.hidden]="size.quantity === 0"
+				>
+					{{ size.name }}
+				</span>
+			}
+			@if (item().quantity === 0) {
+				<span class="w-full text-center font-bold text-red-500 uppercase"
+					>out of stock</span
+				>
+			}
+		</div>
+	</div>
+</div>

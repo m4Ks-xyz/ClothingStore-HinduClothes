@@ -7,7 +7,7 @@ export const menKurta = [
 		color: 'Green',
 
 		price: 1499,
-		discountProcent: 66,
+		discount: 66,
 		size: [
 			{
 				name: 'S',
@@ -37,7 +37,7 @@ export const menKurta = [
 		color: 'Yellow',
 
 		price: 2499,
-		discountProcent: 68,
+		discount: 68,
 		size: [
 			{
 				name: 'S',
@@ -67,7 +67,7 @@ export const menKurta = [
 		color: 'Blue',
 
 		price: 1499,
-		discountProcent: 73,
+		discount: 73,
 		size: [
 			{
 				name: 'S',
@@ -97,7 +97,7 @@ export const menKurta = [
 		color: 'White',
 
 		price: 1999,
-		discountProcent: 76,
+		discount: 76,
 		size: [
 			{
 				name: 'S',
@@ -127,7 +127,7 @@ export const menKurta = [
 		color: 'Grey',
 
 		price: 1049,
-		discountProcent: 50,
+		discount: 50,
 		size: [
 			{
 				name: 'S',
@@ -157,7 +157,7 @@ export const menKurta = [
 		color: 'Pink',
 
 		price: 1499,
-		discountProcent: 66,
+		discount: 66,
 		size: [
 			{
 				name: 'S',
@@ -187,7 +187,7 @@ export const menKurta = [
 		color: 'Black',
 
 		price: 999,
-		discountProcent: 72,
+		discount: 72,
 		size: [
 			{
 				name: 'S',
@@ -217,7 +217,7 @@ export const menKurta = [
 		color: 'Blue',
 
 		price: 1049,
-		discountProcent: 27,
+		discount: 27,
 		size: [
 			{
 				name: 'S',
@@ -247,7 +247,7 @@ export const menKurta = [
 		color: 'Green',
 
 		price: 1599,
-		discountProcent: 68,
+		discount: 68,
 		size: [
 			{
 				name: 'S',
@@ -277,7 +277,7 @@ export const menKurta = [
 		color: 'Yellow',
 
 		price: 999,
-		discountProcent: 57,
+		discount: 57,
 		size: [
 			{
 				name: 'S',
@@ -307,7 +307,7 @@ export const menKurta = [
 		color: 'Light Blue',
 
 		price: 909,
-		discountProcent: 27,
+		discount: 27,
 		size: [
 			{
 				name: 'S',
@@ -337,7 +337,7 @@ export const menKurta = [
 		color: 'Green',
 
 		price: 1749,
-		discountProcent: 74,
+		discount: 74,
 		size: [
 			{
 				name: 'S',
@@ -367,7 +367,7 @@ export const menKurta = [
 		color: 'Dark Blue',
 
 		price: 1499,
-		discountProcent: 70,
+		discount: 70,
 		size: [
 			{
 				name: 'S',
@@ -397,7 +397,7 @@ export const menKurta = [
 		color: 'Yellow',
 
 		price: 1299,
-		discountProcent: 70,
+		discount: 70,
 		size: [
 			{
 				name: 'S',
@@ -427,7 +427,7 @@ export const menKurta = [
 		color: 'Orange',
 
 		price: 1495,
-		discountProcent: 73,
+		discount: 73,
 		size: [
 			{
 				name: 'S',
@@ -457,7 +457,7 @@ export const menKurta = [
 		color: 'Dark Blue',
 
 		price: 1648,
-		discountProcent: 75,
+		discount: 75,
 		size: [
 			{
 				name: 'S',
@@ -487,7 +487,7 @@ export const menKurta = [
 		color: 'White',
 
 		price: 2499,
-		discountProcent: 76,
+		discount: 76,
 		size: [
 			{
 				name: 'S',
@@ -517,7 +517,7 @@ export const menKurta = [
 		color: 'White',
 
 		price: 2499,
-		discountProcent: 74,
+		discount: 74,
 		size: [
 			{
 				name: 'S',
@@ -547,7 +547,7 @@ export const menKurta = [
 		color: 'White',
 
 		price: 1499,
-		discountProcent: 75,
+		discount: 75,
 		size: [
 			{
 				name: 'S',
@@ -577,7 +577,7 @@ export const menKurta = [
 		color: 'Yellow',
 
 		price: 1499,
-		discountProcent: 75,
+		discount: 75,
 		size: [
 			{
 				name: 'S',
@@ -607,7 +607,7 @@ export const menKurta = [
 		color: 'Beige',
 
 		price: 2499,
-		discountProcent: 74,
+		discount: 74,
 		size: [
 			{
 				name: 'S',
@@ -637,7 +637,7 @@ export const menKurta = [
 		color: 'Light Blue',
 
 		price: 2499,
-		discountProcent: 74,
+		discount: 74,
 		size: [
 			{
 				name: 'S',
@@ -667,7 +667,7 @@ export const menKurta = [
 		color: 'Purple',
 
 		price: 1648,
-		discountProcent: 75,
+		discount: 75,
 		size: [
 			{
 				name: 'S',
@@ -697,7 +697,7 @@ export const menKurta = [
 		color: 'Pink',
 
 		price: 1499,
-		discountProcent: 66,
+		discount: 66,
 		size: [
 			{
 				name: 'S',
@@ -727,7 +727,7 @@ export const menKurta = [
 		color: 'Yellow',
 
 		price: 1499,
-		discountProcent: 82,
+		discount: 82,
 		size: [
 			{
 				name: 'S',
@@ -757,7 +757,7 @@ export const menKurta = [
 		color: 'Blue',
 
 		price: 1999,
-		discountProcent: 75,
+		discount: 75,
 		size: [
 			{
 				name: 'S',
@@ -787,7 +787,7 @@ export const menKurta = [
 		color: 'Light Green',
 
 		price: 1499,
-		discountProcent: 66,
+		discount: 66,
 		size: [
 			{
 				name: 'S',
@@ -817,7 +817,7 @@ export const menKurta = [
 		color: 'Orange',
 
 		price: 1499,
-		discountProcent: 66,
+		discount: 66,
 		size: [
 			{
 				name: 'S',
@@ -847,7 +847,7 @@ export const menKurta = [
 		color: 'Maroon',
 
 		price: 1648,
-		discountProcent: 75,
+		discount: 75,
 		size: [
 			{
 				name: 'S',
@@ -877,7 +877,7 @@ export const menKurta = [
 		color: 'Pink',
 
 		price: 1749,
-		discountProcent: 74,
+		discount: 74,
 		size: [
 			{
 				name: 'S',
@@ -907,7 +907,7 @@ export const menKurta = [
 		color: 'Dark Blue',
 
 		price: 1599,
-		discountProcent: 70,
+		discount: 70,
 		size: [
 			{
 				name: 'S',
@@ -937,7 +937,7 @@ export const menKurta = [
 		color: 'Dark Blue',
 
 		price: 1749,
-		discountProcent: 71,
+		discount: 71,
 		size: [
 			{
 				name: 'S',
@@ -967,7 +967,7 @@ export const menKurta = [
 		color: 'Yellow',
 
 		price: 2199,
-		discountProcent: 78,
+		discount: 78,
 		size: [
 			{
 				name: 'S',
@@ -997,7 +997,7 @@ export const menKurta = [
 		color: 'Gold',
 
 		price: 2499,
-		discountProcent: 67,
+		discount: 67,
 		size: [
 			{
 				name: 'S',
@@ -1027,7 +1027,7 @@ export const menKurta = [
 		color: 'Maroon',
 
 		price: 1279,
-		discountProcent: 62,
+		discount: 62,
 		size: [
 			{
 				name: 'S',
@@ -1057,7 +1057,7 @@ export const menKurta = [
 		color: 'Black',
 
 		price: 1648,
-		discountProcent: 75,
+		discount: 75,
 		size: [
 			{
 				name: 'S',
@@ -1087,7 +1087,7 @@ export const menKurta = [
 		color: 'Orange',
 
 		price: 1299,
-		discountProcent: 27,
+		discount: 27,
 		size: [
 			{
 				name: 'S',
@@ -1117,7 +1117,7 @@ export const menKurta = [
 		color: 'Multicolor',
 
 		price: 2499,
-		discountProcent: 60,
+		discount: 60,
 		size: [
 			{
 				name: 'S',
@@ -1147,7 +1147,7 @@ export const menKurta = [
 		color: 'Pink',
 
 		price: 1499,
-		discountProcent: 75,
+		discount: 75,
 		size: [
 			{
 				name: 'S',
@@ -1177,7 +1177,7 @@ export const menKurta = [
 		color: 'White',
 
 		price: 1599,
-		discountProcent: 75,
+		discount: 75,
 		size: [
 			{
 				name: 'S',

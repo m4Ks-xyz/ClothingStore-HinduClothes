@@ -1,10 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { WomenGouns } from '../../../../model/gouns-model';
-import { MenJeans } from '../../../../model/men-jeans.model';
-import { MenKurta } from '../../../../model/men-kurta-model';
-import { Shoes } from '../../../../model/shoes-model';
-import { WomenKurta } from '../../../../model/women-kurta-model';
 import { HomeProductCardComponent } from '../home-product-card/home-product-card.component';
+import { UnknownProduct } from '../../../products/components/products/products.component';
 
 @Component({
 	selector: 'app-product-slider',
@@ -15,7 +11,5 @@ import { HomeProductCardComponent } from '../home-product-card/home-product-card
 })
 export class ProductSliderComponent {
 	readonly title = input.required<string>();
-	readonly products = input.required<
-		MenJeans[] | WomenGouns[] | WomenKurta[] | MenKurta[] | Shoes[]
-	>();
+	readonly products = input.required<UnknownProduct[]>();
 }

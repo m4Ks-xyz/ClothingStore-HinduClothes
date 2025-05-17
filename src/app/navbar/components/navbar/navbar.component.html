@@ -20,10 +20,9 @@
 								class="icon-close absolute right-1/2 bottom-24 translate-x-1/2 cursor-pointer"
 								>close</mat-icon
 							>
-							<a class="flex w-full items-center justify-between pb-4" href="">
+							<a class="flex w-full items-center justify-between pb-4" href="/">
 								<h1 class="text-2xl font-bold">Hindu Store</h1>
 								<img
-									href="/"
 									class="w-17 cursor-pointer"
 									src="logo.png"
 									alt="Hindu Clothes "
@@ -117,14 +116,15 @@
 					</a>
 
 					<div class="hidden cursor-pointer items-center gap-4 lg:flex">
-						<h1
-							(mouseenter)="showMenContent.set(false)"
-							(mouseenter)="showWomenContent.set(false)"
-							class="hover:text-primary transition-colors duration-200 ease-in-out"
-							routerLink="/"
-						>
-							Hindu Clothes
-						</h1>
+						<a href="/">
+							<h1
+								(mouseenter)="showMenContent.set(false)"
+								(mouseenter)="showWomenContent.set(false)"
+								class="hover:text-primary transition-colors duration-200 ease-in-out"
+							>
+								Hindu Clothes
+							</h1>
+						</a>
 						<a
 							(mouseenter)="showMenContent.set(true)"
 							(mouseenter)="showWomenContent.set(false)"
@@ -144,7 +144,6 @@
 
 				<div
 					class="text-font hidden items-center gap-2 transition-all duration-200 ease-in-out lg:flex"
-					[class]="sidenavOpen() ? 'invisible' : 'block'"
 				>
 					<mat-icon class="icon m-2 cursor-pointer">shopping_cart</mat-icon>
 
@@ -152,6 +151,34 @@
 						<mat-icon class="mr-2">login</mat-icon>
 						LOGIN
 					</button>
+
+					<div class="">
+						<div
+							[matMenuTriggerFor]="menu"
+							class="hide hover:text-primary flex cursor-pointer items-center space-x-2 rounded-3xl p-2 transition-all duration-300 ease-in-out"
+						>
+							<img
+								class="w-8 rounded-2xl border-1 border-solid"
+								src="https://png.pngtree.com/png-vector/20220807/ourmid/pngtree-man-avatar-wearing-gray-suit-png-image_6102786.png"
+							/>
+							<p>Max</p>
+						</div>
+
+						<mat-menu class="profile-menu bg-white!" #menu="matMenu">
+							<button mat-menu-item>
+								<mat-icon class="text-font!">manage_accounts</mat-icon>
+								<span class="text-font!">Profile</span>
+							</button>
+							<button mat-menu-item>
+								<mat-icon class="text-font!">shopping_bag</mat-icon>
+								<span class="text-font!">Orders </span>
+							</button>
+							<button mat-menu-item>
+								<mat-icon class="text-font!">logout</mat-icon>
+								<span class="text-font!"> Logout</span>
+							</button>
+						</mat-menu>
+					</div>
 				</div>
 
 				<button
