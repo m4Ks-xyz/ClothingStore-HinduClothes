@@ -4,7 +4,7 @@ import {
 	input,
 	output,
 } from '@angular/core';
-import { MenuCategory } from '../models/menu-content-model';
+import { MenuCategory } from '../../models/menu-content-model';
 
 @Component({
 	selector: 'app-navbar-content',

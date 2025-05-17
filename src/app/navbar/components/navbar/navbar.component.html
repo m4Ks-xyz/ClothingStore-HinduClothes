@@ -20,10 +20,7 @@
 								class="icon-close absolute right-1/2 bottom-24 translate-x-1/2 cursor-pointer"
 								>close</mat-icon
 							>
-							<div
-								class="flex w-full items-center justify-between pb-4"
-								href=""
-							>
+							<a class="flex w-full items-center justify-between pb-4" href="">
 								<h1 class="text-2xl font-bold">Hindu Store</h1>
 								<img
 									href="/"
@@ -31,76 +28,80 @@
 									src="logo.png"
 									alt="Hindu Clothes "
 								/>
-							</div>
-							<!-- TODO data and render with @for like in footer -->
-							<div class="flex flex-col">
-								<p
-									class="hover:text-primary cursor-pointer text-2xl"
-									routerLink="/"
-								>
-									Home
-								</p>
-								<div
-									class="hover:text-primary cursor-pointer text-2xl"
+							</a>
+
+							<div class="s flex flex-col">
+								<button
+									class="hover:text-primary flex cursor-pointer justify-between pb-2 text-start text-2xl"
 									(click)="filterToggleMen.set(!filterToggleMen())"
-									mat-raised-button
 								>
-									Men
-								</div>
+									<p>Man</p>
+									<mat-icon>{{
+										!filterToggleMen() ? "add" : "remove"
+									}}</mat-icon>
+								</button>
+
 								@if (filterToggleMen()) {
-									<div class="flex flex-col pb-4">
-										<a
-											class="hover:text-primary cursor-pointer p-1"
-											routerLink="/"
-											>Clothing</a
-										>
-										<a
-											class="hover:text-primary cursor-pointer p-1"
-											routerLink="/"
-											>Accessories</a
-										>
-										<a
-											class="hover:text-primary cursor-pointer p-1"
-											routerLink="/"
-											>Brands</a
-										>
+									<div class="flex flex-col pb-4 pl-2">
+										@for (section of content().men.sections; track section.id) {
+											<app-accordion
+												class="block w-full items-start lg:hidden"
+												[name]="section.name"
+											>
+												@for (item of section.items; track item.id) {
+													<a
+														class="hover:text-primary cursor-pointer p-1 pl-2"
+														routerLink="/"
+														>{{ item.name }}</a
+													>
+												}
+											</app-accordion>
+										}
 									</div>
 								}
-								<div
-									class="hover:text-primary cursor-pointer text-2xl"
+							</div>
+
+							<div class="s flex flex-col">
+								<button
+									class="hover:text-primary flex cursor-pointer justify-between pb-2 text-start text-2xl"
 									(click)="filterToggleWomen.set(!filterToggleWomen())"
-									mat-raised-button
 								>
-									Women
-								</div>
+									<p>Women</p>
+									<mat-icon>{{
+										!filterToggleWomen() ? "add" : "remove"
+									}}</mat-icon>
+								</button>
+
 								@if (filterToggleWomen()) {
-									<div class="flex flex-col">
-										<a
-											class="hover:text-primary cursor-pointer p-1"
-											routerLink="/"
-											>Clothing</a
-										>
-										<a
-											class="hover:text-primary cursor-pointer p-1"
-											routerLink="/"
-											>Accessories</a
-										>
-										<a
-											class="hover:text-primary cursor-pointer p-1"
-											routerLink="/"
-											>Brands</a
-										>
+									<div class="flex flex-col pb-4">
+										@for (
+											section of content().women.sections;
+											track section.id
+										) {
+											<app-accordion
+												class="block w-full items-start lg:hidden"
+												[name]="section.name"
+											>
+												@for (item of section.items; track item.id) {
+													<a
+														class="hover:text-primary cursor-pointer p-1"
+														routerLink="/"
+														>{{ item.name }}</a
+													>
+												}
+											</app-accordion>
+										}
 									</div>
 								}
 							</div>
 						</div>
 					</mat-drawer>
 				</mat-drawer-container>
-				<div
+				<button
 					class="absolute top-0 left-0 h-screen w-screen backdrop-blur"
 					[class]="sidenavOpen() ? 'block' : 'hidden'"
 					(click)="sidenavOpen.set(!sidenavOpen())"
-				></div>
+				></button>
 			</div>
 			<div
 				class="flex w-full items-center justify-between px-3 py-2 font-medium"

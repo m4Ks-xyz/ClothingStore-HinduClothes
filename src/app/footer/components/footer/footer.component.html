@@ -31,7 +31,10 @@
 				class="container flex flex-col items-center gap-y-2 lg:w-full lg:flex-row lg:items-start lg:justify-evenly lg:space-y-0"
 			>
 				@for (item of footerContent(); track item.id) {
-					<app-accordion class="block w-full items-start lg:hidden" [name]="item.name">
+					<app-accordion
+						class="block w-full items-start lg:hidden"
+						[name]="item.name"
+					>
 						<ng-container [ngTemplateOutlet]="accordionContent"> </ng-container>
 					</app-accordion>
 

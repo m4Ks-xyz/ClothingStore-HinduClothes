@@ -3,9 +3,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { AccordionComponent } from '../../../shared/components/accordion/accordion.component';
 import { menuContent } from '../../constants/menu-content.constants';
 import { MenuContent } from '../../models/menu-content-model';
-import { NavbarContentComponent } from '../../navbar-content/navbar-content.component';
+import { NavbarContentComponent } from '../navbar-content/navbar-content.component';
 
 @Component({
 	selector: 'app-navbar',
@@ -15,6 +16,7 @@ import { NavbarContentComponent } from '../../navbar-content/navbar-content.comp
 		MatIconModule,
 		MatMenuModule,
 		NavbarContentComponent,
+		AccordionComponent,
 	],
 	templateUrl: './navbar.component.html',
 	styleUrl: './navbar.component.scss',
