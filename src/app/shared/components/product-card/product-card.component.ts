@@ -6,11 +6,10 @@ import { BaseProduct } from '../../../products/models/base-product.model';
 	selector: 'app-product-card',
 	standalone: true,
 	imports: [CurrencyPipe],
+	styleUrl: './product-card.component.scss',
 	templateUrl: './product-card.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductCardComponent {
 	item = input.required<BaseProduct>();
-
-  
 }

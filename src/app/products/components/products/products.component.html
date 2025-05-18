@@ -18,11 +18,11 @@
 			<mat-menu class="w-screen bg-white!" #menu="matMenu">
 				<button mat-menu-item>
 					<mat-icon class="text-md text-black!">paid</mat-icon>
-					<span class="text-md text-black!">Low to high</span>
+					<span class="text-md text-black!">Price ascending</span>
 				</button>
 				<button mat-menu-item>
 					<mat-icon class="text-md text-black!">paid</mat-icon>
-					<span class="text-md text-black!">Hight to low</span>
+					<span class="text-md text-black!">Price descending</span>
 				</button>
 			</mat-menu>
 			<button
@@ -55,6 +55,7 @@
 												class="w-full p-1"
 												[name]="category.id"
 												[value]="item.value"
+												(click)="selectedFilters(item.value, category.id)"
 												><span class="text-sm text-white">
 													{{ item.label }}
 												</span></mat-checkbox
@@ -71,7 +72,7 @@
 
 			<div class="lg:col-span-3">
 				<div class="flex flex-wrap justify-evenly">
-					@for (item of menJeans(); track item.imageUrl) {
+					@for (item of products(); track item.uuid) {
 						<app-product-card [item]="item" />
 					}
 				</div>

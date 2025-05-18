@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { UnknownProduct } from '../../../products/types/unknown-product.type';
 import { HomeProductCardComponent } from '../home-product-card/home-product-card.component';
-import { UnknownProduct } from '../../../products/components/products/products.component';
 
 @Component({
 	selector: 'app-product-slider',

@@ -1,9 +1,9 @@
 <div
-	class="box flex h-full cursor-pointer flex-col overflow-hidden rounded-lg transition-all duration-500 hover:scale-105"
+	class="box flex h-full cursor-pointer flex-col overflow-hidden rounded-lg transition-all duration-500"
 >
-	<div class="relative h-116 w-full">
+	<div class="relative h-80">
 		<img
-			class="absolute inset-0 h-full w-full object-cover object-center"
+			class="h-full w-full object-cover object-top hover:object-scale-down"
 			[src]="product().imageUrl"
 			[alt]="product().title"
 		/>
@@ -14,8 +14,15 @@
 			{{ product().title }}
 		</p>
 
-		<p class="text-s mt-2 line-clamp-2 leading-tight">
-			{{ product().price | currency: "INR" }}
-		</p>
+		<div class="mt-2 flex items-center gap-2">
+			<span class="text-lg font-bold">{{
+				product().price * (1 - product().discount / 100) | currency: "INR"
+			}}</span>
+			@if (product().discount > 0) {
+				<span class="text-sm text-red-500 line-through">{{
+					product().price | currency: "INR"
+				}}</span>
+			}
+		</div>
 	</div>
 </div>
