@@ -29,9 +29,4 @@ export class FooterComponent {
 				throw new Error(`Unknown toggle ID: ${id}`);
 		}
 	}
-
-	toggleSection(id: string) {
-		const toggle = this.getToggledContentId(id);
-		toggle.set(!toggle());
-	}
 }

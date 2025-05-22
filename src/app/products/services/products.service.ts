@@ -39,16 +39,12 @@ export class ProductsService {
 				return this.lenghaCholi();
 			case 'menJeans':
 				return this.menJeans();
-
 			case 'shoes':
 				return this.shoes();
-
 			case 'menKurta':
 				return this.menKurta();
-
 			case 'womenGouns':
 				return this.womenGouns();
-
 			case 'womenKurta':
 				return this.womenKurta();
 		}
@@ -56,7 +52,6 @@ export class ProductsService {
 
 	multipleSelectFilter(value: string, name: string): void {
 		const queryParams = { ...this.activeRoute.snapshot.queryParams };
-
 		const filterValues = queryParams[name] ? queryParams[name].split(',') : [];
 
 		const valueIndex = filterValues.indexOf(value);
