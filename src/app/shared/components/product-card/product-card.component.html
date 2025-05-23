@@ -1,4 +1,8 @@
-<div class="productCard m-3 w-56 cursor-pointer transition-all hover:shadow-lg">
+<a
+	[routerLink]="[`/product-details/${item().uuid}`]"
+	routerLinkActive="router-link-active"
+	class="productCard m-3 block w-56 transition-all hover:shadow-lg"
+>
 	<div class="relative h-80">
 		<img
 			class="h-full w-full object-cover"
@@ -56,4 +60,4 @@
 			}
 		</div>
 	</div>
-</div>
+</a>

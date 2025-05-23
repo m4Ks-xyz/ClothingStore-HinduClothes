@@ -28,7 +28,8 @@ body {
 }
 
 .box {
-	box-shadow: --box-shadow;
+	box-shadow: #000000 0px 5px 15px;
+  padding: 15px;
 }
 
 .hideScrollbar::-webkit-scrollbar {
