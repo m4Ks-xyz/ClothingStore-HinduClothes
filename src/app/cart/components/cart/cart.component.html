@@ -1,1 +1,56 @@
-<p class="py-3">cart works!</p>
+<main class="mt-20 flex items-center justify-center">
+	<div class="container">
+		<div class="relative grid-cols-3 py-10 lg:grid lg:px-16">
+			<section class="lg:col-span-2 lg:px-5">
+				<div class="box space-y-3 p-5">
+					@if (cart) {
+						@for (cart of cart; track cart; let last = $last) {
+							<app-cart-item />
+							@if (!last) {
+								<mat-divider />
+							}
+						}
+					}
+				</div>
+			</section>
+
+			<section class="sticky top-0 mt-5 h-screen lg:mt-0">
+				@if (cart) {
+					<div class="box rounded-md p-5">
+						<div class="pb-8 font-bold text-gray-500 uppercase">
+							price details
+						</div>
+						<mat-divider />
+
+						<div class="space-y-3 pb-8">
+							<div class="flex justify-between pt-3">
+								<span><p>Total Price</p></span>
+								<span><p>₹6999</p></span>
+							</div>
+							<div class="flex justify-between pt-3">
+								<span><p>Total Discount</p></span>
+								<span><p class="text-green-700">-₹6999</p></span>
+							</div>
+							<div class="flex justify-between pt-3">
+								<span><p>Delivery Charges</p></span>
+								<span><p class="text-green-700">Free</p></span>
+							</div>
+							<mat-divider />
+							<div class="flex justify-between pt-3">
+								<span><p>Total Amount</p></span>
+								<span><p class="text-green-700">1085</p></span>
+							</div>
+						</div>
+						<button
+							(click)="router.navigate(['checkout'])"
+							class="w-full rounded-md!"
+							mat-raised-button
+						>
+							CHECKOUT
+						</button>
+					</div>
+				}
+			</section>
+		</div>
+	</div>
+</main>

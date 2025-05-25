@@ -24,29 +24,36 @@
 					</div>
 					<p class="text-lg text-gray-700 line-through">₹ 4000</p>
 				</div>
-				<div>
-					<p class="text-lg font-semibold">Size</p>
-					<mat-radio-group
-						class="space-x-5"
-						aria-label="Select an option"
-						[(ngModel)]="selectedSize"
-					>
-						<mat-radio-button value="S">S</mat-radio-button>
-						<mat-radio-button value="M">M</mat-radio-button>
-						<mat-radio-button value="L">L</mat-radio-button>
-					</mat-radio-group>
-				</div>
-				<div class="flex justify-center gap-2">
-					<input
-						type="number"
-						class="w-1/2 rounded-xl bg-white p-2 text-black lg:w-24"
-						[defaultValue]="1"
-						[min]="1"
-					/>
-					<button mat-raised-button class="w-1/2 rounded-xl! p-6 lg:w-full">
-						Add To Cart
-					</button>
-				</div>
+				<form class="col-span-1 mt-10 space-y-10 lg:mt-0" [formGroup]="form">
+					<div>
+						<p class="text-lg font-semibold">Size</p>
+						<mat-radio-group
+							formControlName="size"
+							class="space-x-5"
+							aria-label="Select an option"
+						>
+							<mat-radio-button value="S">S</mat-radio-button>
+							<mat-radio-button value="M">M</mat-radio-button>
+							<mat-radio-button value="L">L</mat-radio-button>
+						</mat-radio-group>
+					</div>
+					<div class="flex justify-center gap-2">
+						<input
+							type="number"
+							formControlName="quantity"
+							class="w-1/2 rounded-xl bg-white p-2 text-black lg:w-24"
+							[defaultValue]="1"
+							[min]="1"
+						/>
+						<button
+							(click)="onSubmit()"
+							mat-raised-button
+							class="w-1/2 rounded-xl! p-6 lg:w-full"
+						>
+							Add To Cart
+						</button>
+					</div>
+				</form>
 				<div class="text-justify">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, officia
 					laborum consectetur consequuntur, velit perspiciatis molestiae
