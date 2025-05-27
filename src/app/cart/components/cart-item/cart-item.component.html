@@ -1,3 +1,4 @@
+@let showButtonGroup = showButtons();
 <div class="p-5 shadow-lg">
 	<div class="flex items-center">
 		<div class="size-20 lg:size-36">
@@ -24,30 +25,35 @@
 	</div>
 
 	<div class="flex items-center justify-between pt-6 lg:space-x-10">
-		<div
-			class="flex w-full flex-col items-center justify-center gap-6 sm:flex-row sm:justify-between"
-		>
-			<div class="button-group flex items-center gap-4">
-				<button
-					class="rounded-full! bg-gray-800!"
-					mat-mini-fab
-					[disabled]="count() === 1"
-					(click)="count.set(count() - 1)"
-				>
-					<mat-icon class="text-gray-300!">remove</mat-icon>
-				</button>
-				<span class="rounded-sm border border-gray-800 px-7 py-1">
-					<p>{{ count() }}</p>
-				</span>
-				<button
-					class="rounded-full! bg-gray-500!"
-					mat-mini-fab
-					(click)="count.set(count() + 1)"
-				>
-					<mat-icon (click)="removeItem()" class="text-gray-900!">add</mat-icon>
-				</button>
+		@if (showButtonGroup) {
+			<div
+				class="flex w-full flex-col items-center justify-center gap-6 sm:flex-row sm:justify-between"
+			>
+				<div class="button-group flex items-center gap-4">
+					<button
+						class="rounded-full! bg-gray-800!"
+						mat-mini-fab
+						[disabled]="count() === 1"
+						(click)="count.set(count() - 1)"
+					>
+						<mat-icon class="text-gray-300!">remove</mat-icon>
+					</button>
+					<span class="rounded-sm border border-gray-800 px-7 py-1">
+						<p>{{ count() }}</p>
+					</span>
+					<button
+						class="rounded-full! bg-gray-500!"
+						mat-mini-fab
+						(click)="count.set(count() + 1)"
+					>
+						<mat-icon (click)="removeItem()" class="text-gray-900!"
+							>add</mat-icon
+						>
+					</button>
+				</div>
+
+				<button class="rounded-md!" mat-raised-button>Remove</button>
 			</div>
-			<button class="rounded-md!" mat-raised-button>Remove</button>
-		</div>
+		}
 	</div>
 </div>

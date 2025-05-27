@@ -1,1 +1,53 @@
-<p>payment works!</p>
+<main class="flex items-center justify-center">
+	<div class="container mt-24 px-5 lg:px-20">
+		<div class="box my-5 rounded-md p-5 shadow-lg">
+			<app-address-card [address]="" />
+		</div>
+
+		<div
+			class="relative grid grid-cols-1 justify-between gap-5 py-5 lg:grid-cols-3"
+		>
+			<div class="col-span-2">
+				<div class="box space-y-3 rounded-md">
+					@for (product of products(); track product; let last = $last) {
+						<app-cart-item [showButtons]="false" />
+
+						@if (!last) {
+							<mat-divider />
+						}
+					}
+				</div>
+			</div>
+
+			<section class="sticky top-0 col-span-1 mt-5 h-screen lg:mt-0">
+				<div class="box rounded-md p-5">
+					<div class="pb-8 font-bold text-gray-500 uppercase">
+						price details
+					</div>
+					<mat-divider />
+
+					<div class="space-y-3 pb-8">
+						<div class="flex justify-between pt-3">
+							<span><p>Total Price</p></span>
+							<span><p>₹6999</p></span>
+						</div>
+						<div class="flex justify-between pt-3">
+							<span><p>Total Discount</p></span>
+							<span><p class="text-green-700">-₹6999</p></span>
+						</div>
+						<div class="flex justify-between pt-3">
+							<span><p>Delivery Charges</p></span>
+							<span><p class="text-green-700">Free</p></span>
+						</div>
+						<mat-divider />
+						<div class="flex justify-between pt-3">
+							<span><p>Total Amount</p></span>
+							<span><p class="text-green-700">1085</p></span>
+						</div>
+					</div>
+					<button class="w-full rounded-md!" mat-raised-button>PAY NOW</button>
+				</div>
+			</section>
+		</div>
+	</div>
+</main>

@@ -25,11 +25,7 @@
 								routerLink="/"
 							>
 								<h1 class="text-2xl font-bold">Hindu Store</h1>
-								<img
-									class="w-17 cursor-pointer"
-									src="logo.png"
-									alt="Hindu Clothes "
-								/>
+								<img class="w-17" src="logo.png" alt="Hindu Clothes " />
 							</a>
 
 							<div class="flex flex-col">
@@ -152,15 +148,15 @@
 						<mat-icon class="icon m-2 cursor-pointer">shopping_cart</mat-icon>
 					</a>
 
-					<button mat-raised-button class="button">
+					<button mat-raised-button class="hide button">
 						<mat-icon class="mr-2">login</mat-icon>
 						LOGIN
 					</button>
 
-					<div class="">
+					<div>
 						<div
 							[matMenuTriggerFor]="menu"
-							class="hide hover:text-primary flex cursor-pointer items-center space-x-2 rounded-3xl p-2 transition-all duration-300 ease-in-out"
+							class="hover:text-primary flex cursor-pointer items-center space-x-2 rounded-3xl p-2 transition-all duration-300 ease-in-out"
 						>
 							<img
 								class="w-8 rounded-2xl border-1 border-solid"
@@ -170,18 +166,18 @@
 						</div>
 
 						<mat-menu class="profile-menu bg-white!" #menu="matMenu">
-							<button mat-menu-item>
+							<a routerLink="/" mat-menu-item>
 								<mat-icon class="text-font!">manage_accounts</mat-icon>
 								<span class="text-font!">Profile</span>
-							</button>
-							<button mat-menu-item>
+							</a>
+							<a routerLink="account/orders" mat-menu-item>
 								<mat-icon class="text-font!">shopping_bag</mat-icon>
 								<span class="text-font!">Orders </span>
-							</button>
-							<button mat-menu-item>
+							</a>
+							<a routerLink="/" mat-menu-item>
 								<mat-icon class="text-font!">logout</mat-icon>
 								<span class="text-font!"> Logout</span>
-							</button>
+							</a>
 						</mat-menu>
 					</div>
 				</div>

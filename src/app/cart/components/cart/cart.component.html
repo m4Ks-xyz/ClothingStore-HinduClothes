@@ -5,7 +5,7 @@
 				<div class="box space-y-3 p-5">
 					@if (cart) {
 						@for (cart of cart; track cart; let last = $last) {
-							<app-cart-item />
+							<app-cart-item [showButtons]="true" />
 							@if (!last) {
 								<mat-divider />
 							}

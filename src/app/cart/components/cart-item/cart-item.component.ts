@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	input,
+	signal,
+} from '@angular/core';
 import { MatButton, MatMiniFabButton } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -10,9 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CartItemComponent {
-	count = signal<number>(1);
+	readonly count = signal<number>(1);
+	readonly showButtons = input.required<boolean>();
 
-	removeItem(): void {
-		console.log('item removed');
-	}
+	removeItem(): void {}
 }

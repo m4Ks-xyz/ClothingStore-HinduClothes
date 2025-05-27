@@ -15,6 +15,7 @@ import {
 } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { RouterLink } from '@angular/router';
 
 @Component({
 	selector: 'app-address-form',
@@ -26,6 +27,7 @@ import { MatInputModule } from '@angular/material/input';
 		FormsModule,
 		MatFormFieldModule,
 		MatInputModule,
+		RouterLink,
 	],
 	templateUrl: './address-form.component.html',
 	styleUrl: './address-form.component.scss',
@@ -54,6 +56,7 @@ export class AddressFormComponent {
 		this.form.markAllAsTouched();
 
 		if (this.form.valid) {
+			this.form.reset();
 			console.log('Address added:', this.form.value);
 		}
 	}
