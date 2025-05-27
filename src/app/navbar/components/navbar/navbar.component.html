@@ -20,7 +20,10 @@
 								class="icon-close absolute right-1/2 bottom-24 translate-x-1/2 cursor-pointer"
 								>close</mat-icon
 							>
-							<a class="flex w-full items-center justify-between pb-4" href="/">
+							<a
+								class="flex w-full items-center justify-between pb-4"
+								routerLink="/"
+							>
 								<h1 class="text-2xl font-bold">Hindu Store</h1>
 								<img
 									class="w-17 cursor-pointer"
@@ -145,7 +148,9 @@
 				<div
 					class="text-font hidden items-center gap-2 transition-all duration-200 ease-in-out lg:flex"
 				>
-					<mat-icon class="icon m-2 cursor-pointer">shopping_cart</mat-icon>
+					<a routerLink="cart">
+						<mat-icon class="icon m-2 cursor-pointer">shopping_cart</mat-icon>
+					</a>
 
 					<button mat-raised-button class="button">
 						<mat-icon class="mr-2">login</mat-icon>

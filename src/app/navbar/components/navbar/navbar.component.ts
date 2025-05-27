@@ -7,6 +7,7 @@ import { AccordionComponent } from '../../../shared/components/accordion/accordi
 import { menuContent } from '../../constants/menu-content.constants';
 import { MenuContent } from '../../models/menu-content-model';
 import { NavbarContentComponent } from '../navbar-content/navbar-content.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
 	selector: 'app-navbar',
@@ -17,6 +18,7 @@ import { NavbarContentComponent } from '../navbar-content/navbar-content.compone
 		MatMenuModule,
 		NavbarContentComponent,
 		AccordionComponent,
+		RouterLink,
 	],
 	templateUrl: './navbar.component.html',
 	styleUrl: './navbar.component.scss',
