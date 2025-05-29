@@ -8,9 +8,8 @@ import { MatButton } from '@angular/material/button';
 	selector: 'app-payment',
 	imports: [AddressCardComponent, CartItemComponent, MatDivider, MatButton],
 	templateUrl: './payment.component.html',
-	styleUrl: './payment.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PaymentComponent {
-	products = signal([1, 2, 3]);
+	readonly products = signal([1, 2, 3]);
 }

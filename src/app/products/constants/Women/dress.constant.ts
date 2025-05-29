@@ -1,4 +1,4 @@
-export const dressPage1 = [
+export const WOMEN_DRESS = [
 	{
 		uuid: 'cd37683f-ccf7-4ebd-8f51-fe203923b1ed',
 		imageUrl:

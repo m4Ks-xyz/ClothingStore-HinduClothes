@@ -41,13 +41,11 @@
 								<span><p class="text-green-700">1085</p></span>
 							</div>
 						</div>
-						<button
-							(click)="router.navigate(['checkout'])"
-							class="w-full rounded-md!"
-							mat-raised-button
-						>
-							CHECKOUT
-						</button>
+						<a routerLink="/checkout">
+							<button class="w-full rounded-md!" mat-raised-button>
+								CHECKOUT
+							</button>
+						</a>
 					</div>
 				}
 			</section>

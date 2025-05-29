@@ -1,4 +1,4 @@
-export const shoes = [
+export const SHOES = [
 	{
 		uuid: '037725ca-5079-497a-b4e3-77ca940c872b',
 		imageUrl:

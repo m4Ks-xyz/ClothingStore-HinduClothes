@@ -1,18 +1,18 @@
 export const FILTER_OPTIONS = [
 	{
-		label: 'Pending',
-		value: 'pending',
+		label: 'Placed',
+		value: 'placed',
 	},
 	{
-		label: 'Shipped',
-		value: 'shipped',
+		label: 'Confirmed',
+		value: 'confirmed',
 	},
 	{
-		label: 'Delivered',
-		value: 'delivered',
+		label: 'Preparing',
+		value: 'preparing',
 	},
 	{
-		label: 'Cancelled',
-		value: 'cancelled',
+		label: 'Sent',
+		value: 'sent',
 	},
 ];

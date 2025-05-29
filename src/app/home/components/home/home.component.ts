@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { menJeans } from '../../../products/constants/Men/men-jeans.constant';
-import { menKurta } from '../../../products/constants/Men/men-kurta.constant';
-import { shoes } from '../../../products/constants/shoes.constant';
-import { gounsPage1 } from '../../../products/constants/Women/gouns.constant';
-import { lengaCholi } from '../../../products/constants/Women/lengha-choli.constant';
-import { womenKurta } from '../../../products/constants/Women/women-kurta.constant';
+import { MEN_JEANS } from '../../../products/constants/Men/men-jeans.constant';
+import { MEN_KURTA } from '../../../products/constants/Men/men-kurta.constant';
+import { SHOES } from '../../../products/constants/shoes.constant';
+import { WOMEN_GOUNS } from '../../../products/constants/Women/gouns.constant';
+import { WOMEN_LENGA_CHOLI } from '../../../products/constants/Women/lengha-choli.constant';
+import { WOMEN_KURTA } from '../../../products/constants/Women/women-kurta.constant';
 import { WomenGouns } from '../../../products/models/gouns-model';
 import { LengaCholi } from '../../../products/models/lenga-choli-model';
 import { MenJeans } from '../../../products/models/men-jeans.model';
@@ -21,10 +21,10 @@ import { ProductSliderComponent } from '../product-slider/product-slider.compone
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
-	readonly menJeans = signal<MenJeans[]>(menJeans);
-	readonly womenGouns = signal<WomenGouns[]>(gounsPage1);
-	readonly womenKurta = signal<WomenKurta[]>(womenKurta);
-	readonly menKurta = signal<MenKurta[]>(menKurta);
-	readonly shoes = signal<Shoes[]>(shoes);
-	readonly lenghaCholi = signal<LengaCholi[]>(lengaCholi);
+	readonly menJeans = signal<MenJeans[]>(MEN_JEANS);
+	readonly womenGouns = signal<WomenGouns[]>(WOMEN_GOUNS);
+	readonly womenKurta = signal<WomenKurta[]>(WOMEN_KURTA);
+	readonly menKurta = signal<MenKurta[]>(MEN_KURTA);
+	readonly shoes = signal<Shoes[]>(SHOES);
+	readonly lenghaCholi = signal<LengaCholi[]>(WOMEN_LENGA_CHOLI);
 }

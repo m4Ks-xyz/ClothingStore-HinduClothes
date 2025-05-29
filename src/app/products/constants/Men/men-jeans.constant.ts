@@ -1,4 +1,4 @@
-export const menJeans = [
+export const MEN_JEANS = [
 	{
 		uuid: '2c05a73a-2a35-429b-b758-0092ef8b0667',
 		imageUrl:

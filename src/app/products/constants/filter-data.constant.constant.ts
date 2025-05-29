@@ -1,4 +1,4 @@
-export const filters = [
+export const PRODUCT_FILTERS = [
 	{
 		id: 'color',
 		name: 'Color',

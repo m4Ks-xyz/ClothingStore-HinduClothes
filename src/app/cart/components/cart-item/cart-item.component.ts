@@ -11,12 +11,13 @@ import { MatIconModule } from '@angular/material/icon';
 	selector: 'app-cart-item',
 	imports: [MatMiniFabButton, MatIconModule, MatButton],
 	templateUrl: './cart-item.component.html',
-	styleUrl: './cart-item.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CartItemComponent {
 	readonly count = signal<number>(1);
 	readonly showButtons = input.required<boolean>();
 
-	removeItem(): void {}
+	removeItem(): void {
+		console.log('Item removed');
+	}
 }

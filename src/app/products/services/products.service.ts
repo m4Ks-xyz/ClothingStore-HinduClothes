@@ -1,12 +1,12 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { filters } from '../constants/filter-data.constant.constant';
-import { menJeans } from '../constants/Men/men-jeans.constant';
-import { menKurta } from '../constants/Men/men-kurta.constant';
-import { shoes } from '../constants/shoes.constant';
-import { gounsPage1 } from '../constants/Women/gouns.constant';
-import { lengaCholi } from '../constants/Women/lengha-choli.constant';
-import { womenKurta } from '../constants/Women/women-kurta.constant';
+import { PRODUCT_FILTERS } from '../constants/filter-data.constant.constant';
+import { MEN_JEANS } from '../constants/Men/men-jeans.constant';
+import { MEN_KURTA } from '../constants/Men/men-kurta.constant';
+import { SHOES } from '../constants/shoes.constant';
+import { WOMEN_GOUNS } from '../constants/Women/gouns.constant';
+import { WOMEN_LENGA_CHOLI } from '../constants/Women/lengha-choli.constant';
+import { WOMEN_KURTA } from '../constants/Women/women-kurta.constant';
 import { Filter } from '../models/filter-data.model';
 import { WomenGouns } from '../models/gouns-model';
 import { LengaCholi } from '../models/lenga-choli-model';
@@ -24,14 +24,14 @@ export class ProductsService {
 	readonly activeRoute = inject(ActivatedRoute);
 	readonly router = inject(Router);
 
-	readonly menJeans = signal<MenJeans[]>(menJeans);
-	readonly womenGouns = signal<WomenGouns[]>(gounsPage1);
-	readonly womenKurta = signal<WomenKurta[]>(womenKurta);
-	readonly menKurta = signal<MenKurta[]>(menKurta);
-	readonly shoes = signal<Shoes[]>(shoes);
-	readonly lenghaCholi = signal<LengaCholi[]>(lengaCholi);
+	readonly menJeans = signal<MenJeans[]>(MEN_JEANS);
+	readonly womenGouns = signal<WomenGouns[]>(WOMEN_GOUNS);
+	readonly womenKurta = signal<WomenKurta[]>(WOMEN_KURTA);
+	readonly menKurta = signal<MenKurta[]>(MEN_KURTA);
+	readonly shoes = signal<Shoes[]>(SHOES);
+	readonly lenghaCholi = signal<LengaCholi[]>(WOMEN_LENGA_CHOLI);
 
-	readonly filterContent: Filter[] = filters;
+	readonly filterContent: Filter[] = PRODUCT_FILTERS;
 
 	currentProduct(productCategory: ProductCategory): UnknownProduct[] {
 		switch (productCategory) {

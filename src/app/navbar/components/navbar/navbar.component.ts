@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { AccordionComponent } from '../../../shared/components/accordion/accordion.component';
-import { menuContent } from '../../constants/menu-content.constants';
+import { MENU_CONTENT } from '../../constants/menu-content.constants';
 import { MenuContent } from '../../models/menu-content-model';
 import { NavbarContentComponent } from '../navbar-content/navbar-content.component';
 import { RouterLink } from '@angular/router';
@@ -30,7 +30,7 @@ export class NavbarComponent {
 	readonly sidenavOpen = signal<boolean>(false);
 	readonly showMenContent = signal<boolean>(false);
 	readonly showWomenContent = signal<boolean>(false);
-	readonly content = signal<MenuContent>(menuContent);
+	readonly content = signal<MenuContent>(MENU_CONTENT);
 
 	hideNavContent(): void {
 		this.showMenContent.set(false);

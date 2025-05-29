@@ -1,4 +1,4 @@
-export const menKurta = [
+export const MEN_KURTA = [
 	{
 		uuid: '6a67c3d1-2782-489f-840d-301b5dbbbf6d',
 		imageUrl:

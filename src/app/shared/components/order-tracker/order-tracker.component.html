@@ -1,0 +1,43 @@
+<div class="flex items-center justify-center gap-5 py-10">
+	@for (
+		step of steps();
+		track step.id;
+		let last = $last;
+		let first = $first;
+		let i = $index
+	) {
+		<div
+			[class]="{
+				hidden: !first,
+				'md:flex': !first,
+			}"
+			class="flex max-w-1/5 flex-col items-center justify-evenly gap-y-2 md:flex-row md:gap-x-4"
+		>
+			<div class="flex flex-col items-center justify-center gap-y-2">
+				<mat-icon
+					class="icon"
+					[class]="{
+						'text-green-500!':
+							activeStep().title === step.title || i <= activeStep().id,
+						'text-gray-300!':
+							activeStep().title !== step.title &&
+							activeStep().title !== 'Order Placed',
+					}"
+					>check_circle</mat-icon
+				>
+				<span class="text-center"> {{ step.title }} </span>
+			</div>
+
+			@if (!last) {
+				<div
+					class="hidden h-1 w-12 rounded-2xl border-2 border-gray-300 md:block"
+					[class]="{
+						'border-green-500!':
+							activeStep().title === step.title || i <= activeStep().id,
+						'border-gray-300!': activeStep().title !== step.title,
+					}"
+				></div>
+			}
+		</div>
+	}
+</div>

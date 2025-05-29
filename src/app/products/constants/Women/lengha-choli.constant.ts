@@ -1,4 +1,4 @@
-export const lengaCholi = [
+export const WOMEN_LENGA_CHOLI = [
 	{
 		uuid: 'a64dfd3a-d61d-49c6-b7fa-8bea2171eff0',
 		imageUrl:

@@ -1,4 +1,4 @@
-export const mainCarouselData = [
+export const MAIN_CAROUSEL_DATA = [
 	{
 		image:
 			'https://ethnicplus.in/media/mageplaza/bannerslider/banner/image/1/0/10_5.jpg',

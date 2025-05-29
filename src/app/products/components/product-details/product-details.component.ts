@@ -14,7 +14,7 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { ProductCardComponent } from '../../../shared/components/product-card/product-card.component';
-import { menKurta } from '../../constants/Men/men-kurta.constant';
+import { MEN_KURTA } from '../../constants/Men/men-kurta.constant';
 import { BaseProduct } from '../../models/base-product.model';
 import { ProductRatingComponent } from '../product-rating/product-rating.component';
 import { ProductReviewCardComponent } from '../product-review-card/product-review-card.component';
@@ -38,11 +38,11 @@ export class ProductDetailsComponent {
 	readonly #router = inject(Router);
 	readonly #fb = inject(FormBuilder);
 
-	id = input<string>();
+	readonly id = input<string>();
 
 	reviews = [1, 2, 3];
 
-	testProduct = signal<BaseProduct[]>(menKurta);
+	testProduct = signal<BaseProduct[]>(MEN_KURTA);
 
 	form = this.#fb.group({
 		size: ['S', [Validators.required]],

@@ -1,4 +1,4 @@
-export const sareePage1 = [
+export const WOMEN_SAREE = [
 	{
 		uuid: '06ea9a31-f5f0-420a-b15c-e45c121b7bf3',
 		imageUrl:

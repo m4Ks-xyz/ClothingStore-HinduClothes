@@ -1,4 +1,4 @@
-export const footerContent = [
+export const FOOTER_CONTENT = [
 	{
 		id: 'categories',
 		name: 'Categories',

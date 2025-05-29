@@ -36,7 +36,7 @@ import { RouterLink } from '@angular/router';
 export class AddressFormComponent {
 	readonly #fb = inject(FormBuilder);
 
-	addresses = signal([1, 2, 3]);
+	readonly addresses = signal([1, 2, 3]);
 
 	readonly form = this.#fb.group({
 		firstName: [null, Validators.required],

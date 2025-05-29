@@ -1,4 +1,4 @@
-export const womenKurta = [
+export const WOMEN_KURTA = [
 	{
 		uuid: '42589bf6-6ceb-4aa9-b9fd-140bddc4b1e8',
 		imageUrl:

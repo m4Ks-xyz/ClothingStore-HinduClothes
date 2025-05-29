@@ -1,4 +1,4 @@
-export const mensPantsPage1 = [
+export const MEN_PANTS = [
 	{
 		imageUrl:
 			'https://rukminim1.flixcart.com/image/612/612/kb1470w0/jean/x/r/a/30-11274626-roadster-original-imafsgsthk6gdpjg.jpeg?q=70',

@@ -1,4 +1,4 @@
-export const gounsPage1 = [
+export const WOMEN_GOUNS = [
 	{
 		uuid: '324a56fe-71df-479d-ac89-95091ac1a54c',
 		imageUrl:

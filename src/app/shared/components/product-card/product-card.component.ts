@@ -12,5 +12,5 @@ import { BaseProduct } from '../../../products/models/base-product.model';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductCardComponent {
-	item = input.required<BaseProduct>();
+	readonly item = input.required<BaseProduct>();
 }
