@@ -10,7 +10,7 @@ import { FILTER_STEPS } from '../../constants/order-status-steps.constant';
 	templateUrl: './order-details.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OrderDetailsComponent {
+export default class OrderDetailsComponent {
 	readonly orders = signal([4, 5, 6]); // Example data, replace with actual order data
 	readonly steps = signal(FILTER_STEPS);
 }

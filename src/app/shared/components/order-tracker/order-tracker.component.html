@@ -1,15 +1,9 @@
 <div class="flex items-center justify-center gap-5 py-10">
-	@for (
-		step of steps();
-		track step.id;
-		let last = $last;
-		let first = $first;
-		let i = $index
-	) {
+	@for (step of steps(); track step.id) {
 		<div
 			[class]="{
-				hidden: !first,
-				'md:flex': !first,
+				hidden: !$first,
+				'md:flex': !$first,
 			}"
 			class="flex max-w-1/5 flex-col items-center justify-evenly gap-y-2 md:flex-row md:gap-x-4"
 		>
@@ -18,7 +12,7 @@
 					class="icon"
 					[class]="{
 						'text-green-500!':
-							activeStep().title === step.title || i <= activeStep().id,
+							activeStep().title === step.title || $index <= activeStep().id,
 						'text-gray-300!':
 							activeStep().title !== step.title &&
 							activeStep().title !== 'Order Placed',
@@ -28,12 +22,12 @@
 				<span class="text-center"> {{ step.title }} </span>
 			</div>
 
-			@if (!last) {
+			@if (!$last) {
 				<div
 					class="hidden h-1 w-12 rounded-2xl border-2 border-gray-300 md:block"
 					[class]="{
 						'border-green-500!':
-							activeStep().title === step.title || i <= activeStep().id,
+							activeStep().title === step.title || $index <= activeStep().id,
 						'border-gray-300!': activeStep().title !== step.title,
 					}"
 				></div>

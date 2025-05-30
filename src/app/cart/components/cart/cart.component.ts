@@ -10,6 +10,6 @@ import { RouterLink } from '@angular/router';
 	templateUrl: './cart.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CartComponent {
+export default class CartComponent {
 	readonly cart = [1, 2, 3];
 }

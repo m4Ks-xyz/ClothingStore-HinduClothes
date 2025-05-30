@@ -7,4 +7,4 @@ import { AddressFormComponent } from '../address-form/address-form.component';
 	templateUrl: './checkout.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CheckoutComponent {}
+export default class CheckoutComponent {}

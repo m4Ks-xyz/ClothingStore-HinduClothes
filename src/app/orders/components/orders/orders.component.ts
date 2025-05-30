@@ -9,7 +9,7 @@ import { OrderCardComponent } from '../order-card/order-card.component';
 	templateUrl: './orders.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OrdersComponent {
+export default class OrdersComponent {
 	readonly filterOptions: { value: string; label: string }[] = FILTER_OPTIONS;
 	readonly orders = signal([
 		[1, 2, 3],

@@ -10,6 +10,6 @@ import { MatButton } from '@angular/material/button';
 	templateUrl: './payment.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PaymentComponent {
+export default class PaymentComponent {
 	readonly products = signal([1, 2, 3]);
 }

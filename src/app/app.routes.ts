@@ -1,29 +1,50 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/components/home/home.component';
-import { ProductsComponent } from './products/components/products/products.component';
-import { CartComponent } from './cart/components/cart/cart.component';
-import { ProductDetailsComponent } from './products/components/product-details/product-details.component';
-import { CheckoutComponent } from './checkout/components/checkout/checkout.component';
-import { PaymentComponent } from './checkout/components/payment/payment.component';
-import { PaymentSuccessComponent } from './checkout/components/payment-success/payment-success.component';
-import { OrdersComponent } from './orders/components/orders/orders.component';
-import { OrderDetailsComponent } from './orders/components/order-details/order-details.component';
 
 export const routes: Routes = [
 	{
 		path: 'admin',
-		loadChildren: () =>
-			import('./admin/modules/admin/admin-routing.module').then(
-				(m) => m.AdminRoutingModule,
-			),
+		loadChildren: () => import('./admin/modules/admin/admin-routing.module'),
 	},
-	{ path: '', component: HomeComponent },
-	{ path: 'products/:category', component: ProductsComponent },
-	{ path: 'cart', component: CartComponent },
-	{ path: 'product-details/:id', component: ProductDetailsComponent },
-	{ path: 'checkout', component: CheckoutComponent },
-	{ path: 'checkout/payment/:id', component: PaymentComponent },
-	{ path: 'payment-success', component: PaymentSuccessComponent },
-	{ path: 'account/orders', component: OrdersComponent },
-	{ path: 'order/:id', component: OrderDetailsComponent },
+	{
+		path: '',
+		loadComponent: () => import('./home/components/home/home.component'),
+	},
+	{
+		path: 'products/:category',
+		loadChildren: () =>
+			import('./products/components/products/products.component'),
+	},
+	{
+		path: 'cart',
+		loadComponent: () => import('./cart/components/cart/cart.component'),
+	},
+	{
+		path: 'product-details/:id',
+		loadComponent: () =>
+			import('./products/components/product-details/product-details.component'),
+	},
+	{
+		path: 'checkout',
+		loadComponent: () =>
+			import('./checkout/components/checkout/checkout.component'),
+	},
+	{
+		path: 'checkout/payment/:id',
+		loadComponent: () =>
+			import('./checkout/components/payment/payment.component'),
+	},
+	{
+		path: 'payment-success',
+		loadComponent: () =>
+			import('./checkout/components/payment-success/payment-success.component'),
+	},
+	{
+		path: 'account/orders',
+		loadChildren: () => import('./orders/components/orders/orders.component'),
+	},
+	{
+		path: 'order/:id',
+		loadChildren: () =>
+			import('./orders/components/order-details/order-details.component'),
+	},
 ];

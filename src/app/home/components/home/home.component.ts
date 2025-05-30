@@ -20,7 +20,7 @@ import { ProductSliderComponent } from '../product-slider/product-slider.compone
 	templateUrl: './home.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent {
+export default class HomeComponent {
 	readonly menJeans = signal<MenJeans[]>(MEN_JEANS);
 	readonly womenGouns = signal<WomenGouns[]>(WOMEN_GOUNS);
 	readonly womenKurta = signal<WomenKurta[]>(WOMEN_KURTA);

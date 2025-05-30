@@ -34,7 +34,7 @@ import { Router } from '@angular/router';
 	templateUrl: './product-details.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductDetailsComponent {
+export default class ProductDetailsComponent {
 	readonly #router = inject(Router);
 	readonly #fb = inject(FormBuilder);
 

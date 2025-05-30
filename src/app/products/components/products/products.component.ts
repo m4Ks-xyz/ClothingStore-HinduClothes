@@ -30,7 +30,7 @@ import { ProductCategory } from '../../types/product-catergory.type';
 	styleUrl: './products.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductsComponent {
+export default class ProductsComponent {
 	readonly #productsService = inject(ProductsService);
 
 	readonly category = input.required<ProductCategory>();

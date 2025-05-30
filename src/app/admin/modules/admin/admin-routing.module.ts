@@ -1,5 +1,4 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { AdminComponent } from '../../components/admin/admin.component';
 import { DashboardComponent } from '../../components/dashboard/dashboard.component';
 import { AdminProductsComponent } from '../../components/admin-products/admin-products.component';
@@ -7,7 +6,7 @@ import { AdminOrdersComponent } from '../../components/admin-orders/admin-orders
 import { CustomersComponent } from '../../../customers/customers.component';
 import { NewProductComponent } from '../../components/new-product/new-product.component';
 
-const routes: Routes = [
+const adminRoutes: Routes = [
 	{
 		path: '',
 		component: AdminComponent,
@@ -21,8 +20,4 @@ const routes: Routes = [
 	},
 ];
 
-@NgModule({
-	imports: [RouterModule.forChild(routes)],
-	exports: [RouterModule],
-})
-export class AdminRoutingModule {}
+export default adminRoutes;
