@@ -1,35 +1,13 @@
 <div class="container">
 	<div class="grid grid-cols-1 gap-4 px-5 lg:grid-cols-12 lg:px-20">
 		<div class="col-span-1 lg:col-span-5">
-			<div
-				class="hide-scrollbar box h-128 overflow-y-scroll rounded-md py-5 shadow-md"
-			>
-				<div class="flex cursor-pointer flex-col gap-4 p-5 py-7">
-					@for (address of addresses(); track address; let last = $last) {
-						<app-address-card [address]="address" />
-
-						<a routerLink="payment/2c05a73a-2a35-429b-b758-0092ef8b0667">
-							<button
-								class="w-full rounded-md! p-7 md:w-1/2 lg:w-1/3"
-								mat-raised-button
-								(click)="createOrder()"
-							>
-								Deliver Here
-							</button>
-						</a>
-
-						@if (!last) {
-							<mat-divider />
-						}
-					}
-				</div>
-			</div>
+			<app-address-list [addresses]="addresses()" />
 		</div>
 
 		<div class="col-span-1 lg:col-span-7">
 			<div class="box rounded-md p-5 shadow-md">
 				<form [formGroup]="form" class="md:space-y-5">
-					<h1 class="mb-5 text-2xl font-semibold">Add Shipping Address</h1>
+					<h2 class="mb-5 text-2xl font-semibold">Add Shipping Address</h2>
 
 					<div
 						class="flex flex-col items-center justify-between gap-x-4 md:flex-row"

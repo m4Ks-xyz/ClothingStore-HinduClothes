@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MAIN_CAROUSEL_DATA } from './constants/main-carousel';
+import { MainCarouselDataModel } from './models/main-carousel-data-model';
 
 @Component({
 	selector: 'app-main-carousel',
@@ -19,8 +20,7 @@ import { MAIN_CAROUSEL_DATA } from './constants/main-carousel';
 export class MainCarouselComponent implements OnInit {
 	readonly #destroyRef = inject(DestroyRef);
 
-	readonly carouselData =
-		signal<{ image: string; path: string }[]>(MAIN_CAROUSEL_DATA);
+	readonly carouselData = signal<MainCarouselDataModel[]>(MAIN_CAROUSEL_DATA);
 	readonly currentSlide = signal(0);
 
 	ngOnInit() {

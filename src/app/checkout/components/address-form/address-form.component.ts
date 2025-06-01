@@ -5,8 +5,6 @@ import {
 	signal,
 } from '@angular/core';
 import { MatButton } from '@angular/material/button';
-import { MatDivider } from '@angular/material/divider';
-import { AddressCardComponent } from '../../../shared/components/address-card/address-card.component';
 import {
 	FormBuilder,
 	FormsModule,
@@ -15,19 +13,17 @@ import {
 } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { RouterLink } from '@angular/router';
+import { AddressListComponent } from '../address-list/address-list.component';
 
 @Component({
 	selector: 'app-address-form',
 	imports: [
 		MatButton,
-		MatDivider,
-		AddressCardComponent,
 		ReactiveFormsModule,
 		FormsModule,
 		MatFormFieldModule,
 		MatInputModule,
-		RouterLink,
+		AddressListComponent,
 	],
 	templateUrl: './address-form.component.html',
 	styleUrl: './address-form.component.scss',
@@ -47,10 +43,6 @@ export class AddressFormComponent {
 		number: [null, Validators.required],
 		phoneNumber: [null, Validators.required],
 	});
-
-	createOrder() {
-		console.log('Order created');
-	}
 
 	addAddress() {
 		this.form.markAllAsTouched();

@@ -1,12 +1,11 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { AddressCardComponent } from '../../../shared/components/address-card/address-card.component';
-import { CartItemComponent } from '../../../cart/components/cart-item/cart-item.component';
-import { MatDivider } from '@angular/material/divider';
-import { MatButton } from '@angular/material/button';
+import { AddressCardComponent } from '../address-card/address-card.component';
+import { CartItemListComponent } from '../../../cart/components/cart-item-list/cart-item-list.component';
+import { OrderSummaryComponent } from '../../../cart/components/order-summary/order-summary.component';
 
 @Component({
 	selector: 'app-payment',
-	imports: [AddressCardComponent, CartItemComponent, MatDivider, MatButton],
+	imports: [AddressCardComponent, CartItemListComponent, OrderSummaryComponent],
 	templateUrl: './payment.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })

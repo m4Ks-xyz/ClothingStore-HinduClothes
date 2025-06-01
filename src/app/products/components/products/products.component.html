@@ -43,11 +43,7 @@
 					<mat-icon>filter_list</mat-icon>
 				</div>
 				<form class="hidden lg:block">
-					@for (
-						category of filterContent;
-						track category.id;
-						let last = $last
-					) {
+					@for (category of filterContent; track category.id) {
 						<div class="pt-6">
 							<span class="font-medium">{{ category.name }}</span>
 							<div class="bg" id="filter-section-0">
@@ -68,7 +64,7 @@
 									}
 								</div>
 							</div>
-							@if (!last) {
+							@if (!$last) {
 								<mat-divider />
 							}
 						</div>

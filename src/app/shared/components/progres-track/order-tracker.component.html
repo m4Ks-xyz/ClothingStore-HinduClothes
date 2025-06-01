@@ -1,10 +1,8 @@
 <div class="flex items-center justify-center gap-5 py-10">
 	@for (step of steps(); track step.id) {
 		<div
-			[class]="{
-				hidden: !$first,
-				'md:flex': !$first,
-			}"
+			[class.hidden]="!$first"
+			[class.md:flex]="!$first"
 			class="flex max-w-1/5 flex-col items-center justify-evenly gap-y-2 md:flex-row md:gap-x-4"
 		>
 			<div class="flex flex-col items-center justify-center gap-y-2">

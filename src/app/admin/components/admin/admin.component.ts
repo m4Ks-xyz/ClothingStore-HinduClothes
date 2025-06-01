@@ -7,4 +7,4 @@ import { RouterOutlet } from '@angular/router';
 	templateUrl: './admin.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AdminComponent {}
+export default class AdminComponent {}

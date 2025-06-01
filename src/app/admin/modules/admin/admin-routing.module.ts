@@ -1,21 +1,34 @@
 import { Routes } from '@angular/router';
-import { AdminComponent } from '../../components/admin/admin.component';
-import { DashboardComponent } from '../../components/dashboard/dashboard.component';
-import { AdminProductsComponent } from '../../components/admin-products/admin-products.component';
-import { AdminOrdersComponent } from '../../components/admin-orders/admin-orders.component';
-import { CustomersComponent } from '../../../customers/customers.component';
-import { NewProductComponent } from '../../components/new-product/new-product.component';
 
 const adminRoutes: Routes = [
 	{
 		path: '',
-		component: AdminComponent,
+		loadComponent: () => import('../../components/admin/admin.component'),
 		children: [
-			{ path: '', component: DashboardComponent },
-			{ path: 'products', component: AdminProductsComponent },
-			{ path: 'orders', component: AdminOrdersComponent },
-			{ path: 'customers', component: CustomersComponent },
-			{ path: 'new-product', component: NewProductComponent },
+			{
+				path: '',
+				loadComponent: () =>
+					import('../../components/dashboard/dashboard.component'),
+			},
+			{
+				path: 'products',
+				loadComponent: () =>
+					import('../../components/admin-products/admin-products.component'),
+			},
+			{
+				path: 'orders',
+				loadComponent: () =>
+					import('../../components/admin-orders/admin-orders.component'),
+			},
+			{
+				path: 'customers',
+				loadComponent: () => import('../../../customers/customers.component'),
+			},
+			{
+				path: 'new-product',
+				loadComponent: () =>
+					import('../../components/new-product/new-product.component'),
+			},
 		],
 	},
 ];

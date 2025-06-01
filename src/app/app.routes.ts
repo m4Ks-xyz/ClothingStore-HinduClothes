@@ -11,7 +11,7 @@ export const routes: Routes = [
 	},
 	{
 		path: 'products/:category',
-		loadChildren: () =>
+		loadComponent: () =>
 			import('./products/components/products/products.component'),
 	},
 	{
@@ -40,11 +40,11 @@ export const routes: Routes = [
 	},
 	{
 		path: 'account/orders',
-		loadChildren: () => import('./orders/components/orders/orders.component'),
+		loadComponent: () => import('./orders/components/orders/orders.component'),
 	},
 	{
 		path: 'order/:id',
-		loadChildren: () =>
+		loadComponent: () =>
 			import('./orders/components/order-details/order-details.component'),
 	},
 ];

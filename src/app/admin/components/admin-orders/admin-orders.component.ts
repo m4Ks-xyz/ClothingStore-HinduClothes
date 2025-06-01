@@ -6,4 +6,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 	templateUrl: './admin-orders.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AdminOrdersComponent {}
+export default class AdminOrdersComponent {}

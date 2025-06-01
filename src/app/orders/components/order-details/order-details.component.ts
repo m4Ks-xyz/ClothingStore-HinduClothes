@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { AddressCardComponent } from '../../../shared/components/address-card/address-card.component';
+import { AddressCardComponent } from '../../../checkout/components/address-card/address-card.component';
 import { OrderCardComponent } from '../order-card/order-card.component';
-import { OrderTrackerComponent } from '../../../shared/components/order-tracker/order-tracker.component';
 import { FILTER_STEPS } from '../../constants/order-status-steps.constant';
+import { OrderTrackerComponent } from '../../../shared/components/progres-track/order-tracker.component';
 
 @Component({
 	selector: 'app-order-details',

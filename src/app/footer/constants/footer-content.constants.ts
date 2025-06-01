@@ -1,4 +1,6 @@
-export const FOOTER_CONTENT = [
+import { FooterContent } from '../models/footer-content-model';
+
+export const FOOTER_CONTENT: FooterContent = [
 	{
 		id: 'categories',
 		name: 'Categories',

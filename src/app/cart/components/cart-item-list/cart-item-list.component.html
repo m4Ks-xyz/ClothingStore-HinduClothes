@@ -1,0 +1,12 @@
+@if (cartProducts()) {
+	@for (cart of cartProducts(); track cart; let last = $last) {
+		<app-cart-item [showButtons]="true" />
+		@if (!last) {
+			<mat-divider />
+		}
+	}
+} @else {
+	<div class="p-5 shadow-lg">
+		<p>Add something to cart</p>
+	</div>
+}

@@ -5,7 +5,7 @@ import {
 	signal,
 } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { generateUUID } from '../../utils/math/random-uuid-util';
+import { generateUUID } from '../../utils/random/random-uuid-util';
 
 @Component({
 	selector: 'app-accordion',

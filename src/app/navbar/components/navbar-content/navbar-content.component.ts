@@ -5,10 +5,11 @@ import {
 	output,
 } from '@angular/core';
 import { MenuCategory } from '../../models/menu-content-model';
+import { RouterLink } from '@angular/router';
 
 @Component({
 	selector: 'app-navbar-content',
-	imports: [],
+	imports: [RouterLink],
 	templateUrl: './navbar-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -17,5 +18,5 @@ export class NavbarContentComponent {
 	readonly showWomenContent = input.required<boolean>();
 	readonly content = input.required<MenuCategory>();
 
-	hideNavContent = output(); // pytanie czy routing zamknie to czy nie ???
+	hideNavContent = output();
 }

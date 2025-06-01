@@ -1,4 +1,3 @@
-@let showButtonGroup = showButtons();
 <div class="p-5 shadow-lg">
 	<div class="flex items-center">
 		<div class="size-20 lg:size-36">
@@ -25,13 +24,14 @@
 	</div>
 
 	<div class="flex items-center justify-between pt-6 lg:space-x-10">
-		@if (showButtonGroup) {
+		@if (showButtons()) {
 			<div
-				class="flex w-full  flex-col items-center justify-center gap-6 sm:flex-row sm:justify-between"
+				class="flex w-full flex-col items-center justify-center gap-6 sm:flex-row sm:justify-between"
 			>
 				<div class="button-group flex items-center gap-4">
 					<button
 						class="rounded-full! bg-gray-800!"
+						aria-label="Decrease amount by 1"
 						mat-mini-fab
 						[disabled]="count() === 1"
 						(click)="count.set(count() - 1)"
@@ -44,6 +44,7 @@
 					<button
 						class="rounded-full! bg-gray-500!"
 						mat-mini-fab
+						aria-label="Increase amount by 1"
 						(click)="count.set(count() + 1)"
 					>
 						<mat-icon (click)="removeItem()" class="text-gray-900!"

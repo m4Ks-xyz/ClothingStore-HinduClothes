@@ -12,11 +12,3 @@
 	--mdc-filled-text-field-error-focus-label-text-color: #ff0000;
 	--mdc-filled-text-field-focus-label-text-color: #89361b;
 }
-
-.hide-scrollbar {
-	scrollbar-width: none;
-}
-
-.hide-scrollbar::-webkit-scrollbar {
-	display: none;
-}

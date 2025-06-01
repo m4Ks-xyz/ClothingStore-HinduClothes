@@ -33,7 +33,7 @@ export class ProductsService {
 
 	readonly filterContent: Filter[] = PRODUCT_FILTERS;
 
-	currentProduct(productCategory: ProductCategory): UnknownProduct[] {
+	getProductsByCategory(productCategory: ProductCategory): UnknownProduct[] {
 		switch (productCategory) {
 			case 'lenghaCholi':
 				return this.lenghaCholi();
@@ -50,7 +50,7 @@ export class ProductsService {
 		}
 	}
 
-	multipleSelectFilter(value: string, name: string): void {
+	toggleFilter(value: string, name: string): void {
 		const queryParams = { ...this.activeRoute.snapshot.queryParams };
 		const filterValues = queryParams[name] ? queryParams[name].split(',') : [];
 

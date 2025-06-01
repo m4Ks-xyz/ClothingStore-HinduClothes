@@ -1,15 +1,13 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CartItemComponent } from '../cart-item/cart-item.component';
-import { MatDivider } from '@angular/material/divider';
-import { MatButton } from '@angular/material/button';
-import { RouterLink } from '@angular/router';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { CartItemListComponent } from '../cart-item-list/cart-item-list.component';
+import { OrderSummaryComponent } from '../order-summary/order-summary.component';
 
 @Component({
 	selector: 'app-cart',
-	imports: [CartItemComponent, MatDivider, MatButton, RouterLink],
+	imports: [CartItemListComponent, OrderSummaryComponent],
 	templateUrl: './cart.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class CartComponent {
-	readonly cart = [1, 2, 3];
+	readonly cartProducts = signal([1, 2, 3]);
 }

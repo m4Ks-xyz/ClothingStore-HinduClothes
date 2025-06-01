@@ -3,7 +3,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { OrderStatusStep } from '../../../orders/models/order-status-steps.model';
 
 @Component({
-	selector: 'app-order-tracker',
+	selector: 'app-progres-track',
 	imports: [MatIconModule],
 	templateUrl: './order-tracker.component.html',
 	styleUrl: './order-tracker.component.scss',

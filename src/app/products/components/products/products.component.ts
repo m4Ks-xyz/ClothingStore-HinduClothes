@@ -33,15 +33,16 @@ import { ProductCategory } from '../../types/product-catergory.type';
 export default class ProductsComponent {
 	readonly #productsService = inject(ProductsService);
 
+	// Query param
 	readonly category = input.required<ProductCategory>();
 
 	readonly products = computed(() => {
-		return this.#productsService.currentProduct(this.category());
+		return this.#productsService.getProductsByCategory(this.category());
 	});
 
 	readonly filterContent = this.#productsService.filterContent;
 
 	selectedFilters(value: string, name: string): void {
-		this.#productsService.multipleSelectFilter(value, name);
+		this.#productsService.toggleFilter(value, name);
 	}
 }

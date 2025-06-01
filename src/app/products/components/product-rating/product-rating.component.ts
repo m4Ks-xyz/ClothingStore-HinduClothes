@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { RATING_CATEGORIES } from '../../constants/product-rating-categories-constant';
+import { RATING_CATEGORIES } from '../../constants/product-rating-categories.constant';
 import { StarRatingComponent } from '../star-rating/star-rating.component';
 
 @Component({

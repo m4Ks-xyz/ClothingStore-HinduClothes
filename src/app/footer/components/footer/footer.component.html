@@ -1,6 +1,6 @@
 <footer>
 	<div class="flex justify-center bg-white p-8 text-black">
-		<div class="w- container flex flex-col space-x-8 lg:flex-row">
+		<div class="container flex flex-col space-x-8 lg:flex-row">
 			<address class="pb-3 not-italic">
 				<h3 class="pb-3 text-xl">Contact Us</h3>
 				<a
@@ -45,23 +45,24 @@
 
 					<ng-template #accordionContent>
 						<div class="flex w-full flex-col">
-							@for (content of item.items; track content.id) {
-								<a class="hover:text-primary p-1" href="/">{{
-									content.name
-								}}</a>
-							}
+							<ul>
+								@for (content of item.items; track content.id) {
+									<li>
+										<a class="hover:text-primary p-1" href="/">{{
+											content.name
+										}}</a>
+									</li>
+								}
+							</ul>
 						</div>
 					</ng-template>
 				}
 			</div>
 		</div>
 	</div>
-	<a
-		class="py-3 text-center"
-		href="https://github.com/m4Ks-xyz?tab=repositories"
-	>
-		<h3 class="hover:text-primary bg-white text-black">
+	<h3 class="hover:text-primary bg-white py-3 text-center text-black">
+		<a href="https://github.com/m4Ks-xyz?tab=repositories">
 			Hindu Clothes | Maksymilian Tomowiak &copy; 2025
-		</h3>
-	</a>
+		</a>
+	</h3>
 </footer>
