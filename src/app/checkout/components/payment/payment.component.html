@@ -9,7 +9,10 @@
 		>
 			<div class="col-span-2">
 				<div class="box space-y-3 rounded-md">
-					<app-cart-item-list [cartProducts]="products()" />
+					<app-cart-item-list
+						[cartProducts]="products()"
+						[showButtons]="false"
+					/>
 				</div>
 			</div>
 

@@ -26,7 +26,7 @@
 			<a routerLink="/checkout">
 				<button class="w-full rounded-md!" mat-raised-button>CHECKOUT</button>
 			</a>
-		} @else {
+		} @else if (buttonMode() === "payment") {
 			<a routerLink="/payment">
 				<button class="w-full rounded-md!" mat-raised-button>PAY NOW</button>
 			</a>

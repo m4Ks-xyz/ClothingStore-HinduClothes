@@ -9,5 +9,6 @@ import { MatDivider } from '@angular/material/divider';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CartItemListComponent {
+	showButtons = input.required<boolean>();
 	cartProducts = input.required<any[]>();
 }

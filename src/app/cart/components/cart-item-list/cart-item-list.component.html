@@ -1,6 +1,6 @@
 @if (cartProducts()) {
 	@for (cart of cartProducts(); track cart; let last = $last) {
-		<app-cart-item [showButtons]="true" />
+		<app-cart-item [showButtons]="showButtons()" />
 		@if (!last) {
 			<mat-divider />
 		}
