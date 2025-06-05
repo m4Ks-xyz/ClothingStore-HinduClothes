@@ -1,0 +1,21 @@
+<div
+	[class]="{ 'hidden!': sidenavStatus() }"
+	class="flex items-center justify-center gap-x-2"
+>
+	<a routerLink="cart" class="flex items-center p-3">
+		<mat-icon
+			class="icon text-primary! md:hover:text-primary! cursor-pointer md:text-black!"
+			>shopping_cart</mat-icon
+		>
+	</a>
+	<app-navbar-user-profile />
+	<button
+		class="flex! items-center! justify-center! p-2! lg:hidden!"
+		mat-icon-button
+		(click)="sidenavToggle.emit(!sidenavStatus())"
+	>
+		<mat-icon class="text-primary! h-16 w-16 items-center justify-center">
+			menu</mat-icon
+		>
+	</button>
+</div>

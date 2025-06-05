@@ -3,11 +3,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { AccordionComponent } from '../../../shared/components/accordion/accordion.component';
 import { MENU_CONTENT } from '../../constants/menu-content.constants';
-import { MenuContent } from '../../models/menu-content-model';
+import { MenuCategory } from '../../models/menu-content-model';
 import { NavbarContentComponent } from '../navbar-content/navbar-content.component';
-import { RouterLink } from '@angular/router';
+import { MobileNavbarComponent } from '../mobile-navbar/mobile-navbar.component';
+import { NavbarDesktopLinksComponent } from '../navbar-desktop-links/navbar-desktop-links.component';
+import { NavbarActionsComponent } from '../navbar-actions/navbar-actions.component';
 
 @Component({
 	selector: 'app-navbar',
@@ -17,23 +18,16 @@ import { RouterLink } from '@angular/router';
 		MatIconModule,
 		MatMenuModule,
 		NavbarContentComponent,
-		AccordionComponent,
-		RouterLink,
+		MobileNavbarComponent,
+		NavbarDesktopLinksComponent,
+		NavbarActionsComponent,
 	],
 	templateUrl: './navbar.component.html',
 	styleUrl: './navbar.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
-	readonly filterToggleMen = signal<boolean>(false);
-	readonly filterToggleWomen = signal<boolean>(false);
 	readonly sidenavOpen = signal<boolean>(false);
-	readonly showMenContent = signal<boolean>(false);
-	readonly showWomenContent = signal<boolean>(false);
-	readonly content = signal<MenuContent>(MENU_CONTENT);
-
-	hideNavContent(): void {
-		this.showMenContent.set(false);
-		this.showWomenContent.set(false);
-	}
+	readonly content = signal<MenuCategory[]>(MENU_CONTENT);
+	readonly activeContent = signal<string>('none');
 }

@@ -22,8 +22,3 @@ export interface MenuCategory {
 	featured: FeaturedItem[];
 	sections: MenuSection[];
 }
-
-export interface MenuContent {
-	women: MenuCategory;
-	men: MenuCategory;
-}

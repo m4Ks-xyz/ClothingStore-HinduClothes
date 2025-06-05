@@ -5,17 +5,24 @@ import {
 	output,
 } from '@angular/core';
 import { MenuCategory } from '../../models/menu-content-model';
-import { RouterLink } from '@angular/router';
+import { FeaturedMegaMenuContentComponent } from '../featured-mega-menu-content/featured-mega-menu-content.component';
+import { MegaMenuLinkGroupComponent } from '../mega-menu-link-group/mega-menu-link-group.component';
 
 @Component({
 	selector: 'app-navbar-content',
-	imports: [RouterLink],
+	imports: [FeaturedMegaMenuContentComponent, MegaMenuLinkGroupComponent],
+	styles: [
+		`
+			.mat-mdc-icon-button {
+				color: #89361b;
+			}
+		`,
+	],
 	templateUrl: './navbar-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarContentComponent {
-	readonly showMenContent = input.required<boolean>();
-	readonly showWomenContent = input.required<boolean>();
+	readonly activeContent = input.required<string>();
 	readonly content = input.required<MenuCategory>();
 
 	hideNavContent = output();

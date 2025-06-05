@@ -17,6 +17,7 @@
 }
 
 .icon {
+	color: black;
 	transition: all 200ms ease-in-out;
 
 	&:hover {
@@ -32,10 +33,6 @@
 		background-color: #89361b;
 		color: white;
 	}
-}
-
-.hide {
-	display: none;
 }
 
 .show {

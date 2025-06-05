@@ -1,0 +1,21 @@
+<div class="text-font flex items-center gap-2">
+	<a routerLink="/">
+		<img
+			class="w-17 cursor-pointer"
+			src="logo.png"
+			aria-label="store logo"
+			[class]="sidenavOpen() ? 'invisible' : 'block'"
+		/>
+	</a>
+
+	<div class="hidden cursor-pointer items-center gap-4 lg:flex">
+		@for (link of links(); track link.id) {
+			<a
+				class="hover:text-primary transition-colors duration-200 ease-in-out"
+				(mouseenter)="activeContent.emit(link.id)"
+			>
+				{{ link.title }}
+			</a>
+		}
+	</div>
+</div>

@@ -1,5 +1,7 @@
-export const MENU_CONTENT = {
-	women: {
+import { MenuCategory } from '../models/menu-content-model';
+
+export const MENU_CONTENT: MenuCategory[] = [
+	{
 		id: 'women',
 		name: 'Women',
 		featured: [
@@ -59,7 +61,7 @@ export const MENU_CONTENT = {
 		],
 	},
 
-	men: {
+	{
 		id: 'men',
 		name: 'Men',
 		featured: [
@@ -114,4 +116,4 @@ export const MENU_CONTENT = {
 			},
 		],
 	},
-};
+];
