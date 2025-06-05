@@ -2,8 +2,20 @@
 	[class]="sidenavStatus() ? 'translate-x-0' : '-translate-x-full'"
 	class="top-0 left-0 flex h-screen max-w-screen bg-transparent! transition-all duration-300 ease-in-out"
 >
-	<mat-drawer [opened]="sidenavStatus()" class="z-55" mode="side">
-		<div class="mat-drawer-inner-container text-font bg-white p-4">
+	<mat-drawer
+		[opened]="sidenavStatus()"
+		class="z-55 max-w-screen bg-white!"
+		mode="side"
+	>
+		<a
+			class="text-font flex w-full items-center justify-between p-4"
+			routerLink="/"
+		>
+			<h2 class="text-2xl font-bold">Hindu Store</h2>
+			<img class="w-17" src="logo.png" aria-label="store logo" />
+		</a>
+
+		<div class="mat-drawer-inner-container text-font max-h-6/10! bg-white p-4">
 			<button
 				(click)="sidenavToggle.emit(!sidenavStatus())"
 				aria-label="close menu"
@@ -13,10 +25,6 @@
 					>close</mat-icon
 				>
 			</button>
-			<a class="flex w-full items-center justify-between pb-4" routerLink="/">
-				<h2 class="text-2xl font-bold">Hindu Store</h2>
-				<img class="w-17" src="logo.png" aria-label="store logo" />
-			</a>
 
 			@for (item of content(); track item.id) {
 				<app-mobile-category-accordion [content]="item" />

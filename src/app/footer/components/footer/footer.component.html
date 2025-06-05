@@ -45,10 +45,10 @@
 
 					<ng-template #accordionContent>
 						<div class="flex w-full flex-col">
-							<ul>
+							<ul class="space-y-2">
 								@for (content of item.items; track content.id) {
 									<li>
-										<a class="hover:text-primary p-1" href="/">{{
+										<a class="hover:text-primary w-full p-2" routerLink="/">{{
 											content.name
 										}}</a>
 									</li>

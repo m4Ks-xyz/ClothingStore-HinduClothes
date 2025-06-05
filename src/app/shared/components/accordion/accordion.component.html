@@ -5,11 +5,11 @@
 			[attr.aria-controls]="randomId()"
 			[id]="randomId()"
 			type="button"
-			class="flex cursor-pointer items-center justify-between pb-3 lg:hidden"
+			class="flex cursor-pointer items-center justify-between p-2! lg:hidden"
 			(click)="isOpen.set(!isOpen())"
 		>
 			<span class="text-xl">{{ name() }}</span>
-			<span>
+			<span class="flex items-center">
 				<mat-icon>{{ !isOpen() ? "add" : "remove" }}</mat-icon>
 			</span>
 		</button>
