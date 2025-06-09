@@ -1,0 +1,24 @@
+<main class="flex items-center justify-center">
+	<div class="container p-4 lg:px-20 lg:py-10">
+		<div class="py-20 text-white lg:px-16">
+			<h2 class="py-2 text-2xl font-semibold">Order status</h2>
+
+			<app-progres-track [activeStep]="steps()[2]" [steps]="steps()" />
+
+			<div class="space-y-10">
+				<h1 class="py-5 text-xl font-semibold">Shipping Address</h1>
+
+				<div class="box">
+					<app-address-card [address]="" />
+				</div>
+			</div>
+
+			<div class="mt-12 flex flex-col justify-center gap-y-6 md:mt-20">
+				<h1 class="pt-5 text-xl font-semibold">Products</h1>
+				@for (item of orders(); track item) {
+					<app-order-card />
+				}
+			</div>
+		</div>
+	</div>
+</main>

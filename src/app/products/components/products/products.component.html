@@ -1,0 +1,84 @@
+<main class="container px-4 sm:px-6 lg:px-20 lg:py-10">
+	<div
+		class="flex flex-col justify-between border-gray-200 pt-12 pb-6 lg:flex-row lg:items-center"
+	>
+		<h1 class="pb-6 text-3xl lg:pb-0">Products</h1>
+
+		<div class="flex items-center justify-around gap-4 text-lg">
+			<button
+				class="lg:hover:text-primary flex w-full items-center justify-center gap-1 border-2 p-4 transition-colors duration-200 lg:cursor-pointer lg:border-none"
+				[matMenuTriggerFor]="menu"
+			>
+				<div class="flex">
+					<mat-icon>filter_alt</mat-icon>
+					<p>Sort</p>
+				</div>
+				<mat-icon>keyboard_arrow_down</mat-icon>
+			</button>
+			<mat-menu class="w-screen bg-white!" #menu="matMenu">
+				<button mat-menu-item>
+					<mat-icon class="text-md text-black!">paid</mat-icon>
+					<span class="text-md text-black!">Price ascending</span>
+				</button>
+				<button mat-menu-item>
+					<mat-icon class="text-md text-black!">paid</mat-icon>
+					<span class="text-md text-black!">Price descending</span>
+				</button>
+			</mat-menu>
+			<button
+				class="flex w-full items-center justify-center gap-1 border-2 p-4 lg:hidden"
+			>
+				<p class="text-lg">Filters</p>
+				<mat-icon>filter_list</mat-icon>
+			</button>
+		</div>
+	</div>
+	<mat-divider class="hidden! lg:block!" />
+
+	<section class="pt-6">
+		<div class="grid grid-cols-1 gap-8 gap-y-10 lg:grid-cols-4">
+			<div class="hidden lg:block">
+				<div class="flex items-center justify-between">
+					<p class="text-lg">Filters</p>
+					<mat-icon>filter_list</mat-icon>
+				</div>
+				<form class="hidden lg:block">
+					@for (category of filterContent; track category.id) {
+						<div class="pt-6">
+							<span class="font-medium">{{ category.name }}</span>
+							<div class="bg" id="filter-section-0">
+								<div class="scroll-py-4">
+									@for (item of category.options; track item.value) {
+										<div class="flex items-center">
+											<mat-checkbox
+												color="primary"
+												class="w-full p-1"
+												[name]="category.id"
+												[value]="item.value"
+												(click)="selectedFilters(item.value, category.id)"
+												><span class="text-sm text-white">
+													{{ item.label }}
+												</span></mat-checkbox
+											>
+										</div>
+									}
+								</div>
+							</div>
+							@if (!$last) {
+								<mat-divider />
+							}
+						</div>
+					}
+				</form>
+			</div>
+
+			<div class="lg:col-span-3">
+				<div class="flex flex-wrap justify-evenly">
+					@for (item of products(); track item.uuid) {
+						<app-product-card [item]="item" />
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+</main>

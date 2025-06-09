@@ -1,0 +1,35 @@
+<nav
+	[class.pb-0]="!sidenavOpen()"
+	[class.bg-white]="!sidenavOpen()"
+	[class.pb-15]="sidenavOpen()"
+	[class.bg-transparent]="sidenavOpen()"
+	class="fixed! top-0 right-0 left-0 z-50 flex h-16 justify-center text-lg transition-all duration-200 ease-in-out lg:relative"
+>
+	<div class="container flex">
+		<div class="absolute top-0 left-0 flex lg:hidden">
+			<app-mobile-navbar
+				[sidenavStatus]="sidenavOpen()"
+				(sidenavToggle)="sidenavOpen.set($event)"
+				[content]="content()"
+			/>
+		</div>
+		<div class="flex w-full items-center justify-between px-3 py-2 font-medium">
+			<app-navbar-desktop-links
+				[sidenavOpen]="sidenavOpen()"
+				(activeContent)="activeContent.set($event)"
+			/>
+
+			<app-navbar-actions
+				[sidenavStatus]="sidenavOpen()"
+				(sidenavToggle)="sidenavOpen.set($event)"
+			/>
+		</div>
+	</div>
+	@for (category of content(); track category.id) {
+		<app-navbar-content
+			[content]="category"
+			[activeContent]="activeContent()"
+			(mouseleave)="activeContent.set('')"
+		/>
+	}
+</nav>

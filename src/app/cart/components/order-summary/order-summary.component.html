@@ -1,0 +1,35 @@
+@if (cartProducts()) {
+	<div class="box rounded-md p-5">
+		<div class="pb-8 font-bold text-gray-500 uppercase">price details</div>
+		<mat-divider />
+
+		<div class="space-y-3 pb-8">
+			<div class="flex justify-between pt-3">
+				<span>Total Price</span>
+				<span>₹6999</span>
+			</div>
+			<div class="flex justify-between pt-3">
+				<span>Total Discount</span>
+				<span class="text-green-700">-₹6999</span>
+			</div>
+			<div class="flex justify-between pt-3">
+				<span>Delivery Charges</span>
+				<span class="text-green-700">Free</span>
+			</div>
+			<mat-divider />
+			<div class="flex justify-between pt-3">
+				<span>Total Amount</span>
+				<span class="text-green-700">1085</span>
+			</div>
+		</div>
+		@if (buttonMode() === "checkout") {
+			<a routerLink="/checkout">
+				<button class="w-full rounded-md!" mat-raised-button>CHECKOUT</button>
+			</a>
+		} @else if (buttonMode() === "payment") {
+			<a routerLink="/payment">
+				<button class="w-full rounded-md!" mat-raised-button>PAY NOW</button>
+			</a>
+		}
+	</div>
+}

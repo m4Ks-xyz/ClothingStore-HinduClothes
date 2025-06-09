@@ -1,0 +1,24 @@
+<main class="flex items-center justify-center">
+	<div class="container mt-24 px-5 lg:px-20">
+		<div class="box my-5 rounded-md p-5 shadow-lg">
+			<app-address-card [address]="'dummyData'" />
+		</div>
+
+		<div
+			class="relative grid grid-cols-1 justify-between gap-5 py-5 lg:grid-cols-3"
+		>
+			<div class="col-span-2">
+				<div class="box space-y-3 rounded-md">
+					<app-cart-item-list
+						[cartProducts]="products()"
+						[showButtons]="false"
+					/>
+				</div>
+			</div>
+
+			<section class="sticky top-0 col-span-1 mt-5 h-screen lg:mt-0">
+				<app-order-summary [cartProducts]="products()" buttonMode="payment" />
+			</section>
+		</div>
+	</div>
+</main>

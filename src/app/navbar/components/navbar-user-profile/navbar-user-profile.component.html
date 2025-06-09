@@ -1,0 +1,45 @@
+<div
+	class="text-font items-center gap-2 transition-all duration-200 ease-in-out lg:flex"
+>
+	<button
+		mat-icon-button
+		class="button flex! hidden! items-center! justify-center! p-2 md:hidden!"
+	>
+		<mat-icon>login</mat-icon>
+		<span class="hidden md:inline">LOGIN</span>
+	</button>
+
+	<button mat-raised-button class="button hidden! p-2 md:flex! md:hidden!">
+		<mat-icon>login</mat-icon>
+		<span class="hidden md:inline">LOGIN</span>
+	</button>
+
+	<div>
+		<div
+			[matMenuTriggerFor]="menu"
+			class="hover:text-primary flex cursor-pointer items-center space-x-2 rounded-3xl p-2 transition-all duration-300 ease-in-out"
+		>
+			<img
+				class="mr-0 w-8 rounded-2xl border-1 border-solid md:mr-2!"
+				src="https://png.pngtree.com/png-vector/20220807/ourmid/pngtree-man-avatar-wearing-gray-suit-png-image_6102786.png"
+				aria-label="your avatar"
+			/>
+			<p class="hidden md:inline">Max</p>
+		</div>
+
+		<mat-menu class="profile-menu bg-white!" #menu="matMenu">
+			<a routerLink="/" mat-menu-item>
+				<mat-icon class="text-font!">manage_accounts</mat-icon>
+				<span class="text-font!">Profile</span>
+			</a>
+			<a routerLink="account/orders" mat-menu-item>
+				<mat-icon class="text-font!">shopping_bag</mat-icon>
+				<span class="text-font!">Orders </span>
+			</a>
+			<a routerLink="/" mat-menu-item>
+				<mat-icon class="text-font!">logout</mat-icon>
+				<span class="text-font!"> Logout</span>
+			</a>
+		</mat-menu>
+	</div>
+</div>

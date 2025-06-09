@@ -1,0 +1,26 @@
+<div>
+	<div>
+		<app-main-carousel />
+	</div>
+
+	<div>
+		<app-product-slider
+			title="Lengha Choli"
+			[products]="lenghaCholi().slice(0, 6)"
+		/>
+		<app-product-slider
+			title="Women Gouns"
+			[products]="womenGouns().slice(0, 6)"
+		/>
+		<app-product-slider
+			title="Men's Jeans"
+			[products]="menJeans().slice(0, 6)"
+		/>
+		<app-product-slider title="Men Kurta" [products]="menKurta().slice(0, 6)" />
+		<app-product-slider
+			title="Women Kurta"
+			[products]="womenKurta().slice(0, 6)"
+		/>
+		<app-product-slider title="Shoes" [products]="shoes().slice(0, 6)" />
+	</div>
+</div>

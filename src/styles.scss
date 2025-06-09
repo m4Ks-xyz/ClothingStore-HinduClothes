@@ -1,24 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
-@use 'tailwindcss';
+@import 'tailwindcss';
+
+@theme {
+	--color-primary: #89361b;
+	--color-accent: #e9d4c1;
+	--color-font: #000000;
+	--color-background: #0b0b0b;
+	--color-footer-bg: #8b3a24;
+}
 
 :root {
-	--background: #0b0b0b;
-	--text-color: white;
-	--box-shadow: 0 5 15px #000000;
+	// Angular Material button styling
+	--mat-sys-on-primary: white;
+	--mat-sys-primary: #89361b;
+	--mdc-filled-button-label-text-color: white;
+	--mdc-filled-button-container-color: black;
+	--mdc-protected-button-container-color: white;
+	--mdc-protected-button-label-text-color: black;
+	--mdc-protected-button-hover-state-layer-color: black;
 }
 
 body {
 	margin: 0;
-	background: var(--background);
-	color: var(--text-color);
-	font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	background-color: #0b0b0b;
+	color: white;
+	font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
 .box {
-	padding: 1rem;
-	box-shadow: var(--box-shadow);
+	box-shadow: #000000 0px 5px 15px;
+  padding: 15px;
 }
 
 .hideScrollbar::-webkit-scrollbar {
-  display: none;
+	display: none;
+}
+
+html,
+body {
+	height: 100%;
+	font-size: 16px;
 }
