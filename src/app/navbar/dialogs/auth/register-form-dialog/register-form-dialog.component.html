@@ -1,0 +1,88 @@
+<h2 class="md:mt-4! md:ml-8!" mat-dialog-title>Hindu store</h2>
+<mat-dialog-content class="mt-8! max-w-screen space-y-4 md:mx-8!">
+	<form
+		(keydown.enter)="onSubmit()"
+		class="flex flex-col items-center justify-center gap-8"
+		[formGroup]="form"
+	>
+		<mat-form-field class="w-full">
+			<mat-label>First Name</mat-label>
+			<input
+				type="password"
+				matInput
+				formControlName="firstName"
+				placeholder="Name"
+			/>
+			@if (form.controls.password.hasError("minlength")) {
+				<mat-error>3 <strong>characters</strong> or more</mat-error>
+			}
+			@if (form.controls.password.hasError("required")) {
+				<mat-error>Name is <strong>required</strong></mat-error>
+			}
+		</mat-form-field>
+
+		<mat-form-field class="w-full">
+			<mat-label>Last Name</mat-label>
+			<input
+				type="password"
+				matInput
+				formControlName="lastName"
+				placeholder="Name"
+			/>
+			@if (form.controls.password.hasError("minlength")) {
+				<mat-error>3 <strong>characters</strong> or more</mat-error>
+			}
+			@if (form.controls.password.hasError("required")) {
+				<mat-error>Last name is <strong>required</strong></mat-error>
+			}
+		</mat-form-field>
+
+		<mat-form-field class="w-full">
+			<mat-label>E-mail</mat-label>
+			<input
+				type="email"
+				matInput
+				formControlName="eMail"
+				placeholder="name@example.com"
+			/>
+			@if (
+				form.controls.eMail.hasError("email") &&
+				!form.controls.eMail.hasError("required")
+			) {
+				<mat-error>Please enter a valid email address</mat-error>
+			}
+			@if (form.controls.eMail.hasError("required")) {
+				<mat-error>Email is <strong>required</strong></mat-error>
+			}
+		</mat-form-field>
+		<mat-form-field class="w-full">
+			<mat-label>Password</mat-label>
+			<input
+				type="password"
+				matInput
+				formControlName="password"
+				placeholder=""
+			/>
+			@if (form.controls.password.hasError("minlength")) {
+				<mat-error>8 <strong>characters</strong> or more</mat-error>
+			}
+			@if (form.controls.password.hasError("required")) {
+				<mat-error>Password is <strong>required</strong></mat-error>
+			}
+		</mat-form-field>
+	</form>
+	<div class="flex items-center justify-center gap-4 text-gray-400">
+		<p>Already have account?</p>
+		<button
+			(click)="openLoginDialog()"
+			mat-dialog-close
+			class="cursor-pointer p-2 text-gray-300 hover:text-white"
+		>
+			Sign In
+		</button>
+	</div>
+</mat-dialog-content>
+<mat-dialog-actions>
+	<button mat-button mat-dialog-close>Cancel</button>
+	<button (click)="onSubmit()" mat-button cdkFocusInitial>Log In</button>
+</mat-dialog-actions>

@@ -2,19 +2,24 @@
 	class="text-font items-center gap-2 transition-all duration-200 ease-in-out lg:flex"
 >
 	<button
+		(click)="openLoginDialog()"
 		mat-icon-button
-		class="button flex! hidden! items-center! justify-center! p-2 md:hidden!"
+		class="button flex! items-center! justify-center! p-2 md:hidden!"
 	>
 		<mat-icon>login</mat-icon>
 		<span class="hidden md:inline">LOGIN</span>
 	</button>
 
-	<button mat-raised-button class="button hidden! p-2 md:flex! md:hidden!">
+	<button
+		(click)="openLoginDialog()"
+		mat-raised-button
+		class="button hidden! p-2 md:flex!"
+	>
 		<mat-icon>login</mat-icon>
 		<span class="hidden md:inline">LOGIN</span>
 	</button>
 
-	<div>
+	<div class="hidden!">
 		<div
 			[matMenuTriggerFor]="menu"
 			class="hover:text-primary flex cursor-pointer items-center space-x-2 rounded-3xl p-2 transition-all duration-300 ease-in-out"

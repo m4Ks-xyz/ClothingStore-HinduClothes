@@ -26,7 +26,6 @@ import { AddressListComponent } from '../address-list/address-list.component';
 		AddressListComponent,
 	],
 	templateUrl: './address-form.component.html',
-	styleUrl: './address-form.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddressFormComponent {

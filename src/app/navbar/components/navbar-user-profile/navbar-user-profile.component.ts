@@ -1,8 +1,15 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	DestroyRef,
+	inject,
+} from '@angular/core';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { AuthFormDialogService } from '../../dialogs/services/auth-form-dialog.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
 	selector: 'app-navbar-user-profile',
@@ -18,4 +25,21 @@ import { MatMenuModule } from '@angular/material/menu';
 	styleUrl: './navbar-user-profile.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NavbarUserProfileComponent {}
+export class NavbarUserProfileComponent {
+	readonly #destroyRef = inject(DestroyRef);
+	readonly #authFormDialogService = inject(AuthFormDialogService);
+
+	async openLoginDialog() {
+		const dialogRef = await this.#authFormDialogService.openLoginDialog();
+		dialogRef
+			.afterClosed()
+			.pipe(takeUntilDestroyed(this.#destroyRef))
+			.subscribe((data) => {
+				if (data) {
+					console.log('data here');
+				} else {
+					console.log('no data here');
+				}
+			});
+	}
+}
