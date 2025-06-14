@@ -1,8 +1,9 @@
 import {
 	ChangeDetectionStrategy,
 	Component,
-	DestroyRef,
+	effect,
 	inject,
+	signal,
 } from '@angular/core';
 import {
 	MatDialogActions,
@@ -20,12 +21,9 @@ import {
 } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { LoginFormDialogResult } from '../../types/login-form-dialog-model';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { AuthFormDialogService } from '../../services/auth-form-dialog.service';
 
 @Component({
-	selector: 'app-login-form',
+	selector: 'app-auth-form-dialog',
 	imports: [
 		MatDialogContent,
 		MatDialogActions,
@@ -37,18 +35,37 @@ import { AuthFormDialogService } from '../../services/auth-form-dialog.service';
 		MatFormFieldModule,
 		ReactiveFormsModule,
 	],
-	templateUrl: './login-form-dialog.component.html',
+	templateUrl: './auth-form-dialog.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LoginFormDialogComponent {
+export class AuthFormDialogComponent {
 	readonly #fb = inject(FormBuilder);
-	readonly #dialogRef = inject(MatDialogRef<LoginFormDialogResult>);
-	readonly #destroyRef = inject(DestroyRef);
-	readonly #authFormDialogService = inject(AuthFormDialogService);
+	readonly #dialogRef = inject(MatDialogRef<AuthFormDialogComponent>);
+	readonly haveAccount = signal<boolean>(true);
+
+	constructor() {
+		effect(() => {
+			if (this.haveAccount()) {
+				this.form.get('firstName')?.clearValidators();
+				this.form.get('lastName')?.clearValidators();
+			} else {
+				this.form
+					.get('firstName')
+					?.setValidators([Validators.required, Validators.minLength(3)]);
+				this.form
+					.get('lastName')
+					?.setValidators([Validators.required, Validators.minLength(3)]);
+			}
+			this.form.get('firstName')?.updateValueAndValidity();
+			this.form.get('lastName')?.updateValueAndValidity();
+		});
+	}
 
 	form = this.#fb.group({
 		eMail: ['', [Validators.email, Validators.required]],
 		password: ['', [Validators.required, Validators.minLength(8)]],
+		firstName: [''],
+		lastName: [''],
 	});
 
 	onSubmit() {
@@ -62,17 +79,5 @@ export class LoginFormDialogComponent {
 				...formValue,
 			});
 		}
-	}
-
-	async openRegisterDialog() {
-		const dialogRef = await this.#authFormDialogService.openRegisterDialog();
-		dialogRef
-			.afterClosed()
-			.pipe(takeUntilDestroyed(this.#destroyRef))
-			.subscribe((data) => {
-				if (data) {
-					console.log('data here');
-				} else console.log('not data');
-			});
 	}
 }

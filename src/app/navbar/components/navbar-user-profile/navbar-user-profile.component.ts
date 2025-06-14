@@ -30,7 +30,7 @@ export class NavbarUserProfileComponent {
 	readonly #authFormDialogService = inject(AuthFormDialogService);
 
 	async openLoginDialog() {
-		const dialogRef = await this.#authFormDialogService.openLoginDialog();
+		const dialogRef = await this.#authFormDialogService.openAuthDialog();
 		dialogRef
 			.afterClosed()
 			.pipe(takeUntilDestroyed(this.#destroyRef))
