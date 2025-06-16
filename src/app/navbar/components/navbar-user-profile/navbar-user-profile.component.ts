@@ -36,7 +36,9 @@ export class NavbarUserProfileComponent {
 			.pipe(takeUntilDestroyed(this.#destroyRef))
 			.subscribe((data) => {
 				if (data) {
-					console.log('data here');
+					console.log(
+						`email:${data.email}  passw: ${data.password} name: ${data.firstName} lastName: ${data.lastName}`,
+					);
 				} else {
 					console.log('no data here');
 				}

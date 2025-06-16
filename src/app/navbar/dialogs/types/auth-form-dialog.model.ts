@@ -1,5 +1,10 @@
 import { UserCredentials } from './user-credentials.model';
 
-export type AuthFormDialogData = UserCredentials;
+export interface AuthFormDialogData {
+	email: string;
+	password: string;
+	firstName?: string;
+	lastName?: string;
+}
 
-export type AuthFormDialogResults = UserCredentials | undefined;
+export type AuthFormDialogResults = UserCredentials;
