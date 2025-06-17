@@ -10,6 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { AuthFormDialogService } from '../../dialogs/services/auth-form-dialog.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Store } from '@ngrx/store';
+import { AuthActions } from '../../../data-access/store/auth/auth.actions';
 
 @Component({
 	selector: 'app-navbar-user-profile',
@@ -28,6 +30,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 export class NavbarUserProfileComponent {
 	readonly #destroyRef = inject(DestroyRef);
 	readonly #authFormDialogService = inject(AuthFormDialogService);
+	readonly #store = inject(Store);
 
 	async openLoginDialog() {
 		const dialogRef = await this.#authFormDialogService.openAuthDialog();
@@ -36,11 +39,7 @@ export class NavbarUserProfileComponent {
 			.pipe(takeUntilDestroyed(this.#destroyRef))
 			.subscribe((data) => {
 				if (data) {
-					console.log(
-						`email:${data.email}  passw: ${data.password} name: ${data.firstName} lastName: ${data.lastName}`,
-					);
-				} else {
-					console.log('no data here');
+					this.#store.dispatch(AuthActions.login({ user: data }));
 				}
 			});
 	}

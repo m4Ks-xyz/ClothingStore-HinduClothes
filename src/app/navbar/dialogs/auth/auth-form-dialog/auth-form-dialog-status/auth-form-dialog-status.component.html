@@ -1,9 +1,9 @@
-<div class="flex items-center text-gray-400">
+<div class="flex flex-wrap items-center gap-x-2 text-gray-400">
 	<ng-content select="p[accountStatusText]" />
 
 	<button
 		(click)="haveAccountToggle.emit()"
-		class="cursor-pointer p-2 text-gray-300 hover:text-white"
+		class="cursor-pointer p-2 pl-0 text-gray-300 hover:text-white"
 	>
 		<ng-content select="span[accountStatusButtonText]" />
 	</button>
