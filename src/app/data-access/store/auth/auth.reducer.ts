@@ -4,11 +4,13 @@ import { AuthActions } from './auth.actions';
 
 export interface UserState {
 	user: UserCredentials;
+	token: string | undefined;
 	errorMsg: string | undefined;
 }
 
 export const initialState: UserState = {
 	user: { email: '', password: '' },
+	token: undefined,
 	errorMsg: undefined,
 };
 

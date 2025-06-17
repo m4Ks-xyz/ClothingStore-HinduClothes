@@ -76,7 +76,20 @@ export class AuthEffects {
 							}),
 						),
 					),
+					tap(() =>
+						this.#snackBar.open(`Registered successfully`, undefined, {
+							duration: 5000,
+							verticalPosition: 'bottom',
+							horizontalPosition: 'end',
+						}),
+					),
 					catchError((err) => {
+						this.#snackBar.open(`${err.error.message}`, undefined, {
+							duration: 5000,
+							verticalPosition: 'bottom',
+							horizontalPosition: 'end',
+						});
+
 						return of(
 							AuthActions.registerFailure({ errorMsg: err.error.error }),
 						);
