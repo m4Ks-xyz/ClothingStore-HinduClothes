@@ -4,23 +4,24 @@ import { AuthActions } from './auth.actions';
 
 export interface UserState {
 	user: UserCredentials;
-	errorMsg?: string;
+	errorMsg: string | undefined;
 }
 
 export const initialState: UserState = {
 	user: { email: '', password: '' },
+	errorMsg: undefined,
 };
 
 export const authReducer = createReducer(
 	initialState,
 	on(AuthActions.loginSuccess, (state, action) => {
-		return { ...state, user: action.user, errorMsg: undefined };
+		return { ...state, token: action.user.token };
 	}),
 	on(AuthActions.loginFailure, (state, action) => {
 		return { ...state, errorMsg: action.errorMsg };
 	}),
 	on(AuthActions.registerSuccess, (state, action) => {
-		return { ...state, user: action.user, errorMsg: undefined };
+		return { ...state, token: action.user.token };
 	}),
 	on(AuthActions.registerFailure, (state, action) => {
 		return { ...state, errorMsg: action.errorMsg };

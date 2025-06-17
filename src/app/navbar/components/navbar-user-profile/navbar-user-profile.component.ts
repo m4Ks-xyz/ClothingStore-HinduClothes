@@ -39,7 +39,13 @@ export class NavbarUserProfileComponent {
 			.pipe(takeUntilDestroyed(this.#destroyRef))
 			.subscribe((data) => {
 				if (data) {
-					this.#store.dispatch(AuthActions.login({ user: data }));
+					if (data.status === 'login') {
+						this.#store.dispatch(AuthActions.login({ user: data.credentials }));
+					} else {
+						this.#store.dispatch(
+							AuthActions.register({ user: data.credentials }),
+						);
+					}
 				}
 			});
 	}

@@ -50,7 +50,7 @@ export class AuthSignInComponent {
 		this.form.markAllAsTouched();
 
 		if (this.form.valid) {
-			this.dialogRef.close(this.form.value);
+			this.dialogRef.close({ credentials: this.form.value, status: 'login' });
 		}
 	}
 }

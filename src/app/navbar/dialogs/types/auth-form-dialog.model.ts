@@ -7,4 +7,7 @@ export interface AuthFormDialogData {
 	lastName?: string;
 }
 
-export type AuthFormDialogResults = UserCredentials;
+export type AuthFormDialogResults = {
+	credentials: UserCredentials;
+	status: 'register' | 'login';
+};
