@@ -4,14 +4,14 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { AuthActions } from './auth.actions';
 import { catchError, of, switchMap, tap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UserActions } from '../../../user/store/user.actions';
+import { TOKEN_STORAGE_KEY } from '../../data-acces/config/api';
 
 @Injectable()
 export class AuthEffects {
 	readonly #authService = inject(AuthService);
 	readonly #snackBar = inject(MatSnackBar);
 	readonly #actions$ = inject(Actions);
-
-	readonly STORAGE_KEY = 'token';
 
 	readonly snackBarDurationSeconds = 5;
 
@@ -25,6 +25,7 @@ export class AuthEffects {
 							AuthActions.loginSuccess({
 								user: { token: res.token, message: res.message },
 							}),
+							UserActions.getUserProfile(),
 						),
 					),
 					tap(() =>
@@ -54,10 +55,7 @@ export class AuthEffects {
 			this.#actions$.pipe(
 				ofType(AuthActions.loginSuccess, AuthActions.registerSuccess),
 				switchMap((actionPayload) => {
-					localStorage.setItem(
-						this.STORAGE_KEY,
-						JSON.stringify(actionPayload.user.token),
-					);
+					localStorage.setItem(TOKEN_STORAGE_KEY, actionPayload.user.token);
 					return of();
 				}),
 			),
@@ -74,6 +72,7 @@ export class AuthEffects {
 							AuthActions.registerSuccess({
 								user: { token: res.token, message: res.message },
 							}),
+							UserActions.getUserProfile(),
 						),
 					),
 					tap(() =>

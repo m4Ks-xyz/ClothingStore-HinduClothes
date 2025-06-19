@@ -1,9 +1,9 @@
 import { Product } from './product.model';
-import { User } from './user.model';
+import { UserProfileModel } from '../../user/models/user.model';
 
 export interface Review {
 	review: String;
 	product: Product;
-	user: User;
+	user: UserProfileModel;
 	createdAt: Date;
 }

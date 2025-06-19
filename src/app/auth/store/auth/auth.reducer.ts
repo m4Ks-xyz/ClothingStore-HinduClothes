@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { UserCredentials } from '../../../navbar/dialogs/types/user-credentials.model';
+import { UserCredentials } from '../../dialogs/types/user-credentials.model';
 import { AuthActions } from './auth.actions';
 
 export interface UserState {

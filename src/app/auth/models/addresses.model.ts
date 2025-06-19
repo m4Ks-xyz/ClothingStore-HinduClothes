@@ -1,4 +1,4 @@
-import { User } from './user.model';
+import { UserProfileModel } from '../../user/models/user.model';
 
 export interface Addresses {
 	firstName: String;
@@ -7,5 +7,5 @@ export interface Addresses {
 	zipCode: String;
 	number: String;
 	phoneNumber: String;
-	user: User;
+	user: UserProfileModel;
 }

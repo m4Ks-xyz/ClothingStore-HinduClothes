@@ -3,15 +3,19 @@ import {
 	Component,
 	DestroyRef,
 	inject,
+	Signal,
 } from '@angular/core';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { AuthFormDialogService } from '../../dialogs/services/auth-form-dialog.service';
+import { AuthFormDialogService } from '../../../auth/dialogs/services/auth-form-dialog.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Store } from '@ngrx/store';
-import { AuthActions } from '../../../data-access/store/auth/auth.actions';
+import { AuthActions } from '../../../auth/store/auth/auth.actions';
+import { userFeature } from '../../../user/store/user.selectors';
+import { UserProfileModel } from '../../../user/models/user.model';
+import { UserService } from '../../../user/services/user/user.service';
 
 @Component({
 	selector: 'app-navbar-user-profile',
@@ -29,8 +33,13 @@ import { AuthActions } from '../../../data-access/store/auth/auth.actions';
 })
 export class NavbarUserProfileComponent {
 	readonly #destroyRef = inject(DestroyRef);
-	readonly #authFormDialogService = inject(AuthFormDialogService);
 	readonly #store = inject(Store);
+	readonly #authFormDialogService = inject(AuthFormDialogService);
+	readonly #userService = inject(UserService);
+
+	readonly user: Signal<UserProfileModel> = this.#store.selectSignal(
+		userFeature.selectUserProfile,
+	);
 
 	async openLoginDialog() {
 		const dialogRef = await this.#authFormDialogService.openAuthDialog();
@@ -48,5 +57,9 @@ export class NavbarUserProfileComponent {
 					}
 				}
 			});
+	}
+
+	logout() {
+		this.#userService.logout();
 	}
 }

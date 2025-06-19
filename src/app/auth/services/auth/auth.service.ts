@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
-import { BASE_API_URL } from '../../config/api';
+import { BASE_API_URL } from '../../data-acces/config/api';
 import { HttpClient } from '@angular/common/http';
-import { UserCredentials } from '../../../navbar/dialogs/types/user-credentials.model';
-import { LoginResponseModel } from '../models/login-response.model';
+import { UserCredentials } from '../../dialogs/types/user-credentials.model';
+import { LoginResponseModel } from '../../models/login-response.model';
 
 @Injectable({
 	providedIn: 'root',
