@@ -1,7 +1,7 @@
 <div
 	class="box flex h-full cursor-pointer flex-col overflow-hidden rounded-lg transition-all duration-500"
 	role="article"
-	[attr.aria-labelledby]="'product-title-' + product().uuid"
+	[attr.aria-labelledby]="'product-title-' + product()._id"
 >
 	<div class="relative h-80">
 		<img
@@ -13,7 +13,7 @@
 
 	<p
 		class="text-s mt-2 line-clamp-2 leading-tight"
-		[id]="'product-title-' + product().uuid"
+		[id]="'product-title-' + product()._id"
 	>
 		{{ product().title }}
 	</p>

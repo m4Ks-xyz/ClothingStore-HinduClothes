@@ -1,5 +1,5 @@
 export interface BaseProduct {
-	uuid: string;
+	_id: string;
 	imageUrl: string;
 	brand: string;
 	title: string;

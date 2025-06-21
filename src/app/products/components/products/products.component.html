@@ -74,7 +74,7 @@
 
 			<div class="lg:col-span-3">
 				<div class="flex flex-wrap justify-evenly">
-					@for (item of products(); track item.uuid) {
+					@for (item of productState(); track item._id) {
 						<app-product-card [item]="item" />
 					}
 				</div>

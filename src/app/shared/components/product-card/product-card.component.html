@@ -1,5 +1,5 @@
 <a
-	[routerLink]="[`/product-details/${item().uuid}`]"
+	[routerLink]="[`/products/id/${item()._id}`]"
 	routerLinkActive="router-link-active"
 	class="productCard m-3 block w-56 transition-all hover:shadow-lg"
 >
@@ -45,7 +45,7 @@
 
 		<!-- Available sizes -->
 		<div class="mt-2 flex gap-2">
-			@for (size of item().size; track size.name) {
+			@for (size of item().sizes; track size.name) {
 				<span
 					class="flex items-center justify-center px-2 py-1 text-xs"
 					[class.hidden]="size.quantity === 0"

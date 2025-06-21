@@ -9,5 +9,7 @@ export const UserActions = createActionGroup({
 		getUserProfileFailure: props<{ error: string }>(),
 
 		logout: emptyProps(),
+
+		skipLoadingUserProfile: emptyProps(),
 	},
 });

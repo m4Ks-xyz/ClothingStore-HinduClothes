@@ -1,9 +1,9 @@
 import { UserProfileModel } from '../../user/models/user.model';
-import { Product } from './product.model';
+import { ProductModel } from '../../products/models/product.model';
 
 export interface Ratings {
 	user: UserProfileModel;
-	product: Product;
+	product: ProductModel;
 	rating: Number;
 	createdAt: Date;
 }

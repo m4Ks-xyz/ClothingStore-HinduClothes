@@ -10,7 +10,7 @@ export const routes: Routes = [
 		loadComponent: () => import('./home/components/home/home.component'),
 	},
 	{
-		path: 'products/:category',
+		path: 'products/:categoryId',
 		loadComponent: () =>
 			import('./products/components/products/products.component'),
 	},
@@ -19,7 +19,7 @@ export const routes: Routes = [
 		loadComponent: () => import('./cart/components/cart/cart.component'),
 	},
 	{
-		path: 'product-details/:id',
+		path: 'products/id/:id',
 		loadComponent: () =>
 			import('./products/components/product-details/product-details.component'),
 	},

@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { StarRatingComponent } from '../star-rating/star-rating.component';
+import { Review } from '../../../auth/models/review.model';
 
 @Component({
 	selector: 'app-product-review-card',
@@ -8,4 +9,6 @@ import { StarRatingComponent } from '../star-rating/star-rating.component';
 	styleUrl: './product-review-card.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductReviewCardComponent {}
+export class ProductReviewCardComponent {
+	readonly review = input.required<Review>();
+}

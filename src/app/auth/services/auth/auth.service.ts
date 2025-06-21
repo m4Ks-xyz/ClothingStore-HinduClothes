@@ -9,18 +9,18 @@ import { LoginResponseModel } from '../../models/login-response.model';
 })
 export class AuthService {
 	readonly #httpClient = inject(HttpClient);
-	readonly #baseApiUrl = BASE_API_URL;
+	readonly #baseApiUrl = `${BASE_API_URL}/auth`;
 
 	login(userData: UserCredentials) {
 		return this.#httpClient.post<LoginResponseModel>(
-			`${this.#baseApiUrl}/auth/login`,
+			`${this.#baseApiUrl}/login`,
 			userData,
 		);
 	}
 
 	register(userData: UserCredentials) {
 		return this.#httpClient.post<LoginResponseModel>(
-			`${this.#baseApiUrl}/auth/signup`,
+			`${this.#baseApiUrl}/signup`,
 			userData,
 		);
 	}

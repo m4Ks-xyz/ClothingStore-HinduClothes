@@ -1,7 +1,7 @@
 import { CurrencyPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { BaseProduct } from '../../../products/models/base-product.model';
+import { ProductModel } from '../../../products/models/product.model';
 
 @Component({
 	selector: 'app-product-card',
@@ -12,5 +12,5 @@ import { BaseProduct } from '../../../products/models/base-product.model';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductCardComponent {
-	readonly item = input.required<BaseProduct>();
+	readonly item = input.required<ProductModel>();
 }

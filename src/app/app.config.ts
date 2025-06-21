@@ -9,6 +9,8 @@ import { AuthEffects } from './auth/store/auth/auth.effects';
 import { authFeature } from './auth/store/auth/auth.selectors';
 import { userFeature } from './user/store/user.selectors';
 import { UserEffects } from './user/store/user.effects';
+import { ProductsFeature } from './products/data-access/store/products/products.selectors';
+import { ProductsEffects } from './products/data-access/store/products/products.effects';
 
 export const appConfig: ApplicationConfig = {
 	providers: [
@@ -18,7 +20,8 @@ export const appConfig: ApplicationConfig = {
 		provideStore(),
 		provideState(authFeature),
 		provideState(userFeature),
+		provideState(ProductsFeature),
 		provideHttpClient(),
-		provideEffects([AuthEffects, UserEffects]),
+		provideEffects([AuthEffects, UserEffects, ProductsEffects]),
 	],
 };
