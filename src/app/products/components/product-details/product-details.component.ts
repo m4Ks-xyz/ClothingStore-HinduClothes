@@ -24,6 +24,7 @@ import {
 	selectProducts,
 } from '../../data-access/store/products/products.selectors';
 import { ProductModel } from '../../models/product.model';
+import { cartActions } from '../../../cart/data-access/store/cart/cart.actions';
 
 @Component({
 	selector: 'app-product-details',
@@ -47,6 +48,7 @@ export default class ProductDetailsComponent {
 	readonly product = this.#store.selectSignal<ProductModel | undefined>(
 		selectedProduct,
 	);
+
 	readonly relatedProducts =
 		this.#store.selectSignal<ProductModel[]>(selectProducts);
 
@@ -59,10 +61,11 @@ export default class ProductDetailsComponent {
 		});
 
 		effect(() => {
+			console.log(this.product());
 			this.#store.dispatch(
 				productsActions.findProductByCategory({
 					params: {
-						category: this.product()?.category?.name,
+						levelThree: this.product()?.category?.name,
 					},
 				}),
 			);
@@ -76,6 +79,15 @@ export default class ProductDetailsComponent {
 
 	onSubmit(): void {
 		if (this.form.valid) {
+			this.#store.dispatch(
+				cartActions.addItemToCart({
+					data: {
+						productId: this.id(),
+						quantity: this.form.controls.quantity.value,
+						size: this.form.controls.size.value,
+					},
+				}),
+			);
 			this.#router.navigate(['cart']);
 		}
 	}

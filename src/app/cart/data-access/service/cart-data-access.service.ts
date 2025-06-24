@@ -22,9 +22,17 @@ export class CartDataAccessService {
 	}
 
 	addItemToCart(itemData: AddItemToCartReq) {
-		return this.#httpClient.put<Cart>(`${this.#BASE_API_URL_CART}/add`, {
-			headers: this.getHeader(),
-		});
+		return this.#httpClient.put<Cart>(
+			`${this.#BASE_API_URL_CART}/add`,
+			{
+				size: itemData.size,
+				quantity: itemData.quantity,
+				productId: itemData.productId,
+			},
+			{
+				headers: this.getHeader(),
+			},
+		);
 	}
 
 	getCart() {

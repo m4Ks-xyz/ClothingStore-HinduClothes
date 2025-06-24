@@ -1,5 +1,5 @@
 export interface AddItemToCartReq {
 	productId: string;
-	size: string;
-	quantity: number;
+	size: string | null;
+	quantity: number | null;
 }

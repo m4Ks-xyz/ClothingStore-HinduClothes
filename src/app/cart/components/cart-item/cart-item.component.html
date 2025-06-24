@@ -3,7 +3,7 @@
 		<div class="size-20 lg:size-36">
 			<img
 				class="h-full w-full object-cover object-top"
-				src="https://rukminim1.flixcart.com/image/612/612/kmns7m80/jean/9/5/o/36-black-36-coper-buck-original-imagfg9edbsneu2s.jpeg?q=70"
+				[src]="cartItem().product.imageUrl"
 				alt=""
 			/>
 		</div>
@@ -17,20 +17,20 @@
 
 			@if (cartItem().product.discount === 0) {
 				<p class="text-xl">
-					{{ cartItem().product.price * count() }}
+					{{ cartItem().product.price }}
 				</p>
 			} @else {
 				<div class="flex items-center gap-x-2 pt-3">
 					<div class="flex items-center gap-4">
 						<p class="text-xl">
-							{{ cartItem().product.discountedPrice * count() }}
+							{{ cartItem().product.discountedPrice }}
 						</p>
 						<div class="text-md rounded bg-red-500 px-2 py-1 text-white">
 							{{ cartItem().product.discount }} %
 						</div>
 					</div>
 					<p class="text-md text-gray-700 line-through">
-						{{ cartItem().product.price * count() }}
+						{{ cartItem().product.price }}
 					</p>
 				</div>
 			}

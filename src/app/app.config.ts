@@ -13,6 +13,7 @@ import { ProductsFeature } from './products/data-access/store/products/products.
 import { ProductsEffects } from './products/data-access/store/products/products.effects';
 import { cartFeature } from './cart/data-access/store/cart/cart.selectors';
 import { CartEffects } from './cart/data-access/store/cart/cart.effects';
+import { orderFeature } from './orders/data-access/store/order.selectors';
 
 export const appConfig: ApplicationConfig = {
 	providers: [
@@ -24,7 +25,14 @@ export const appConfig: ApplicationConfig = {
 		provideState(userFeature),
 		provideState(ProductsFeature),
 		provideState(cartFeature),
+		provideState(orderFeature),
 		provideHttpClient(),
-		provideEffects([AuthEffects, UserEffects, ProductsEffects, CartEffects]),
+		provideEffects([
+			AuthEffects,
+			UserEffects,
+			ProductsEffects,
+			CartEffects,
+			UserEffects,
+		]),
 	],
 };

@@ -9,6 +9,15 @@ export class ProductsEffects {
 	readonly #actions$ = inject(Actions);
 	readonly #productsService = inject(ProductApiService);
 
+	// ngrxOnInitEffects(): Action {
+	// 	if (localStorage.getItem(TOKEN_STORAGE_KEY)) {
+	// 		return productsActions.findProductByCategory({
+	// 			params: { levelThree: `Koszulki` },
+	// 		});
+	// 	}
+	// 	return UserActions.skipLoadingUserProfile();
+	// }
+
 	readonly getProductByCategory = createEffect(() =>
 		this.#actions$.pipe(
 			ofType(productsActions.findProductByCategory),

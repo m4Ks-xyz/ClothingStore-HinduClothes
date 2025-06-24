@@ -14,7 +14,9 @@ export interface ProductParams {
 	minPrice?: string;
 	maxPrice?: string;
 	minDiscount?: string;
-	category?: string;
+	levelThree?: string;
+	levelOne?: string;
+	levelTwo?: string;
 	stock?: string;
 	sort?: string;
 	pageNumber?: string;

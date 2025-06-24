@@ -10,7 +10,7 @@ export const routes: Routes = [
 		loadComponent: () => import('./home/components/home/home.component'),
 	},
 	{
-		path: 'products/:categoryId',
+		path: 'products/:levelOne/:levelTwo/:levelThree',
 		loadComponent: () =>
 			import('./products/components/products/products.component'),
 	},

@@ -19,6 +19,7 @@ import { Store } from '@ngrx/store';
 import { productsActions } from '../../data-access/store/products/products.actions';
 import { ProductParams } from '../../data-access/services/product-api.service';
 import { selectProducts } from '../../data-access/store/products/products.selectors';
+import { RouterLink } from '@angular/router';
 
 @Component({
 	selector: 'app-products',
@@ -30,6 +31,7 @@ import { selectProducts } from '../../data-access/store/products/products.select
 		MatCheckboxModule,
 		FormsModule,
 		ProductCardComponent,
+		RouterLink,
 	],
 	templateUrl: './products.component.html',
 	styleUrl: './products.component.scss',
@@ -38,6 +40,11 @@ import { selectProducts } from '../../data-access/store/products/products.select
 export default class ProductsComponent {
 	readonly #productsService = inject(ProductsService);
 	readonly #store = inject(Store);
+
+	// Query param
+	readonly levelOne = input.required<ProductCategory>();
+	readonly levelTwo = input.required<ProductCategory>();
+	readonly levelThree = input.required<ProductCategory>();
 
 	readonly color = input<string>();
 	readonly sizes = input<string>();
@@ -57,7 +64,9 @@ export default class ProductsComponent {
 			minPrice: this.minPrice(),
 			maxPrice: this.maxPrice(),
 			minDiscount: this.minDiscount(),
-			category: this.categoryId(),
+			levelThree: this.levelThree(),
+			levelOne: this.levelOne(),
+			levelTwo: this.levelTwo(),
 			stock: this.stock(),
 			sort: this.sort(),
 			pageNumber: this.pageNumber(),
@@ -66,9 +75,6 @@ export default class ProductsComponent {
 	});
 
 	readonly productState = this.#store.selectSignal(selectProducts);
-
-	// Query param
-	readonly categoryId = input.required<ProductCategory>();
 
 	constructor() {
 		effect(() => {

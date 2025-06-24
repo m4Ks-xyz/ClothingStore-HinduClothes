@@ -5,7 +5,10 @@
 				<h3 class="mb-2 text-2xl font-bold">{{ section.name }}</h3>
 
 				@for (item of section.items; track item.id) {
-					<a class="hover:text-primary cursor-pointer p-1" routerLink="/">
+					<a
+						class="hover:text-primary cursor-pointer p-1"
+						[routerLink]="['products', content().id, section.id, item.id]"
+					>
 						{{ item.name }}
 					</a>
 				}
