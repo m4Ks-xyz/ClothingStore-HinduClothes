@@ -5,6 +5,7 @@ import { UserActions } from './user.actions';
 import { catchError, of, switchMap, tap } from 'rxjs';
 import { Action } from '@ngrx/store';
 import { TOKEN_STORAGE_KEY } from '../../auth/data-acces/config/api';
+import { cartActions } from '../../cart/data-access/store/cart/cart.actions';
 
 @Injectable()
 export class UserEffects implements OnInitEffects {
@@ -13,6 +14,7 @@ export class UserEffects implements OnInitEffects {
 
 	ngrxOnInitEffects(): Action {
 		if (localStorage.getItem(TOKEN_STORAGE_KEY)) {
+			cartActions.getCartRequest();
 			return UserActions.getUserProfile();
 		}
 		return UserActions.skipLoadingUserProfile();

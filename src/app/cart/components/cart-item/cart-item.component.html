@@ -9,17 +9,31 @@
 		</div>
 
 		<div class="ml-5 space-y-1">
-			<p class="font-semibold">Men Solid Cotton Blendd Straighht Kurta</p>
-			<p class="text-gray-500">Size: M, Black</p>
-			<p class="text-gray-500">Seller : KSH Trendz</p>
+			<p class="font-semibold">{{ cartItem().product.title }}</p>
+			<p class="text-gray-500">
+				Size: {{ cartItem().size }}, {{ cartItem().product.color }}
+			</p>
+			<p class="text-gray-500">Seller : {{ cartItem().product.brand }}</p>
 
-			<div class="flex items-center gap-x-2 pt-3">
-				<div class="flex items-center gap-4">
-					<p class="text-xl">₹ 2600</p>
-					<div class="text-md rounded bg-red-500 px-2 py-1 text-white">20%</div>
+			@if (cartItem().product.discount === 0) {
+				<p class="text-xl">
+					{{ cartItem().product.price * count() }}
+				</p>
+			} @else {
+				<div class="flex items-center gap-x-2 pt-3">
+					<div class="flex items-center gap-4">
+						<p class="text-xl">
+							{{ cartItem().product.discountedPrice * count() }}
+						</p>
+						<div class="text-md rounded bg-red-500 px-2 py-1 text-white">
+							{{ cartItem().product.discount }} %
+						</div>
+					</div>
+					<p class="text-md text-gray-700 line-through">
+						{{ cartItem().product.price * count() }}
+					</p>
 				</div>
-				<p class="text-md text-gray-700 line-through">₹ 4000</p>
-			</div>
+			}
 		</div>
 	</div>
 
@@ -34,7 +48,7 @@
 						aria-label="Decrease amount by 1"
 						mat-mini-fab
 						[disabled]="count() === 1"
-						(click)="count.set(count() - 1)"
+						(click)="decrement()"
 					>
 						<mat-icon class="text-gray-300!">remove</mat-icon>
 					</button>
@@ -45,15 +59,15 @@
 						class="rounded-full! bg-gray-500!"
 						mat-mini-fab
 						aria-label="Increase amount by 1"
-						(click)="count.set(count() + 1)"
+						(click)="increment()"
 					>
-						<mat-icon (click)="removeItem()" class="text-gray-900!"
-							>add</mat-icon
-						>
+						<mat-icon class="text-gray-900!">add</mat-icon>
 					</button>
 				</div>
 
-				<button class="rounded-md!" mat-raised-button>Remove</button>
+				<button (click)="removeItem()" class="rounded-md!" mat-raised-button>
+					Remove
+				</button>
 			</div>
 		}
 	</div>

@@ -12,7 +12,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { AuthFormDialogService } from '../../../auth/dialogs/services/auth-form-dialog.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Store } from '@ngrx/store';
-import { AuthActions } from '../../../auth/store/auth/auth.actions';
+import { AuthActions } from '../../../auth/data-acces/store/auth/auth.actions';
 import { userFeature } from '../../../user/store/user.selectors';
 import { UserProfileModel } from '../../../user/models/user.model';
 import { UserService } from '../../../user/services/user/user.service';

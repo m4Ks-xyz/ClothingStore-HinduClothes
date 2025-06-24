@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { CartItemComponent } from '../cart-item/cart-item.component';
 import { MatDivider } from '@angular/material/divider';
+import { CartItem } from '../../models/cart-item.model';
 
 @Component({
 	selector: 'app-cart-item-list',
@@ -10,5 +11,5 @@ import { MatDivider } from '@angular/material/divider';
 })
 export class CartItemListComponent {
 	showButtons = input.required<boolean>();
-	cartProducts = input.required<any[]>();
+	cartProducts = input.required<CartItem[] | undefined>();
 }

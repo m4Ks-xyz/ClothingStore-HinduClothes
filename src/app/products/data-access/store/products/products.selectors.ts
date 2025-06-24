@@ -1,4 +1,4 @@
-import { createFeature } from '@ngrx/store';
+import { createFeature, createSelector } from '@ngrx/store';
 import { ProductsReducer } from './products.reducer';
 
 export const ProductsFeature = createFeature({
@@ -6,4 +6,11 @@ export const ProductsFeature = createFeature({
 	reducer: ProductsReducer,
 });
 
-export const { selectProductsState, selectProducts } = ProductsFeature;
+export const { selectProducts, selectProductsState } = ProductsFeature;
+
+export const selectedProduct = createSelector(
+	[selectProductsState],
+	(product) => {
+		return product.selectedProductById;
+	},
+);

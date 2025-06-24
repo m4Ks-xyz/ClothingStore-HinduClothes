@@ -1,5 +1,5 @@
 export interface Category {
-	name: String;
+	name: string;
 	parentCategory: any;
-	level: Number;
+	level: number;
 }

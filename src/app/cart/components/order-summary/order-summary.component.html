@@ -1,4 +1,4 @@
-@if (cartProducts()) {
+@if (cart()) {
 	<div class="box rounded-md p-5">
 		<div class="pb-8 font-bold text-gray-500 uppercase">price details</div>
 		<mat-divider />
@@ -6,11 +6,11 @@
 		<div class="space-y-3 pb-8">
 			<div class="flex justify-between pt-3">
 				<span>Total Price</span>
-				<span>₹6999</span>
+				<span>{{ cart()?.totalPrice }}</span>
 			</div>
 			<div class="flex justify-between pt-3">
 				<span>Total Discount</span>
-				<span class="text-green-700">-₹6999</span>
+				<span class="text-green-700">-{{ cart()?.discount }}</span>
 			</div>
 			<div class="flex justify-between pt-3">
 				<span>Delivery Charges</span>
@@ -19,7 +19,7 @@
 			<mat-divider />
 			<div class="flex justify-between pt-3">
 				<span>Total Amount</span>
-				<span class="text-green-700">1085</span>
+				<span class="text-green-700">{{ cart()?.totalDiscountedPrice }}</span>
 			</div>
 		</div>
 		@if (buttonMode() === "checkout") {

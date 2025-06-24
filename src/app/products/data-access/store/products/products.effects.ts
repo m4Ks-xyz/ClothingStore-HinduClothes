@@ -35,7 +35,9 @@ export class ProductsEffects {
 			switchMap((action) => {
 				return this.#productsService.findProductsById(action._id).pipe(
 					switchMap(function (product) {
-						return of(productsActions.findProductByIdSuccess(product));
+						return of(
+							productsActions.findProductByIdSuccess({ product: product }),
+						);
 					}),
 					catchError((err) =>
 						of(productsActions.findProductByIdFailure({ error: err })),

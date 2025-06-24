@@ -1,19 +1,17 @@
 import { inject, Injectable } from '@angular/core';
-import { AuthService } from '../../services/auth/auth.service';
+import { AuthService } from '../../../services/auth/auth.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { AuthActions } from './auth.actions';
 import { catchError, of, switchMap, tap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { UserActions } from '../../../user/store/user.actions';
-import { TOKEN_STORAGE_KEY } from '../../data-acces/config/api';
+import { UserActions } from '../../../../user/store/user.actions';
+import { TOKEN_STORAGE_KEY } from '../../config/api';
 
 @Injectable()
 export class AuthEffects {
 	readonly #authService = inject(AuthService);
 	readonly #snackBar = inject(MatSnackBar);
 	readonly #actions$ = inject(Actions);
-
-	readonly snackBarDurationSeconds = 5;
 
 	readonly login = createEffect(() =>
 		this.#actions$.pipe(

@@ -5,12 +5,14 @@ import { routes } from './app.routes';
 import { provideState, provideStore } from '@ngrx/store';
 import { provideHttpClient } from '@angular/common/http';
 import { provideEffects } from '@ngrx/effects';
-import { AuthEffects } from './auth/store/auth/auth.effects';
-import { authFeature } from './auth/store/auth/auth.selectors';
+import { AuthEffects } from './auth/data-acces/store/auth/auth.effects';
+import { authFeature } from './auth/data-acces/store/auth/auth.selectors';
 import { userFeature } from './user/store/user.selectors';
 import { UserEffects } from './user/store/user.effects';
 import { ProductsFeature } from './products/data-access/store/products/products.selectors';
 import { ProductsEffects } from './products/data-access/store/products/products.effects';
+import { cartFeature } from './cart/data-access/store/cart/cart.selectors';
+import { CartEffects } from './cart/data-access/store/cart/cart.effects';
 
 export const appConfig: ApplicationConfig = {
 	providers: [
@@ -21,7 +23,8 @@ export const appConfig: ApplicationConfig = {
 		provideState(authFeature),
 		provideState(userFeature),
 		provideState(ProductsFeature),
+		provideState(cartFeature),
 		provideHttpClient(),
-		provideEffects([AuthEffects, UserEffects, ProductsEffects]),
+		provideEffects([AuthEffects, UserEffects, ProductsEffects, CartEffects]),
 	],
 };

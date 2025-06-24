@@ -13,7 +13,7 @@ export const productsActions = createActionGroup({
 		findProductByCategoryFailure: props<{ error: Error }>(),
 
 		findProductById: props<{ _id: string }>(),
-		findProductByIdSuccess: props<ProductModel>(),
+		findProductByIdSuccess: props<{ product: ProductModel }>(),
 		findProductByIdFailure: props<{ error: string }>(),
 	},
 });

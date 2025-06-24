@@ -10,14 +10,14 @@
 			<div class="col-span-2">
 				<div class="box space-y-3 rounded-md">
 					<app-cart-item-list
-						[cartProducts]="products()"
+						[cartProducts]="products()?.cartItems"
 						[showButtons]="false"
 					/>
 				</div>
 			</div>
 
 			<section class="sticky top-0 col-span-1 mt-5 h-screen lg:mt-0">
-				<app-order-summary [cartProducts]="products()" buttonMode="payment" />
+				<app-order-summary [cart]="products()" buttonMode="payment" />
 			</section>
 		</div>
 	</div>

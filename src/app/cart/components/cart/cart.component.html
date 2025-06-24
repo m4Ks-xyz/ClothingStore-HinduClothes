@@ -4,17 +4,14 @@
 			<section class="lg:col-span-2 lg:px-5">
 				<div class="box space-y-3 p-5">
 					<app-cart-item-list
-						[cartProducts]="cartProducts()"
+						[cartProducts]="cart()?.cartItems"
 						[showButtons]="true"
 					/>
 				</div>
 			</section>
 
 			<section class="sticky top-0 mt-5 h-screen lg:mt-0">
-				<app-order-summary
-					[cartProducts]="cartProducts()"
-					buttonMode="checkout"
-				/>
+				<app-order-summary [cart]="cart()" buttonMode="checkout" />
 			</section>
 		</div>
 	</div>

@@ -1,6 +1,6 @@
 import { createFeature } from '@ngrx/store';
 import { userReducer } from './user.reducer';
-import { authFeature } from '../../auth/store/auth/auth.selectors';
+import { authFeature } from '../../auth/data-acces/store/auth/auth.selectors';
 
 export const userFeature = createFeature({
 	name: 'auth',
