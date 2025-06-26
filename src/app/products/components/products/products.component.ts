@@ -17,9 +17,9 @@ import { ProductsService } from '../../services/products.service';
 import { ProductCategory } from '../../types/product-catergory.type';
 import { Store } from '@ngrx/store';
 import { productsActions } from '../../data-access/store/products/products.actions';
-import { ProductParams } from '../../data-access/services/product-api.service';
 import { selectProducts } from '../../data-access/store/products/products.selectors';
 import { RouterLink } from '@angular/router';
+import { ProductParams } from '../../data-access/services/product-api.service';
 
 @Component({
 	selector: 'app-products',
@@ -47,10 +47,10 @@ export default class ProductsComponent {
 	readonly levelThree = input.required<ProductCategory>();
 
 	readonly color = input<string>();
-	readonly sizes = input<string>();
+	readonly size = input<string>();
 	readonly minPrice = input<string>();
 	readonly maxPrice = input<string>();
-	readonly minDiscount = input<string>();
+	readonly discount = input<string>();
 	readonly category = input<ProductCategory>();
 	readonly stock = input<string>();
 	readonly sort = input<string>();
@@ -59,18 +59,18 @@ export default class ProductsComponent {
 
 	readonly productParams = computed((): ProductParams => {
 		return {
-			colors: this.color(),
-			sizes: this.sizes(),
+			color: this.color(),
+			sizes: this.size(),
 			minPrice: this.minPrice(),
 			maxPrice: this.maxPrice(),
-			minDiscount: this.minDiscount(),
-			levelThree: this.levelThree(),
-			levelOne: this.levelOne(),
-			levelTwo: this.levelTwo(),
+			minDiscount: this.discount(),
 			stock: this.stock(),
 			sort: this.sort(),
 			pageNumber: this.pageNumber(),
 			pageSize: this.pageSize(),
+			levelThree: this.levelThree(),
+			levelOne: this.levelOne(),
+			levelTwo: this.levelTwo(),
 		};
 	});
 
@@ -79,6 +79,7 @@ export default class ProductsComponent {
 	constructor() {
 		effect(() => {
 			const params = this.productParams();
+			console.log(params);
 			this.#store.dispatch(
 				productsActions.findProductByCategory({
 					params,

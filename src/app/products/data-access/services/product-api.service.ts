@@ -9,18 +9,18 @@ import { ProductsSearchResponse } from '../../models/products-search.response';
 import { ProductModel } from '../../models/product.model';
 
 export interface ProductParams {
-	colors?: string;
-	sizes?: string;
-	minPrice?: string;
-	maxPrice?: string;
-	minDiscount?: string;
-	levelThree?: string;
-	levelOne?: string;
-	levelTwo?: string;
-	stock?: string;
-	sort?: string;
-	pageNumber?: string;
-	pageSize?: string;
+	color?: string | null;
+	sizes?: string | null;
+	minPrice?: string | null;
+	maxPrice?: string | null;
+	minDiscount?: string | null;
+	levelThree?: string | null;
+	levelOne?: string | null;
+	levelTwo?: string | null;
+	stock?: string | null;
+	sort?: string | null;
+	pageNumber?: string | null;
+	pageSize?: string | null;
 }
 
 @Injectable({
