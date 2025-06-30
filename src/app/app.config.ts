@@ -14,6 +14,7 @@ import { ProductsEffects } from './products/data-access/store/products/products.
 import { cartFeature } from './cart/data-access/store/cart/cart.selectors';
 import { CartEffects } from './cart/data-access/store/cart/cart.effects';
 import { orderFeature } from './orders/data-access/store/order.selectors';
+import { OrderEffects } from './orders/data-access/store/order.effects';
 
 export const appConfig: ApplicationConfig = {
 	providers: [
@@ -31,6 +32,7 @@ export const appConfig: ApplicationConfig = {
 			AuthEffects,
 			UserEffects,
 			ProductsEffects,
+			OrderEffects,
 			CartEffects,
 			UserEffects,
 		]),

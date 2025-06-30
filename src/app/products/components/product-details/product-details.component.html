@@ -56,12 +56,18 @@
 						/>
 						<button
 							(click)="onSubmit()"
+							[disabled]="product()?.quantity === 0"
 							mat-raised-button
 							class="w-1/2 rounded-xl! p-6 lg:w-full"
 						>
 							Add To Cart
 						</button>
 					</div>
+					@if (product()?.quantity === 0) {
+						<p class="text-center text-red-500 uppercase">
+							Product is out of stock
+						</p>
+					}
 				</form>
 				<p class="text-justify">
 					{{ product()?.description }}
@@ -93,7 +99,7 @@
 			<h3 class="py-5 text-xl font-semibold">Related Products</h3>
 
 			<div class="flex flex-wrap justify-around">
-				@for (item of relatedProducts(); track product()?._id) {
+				@for (item of relatedProducts(); track item._id) {
 					<app-product-card [item]="item" />
 				}
 			</div>

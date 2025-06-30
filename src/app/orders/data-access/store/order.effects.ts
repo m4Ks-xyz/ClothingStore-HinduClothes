@@ -13,10 +13,11 @@ export class OrderEffects {
 		this.#actions.pipe(
 			ofType(orderActions.createOrderRequest),
 			switchMap((payload) => {
+				console.log(payload);
 				return this.#orderService.createOrder(payload).pipe(
-					switchMap((order) =>
-						of(orderActions.createOrderRequestSuccess({ order: order })),
-					),
+					switchMap((order) => {
+						return of(orderActions.createOrderRequestSuccess({ order: order }));
+					}),
 					catchError((err) =>
 						of(orderActions.createOrderRequestFailure({ err: err.error })),
 					),

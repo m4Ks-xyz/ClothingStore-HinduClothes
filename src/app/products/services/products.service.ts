@@ -1,7 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PRODUCT_FILTERS } from '../constants/filter-data.constant.constant';
-import { Filter } from '../models/filter-data.model';
 import { Store } from '@ngrx/store';
 
 @Injectable({
@@ -12,7 +11,7 @@ export class ProductsService {
 	readonly router = inject(Router);
 	readonly #store = inject(Store);
 
-	readonly filterContent: Filter[] = PRODUCT_FILTERS;
+	readonly filterContent = PRODUCT_FILTERS;
 
 	toggleFilter(value: string, name: string): void {
 		const queryParams = { ...this.activeRoute.snapshot.queryParams };
@@ -30,6 +29,14 @@ export class ProductsService {
 			queryParams[name] = filterValues.join(',');
 		} else {
 			delete queryParams[name];
+		}
+
+		if (name === 'sort') {
+			queryParams[name] = value;
+		}
+
+		if (name === 'price') {
+			queryParams[name] = value;
 		}
 
 		this.router.navigate([], { queryParams });

@@ -1,11 +1,11 @@
 import { UserProfileModel } from '../../user/models/user.model';
 
 export interface Addresses {
-	firstName: String;
-	street: String;
-	city: String;
-	zipCode: String;
-	number: String;
-	phoneNumber: String;
+	firstName: string;
+	street: string;
+	city: string;
+	zipCode: string;
+	number: string;
+	phoneNumber: string;
 	user: UserProfileModel;
 }

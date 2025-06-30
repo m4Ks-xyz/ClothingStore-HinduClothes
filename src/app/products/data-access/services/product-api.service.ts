@@ -11,8 +11,8 @@ import { ProductModel } from '../../models/product.model';
 export interface ProductParams {
 	color?: string | null;
 	sizes?: string | null;
-	minPrice?: string | null;
-	maxPrice?: string | null;
+	minPrice?: number | null;
+	maxPrice?: number | null;
 	minDiscount?: string | null;
 	levelThree?: string | null;
 	levelOne?: string | null;

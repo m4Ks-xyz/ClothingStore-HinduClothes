@@ -1,0 +1,20 @@
+<app-filter-layout>
+	<ng-container filter-layout-title>{{ filter().name }}</ng-container>
+	<ng-container filter-layout-filters>
+		@for (option of filter().options; track option.value) {
+			<div class="flex items-center">
+				<mat-checkbox
+					color="primary"
+					class="w-full p-1"
+					[name]="filter().id"
+					[value]="option.value"
+					[checked]="selectedFilter().includes(option.value)"
+					(change)="valueChanged(option.value)"
+					><span class="text-sm text-white">
+						{{ option.label }}
+					</span></mat-checkbox
+				>
+			</div>
+		}
+	</ng-container>
+</app-filter-layout>

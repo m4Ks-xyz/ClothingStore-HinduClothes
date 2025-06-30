@@ -25,5 +25,5 @@ export class NavbarContentComponent {
 	readonly activeContent = input.required<string>();
 	readonly content = input.required<MenuCategory>();
 
-	hideNavContent = output();
+	readonly hideNavContent = output();
 }

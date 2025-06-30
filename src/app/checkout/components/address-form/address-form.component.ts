@@ -14,6 +14,8 @@ import {
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AddressListComponent } from '../address-list/address-list.component';
+import { Store } from '@ngrx/store';
+import { orderActions } from '../../../orders/data-access/store/order.actions';
 
 @Component({
 	selector: 'app-address-form',
@@ -30,6 +32,7 @@ import { AddressListComponent } from '../address-list/address-list.component';
 })
 export class AddressFormComponent {
 	readonly #fb = inject(FormBuilder);
+	readonly #store = inject(Store);
 
 	readonly addresses = signal([1, 2, 3]);
 
@@ -47,8 +50,10 @@ export class AddressFormComponent {
 		this.form.markAllAsTouched();
 
 		if (this.form.valid) {
-			this.form.reset();
-			console.log('Address added:', this.form.value);
+			console.log(this.form.getRawValue());
+			this.#store.dispatch(
+				orderActions.createOrderRequest(this.form.getRawValue()),
+			);
 		}
 	}
 }

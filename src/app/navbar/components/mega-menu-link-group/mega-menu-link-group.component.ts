@@ -1,7 +1,11 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	input,
+	output,
+} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MenuCategory } from '../../models/menu-content-model';
-import { BASE_API_URL } from '../../../auth/data-acces/config/api';
 
 @Component({
 	selector: 'app-mega-menu-link-group',
@@ -11,5 +15,5 @@ import { BASE_API_URL } from '../../../auth/data-acces/config/api';
 })
 export class MegaMenuLinkGroupComponent {
 	readonly content = input.required<MenuCategory>();
-	protected readonly BASE_API_URL = BASE_API_URL;
+	readonly hideMenu = output();
 }

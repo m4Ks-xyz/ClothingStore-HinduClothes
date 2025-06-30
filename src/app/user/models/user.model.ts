@@ -1,18 +1,16 @@
 import { Addresses } from '../../auth/models/addresses.model';
-import { Ratings } from '../../auth/models/ratings.model';
-import { Review } from '../../auth/models/review.model';
 
 export interface UserProfileModel {
-	firstName: String;
-	lastName: String;
-	password: String;
+	firstName: string;
+	lastName: string;
+	password: string;
 
-	email: String;
-	role: String;
-	phoneNumber: String;
+	email: string;
+	role: string;
+	phoneNumber: string;
 	address?: Addresses;
 	paymentInformation: any;
-	ratings?: Ratings[];
-	reviews?: Review[];
+	ratings?: any;
+	reviews?: any;
 	createdAt?: Date;
 }

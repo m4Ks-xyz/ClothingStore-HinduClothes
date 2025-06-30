@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { productsActions } from './products.actions';
-import { catchError, of, switchMap } from 'rxjs';
+import { catchError, exhaustMap, of, switchMap } from 'rxjs';
 import { ProductApiService } from '../../services/product-api.service';
 
 @Injectable()
@@ -21,7 +21,7 @@ export class ProductsEffects {
 	readonly getProductByCategory = createEffect(() =>
 		this.#actions$.pipe(
 			ofType(productsActions.findProductByCategory),
-			switchMap((action) =>
+			exhaustMap((action) =>
 				this.#productsService.findProductsByCategory(action.params).pipe(
 					switchMap((productsRes) =>
 						of(

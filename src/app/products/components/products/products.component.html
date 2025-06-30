@@ -16,11 +16,17 @@
 				<mat-icon>keyboard_arrow_down</mat-icon>
 			</button>
 			<mat-menu class="w-screen bg-white!" #menu="matMenu">
-				<button mat-menu-item>
+				<button
+					(click)="selectedFilters('price-low-high', 'sort')"
+					mat-menu-item
+				>
 					<mat-icon class="text-md text-black!">paid</mat-icon>
 					<span class="text-md text-black!">Price ascending</span>
 				</button>
-				<button mat-menu-item>
+				<button
+					(click)="selectedFilters('price-high-low', 'sort')"
+					mat-menu-item
+				>
 					<mat-icon class="text-md text-black!">paid</mat-icon>
 					<span class="text-md text-black!">Price descending</span>
 				</button>
@@ -42,43 +48,55 @@
 					<p class="text-lg">Filters</p>
 					<mat-icon>filter_list</mat-icon>
 				</div>
-				<form class="hidden lg:block">
-					@for (category of filterContent; track category.id) {
-						<div class="pt-6">
-							<span class="font-medium">{{ category.name }}</span>
-							<div class="bg" id="filter-section-0">
-								<div class="scroll-py-4">
-									@for (item of category.options; track item.value) {
-										<div class="flex items-center">
-											<mat-checkbox
-												color="primary"
-												class="w-full p-1"
-												[name]="category.id"
-												[value]="item.value"
-												(click)="selectedFilters(item.value, category.id)"
-												><span class="text-sm text-white">
-													{{ item.label }}
-												</span></mat-checkbox
-											>
-										</div>
-									}
-								</div>
-							</div>
-							@if (!$last) {
-								<mat-divider />
-							}
-						</div>
-					}
+				<form class="hidden min-h-[60vh] lg:block">
+					<app-price-filter
+						(priceMinMaxChange)="priceFilters($event)"
+						[maxPrice]="MAX_ALLOWED_PRICE"
+						[minPrice]="MIN_ALLOWED_PRICE"
+						[currentMinPrice]="minPrice()"
+						[currentMaxPrice]="maxPrice()"
+					></app-price-filter>
+
+					<app-stock-filter
+						[selectedStock]="stock()"
+						(changeStock)="toggleStock($event)"
+						[stock]="filterContent.stock"
+					/>
+					<app-multiselect-filter
+						[selectedFilter]="color()"
+						(changeStock)="
+							selectMultipleFilters(filterContent.color.id, $event)
+						"
+						[filter]="filterContent.color"
+					/>
+					<app-multiselect-filter
+						[selectedFilter]="size()"
+						(changeStock)="selectMultipleFilters(filterContent.size.id, $event)"
+						[filter]="filterContent.size"
+					/>
+					<app-multiselect-filter
+						[selectedFilter]="discount()"
+						(changeStock)="
+							selectMultipleFilters(filterContent.discount.id, $event)
+						"
+						[filter]="filterContent.discount"
+					/>
 				</form>
 			</div>
 
 			<div class="lg:col-span-3">
 				<div class="flex flex-wrap justify-evenly">
-					@for (item of productState(); track item._id) {
-						<app-product-card
-							[routerLink]="['/products', 'id', item._id]"
-							[item]="item"
-						/>
+					@if (productState().length === 0) {
+						<p class="pt-54 text-lg text-red-500 uppercase">
+							no product found with this criteria
+						</p>
+					} @else {
+						@for (item of productState(); track item._id) {
+							<app-product-card
+								[routerLink]="['/products', 'id', item._id]"
+								[item]="item"
+							/>
+						}
 					}
 				</div>
 			</div>

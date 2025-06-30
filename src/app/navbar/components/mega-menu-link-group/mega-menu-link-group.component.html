@@ -6,6 +6,7 @@
 
 				@for (item of section.items; track item.id) {
 					<a
+						(click)="hideMenu.emit()"
 						class="hover:text-primary cursor-pointer p-1"
 						[routerLink]="['products', content().id, section.id, item.id]"
 					>

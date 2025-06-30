@@ -61,7 +61,6 @@ export default class ProductDetailsComponent {
 		});
 
 		effect(() => {
-			console.log(this.product());
 			this.#store.dispatch(
 				productsActions.findProductByCategory({
 					params: {

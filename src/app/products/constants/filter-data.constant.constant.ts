@@ -1,5 +1,5 @@
-export const PRODUCT_FILTERS = [
-	{
+export const PRODUCT_FILTERS = {
+	color: {
 		id: 'color',
 		name: 'Color',
 		options: [
@@ -14,7 +14,7 @@ export const PRODUCT_FILTERS = [
 		],
 	},
 
-	{
+	size: {
 		id: 'size',
 		name: 'Size',
 		options: [
@@ -24,7 +24,7 @@ export const PRODUCT_FILTERS = [
 		],
 	},
 
-	{
+	price: {
 		id: 'price',
 		name: 'Price',
 		options: [
@@ -36,7 +36,7 @@ export const PRODUCT_FILTERS = [
 		],
 	},
 
-	{
+	discount: {
 		id: 'discount',
 		name: 'Discount',
 		options: [
@@ -51,7 +51,7 @@ export const PRODUCT_FILTERS = [
 		],
 	},
 
-	{
+	stock: {
 		id: 'stock',
 		name: 'Stock',
 		options: [
@@ -59,4 +59,4 @@ export const PRODUCT_FILTERS = [
 			{ value: 'out_of_stock', label: 'Out of stock' },
 		],
 	},
-];
+};

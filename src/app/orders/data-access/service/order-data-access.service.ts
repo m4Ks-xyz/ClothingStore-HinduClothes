@@ -5,6 +5,7 @@ import {
 	TOKEN_STORAGE_KEY,
 } from '../../../auth/data-acces/config/api';
 import { OrderRes } from '../../models/order-res.model';
+import { Address } from '../../../checkout/models/address.model';
 
 @Injectable({
 	providedIn: 'root',
@@ -18,10 +19,10 @@ export class OrderDataAccessService {
 		return new HttpHeaders().set('Authorization', `Bearer ${token}`);
 	}
 
-	createOrder(req: any) {
+	createOrder(shippingAddress: Address) {
 		return this.#httpClient.post<OrderRes>(
 			this.#BASE_URL_ORDER,
-			{ req: req },
+			{ shippingAddress: shippingAddress },
 			{ headers: this.getHeader() },
 		);
 	}

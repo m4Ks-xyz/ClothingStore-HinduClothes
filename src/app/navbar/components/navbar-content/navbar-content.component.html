@@ -3,7 +3,10 @@
 		[class]="activeContent() === content().id ? 'block' : 'hidden'"
 		class="bg-accent text-font border-primary absolute top-16 left-0 z-55 flex w-screen items-start justify-evenly gap-16 border-t-2 border-solid p-16"
 	>
-		<app-mega-menu-link-group [content]="content()" />
+		<app-mega-menu-link-group
+			(hideMenu)="hideNavContent.emit()"
+			[content]="content()"
+		/>
 		<app-featured-mega-menu-content class="max-w-1/2" [content]="content()" />
 	</div>
 </div>

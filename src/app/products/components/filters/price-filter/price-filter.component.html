@@ -1,0 +1,26 @@
+<app-filter-layout>
+	<ng-container filter-layout-title>Price</ng-container>
+	<ng-container filter-layout-filters>
+		<mat-slider class="w-full!" [min]="minPrice()" [max]="maxPrice()">
+			<input
+				[ngModel]="currentMinPrice()"
+				(ngModelChange)="minPriceChange($event)"
+				matSliderStartThumb
+			/>
+			<input
+				[ngModel]="currentMaxPrice()"
+				(ngModelChange)="maxPriceChange($event)"
+				matSliderEndThumb
+			/>
+		</mat-slider>
+		<div class="flex items-center justify-between">
+			<p>
+				{{ (currentMinPrice() | isNaN) ? minPrice() : currentMinPrice() }}
+			</p>
+			-
+			<p>
+				{{ (currentMaxPrice() | isNaN) ? maxPrice() : currentMaxPrice() }}
+			</p>
+		</div>
+	</ng-container>
+</app-filter-layout>

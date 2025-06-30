@@ -1,10 +1,11 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { OrderRes } from '../../models/order-res.model';
+import { Address } from '../../../checkout/models/address.model';
 
 export const orderActions = createActionGroup({
 	source: 'order',
 	events: {
-		createOrderRequest: props<{ req: any }>(),
+		createOrderRequest: props<Address>(),
 		createOrderRequestSuccess: props<{ order: OrderRes }>(),
 		createOrderRequestFailure: props<{ err: string }>(),
 
