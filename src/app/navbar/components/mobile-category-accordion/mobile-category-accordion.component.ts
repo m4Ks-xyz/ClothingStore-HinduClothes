@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { AccordionComponent } from '../../../shared/components/accordion/accordion.component';
 import { MatIconModule } from '@angular/material/icon';
-import { MenuCategory } from '../../models/menu-content-model';
+import { MenuCategory } from '../../models/menu-content.model';
 import { RouterLink } from '@angular/router';
 
 @Component({

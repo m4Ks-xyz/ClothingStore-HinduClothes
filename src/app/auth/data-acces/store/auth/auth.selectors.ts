@@ -6,4 +6,4 @@ export const authFeature = createFeature({
 	reducer: authReducer,
 });
 
-export const { selectUser, selectErrorMsg } = authFeature;
+export const { selectUser } = authFeature;

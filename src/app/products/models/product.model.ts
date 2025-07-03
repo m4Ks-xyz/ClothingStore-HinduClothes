@@ -12,12 +12,12 @@ export interface ProductModel {
 	quantity: number;
 	brand: string;
 	color: string;
-	sizes?: [
-		{
-			name: string;
-			quantity: number;
-		},
-	];
+	sizes: {
+		name: string;
+		quantity: number;
+		_id: string;
+	}[];
+
 	imageUrl: string;
 	ratings?: Ratings[];
 	reviews?: Review[];

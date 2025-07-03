@@ -1,5 +1,6 @@
 import { ProductModel } from './product.model';
 
-export interface ProductsSearchResponse {
+export interface ProductsSearchResponseModel {
 	content: ProductModel[];
+	totalProducts: number;
 }

@@ -17,7 +17,8 @@ export class CartDataAccessService {
 	readonly #BASE_API_URL_CART = `${BASE_API_URL}/api/cart`;
 
 	private getHeader(): HttpHeaders {
-		const token = localStorage.getItem(TOKEN_STORAGE_KEY);
+		const tokenString = localStorage.getItem(TOKEN_STORAGE_KEY);
+		const token = tokenString ? JSON.parse(tokenString).token : '';
 		return new HttpHeaders().set('Authorization', `Bearer ${token}`);
 	}
 

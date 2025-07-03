@@ -6,6 +6,7 @@ import { catchError, of, switchMap, tap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserActions } from '../../../../user/store/user.actions';
 import { TOKEN_STORAGE_KEY } from '../../config/api';
+import { cartActions } from '../../../../cart/data-access/store/cart/cart.actions';
 
 @Injectable()
 export class AuthEffects {
@@ -24,6 +25,7 @@ export class AuthEffects {
 								user: { token: res.token, message: res.message },
 							}),
 							UserActions.getUserProfile(),
+							cartActions.getCartRequest(),
 						),
 					),
 					tap(() =>
@@ -53,7 +55,13 @@ export class AuthEffects {
 			this.#actions$.pipe(
 				ofType(AuthActions.loginSuccess, AuthActions.registerSuccess),
 				switchMap((actionPayload) => {
-					localStorage.setItem(TOKEN_STORAGE_KEY, actionPayload.user.token);
+					localStorage.setItem(
+						TOKEN_STORAGE_KEY,
+						JSON.stringify({
+							token: actionPayload.user.token,
+							expires: Date.now() + 48 * 60 * 60 * 1000,
+						}),
+					);
 					return of();
 				}),
 			),
@@ -71,6 +79,7 @@ export class AuthEffects {
 								user: { token: res.token, message: res.message },
 							}),
 							UserActions.getUserProfile(),
+							cartActions.getCartRequest(),
 						),
 					),
 					tap(() =>

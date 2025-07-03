@@ -1,6 +1,6 @@
 import { createActionGroup, props } from '@ngrx/store';
 import { ProductParams } from '../../services/product-api.service';
-import { ProductsSearchResponse } from '../../../models/products-search.response';
+import { ProductsSearchResponseModel } from '../../../models/products-search.response.model';
 import { ProductModel } from '../../../models/product.model';
 
 export const productsActions = createActionGroup({
@@ -8,7 +8,7 @@ export const productsActions = createActionGroup({
 	events: {
 		findProductByCategory: props<{ params: ProductParams }>(),
 		findProductByCategorySuccess: props<{
-			products: ProductsSearchResponse;
+			products: ProductsSearchResponseModel;
 		}>(),
 		findProductByCategoryFailure: props<{ error: Error }>(),
 

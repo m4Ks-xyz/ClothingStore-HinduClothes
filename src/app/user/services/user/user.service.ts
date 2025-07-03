@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserProfileModel } from '../../models/user.model';
 import { Store } from '@ngrx/store';
 import { UserActions } from '../../store/user.actions';
+import { cartActions } from '../../../cart/data-access/store/cart/cart.actions';
 
 @Injectable({
 	providedIn: 'root',
@@ -17,7 +18,8 @@ export class UserService {
 	readonly #store = inject(Store);
 
 	getUserProfile() {
-		const token = localStorage.getItem(TOKEN_STORAGE_KEY);
+		const tokenString = localStorage.getItem(TOKEN_STORAGE_KEY);
+		const token = tokenString ? JSON.parse(tokenString).token : '';
 		const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
 		return this.#httpClient.get<UserProfileModel>(
@@ -29,7 +31,7 @@ export class UserService {
 	}
 
 	logout() {
-		localStorage.removeItem(TOKEN_STORAGE_KEY);
 		this.#store.dispatch(UserActions.logout());
+		this.#store.dispatch(cartActions.resetCart());
 	}
 }

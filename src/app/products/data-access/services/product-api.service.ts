@@ -5,7 +5,7 @@ import {
 	TOKEN_STORAGE_KEY,
 } from '../../../auth/data-acces/config/api';
 import { Store } from '@ngrx/store';
-import { ProductsSearchResponse } from '../../models/products-search.response';
+import { ProductsSearchResponseModel } from '../../models/products-search.response.model';
 import { ProductModel } from '../../models/product.model';
 
 export interface ProductParams {
@@ -19,8 +19,8 @@ export interface ProductParams {
 	levelTwo?: string | null;
 	stock?: string | null;
 	sort?: string | null;
-	pageNumber?: string | null;
-	pageSize?: string | null;
+	pageNumber?: number | null;
+	pageSize?: number | null;
 }
 
 @Injectable({
@@ -32,12 +32,13 @@ export class ProductApiService {
 	readonly #baseApiUrl = `${BASE_API_URL}/api`;
 
 	private getHeader(): HttpHeaders {
-		const token = localStorage.getItem(TOKEN_STORAGE_KEY);
+		const tokenString = localStorage.getItem(TOKEN_STORAGE_KEY);
+		const token = tokenString ? JSON.parse(tokenString).token : '';
 		return new HttpHeaders().set('Authorization', `Bearer ${token}`);
 	}
 
 	findProductsByCategory(paramsData: ProductParams) {
-		return this.#httpClient.get<ProductsSearchResponse>(
+		return this.#httpClient.get<ProductsSearchResponseModel>(
 			`${this.#baseApiUrl}/products`,
 			{
 				headers: this.getHeader(),

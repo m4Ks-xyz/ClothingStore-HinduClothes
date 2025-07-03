@@ -5,6 +5,7 @@ import { productsActions } from './products.actions';
 // dodać related products >???
 export interface ProductsState {
 	products: ProductModel[];
+	totalProducts: number | undefined;
 	selectedProductById: ProductModel | undefined;
 	loading: boolean;
 	error: string | undefined;
@@ -12,6 +13,7 @@ export interface ProductsState {
 
 export const initialState: ProductsState = {
 	products: [],
+	totalProducts: undefined,
 	selectedProductById: undefined,
 	loading: false,
 	error: undefined,
@@ -22,6 +24,7 @@ export const ProductsReducer = createReducer(
 	on(productsActions.findProductByCategorySuccess, (state, action) => ({
 		...state,
 		products: action.products.content,
+		totalProducts: action.products.totalProducts,
 		error: undefined,
 		loading: false,
 	})),

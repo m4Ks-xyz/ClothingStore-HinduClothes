@@ -6,7 +6,8 @@ export const ProductsFeature = createFeature({
 	reducer: ProductsReducer,
 });
 
-export const { selectProducts, selectProductsState } = ProductsFeature;
+export const { selectProducts, selectProductsState, selectTotalProducts } =
+	ProductsFeature;
 
 export const selectedProduct = createSelector(
 	[selectProductsState],

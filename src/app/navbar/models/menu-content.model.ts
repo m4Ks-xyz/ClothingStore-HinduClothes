@@ -13,7 +13,7 @@ export interface FeaturedItem {
 	src: string;
 	title: string;
 	name: string;
-	routerLink: string;
+	_id: string;
 }
 
 export interface MenuCategory {

@@ -36,10 +36,12 @@ export class UserEffects implements OnInitEffects {
 		),
 	);
 
-	readonly logout = createEffect(() =>
-		this.#actions$.pipe(
-			ofType(UserActions.logout),
-			tap(() => localStorage.removeItem(TOKEN_STORAGE_KEY)),
-		),
+	readonly logout = createEffect(
+		() =>
+			this.#actions$.pipe(
+				ofType(UserActions.logout),
+				tap(() => localStorage.removeItem(TOKEN_STORAGE_KEY)),
+			),
+		{ dispatch: false },
 	);
 }

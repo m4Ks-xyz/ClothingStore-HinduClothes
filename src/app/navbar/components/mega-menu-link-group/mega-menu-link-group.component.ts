@@ -5,7 +5,7 @@ import {
 	output,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { MenuCategory } from '../../models/menu-content-model';
+import { MenuCategory } from '../../models/menu-content.model';
 
 @Component({
 	selector: 'app-mega-menu-link-group',

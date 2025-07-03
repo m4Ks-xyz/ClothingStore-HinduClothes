@@ -21,5 +21,7 @@ export const cartActions = createActionGroup({
 		updateCartItem: props<{ id: string; quantity: number }>(),
 		updateCartItemSuccess: props<{ data: CartItem }>(),
 		updateCartItemFailure: props<{ err: string }>(),
+
+		resetCart: emptyProps(),
 	},
 });

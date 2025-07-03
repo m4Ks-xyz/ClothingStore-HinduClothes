@@ -1,18 +1,26 @@
 <main class="mt-20 flex items-center justify-center">
 	<div class="container">
-		<div class="relative grid-cols-3 py-10 lg:grid lg:px-16">
-			<section class="lg:col-span-2 lg:px-5">
-				<div class="box space-y-3 p-5">
-					<app-cart-item-list
-						[cartProducts]="cart()?.cartItems"
-						[showButtons]="true"
-					/>
-				</div>
-			</section>
+		@if (cart()) {
+			<div class="relative min-h-[60vh] grid-cols-3 py-10 lg:grid lg:px-16">
+				<section class="lg:col-span-2 lg:px-5">
+					<div class="box space-y-3 p-5">
+						<app-cart-item-list
+							[cartProducts]="cart()?.cartItems"
+							[showButtons]="true"
+						/>
+					</div>
+				</section>
 
-			<section class="sticky top-0 mt-5 h-screen lg:mt-0">
-				<app-order-summary [cart]="cart()" buttonMode="checkout" />
-			</section>
-		</div>
+				<section class="sticky top-0 mt-5 h-screen lg:mt-0">
+					<app-order-summary [cart]="cart()" buttonMode="checkout" />
+				</section>
+			</div>
+		} @else {
+			<div
+				class="flex min-h-[60vh] items-center justify-center p-2 text-center text-xl"
+			>
+				<p>LOGIN OR REGISTER TO SEE YOUR CART</p>
+			</div>
+		}
 	</div>
 </main>

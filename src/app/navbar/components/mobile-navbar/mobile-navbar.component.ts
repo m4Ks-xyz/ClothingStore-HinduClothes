@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { MatDrawer, MatDrawerContainer } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import { MenuCategory } from '../../models/menu-content-model';
+import { MenuCategory } from '../../models/menu-content.model';
 import { MobileCategoryAccordionComponent } from '../mobile-category-accordion/mobile-category-accordion.component';
 import { RouterLink } from '@angular/router';
 

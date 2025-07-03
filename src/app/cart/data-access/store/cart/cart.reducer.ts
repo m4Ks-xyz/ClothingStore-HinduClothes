@@ -61,4 +61,5 @@ export const CartReducer = createReducer(
 	on(cartActions.updateCartItemFailure, (state, action) => {
 		return { ...state, errorMsg: action.err };
 	}),
+	on(cartActions.resetCart, () => initialState),
 );

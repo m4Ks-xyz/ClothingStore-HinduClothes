@@ -8,7 +8,6 @@ import { MatDivider } from '@angular/material/divider';
 	selector: 'app-address-list',
 	imports: [AddressCardComponent, RouterLink, MatButtonModule, MatDivider],
 	templateUrl: './address-list.component.html',
-	styleUrl: './address-list.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddressListComponent {

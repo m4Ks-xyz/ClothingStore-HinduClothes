@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MENU_CONTENT } from '../../constants/menu-content.constants';
-import { MenuCategory } from '../../models/menu-content-model';
+import { MenuCategory } from '../../models/menu-content.model';
 import { NavbarContentComponent } from '../navbar-content/navbar-content.component';
 import { MobileNavbarComponent } from '../mobile-navbar/mobile-navbar.component';
 import { NavbarDesktopLinksComponent } from '../navbar-desktop-links/navbar-desktop-links.component';

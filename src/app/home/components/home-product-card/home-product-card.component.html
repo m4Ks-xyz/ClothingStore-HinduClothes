@@ -2,6 +2,7 @@
 	class="box flex h-full cursor-pointer flex-col overflow-hidden rounded-lg transition-all duration-500"
 	role="article"
 	[attr.aria-labelledby]="'product-title-' + product()._id"
+	[routerLink]="['/products/id', product()._id]"
 >
 	<div class="relative h-80">
 		<img

@@ -19,18 +19,21 @@ import { ProductsService } from '../../services/products.service';
 import { ProductCategory } from '../../types/product-catergory.type';
 import { Store } from '@ngrx/store';
 import { productsActions } from '../../data-access/store/products/products.actions';
-import { selectProducts } from '../../data-access/store/products/products.selectors';
+import {
+	selectProducts,
+	selectTotalProducts,
+} from '../../data-access/store/products/products.selectors';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ProductParams } from '../../data-access/services/product-api.service';
 import { ProductModel } from '../../models/product.model';
 import { StockFilterComponent } from '../filters/stock-filter/stock-filter.component';
 import { MultiselectFilterComponent } from '../filters/multiselect-filter/multiselect-filter.component';
 import { PriceFilterComponent } from '../filters/price-filter/price-filter.component';
+import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 
 const parseQueryParam = (splitCharacter = ',') => {
 	return (queryParam: string | undefined): string[] => {
 		if (queryParam) {
-			console.log(queryParam);
 			return queryParam.split(splitCharacter);
 		}
 		return [];
@@ -40,6 +43,7 @@ const parseQueryParam = (splitCharacter = ',') => {
 @Component({
 	selector: 'app-products',
 	imports: [
+		MatPaginatorModule,
 		MatButtonModule,
 		MatIconModule,
 		MatMenuModule,
@@ -75,8 +79,8 @@ export default class ProductsComponent {
 	readonly discount = input([], { transform: parseQueryParam() });
 	readonly stock = input<string>();
 	readonly sort = input<string>();
-	readonly pageNumber = input<string>();
-	readonly pageSize = input<string>();
+	readonly pageNumber = input<number>();
+	readonly pageSize = input<number>();
 	readonly minPrice = input(undefined, { transform: numberAttribute });
 	readonly maxPrice = input(undefined, {
 		transform: (v: string) => {
@@ -105,6 +109,8 @@ export default class ProductsComponent {
 	readonly productState: Signal<ProductModel[]> =
 		this.#store.selectSignal(selectProducts);
 
+	readonly totalProducts = this.#store.selectSignal(selectTotalProducts);
+
 	constructor() {
 		effect(() => {
 			const params = this.productParams();
@@ -117,6 +123,14 @@ export default class ProductsComponent {
 	}
 
 	readonly filterContent = this.#productsService.filterContent;
+
+	handlePageEvent(e: PageEvent) {
+		this.#router.navigate([], {
+			queryParams: { pageSize: e.pageSize, pageNumber: e.pageIndex + 1 },
+			relativeTo: this.#activatedRoute,
+			queryParamsHandling: 'merge',
+		});
+	}
 
 	toggleStock(stock: string | undefined) {
 		this.#router.navigate([], {

@@ -1,6 +1,6 @@
-<main class="container px-4 sm:px-6 lg:px-20 lg:py-10">
+<main class="container sm:px-6 lg:px-20 lg:py-10">
 	<div
-		class="flex flex-col justify-between border-gray-200 pt-12 pb-6 lg:flex-row lg:items-center"
+		class="mt-24 flex flex-col justify-between border-gray-200 px-4 pb-6 lg:flex-row lg:items-center"
 	>
 		<h1 class="pb-6 text-3xl lg:pb-0">Products</h1>
 
@@ -43,10 +43,18 @@
 
 	<section class="pt-6">
 		<div class="grid grid-cols-1 gap-8 gap-y-10 lg:grid-cols-4">
-			<div class="hidden lg:block">
+			<div
+				class="custom-scrollbar hidden h-[90vh] overflow-x-hidden overflow-y-scroll pr-4 lg:sticky lg:top-20 lg:block"
+			>
 				<div class="flex items-center justify-between">
 					<p class="text-lg">Filters</p>
-					<mat-icon>filter_list</mat-icon>
+					<button
+						class="size-10!"
+						[routerLink]="['/products', levelOne(), levelTwo(), levelThree()]"
+						mat-fab
+					>
+						<mat-icon>filter_list_off</mat-icon>
+					</button>
 				</div>
 				<form class="hidden min-h-[60vh] lg:block">
 					<app-price-filter
@@ -57,11 +65,6 @@
 						[currentMaxPrice]="maxPrice()"
 					></app-price-filter>
 
-					<app-stock-filter
-						[selectedStock]="stock()"
-						(changeStock)="toggleStock($event)"
-						[stock]="filterContent.stock"
-					/>
 					<app-multiselect-filter
 						[selectedFilter]="color()"
 						(changeStock)="
@@ -81,6 +84,11 @@
 						"
 						[filter]="filterContent.discount"
 					/>
+					<app-stock-filter
+						[selectedStock]="stock()"
+						(changeStock)="toggleStock($event)"
+						[stock]="filterContent.stock"
+					/>
 				</form>
 			</div>
 
@@ -97,6 +105,15 @@
 								[item]="item"
 							/>
 						}
+					}
+					@if (productState().length !== 0) {
+						<mat-paginator
+							class="w-full"
+							[length]="totalProducts()"
+							(page)="handlePageEvent($event)"
+							[pageSizeOptions]="[12, 24, 36]"
+							aria-label="Select page"
+						/>
 					}
 				</div>
 			</div>

@@ -15,7 +15,8 @@ export class OrderDataAccessService {
 	readonly #BASE_URL_ORDER = `${BASE_API_URL}/api/orders`;
 
 	private getHeader(): HttpHeaders {
-		const token = localStorage.getItem(TOKEN_STORAGE_KEY);
+		const tokenString = localStorage.getItem(TOKEN_STORAGE_KEY);
+		const token = tokenString ? JSON.parse(tokenString).token : '';
 		return new HttpHeaders().set('Authorization', `Bearer ${token}`);
 	}
 

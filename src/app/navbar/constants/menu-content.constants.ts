@@ -1,4 +1,4 @@
-import { MenuCategory } from '../models/menu-content-model';
+import { MenuCategory } from '../models/menu-content.model';
 
 export const MENU_CONTENT: MenuCategory[] = [
 	{
@@ -9,13 +9,13 @@ export const MENU_CONTENT: MenuCategory[] = [
 				src: 'https://rukminim1.flixcart.com/image/612/612/xif0q/lehenga-choli/n/u/v/free-sleeveless-new-designer-embroidred-sequins-heavy-work-original-imaggbwhhhnmhxxd.jpeg?q=70',
 				title: 'New Arrival',
 				name: 'Embroidered Semi Stitched Lehenga Choli',
-				routerLink: '/',
+				_id: '685ad245889250097a0e969c',
 			},
 			{
 				src: 'https://rukminim1.flixcart.com/image/612/612/xif0q/lehenga-choli/g/x/s/free-full-sleeve-purple-lehenga-ishu-fab-original-imagnzgvgeq85gt8.jpeg?q=70',
 				title: 'Best seller',
 				name: 'Embroidered Semi Stitched Lehenga Choli',
-				routerLink: '/',
+				_id: '685ad246889250097a0e96ce',
 			},
 		],
 		sections: [
@@ -65,14 +65,14 @@ export const MENU_CONTENT: MenuCategory[] = [
 			{
 				src: 'https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/g/6/k/m-sksh-dt1105-pcbl-fubar-original-imafux247zhqym2z-bb.jpeg?q=70',
 				title: 'New Arrival',
-				name: 'Men Printed Cotton Blend Straight Kurta',
-				routerLink: '/',
+				name: 'Embroidered Semi Stitched Lehenga Choli',
+				_id: '685adcc5889250097a0e9bb0',
 			},
 			{
 				src: 'https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/j/a/r/l-poch521835-peter-england-original-imag7jg47g7cxhg3-bb.jpeg?q=70',
 				title: 'Best seller',
-				name: 'Men Woven Design Pure Cotton Straight Kurta',
-				routerLink: '/',
+				name: 'Embroidered Semi Stitched Lehenga Choli',
+				_id: '685adcc5889250097a0e9bba',
 			},
 		],
 		sections: [
