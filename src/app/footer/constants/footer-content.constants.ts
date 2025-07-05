@@ -6,40 +6,37 @@ export const FOOTER_CONTENT: FooterContent = [
 		name: 'Categories',
 		items: [
 			{
-				id: 'sarees',
+				id: 'saree',
 				name: 'Sarees',
+				gender: 'women',
 			},
 			{
-				id: 'lehenga',
+				id: 'lengha-choli',
 				name: 'Lehenga',
+				gender: 'women',
 			},
+
 			{
-				id: 'salwar-kameez',
-				name: 'Salwar Kameez',
-			},
-			{
-				id: 'gowns',
+				id: 'gouns',
 				name: 'Gowns',
+				gender: 'women',
 			},
+
 			{
-				id: 'kurtis',
-				name: 'Kurtis',
-			},
-			{
-				id: 'mens-kurta',
+				id: 'kurta',
 				name: "Men's Kurta",
+				gender: 'men',
 			},
 			{
-				id: 'mens-jeans',
+				id: 'jeans',
 				name: "Men's Jeans",
+				gender: 'men',
 			},
+
 			{
-				id: 'womens-kurta',
-				name: "Women's Kurta",
-			},
-			{
-				id: 'dresses',
+				id: 'dress',
 				name: 'Dresses',
+				gender: 'women',
 			},
 		],
 	},

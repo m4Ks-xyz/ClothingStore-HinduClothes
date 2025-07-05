@@ -1,7 +1,7 @@
 <div
 	class="text-font items-center gap-2 transition-all duration-200 ease-in-out lg:flex"
 >
-	@if (user().firstName !== "") {
+	@if (user()) {
 		<div>
 			<div
 				[matMenuTriggerFor]="menu"
@@ -12,10 +12,10 @@
 					src="https://png.pngtree.com/png-vector/20220807/ourmid/pngtree-man-avatar-wearing-gray-suit-png-image_6102786.png"
 					aria-label="your avatar"
 				/>
-				<p class="hidden md:inline">{{ user().firstName }}</p>
+				<p class="hidden md:inline">{{ user()?.firstName }}</p>
 			</div>
 
-			<mat-menu class="profile-menu  bg-white!" #menu="matMenu">
+			<mat-menu class="profile-menu bg-white!" #menu="matMenu">
 				<a routerLink="/" mat-menu-item>
 					<mat-icon class="text-font!">manage_accounts</mat-icon>
 					<span class="text-font!">Profile</span>

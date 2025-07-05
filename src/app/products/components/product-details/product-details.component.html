@@ -1,31 +1,43 @@
 <div class="flex items-center justify-center">
 	<div class="container mt-10 p-5 lg:p-10">
-		<!--	jak to dobrze zrobic	-->
-		<p class="py-10 text-gray-500">product/clothes/women/saree</p>
+		<a
+			[routerLink]="[
+				'/products',
+				product()?.path?.categoryOne,
+				product()?.path?.categoryTwo,
+				product()?.path?.categoryThree,
+			]"
+			><p class="py-10 text-gray-500">
+				{{ `${product()?.path?.categoryOne}/${product()?.path?.categoryTwo}/${product()?.path?.categoryThree}` }}
+			</p></a
+		>
 
 		<section class="grid-cols-3 lg:grid lg:gap-10">
 			<div class="col-span-2 flex flex-col items-center">
-				<img [src]="product()?.imageUrl" [alt]="product()?.title" />
+				<img
+					[src]="product()?.details?.imageUrl"
+					[alt]="product()?.details?.title"
+				/>
 			</div>
 
 			<div class="col-span-1 mt-10 space-y-10 lg:mt-0">
 				<div class="space-y-2">
 					<p class="text-lg font-semibold text-gray-600">
-						{{ product()?.brand }}
+						{{ product()?.details?.brand }}
 					</p>
-					<h1 class="text-2xl">{{ product()?.title }}</h1>
+					<h1 class="text-2xl">{{ product()?.details?.title }}</h1>
 				</div>
 				<div class="flex flex-col items-start space-x-5">
-					@let discount = product()?.discount ?? 0;
+					@let discount = product()?.details?.discount ?? 0;
 					@if (discount > 0) {
 						<div class="flex items-center gap-4">
-							<p class="text-2xl">{{ product()?.discountedPrice }}</p>
+							<p class="text-2xl">{{ product()?.details?.discountedPrice }}</p>
 							<div class="rounded bg-red-500 px-2 py-1 text-xl text-white">
-								{{ `${product()?.discount} %` }}
+								{{ `${product()?.details?.discount} %` }}
 							</div>
 						</div>
 						<p class="text-lg text-gray-700 line-through">
-							{{ product()?.price }}
+							{{ product()?.details?.price }}
 						</p>
 					}
 				</div>
@@ -37,7 +49,7 @@
 							class="space-x-5"
 							aria-label="Select an option"
 						>
-							@for (size of product()?.sizes; track size.name) {
+							@for (size of product()?.details?.sizes; track size.name) {
 								@if (size.quantity > 0) {
 									<mat-radio-button [value]="size.name"
 										>{{ size.name }}
@@ -56,21 +68,21 @@
 						/>
 						<button
 							(click)="onSubmit()"
-							[disabled]="product()?.quantity === 0"
+							[disabled]="product()?.details?.quantity === 0"
 							mat-raised-button
 							class="w-1/2 rounded-xl! p-6 lg:w-full"
 						>
 							Add To Cart
 						</button>
 					</div>
-					@if (product()?.quantity === 0) {
+					@if (product()?.details?.quantity === 0) {
 						<p class="text-center text-red-500 uppercase">
 							Product is out of stock
 						</p>
 					}
 				</form>
 				<p class="text-justify">
-					{{ product()?.description }}
+					{{ product()?.details?.description }}
 				</p>
 			</div>
 		</section>
@@ -81,7 +93,7 @@
 				<div class="grid-cols-12 gap-7 lg:grid">
 					<div class="col-span-7">
 						<div class="space-y-6">
-							@for (review of product()?.reviews; track review.user) {
+							@for (review of product()?.details?.reviews; track review.user) {
 								<div>
 									<app-product-review-card [review]="review" />
 								</div>

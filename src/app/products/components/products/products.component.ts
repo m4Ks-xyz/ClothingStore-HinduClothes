@@ -30,6 +30,8 @@ import { StockFilterComponent } from '../filters/stock-filter/stock-filter.compo
 import { MultiselectFilterComponent } from '../filters/multiselect-filter/multiselect-filter.component';
 import { PriceFilterComponent } from '../filters/price-filter/price-filter.component';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { BottomSheetMobileComponent } from '../filters/bottom-sheet-mobile/bottom-sheet-mobile.component';
 
 const parseQueryParam = (splitCharacter = ',') => {
 	return (queryParam: string | undefined): string[] => {
@@ -65,6 +67,7 @@ export default class ProductsComponent {
 	readonly #store = inject(Store);
 	readonly #router = inject(Router);
 	readonly #activatedRoute = inject(ActivatedRoute);
+	readonly #bottomSheet = inject(MatBottomSheet);
 
 	readonly MAX_ALLOWED_PRICE = 2000;
 	readonly MIN_ALLOWED_PRICE = 10;
@@ -123,6 +126,10 @@ export default class ProductsComponent {
 	}
 
 	readonly filterContent = this.#productsService.filterContent;
+
+	openBottomSheet() {
+		this.#bottomSheet.open(BottomSheetMobileComponent);
+	}
 
 	handlePageEvent(e: PageEvent) {
 		this.#router.navigate([], {

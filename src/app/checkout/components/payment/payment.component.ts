@@ -4,6 +4,9 @@ import { CartItemListComponent } from '../../../cart/components/cart-item-list/c
 import { OrderSummaryComponent } from '../../../cart/components/order-summary/order-summary.component';
 import { Store } from '@ngrx/store';
 import { selectCart } from '../../../cart/data-access/store/cart/cart.selectors';
+import { selectOrderShippingAddress } from '../../../orders/data-access/store/order.selectors';
+import { Address } from '../../models/address.model';
+import { Cart } from '../../../cart/models/cart.model';
 
 @Component({
 	selector: 'app-payment',
@@ -13,5 +16,9 @@ import { selectCart } from '../../../cart/data-access/store/cart/cart.selectors'
 })
 export default class PaymentComponent {
 	readonly #store = inject(Store);
-	readonly products = this.#store.selectSignal(selectCart);
+
+	readonly products = this.#store.selectSignal<Cart | undefined>(selectCart);
+	readonly addresses = this.#store.selectSignal<Address | undefined>(
+		selectOrderShippingAddress,
+	);
 }

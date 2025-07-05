@@ -3,21 +3,13 @@ import { createReducer, on } from '@ngrx/store';
 import { UserActions } from './user.actions';
 
 export interface UserProfile {
-	userProfile: UserProfileModel;
+	userProfile: UserProfileModel | undefined;
 	loading: boolean;
 	errorMsg: string | undefined;
 }
 
 export const initialState: UserProfile = {
-	userProfile: {
-		firstName: '',
-		lastName: '',
-		password: '',
-		email: '',
-		paymentInformation: '',
-		role: 'user',
-		phoneNumber: '',
-	},
+	userProfile: undefined,
 	loading: false,
 	errorMsg: undefined,
 };

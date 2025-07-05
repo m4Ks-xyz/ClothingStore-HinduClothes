@@ -4,7 +4,7 @@ import { OrderItems } from './order-items.model';
 
 export interface OrderRes {
 	user: string;
-	orderItems: OrderItems;
+	orderItems: OrderItems[];
 	orderDate: string;
 	deliveryDate: string;
 	shippingAddress: Addresses;

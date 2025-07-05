@@ -3,6 +3,7 @@ import { AddressCardComponent } from '../address-card/address-card.component';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDivider } from '@angular/material/divider';
+import { Addresses } from '../../../auth/models/addresses.model';
 
 @Component({
 	selector: 'app-address-list',
@@ -11,7 +12,7 @@ import { MatDivider } from '@angular/material/divider';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddressListComponent {
-	addresses = input.required<any[]>();
+	addresses = input.required<Addresses[] | undefined>();
 
 	createOrder() {
 		console.log('Order created');

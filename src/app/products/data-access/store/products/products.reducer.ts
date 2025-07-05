@@ -1,12 +1,11 @@
-import { ProductModel } from '../../../models/product.model';
+import { ProductModel, ProductModelRes } from '../../../models/product.model';
 import { createReducer, on } from '@ngrx/store';
 import { productsActions } from './products.actions';
 
-// dodać related products >???
 export interface ProductsState {
 	products: ProductModel[];
 	totalProducts: number | undefined;
-	selectedProductById: ProductModel | undefined;
+	selectedProductById: ProductModelRes | undefined;
 	loading: boolean;
 	error: string | undefined;
 }

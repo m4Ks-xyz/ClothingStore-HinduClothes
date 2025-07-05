@@ -27,7 +27,10 @@
 			</button>
 
 			@for (item of content(); track item.id) {
-				<app-mobile-category-accordion [content]="item" />
+				<app-mobile-category-accordion
+					(toggleNav)="sidenavToggle.emit(!sidenavStatus())"
+					[content]="item"
+				/>
 			}
 		</div>
 	</mat-drawer>

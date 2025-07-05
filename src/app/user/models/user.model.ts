@@ -4,11 +4,10 @@ export interface UserProfileModel {
 	firstName: string;
 	lastName: string;
 	password: string;
-
 	email: string;
 	role: string;
 	phoneNumber: string;
-	address?: Addresses;
+	address?: Addresses[];
 	paymentInformation: any;
 	ratings?: any;
 	reviews?: any;

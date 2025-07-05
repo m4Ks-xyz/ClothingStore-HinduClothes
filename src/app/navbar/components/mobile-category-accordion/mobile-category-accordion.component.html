@@ -19,7 +19,8 @@
 					@for (item of section.items; track item.id) {
 						<a
 							class="hover:text-primary cursor-pointer p-2 pl-2"
-							routerLink="/"
+							[routerLink]="['/products', content().id, section.id, item.id]"
+							(click)="toggleNav.emit()"
 							>{{ item.name }}</a
 						>
 					}

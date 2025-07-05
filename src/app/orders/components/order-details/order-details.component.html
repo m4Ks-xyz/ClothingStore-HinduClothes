@@ -16,7 +16,7 @@
 			<div class="mt-12 flex flex-col justify-center gap-y-6 md:mt-20">
 				<h1 class="pt-5 text-xl font-semibold">Products</h1>
 				@for (item of orders(); track item) {
-					<app-order-card />
+					<app-order-card [order]="item" />
 				}
 			</div>
 		</div>

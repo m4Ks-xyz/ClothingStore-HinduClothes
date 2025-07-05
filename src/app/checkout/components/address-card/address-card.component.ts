@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { Address } from '../../models/address.model';
 
 @Component({
 	selector: 'app-address-card',
@@ -7,5 +8,5 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddressCardComponent {
-	address = input.required();
+	address = input.required<Address | undefined>();
 }

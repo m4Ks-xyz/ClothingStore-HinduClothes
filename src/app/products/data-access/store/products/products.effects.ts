@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { productsActions } from './products.actions';
-import { catchError, exhaustMap, of, switchMap } from 'rxjs';
+import { catchError, exhaustMap, from, of, switchMap } from 'rxjs';
 import { ProductApiService } from '../../services/product-api.service';
 
 @Injectable()
@@ -43,10 +43,15 @@ export class ProductsEffects {
 			ofType(productsActions.findProductById),
 			switchMap((action) => {
 				return this.#productsService.findProductsById(action._id).pipe(
-					switchMap(function (product) {
-						return of(
-							productsActions.findProductByIdSuccess({ product: product }),
-						);
+					switchMap(function (action) {
+						return from([
+							productsActions.findProductByCategory({
+								params: { levelThree: action.details.category?._id },
+							}),
+							productsActions.findProductByIdSuccess({
+								product: action,
+							}),
+						]);
 					}),
 					catchError((err) =>
 						of(productsActions.findProductByIdFailure({ error: err })),

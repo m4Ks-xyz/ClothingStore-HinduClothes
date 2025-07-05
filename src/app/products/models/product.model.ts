@@ -28,3 +28,8 @@ export interface ProductModel {
 	secondLevelCategory?: string;
 	thirdLevelCategory?: string;
 }
+
+export interface ProductModelRes {
+	details: ProductModel;
+	path: { categoryOne: string; categoryThree: string; categoryTwo: string };
+}

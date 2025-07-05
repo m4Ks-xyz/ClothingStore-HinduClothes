@@ -37,9 +37,8 @@ export class NavbarUserProfileComponent {
 	readonly #authFormDialogService = inject(AuthFormDialogService);
 	readonly #userService = inject(UserService);
 
-	readonly user: Signal<UserProfileModel> = this.#store.selectSignal(
-		userFeature.selectUserProfile,
-	);
+	readonly user: Signal<UserProfileModel | undefined> =
+		this.#store.selectSignal(userFeature.selectUserProfile);
 
 	async openLoginDialog() {
 		const dialogRef = await this.#authFormDialogService.openAuthDialog();

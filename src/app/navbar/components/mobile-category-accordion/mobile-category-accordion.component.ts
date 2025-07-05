@@ -2,6 +2,7 @@ import {
 	ChangeDetectionStrategy,
 	Component,
 	input,
+	output,
 	signal,
 } from '@angular/core';
 import { AccordionComponent } from '../../../shared/components/accordion/accordion.component';
@@ -17,6 +18,7 @@ import { RouterLink } from '@angular/router';
 })
 export class MobileCategoryAccordionComponent {
 	readonly content = input.required<MenuCategory>();
+	readonly toggleNav = output();
 
 	readonly toggleAccordion = signal<boolean>(false);
 }

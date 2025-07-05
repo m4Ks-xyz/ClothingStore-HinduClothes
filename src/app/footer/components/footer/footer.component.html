@@ -48,9 +48,16 @@
 							<ul class="space-y-2">
 								@for (content of item.items; track content.id) {
 									<li>
-										<a class="hover:text-primary w-full p-2" routerLink="/">{{
-											content.name
-										}}</a>
+										<a
+											class="hover:text-primary w-full p-2"
+											[routerLink]="[
+												'/products',
+												content.gender,
+												'clothing',
+												content.id,
+											]"
+											>{{ content.name }}</a
+										>
 									</li>
 								}
 							</ul>

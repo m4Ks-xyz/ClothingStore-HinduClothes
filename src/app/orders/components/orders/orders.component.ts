@@ -1,7 +1,10 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FILTER_OPTIONS } from '../../constants/filter-options.constant';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { OrderCardComponent } from '../order-card/order-card.component';
+import { Store } from '@ngrx/store';
+import { selectOrdersHistory } from '../../data-access/store/order.selectors';
+import { OrderRes } from '../../models/order-res.model';
 
 @Component({
 	selector: 'app-orders',
@@ -10,9 +13,11 @@ import { OrderCardComponent } from '../order-card/order-card.component';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class OrdersComponent {
+	readonly #store = inject(Store);
+
+	readonly orders = this.#store.selectSignal<OrderRes[] | undefined>(
+		selectOrdersHistory,
+	);
+
 	readonly filterOptions: { value: string; label: string }[] = FILTER_OPTIONS;
-	readonly orders = signal([
-		[1, 2, 3],
-		[1, 2, 3],
-	]);
 }

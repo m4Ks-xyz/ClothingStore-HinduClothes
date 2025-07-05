@@ -32,9 +32,10 @@
 				</button>
 			</mat-menu>
 			<button
+				(click)="openBottomSheet()"
 				class="flex w-full items-center justify-center gap-1 border-2 p-4 lg:hidden"
 			>
-				<p class="text-lg">Filters</p>
+				<span class="text-lg">Filters</span>
 				<mat-icon>filter_list</mat-icon>
 			</button>
 		</div>
@@ -63,8 +64,7 @@
 						[minPrice]="MIN_ALLOWED_PRICE"
 						[currentMinPrice]="minPrice()"
 						[currentMaxPrice]="maxPrice()"
-					></app-price-filter>
-
+					/>
 					<app-multiselect-filter
 						[selectedFilter]="color()"
 						(changeStock)="
@@ -95,7 +95,7 @@
 			<div class="lg:col-span-3">
 				<div class="flex flex-wrap justify-evenly">
 					@if (productState().length === 0) {
-						<p class="pt-54 text-lg text-red-500 uppercase">
+						<p class="py-54 text-center text-lg text-red-500 uppercase">
 							no product found with this criteria
 						</p>
 					} @else {

@@ -1,10 +1,13 @@
-import { createFeature } from '@ngrx/store';
+import { createFeature, createSelector } from '@ngrx/store';
 import { userReducer } from './user.reducer';
-import { authFeature } from '../../auth/data-acces/store/auth/auth.selectors';
 
 export const userFeature = createFeature({
-	name: 'auth',
+	name: 'user',
 	reducer: userReducer,
 });
 
-export const { selectUser, selectErrorMsg } = authFeature;
+export const { selectUserProfile } = userFeature;
+
+export const selectAddresses = createSelector([selectUserProfile], (user) => {
+	return user?.address;
+});

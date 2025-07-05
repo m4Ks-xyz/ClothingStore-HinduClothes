@@ -16,14 +16,14 @@ import { MatRadioModule } from '@angular/material/radio';
 import { ProductCardComponent } from '../../../shared/components/product-card/product-card.component';
 import { ProductRatingComponent } from '../product-rating/product-rating.component';
 import { ProductReviewCardComponent } from '../product-review-card/product-review-card.component';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { productsActions } from '../../data-access/store/products/products.actions';
 import {
-	selectedProduct,
 	selectProducts,
+	selectSelectedProductById,
 } from '../../data-access/store/products/products.selectors';
-import { ProductModel } from '../../models/product.model';
+import { ProductModel, ProductModelRes } from '../../models/product.model';
 import { cartActions } from '../../../cart/data-access/store/cart/cart.actions';
 
 @Component({
@@ -36,6 +36,7 @@ import { cartActions } from '../../../cart/data-access/store/cart/cart.actions';
 		ProductRatingComponent,
 		ProductCardComponent,
 		ReactiveFormsModule,
+		RouterLink,
 	],
 	templateUrl: './product-details.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
@@ -45,8 +46,8 @@ export default class ProductDetailsComponent {
 	readonly #fb = inject(FormBuilder);
 	readonly #store = inject(Store);
 
-	readonly product = this.#store.selectSignal<ProductModel | undefined>(
-		selectedProduct,
+	readonly product = this.#store.selectSignal<ProductModelRes | undefined>(
+		selectSelectedProductById,
 	);
 
 	readonly relatedProducts =
@@ -58,16 +59,6 @@ export default class ProductDetailsComponent {
 	constructor() {
 		effect(() => {
 			this.#store.dispatch(productsActions.findProductById({ _id: this.id() }));
-		});
-
-		effect(() => {
-			this.#store.dispatch(
-				productsActions.findProductByCategory({
-					params: {
-						levelThree: this.product()?.category?.name,
-					},
-				}),
-			);
 		});
 	}
 

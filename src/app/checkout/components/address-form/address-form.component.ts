@@ -1,9 +1,4 @@
-import {
-	ChangeDetectionStrategy,
-	Component,
-	inject,
-	signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import {
 	FormBuilder,
@@ -16,6 +11,8 @@ import { MatInputModule } from '@angular/material/input';
 import { AddressListComponent } from '../address-list/address-list.component';
 import { Store } from '@ngrx/store';
 import { orderActions } from '../../../orders/data-access/store/order.actions';
+import { selectAddresses } from '../../../user/store/user.selectors';
+import { Addresses } from '../../../auth/models/addresses.model';
 
 @Component({
 	selector: 'app-address-form',
@@ -34,7 +31,9 @@ export class AddressFormComponent {
 	readonly #fb = inject(FormBuilder);
 	readonly #store = inject(Store);
 
-	readonly addresses = signal([1, 2, 3]);
+	readonly addresses = this.#store.selectSignal<Addresses[] | undefined>(
+		selectAddresses,
+	);
 
 	readonly form = this.#fb.group({
 		firstName: [null, Validators.required],
