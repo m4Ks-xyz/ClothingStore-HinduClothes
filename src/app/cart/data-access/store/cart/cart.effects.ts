@@ -7,6 +7,7 @@ import { catchError, of, switchMap, tap } from 'rxjs';
 import { Action } from '@ngrx/store';
 import { TOKEN_STORAGE_KEY } from '../../../../auth/data-acces/config/api';
 import { UserActions } from '../../../../user/store/user.actions';
+import { AuthActions } from '../../../../auth/data-acces/store/auth/auth.actions';
 
 @Injectable()
 export class CartEffects implements OnInitEffects {
@@ -55,6 +56,7 @@ export class CartEffects implements OnInitEffects {
 				cartActions.getCartRequest,
 				cartActions.updateCartItemSuccess,
 				cartActions.removeCartItemSuccess,
+				AuthActions.loginSuccess,
 			),
 			switchMap(() => {
 				return this.#cartService.getCart().pipe(

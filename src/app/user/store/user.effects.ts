@@ -5,7 +5,7 @@ import { UserActions } from './user.actions';
 import { catchError, of, switchMap, tap } from 'rxjs';
 import { Action } from '@ngrx/store';
 import { TOKEN_STORAGE_KEY } from '../../auth/data-acces/config/api';
-import { cartActions } from '../../cart/data-access/store/cart/cart.actions';
+import { AuthActions } from '../../auth/data-acces/store/auth/auth.actions';
 
 @Injectable()
 export class UserEffects implements OnInitEffects {
@@ -14,7 +14,6 @@ export class UserEffects implements OnInitEffects {
 
 	ngrxOnInitEffects(): Action {
 		if (localStorage.getItem(TOKEN_STORAGE_KEY)) {
-			cartActions.getCartRequest();
 			return UserActions.getUserProfile();
 		}
 		return UserActions.skipLoadingUserProfile();
@@ -22,7 +21,7 @@ export class UserEffects implements OnInitEffects {
 
 	readonly getUserProfile = createEffect(() =>
 		this.#actions$.pipe(
-			ofType(UserActions.getUserProfile),
+			ofType(UserActions.getUserProfile, AuthActions.loginSuccess),
 			switchMap(() => {
 				return this.#userService.getUserProfile().pipe(
 					switchMap((user) => {

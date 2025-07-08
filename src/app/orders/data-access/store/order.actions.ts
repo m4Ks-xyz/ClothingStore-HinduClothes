@@ -3,7 +3,7 @@ import { OrderRes } from '../../models/order-res.model';
 import { Address } from '../../../checkout/models/address.model';
 
 export const orderActions = createActionGroup({
-	source: 'order',
+	source: 'Order',
 	events: {
 		createOrderRequest: props<Address>(),
 		createOrderRequestSuccess: props<{ order: OrderRes }>(),

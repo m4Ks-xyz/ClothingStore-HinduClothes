@@ -1,7 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PRODUCT_FILTERS } from '../constants/filter-data.constant.constant';
-import { Store } from '@ngrx/store';
 
 @Injectable({
 	providedIn: 'root',
@@ -9,7 +8,6 @@ import { Store } from '@ngrx/store';
 export class ProductsService {
 	readonly activeRoute = inject(ActivatedRoute);
 	readonly router = inject(Router);
-	readonly #store = inject(Store);
 
 	readonly filterContent = PRODUCT_FILTERS;
 

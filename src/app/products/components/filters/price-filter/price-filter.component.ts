@@ -22,18 +22,21 @@ export class PriceFilterComponent {
 	readonly currentMaxPrice = input<number | undefined>();
 
 	readonly priceMinMaxChange = output<{
-		min: number | undefined;
-		max: number | undefined;
+		minPrice: number | undefined;
+		maxPrice: number | undefined;
 	}>();
 
 	minPriceChange(value: number | undefined) {
-		this.priceMinMaxChange.emit({ min: value, max: this.currentMaxPrice() });
+		this.priceMinMaxChange.emit({
+			minPrice: value,
+			maxPrice: this.currentMaxPrice(),
+		});
 	}
 
 	maxPriceChange(value: number | undefined) {
-		this.priceMinMaxChange.emit({ min: this.currentMinPrice(), max: value });
+		this.priceMinMaxChange.emit({
+			minPrice: this.currentMinPrice(),
+			maxPrice: value,
+		});
 	}
-
-	protected readonly isNaN = isNaN;
-	protected readonly NaN = NaN;
 }

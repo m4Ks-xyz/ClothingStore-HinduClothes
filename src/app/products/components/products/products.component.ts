@@ -2,10 +2,10 @@ import {
 	ChangeDetectionStrategy,
 	Component,
 	computed,
+	DestroyRef,
 	effect,
 	inject,
 	input,
-	numberAttribute,
 	Signal,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -26,15 +26,22 @@ import {
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ProductParams } from '../../data-access/services/product-api.service';
 import { ProductModel } from '../../models/product.model';
-import { StockFilterComponent } from '../filters/stock-filter/stock-filter.component';
-import { MultiselectFilterComponent } from '../filters/multiselect-filter/multiselect-filter.component';
-import { PriceFilterComponent } from '../filters/price-filter/price-filter.component';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { BottomSheetMobileComponent } from '../filters/bottom-sheet-mobile/bottom-sheet-mobile.component';
+import { ProductsFiltersComponent } from '../products-filters/products-filters.component';
+import {
+	BottomSheetMobileData,
+	BottomSheetMobileResults,
+} from '../filters/bottom-sheet-mobile/bottom-sheet-mobile-data.type';
+import { ProductFilters } from '../../types/product-filters.type';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 const parseQueryParam = (splitCharacter = ',') => {
 	return (queryParam: string | undefined): string[] => {
+		if (Array.isArray(queryParam)) {
+			return queryParam;
+		}
 		if (queryParam) {
 			return queryParam.split(splitCharacter);
 		}
@@ -54,9 +61,7 @@ const parseQueryParam = (splitCharacter = ',') => {
 		FormsModule,
 		ProductCardComponent,
 		RouterLink,
-		StockFilterComponent,
-		MultiselectFilterComponent,
-		PriceFilterComponent,
+		ProductsFiltersComponent,
 	],
 	templateUrl: './products.component.html',
 	styleUrl: './products.component.scss',
@@ -68,9 +73,7 @@ export default class ProductsComponent {
 	readonly #router = inject(Router);
 	readonly #activatedRoute = inject(ActivatedRoute);
 	readonly #bottomSheet = inject(MatBottomSheet);
-
-	readonly MAX_ALLOWED_PRICE = 2000;
-	readonly MIN_ALLOWED_PRICE = 10;
+	readonly #destroyRef = inject(DestroyRef);
 
 	// Query param
 	readonly levelOne = input.required<ProductCategory>();
@@ -84,7 +87,12 @@ export default class ProductsComponent {
 	readonly sort = input<string>();
 	readonly pageNumber = input<number>();
 	readonly pageSize = input<number>();
-	readonly minPrice = input(undefined, { transform: numberAttribute });
+	readonly minPrice = input(undefined, {
+		transform: (v: string) => {
+			const parsed = Number(v);
+			return isNaN(parsed) ? this.MIN_ALLOWED_PRICE : parsed;
+		},
+	});
 	readonly maxPrice = input(undefined, {
 		transform: (v: string) => {
 			const parsed = Number(v);
@@ -114,6 +122,9 @@ export default class ProductsComponent {
 
 	readonly totalProducts = this.#store.selectSignal(selectTotalProducts);
 
+	readonly MAX_ALLOWED_PRICE = 2000;
+	readonly MIN_ALLOWED_PRICE = 10;
+
 	constructor() {
 		effect(() => {
 			const params = this.productParams();
@@ -125,10 +136,30 @@ export default class ProductsComponent {
 		});
 	}
 
-	readonly filterContent = this.#productsService.filterContent;
-
 	openBottomSheet() {
-		this.#bottomSheet.open(BottomSheetMobileComponent);
+		const ref = this.#bottomSheet.open<
+			BottomSheetMobileComponent,
+			BottomSheetMobileData,
+			BottomSheetMobileResults
+		>(BottomSheetMobileComponent, {
+			data: {
+				filters: {
+					minPrice: this.minPrice(),
+					maxPrice: this.maxPrice(),
+					color: this.color(),
+					sizes: this.size(),
+					discount: this.discount(),
+					stock: this.stock(),
+				},
+				minAllowed: this.MIN_ALLOWED_PRICE,
+				maxAllowed: this.MAX_ALLOWED_PRICE,
+			},
+		});
+
+		ref
+			.afterDismissed()
+			.pipe(takeUntilDestroyed(this.#destroyRef))
+			.subscribe((data) => this.setFilter(data?.filters ?? {}));
 	}
 
 	handlePageEvent(e: PageEvent) {
@@ -139,31 +170,15 @@ export default class ProductsComponent {
 		});
 	}
 
-	toggleStock(stock: string | undefined) {
-		this.#router.navigate([], {
-			queryParams: { stock: stock },
-			relativeTo: this.#activatedRoute,
-			queryParamsHandling: 'merge',
-		});
-	}
-
-	selectMultipleFilters(name: string, value: string[]) {
-		this.#router.navigate([], {
-			queryParams: { [name]: value.join(',') },
-			relativeTo: this.#activatedRoute,
-			queryParamsHandling: 'merge',
-		});
-	}
-
-	priceFilters(price: { min?: number; max?: number }) {
-		this.#router.navigate([], {
-			queryParams: { minPrice: price.min, maxPrice: price.max },
-			relativeTo: this.#activatedRoute,
-			queryParamsHandling: 'merge',
-		});
-	}
-
 	selectedFilters(value: string, name: string): void {
 		this.#productsService.toggleFilter(value, name);
+	}
+
+	setFilter(filterParams: ProductFilters) {
+		this.#router.navigate([], {
+			queryParams: filterParams,
+			relativeTo: this.#activatedRoute,
+			queryParamsHandling: 'merge',
+		});
 	}
 }

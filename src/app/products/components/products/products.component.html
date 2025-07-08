@@ -58,36 +58,16 @@
 					</button>
 				</div>
 				<form class="hidden min-h-[60vh] lg:block">
-					<app-price-filter
-						(priceMinMaxChange)="priceFilters($event)"
-						[maxPrice]="MAX_ALLOWED_PRICE"
-						[minPrice]="MIN_ALLOWED_PRICE"
-						[currentMinPrice]="minPrice()"
-						[currentMaxPrice]="maxPrice()"
-					/>
-					<app-multiselect-filter
-						[selectedFilter]="color()"
-						(changeStock)="
-							selectMultipleFilters(filterContent.color.id, $event)
-						"
-						[filter]="filterContent.color"
-					/>
-					<app-multiselect-filter
-						[selectedFilter]="size()"
-						(changeStock)="selectMultipleFilters(filterContent.size.id, $event)"
-						[filter]="filterContent.size"
-					/>
-					<app-multiselect-filter
-						[selectedFilter]="discount()"
-						(changeStock)="
-							selectMultipleFilters(filterContent.discount.id, $event)
-						"
-						[filter]="filterContent.discount"
-					/>
-					<app-stock-filter
-						[selectedStock]="stock()"
-						(changeStock)="toggleStock($event)"
-						[stock]="filterContent.stock"
+					<app-products-filters
+						(productFilter)="setFilter($event)"
+						[minPrice]="minPrice()"
+						[maxPrice]="maxPrice()"
+						[stock]="stock()"
+						[color]="color()"
+						[discount]="discount()"
+						[maxAllowedPrice]="MAX_ALLOWED_PRICE"
+						[minAllowedPrice]="MIN_ALLOWED_PRICE"
+						[size]="size()"
 					/>
 				</form>
 			</div>

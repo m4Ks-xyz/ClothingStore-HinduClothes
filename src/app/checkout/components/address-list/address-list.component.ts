@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	input,
+	output,
+} from '@angular/core';
 import { AddressCardComponent } from '../address-card/address-card.component';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,9 +17,7 @@ import { Addresses } from '../../../auth/models/addresses.model';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddressListComponent {
-	addresses = input.required<Addresses[] | undefined>();
+	readonly addresses = input.required<Addresses[] | undefined>();
 
-	createOrder() {
-		console.log('Order created');
-	}
+	readonly orderAddress = output<Addresses>();
 }

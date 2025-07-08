@@ -19,15 +19,13 @@ export class AuthEffects {
 			ofType(AuthActions.login),
 			switchMap((actionPayload) => {
 				return this.#authService.login(actionPayload.user).pipe(
-					switchMap((res) =>
-						of(
+					switchMap((res) => {
+						return of(
 							AuthActions.loginSuccess({
 								user: { token: res.token, message: res.message },
 							}),
-							UserActions.getUserProfile(),
-							cartActions.getCartRequest(),
-						),
-					),
+						);
+					}),
 					tap(() =>
 						this.#snackBar.open(`Login successfully`, undefined, {
 							duration: 5000,

@@ -45,7 +45,13 @@ export class AddressFormComponent {
 		phoneNumber: [null, Validators.required],
 	});
 
-	addAddress() {
+	createOrder(existingAddress?: Addresses) {
+		if (existingAddress) {
+			return this.#store.dispatch(
+				orderActions.createOrderRequest(existingAddress),
+			);
+		}
+
 		this.form.markAllAsTouched();
 
 		if (this.form.valid) {

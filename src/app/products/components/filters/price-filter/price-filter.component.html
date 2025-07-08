@@ -1,7 +1,11 @@
 <app-filter-layout>
 	<ng-container filter-layout-title>Price</ng-container>
 	<ng-container filter-layout-filters>
-		<mat-slider class="w-full!" [min]="minPrice()" [max]="maxPrice()">
+		<mat-slider
+			class="w-9/10! self-center"
+			[min]="minPrice()"
+			[max]="maxPrice()"
+		>
 			<input
 				[ngModel]="currentMinPrice()"
 				(ngModelChange)="minPriceChange($event)"

@@ -2,11 +2,14 @@
 	<div class="grid grid-cols-1 gap-4 px-5 lg:grid-cols-12 lg:px-20">
 		@if (addresses()) {
 			<div class="col-span-1 lg:col-span-5">
-				<app-address-list [addresses]="addresses()" />
+				<app-address-list
+					(orderAddress)="createOrder($event)"
+					[addresses]="addresses()"
+				/>
 			</div>
 		}
 
-		<div class="col-span-1 lg:col-span-8" [class.lg:col-start-3]="!addresses()">
+		<div class="col-span-1 lg:col-span-7" [class.lg:col-start-3]="!addresses()">
 			<div class="box rounded-md p-5 shadow-md">
 				<form [formGroup]="form" class="flex flex-col md:gap-y-5">
 					<h2 class="mb-5 text-2xl font-semibold">Add Shipping Address</h2>
@@ -89,7 +92,7 @@
 						mat-raised-button
 						color="primary"
 						type="submit"
-						(click)="addAddress()"
+						(click)="createOrder()"
 					>
 						Add Address, deliver here
 					</button>
