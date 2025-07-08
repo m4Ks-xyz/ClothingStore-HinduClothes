@@ -10,14 +10,16 @@
 					class="icon"
 					[class]="{
 						'text-green-500!':
-							activeStep().title === step.title || $index <= activeStep().id,
+							activeStep() === step.title || $index <= activeStepIndex(),
 						'text-gray-300!':
-							activeStep().title !== step.title &&
-							activeStep().title !== 'Order Placed',
+							activeStep() !== step.title && activeStep() !== 'placed',
 					}"
 					>check_circle</mat-icon
 				>
-				<span class="text-center"> {{ step.title }} </span>
+				<span class="hidden text-center uppercase md:block">
+					{{ step.title }}
+				</span>
+				<span class="text-center uppercase md:hidden">{{ activeStep() }}</span>
 			</div>
 
 			@if (!$last) {
@@ -25,8 +27,8 @@
 					class="hidden h-1 w-12 rounded-2xl border-2 border-gray-300 md:block"
 					[class]="{
 						'border-green-500!':
-							activeStep().title === step.title || $index <= activeStep().id,
-						'border-gray-300!': activeStep().title !== step.title,
+							activeStep() === step.title || $index <= activeStepIndex(),
+						'border-gray-300!': activeStep() !== step.title,
 					}"
 				></div>
 			}

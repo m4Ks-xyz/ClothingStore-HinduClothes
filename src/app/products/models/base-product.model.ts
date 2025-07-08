@@ -5,6 +5,7 @@ export interface BaseProduct {
 	title: string;
 	price: number;
 	discount: number;
+	discountedPrice?: number;
 	color?: string;
 	size?: {
 		name: string;

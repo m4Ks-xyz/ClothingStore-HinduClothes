@@ -1,26 +1,43 @@
 import {
 	ChangeDetectionStrategy,
 	Component,
+	effect,
 	inject,
+	input,
 	signal,
 } from '@angular/core';
 import { AddressCardComponent } from '../../../checkout/components/address-card/address-card.component';
-import { OrderCardComponent } from '../order-card/order-card.component';
 import { FILTER_STEPS } from '../../constants/order-status-steps.constant';
 import { OrderTrackerComponent } from '../../../shared/components/progres-track/order-tracker.component';
 import { Store } from '@ngrx/store';
-import { selectOrdersHistory } from '../../data-access/store/order.selectors';
+import { selectOrder } from '../../data-access/store/order.selectors';
+import { OrderRes } from '../../models/order-res.model';
+import { orderActions } from '../../data-access/store/order.actions';
+import { OrderProductDetailsComponent } from '../order-product-details/order-product-details.component';
 
 @Component({
 	selector: 'app-order-details',
-	imports: [AddressCardComponent, OrderCardComponent, OrderTrackerComponent],
+	imports: [
+		AddressCardComponent,
+		OrderTrackerComponent,
+		OrderProductDetailsComponent,
+	],
 	templateUrl: './order-details.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class OrderDetailsComponent {
 	readonly #store = inject(Store);
 
-	readonly orders = this.#store.selectSignal(selectOrdersHistory);
+	// query parrams
+	readonly id = input.required<string>();
+
+	readonly order = this.#store.selectSignal<OrderRes | undefined>(selectOrder);
 
 	readonly steps = signal(FILTER_STEPS);
+
+	constructor() {
+		effect(() => {
+			this.#store.dispatch(orderActions.getOrderById({ orderId: this.id() }));
+		});
+	}
 }

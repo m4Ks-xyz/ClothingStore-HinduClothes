@@ -10,9 +10,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AddressListComponent } from '../address-list/address-list.component';
 import { Store } from '@ngrx/store';
-import { orderActions } from '../../../orders/data-access/store/order.actions';
 import { selectAddresses } from '../../../user/store/user.selectors';
 import { Addresses } from '../../../auth/models/addresses.model';
+import { Router } from '@angular/router';
+import { selectOrder } from '../../../orders/data-access/store/order.selectors';
+import { OrderRes } from '../../../orders/models/order-res.model';
+import { orderActions } from '../../../orders/data-access/store/order.actions';
 
 @Component({
 	selector: 'app-address-form',
@@ -30,10 +33,13 @@ import { Addresses } from '../../../auth/models/addresses.model';
 export class AddressFormComponent {
 	readonly #fb = inject(FormBuilder);
 	readonly #store = inject(Store);
+	readonly #router = inject(Router);
 
 	readonly addresses = this.#store.selectSignal<Addresses[] | undefined>(
 		selectAddresses,
 	);
+
+	readonly order = this.#store.selectSignal<OrderRes | undefined>(selectOrder);
 
 	readonly form = this.#fb.group({
 		firstName: [null, Validators.required],
@@ -46,6 +52,7 @@ export class AddressFormComponent {
 	});
 
 	createOrder(existingAddress?: Addresses) {
+		this.#router.navigate(['/checkout/payment', this.order()?._id]);
 		if (existingAddress) {
 			return this.#store.dispatch(
 				orderActions.createOrderRequest(existingAddress),
@@ -55,7 +62,6 @@ export class AddressFormComponent {
 		this.form.markAllAsTouched();
 
 		if (this.form.valid) {
-			console.log(this.form.getRawValue());
 			this.#store.dispatch(
 				orderActions.createOrderRequest(this.form.getRawValue()),
 			);

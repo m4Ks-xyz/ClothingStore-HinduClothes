@@ -24,7 +24,6 @@ export class OrderEffects implements OnInitEffects {
 		this.#actions.pipe(
 			ofType(orderActions.createOrderRequest),
 			switchMap((payload) => {
-				console.log(payload);
 				return this.#orderService.createOrder(payload).pipe(
 					switchMap((order) => {
 						return of(orderActions.createOrderRequestSuccess({ order: order }));
@@ -42,9 +41,9 @@ export class OrderEffects implements OnInitEffects {
 			ofType(orderActions.getOrderById),
 			switchMap((payload) => {
 				return this.#orderService.getOrderById(payload.orderId).pipe(
-					switchMap((order) =>
-						of(orderActions.getOrderByIdSuccess({ order: order })),
-					),
+					switchMap((order) => {
+						return of(orderActions.getOrderByIdSuccess({ order: order }));
+					}),
 					catchError((err) =>
 						of(orderActions.getOrderByIdFailure({ err: err.error })),
 					),
@@ -58,9 +57,11 @@ export class OrderEffects implements OnInitEffects {
 			ofType(orderActions.getOrderHistoryRequest, AuthActions.loginSuccess),
 			switchMap(() => {
 				return this.#orderService.getOrderHistory().pipe(
-					switchMap((orders) =>
-						of(orderActions.getOrderHistoryRequestSuccess({ orders: orders })),
-					),
+					switchMap(function (orders) {
+						return of(
+							orderActions.getOrderHistoryRequestSuccess({ orders: orders }),
+						);
+					}),
 					catchError((err) =>
 						of(orderActions.getOrderHistoryRequestFailure({ err: err.error })),
 					),

@@ -3,15 +3,13 @@
 		@for (address of addresses(); track address; let last = $last) {
 			<app-address-card [address]="address" />
 
-			<a routerLink="payment/2c05a73a-2a35-429b-b758-0092ef8b0667">
-				<button
-					class="w-full! rounded-md! bg-gray-500! p-7!"
-					mat-raised-button
-					(click)="orderAddress.emit(address)"
-				>
-					Deliver Here
-				</button>
-			</a>
+			<button
+				class="w-full! rounded-md! bg-gray-500! p-7!"
+				mat-raised-button
+				(click)="orderAddress.emit(address)"
+			>
+				Deliver Here
+			</button>
 
 			@if (!last) {
 				<mat-divider />

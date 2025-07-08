@@ -4,10 +4,14 @@
 			<div class="relative min-h-[60vh] grid-cols-3 py-10 lg:grid lg:px-16">
 				<section class="lg:col-span-2 lg:px-5">
 					<div class="box space-y-3 p-5">
-						<app-cart-item-list
-							[cartProducts]="cart()?.cartItems"
-							[showButtons]="true"
-						/>
+						@if (cart()?.cartItems?.length !== 0) {
+							<app-cart-item-list
+								[cartProducts]="cart()?.cartItems"
+								[showButtons]="true"
+							/>
+						} @else {
+							<p class="p-40 text-center">ADD SOMETHING TO CART</p>
+						}
 					</div>
 				</section>
 

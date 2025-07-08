@@ -1,6 +1,12 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	computed,
+	input,
+} from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { OrderStatusStep } from '../../../orders/models/order-status-steps.model';
+import { OrderStatus } from '../../../orders/types/order-status.type';
 
 @Component({
 	selector: 'app-progres-track',
@@ -11,5 +17,9 @@ import { OrderStatusStep } from '../../../orders/models/order-status-steps.model
 })
 export class OrderTrackerComponent {
 	readonly steps = input.required<OrderStatusStep[]>();
-	readonly activeStep = input.required<OrderStatusStep>();
+	readonly activeStep = input.required<OrderStatus>();
+
+	activeStepIndex = computed(() => {
+		return this.steps().findIndex((step) => step.title === this.activeStep());
+	});
 }

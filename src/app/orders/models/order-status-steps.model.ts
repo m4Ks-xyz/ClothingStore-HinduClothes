@@ -1,4 +1,4 @@
 export interface OrderStatusStep {
-	id: number;
+	id?: number;
 	title: string;
 }

@@ -22,14 +22,17 @@
 				<span class="text-green-700">{{ cart()?.totalDiscountedPrice }}</span>
 			</div>
 		</div>
-		@if (buttonMode() === "checkout") {
-			<a routerLink="/checkout">
-				<button class="w-full rounded-md!" mat-raised-button>CHECKOUT</button>
-			</a>
-		} @else if (buttonMode() === "payment") {
-			<a routerLink="/payment">
-				<button class="w-full rounded-md!" mat-raised-button>PAY NOW</button>
-			</a>
+
+		@if (cart()?.cartItems?.length !== 0) {
+			@if (buttonMode() === "checkout") {
+				<a routerLink="/checkout">
+					<button class="w-full rounded-md!" mat-raised-button>CHECKOUT</button>
+				</a>
+			} @else if (buttonMode() === "payment") {
+				<a routerLink="/payment">
+					<button class="w-full rounded-md!" mat-raised-button>PAY NOW</button>
+				</a>
+			}
 		}
 	</div>
 }

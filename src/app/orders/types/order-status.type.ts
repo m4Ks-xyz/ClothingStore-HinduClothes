@@ -1,6 +1,6 @@
 export type OrderStatus =
-	| 'PLACED'
-	| 'CONFIRMED'
-	| 'PREPARING'
-	| 'SENT'
-	| 'DELIVERED';
+	| 'placed'
+	| 'confirmed'
+	| 'preparing'
+	| 'sent'
+	| 'delivered';

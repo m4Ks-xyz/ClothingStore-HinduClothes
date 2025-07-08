@@ -3,22 +3,22 @@ import { OrderStatusStep } from '../models/order-status-steps.model';
 export const FILTER_STEPS: OrderStatusStep[] = [
 	{
 		id: 0,
-		title: 'PLACED',
+		title: 'placed',
 	},
 	{
 		id: 1,
-		title: 'CONFIRMED',
+		title: 'confirmed',
 	},
 	{
 		id: 2,
-		title: 'PREPARING',
+		title: 'preparing',
 	},
 	{
 		id: 3,
-		title: 'SENT',
+		title: 'sent',
 	},
 	{
 		id: 4,
-		title: 'DELIVERED',
+		title: 'delivered',
 	},
 ];

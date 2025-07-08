@@ -19,7 +19,7 @@ export const OrderReducer = createReducer(
 	on(orderActions.createOrderRequestSuccess, (state, action) => {
 		return {
 			...state,
-			order: { ...state.order, ...action.order },
+			order: action.order,
 		};
 	}),
 	on(
@@ -36,7 +36,7 @@ export const OrderReducer = createReducer(
 	on(orderActions.getOrderByIdSuccess, (state, action) => {
 		return {
 			...state,
-			order: { ...state.order, ...action.order },
+			order: action.order,
 		};
 	}),
 	on(orderActions.getOrderHistoryRequestSuccess, (state, action) => {
