@@ -1,7 +1,7 @@
 <form
 	(keydown.enter)="onSubmit()"
 	[formGroup]="form"
-	class="flex flex-col items-center justify-center"
+	class="flex flex-col items-center justify-center gap-4"
 >
 	<mat-form-field class="w-full">
 		<mat-label>E-mail</mat-label>
@@ -11,22 +11,15 @@
 			formControlName="email"
 			placeholder="name@example.com"
 		/>
-		@if (
-			form.controls.email.hasError("email") &&
-			!form.controls.email.hasError("required")
-		) {
+		@if (form.controls.email.hasError("email")) {
 			<mat-error>Please enter a valid email address</mat-error>
-		}
-		@if (form.controls.email.hasError("required")) {
+		} @else if (form.controls.email.hasError("required")) {
 			<mat-error>Email is <strong>required</strong></mat-error>
 		}
 	</mat-form-field>
 	<mat-form-field class="w-full">
 		<mat-label>Password</mat-label>
 		<input type="password" matInput formControlName="password" />
-		@if (form.controls.password.hasError("minlength")) {
-			<mat-error>8 <strong>characters</strong> or more</mat-error>
-		}
 		@if (form.controls.password.hasError("required")) {
 			<mat-error>Password is <strong>required</strong></mat-error>
 		}

@@ -43,7 +43,7 @@ export class AuthSignInComponent {
 
 	form = this.#fb.group({
 		email: ['', [Validators.email, Validators.required]],
-		password: ['', [Validators.required, Validators.minLength(8)]],
+		password: ['', [Validators.required]],
 	});
 
 	onSubmit() {

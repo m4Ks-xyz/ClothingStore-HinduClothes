@@ -42,10 +42,22 @@ export class AuthSignUpComponent {
 	readonly toggleAccountStatus = output<void>();
 
 	form = this.#fb.group({
-		email: ['', [Validators.email, Validators.required]],
-		password: ['', [Validators.required, Validators.minLength(8)]],
-		firstName: ['', [Validators.minLength(3), Validators.required]],
-		lastName: ['', [Validators.minLength(3), Validators.required]],
+		email: [null, [Validators.email, Validators.required]],
+		password: [
+			null,
+			[
+				Validators.required,
+				Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/),
+			],
+		],
+		firstName: [
+			'',
+			[Validators.required, Validators.pattern(/^[A-Z][a-zA-Z'-]{1,20}$/)],
+		],
+		lastName: [
+			'',
+			[Validators.required, Validators.pattern(/^[A-Z][a-zA-Z'-]{1,20}$/)],
+		],
 	});
 
 	onSubmit() {
