@@ -23,9 +23,10 @@
 				<p class="text-lg font-semibold">Price</p>
 				<p class="text-sm">
 					{{
-						order().discount !== 0
+						(order().discount !== 0
 							? order().totalDiscountedPrice
 							: order().totalPrice
+						) | currency: "INR"
 					}}
 				</p>
 			</div>

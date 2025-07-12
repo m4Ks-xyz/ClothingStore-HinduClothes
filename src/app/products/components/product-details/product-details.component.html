@@ -31,13 +31,15 @@
 					@let discount = product()?.details?.discount ?? 0;
 					@if (discount > 0) {
 						<div class="flex items-center gap-4">
-							<p class="text-2xl">{{ product()?.details?.discountedPrice }}</p>
+							<p class="text-2xl">
+								{{ product()?.details?.discountedPrice | currency: "INR" }}
+							</p>
 							<div class="rounded bg-red-500 px-2 py-1 text-xl text-white">
 								{{ `${product()?.details?.discount} %` }}
 							</div>
 						</div>
 						<p class="text-lg text-gray-700 line-through">
-							{{ product()?.details?.price }}
+							{{ product()?.details?.price | currency: "INR" }}
 						</p>
 					}
 				</div>

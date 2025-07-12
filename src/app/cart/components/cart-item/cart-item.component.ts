@@ -10,10 +10,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { CartItem } from '../../models/cart-item.model';
 import { Store } from '@ngrx/store';
 import { cartActions } from '../../data-access/store/cart/cart.actions';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
 	selector: 'app-cart-item',
-	imports: [MatMiniFabButton, MatIconModule, MatButton],
+	imports: [MatMiniFabButton, MatIconModule, MatButton, CurrencyPipe],
 	templateUrl: './cart-item.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })

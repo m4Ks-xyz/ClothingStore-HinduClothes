@@ -42,18 +42,45 @@ export class AddressFormComponent {
 	readonly order = this.#store.selectSignal<OrderRes | undefined>(selectOrder);
 
 	readonly form = this.#fb.group({
-		firstName: [null, Validators.required],
-		lastName: [null, Validators.required],
-		street: [null, Validators.required],
-		city: [null, Validators.required],
-		zipCode: [null, Validators.required],
-		number: [null, Validators.required],
-		phoneNumber: [null, Validators.required],
+		firstName: [
+			null,
+			[Validators.required, Validators.pattern(/^[A-Z][a-zA-Z'-]{1,20}$/)],
+		],
+		lastName: [
+			null,
+			[Validators.required, Validators.pattern(/^[A-Z][a-zA-Z'-]{1,20}$/)],
+		],
+		street: [
+			null,
+			[
+				Validators.required,
+				Validators.pattern(/^[A-Z][a-zA-Z0-9\s.'-]{2,100}$/),
+			],
+		],
+		city: [
+			null,
+			[Validators.required, Validators.pattern(/^[A-Z][a-zA-Z\s-]{1,49}$/)],
+		],
+		zipCode: [
+			null,
+			[Validators.required, Validators.pattern(/^[A-Za-z0-9\s-]{3,10}$/)],
+		],
+		number: [
+			null,
+			[
+				Validators.required,
+				Validators.pattern(/^\d+[A-Za-z]?([\/-]\d+[A-Za-z]?)?$/),
+			],
+		],
+		phoneNumber: [
+			null,
+			[Validators.required, Validators.pattern(/^\+?[0-9\s\-()]{7,20}$/)],
+		],
 	});
 
 	createOrder(existingAddress?: Addresses) {
-		this.#router.navigate(['/checkout/payment', this.order()?._id]);
 		if (existingAddress) {
+			this.#router.navigate(['/checkout/payment', this.order()?._id]);
 			return this.#store.dispatch(
 				orderActions.createOrderRequest(existingAddress),
 			);
@@ -62,6 +89,7 @@ export class AddressFormComponent {
 		this.form.markAllAsTouched();
 
 		if (this.form.valid) {
+			this.#router.navigate(['/checkout/payment', this.order()?._id]);
 			this.#store.dispatch(
 				orderActions.createOrderRequest(this.form.getRawValue()),
 			);

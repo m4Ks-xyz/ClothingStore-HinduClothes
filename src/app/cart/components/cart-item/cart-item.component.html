@@ -17,20 +17,20 @@
 
 			@if (cartItem().product.discount === 0) {
 				<p class="text-xl">
-					{{ cartItem().product.price }}
+					{{ cartItem().product.price | currency: "INR" }}
 				</p>
 			} @else {
-				<div class="flex items-center gap-x-2 pt-3">
+				<div class="flex flex-col justify-center gap-x-2 pt-3">
 					<div class="flex items-center gap-4">
 						<p class="text-xl">
-							{{ cartItem().product.discountedPrice }}
+							{{ cartItem().product.discountedPrice | currency: "INR" }}
 						</p>
 						<div class="text-md rounded bg-red-500 px-2 py-1 text-white">
 							{{ cartItem().product.discount }} %
 						</div>
 					</div>
 					<p class="text-md text-gray-700 line-through">
-						{{ cartItem().product.price }}
+						{{ cartItem().product.price | currency: "INR" }}
 					</p>
 				</div>
 			}

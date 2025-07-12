@@ -6,11 +6,13 @@
 		<div class="space-y-3 pb-8">
 			<div class="flex justify-between pt-3">
 				<span>Total Price</span>
-				<span>{{ cart()?.totalPrice }}</span>
+				<span>{{ cart()?.totalPrice | currency: "INR" }}</span>
 			</div>
 			<div class="flex justify-between pt-3">
 				<span>Total Discount</span>
-				<span class="text-green-700">-{{ cart()?.discount }}</span>
+				<span class="text-green-700"
+					>-{{ cart()?.discount | currency: "INR" }}</span
+				>
 			</div>
 			<div class="flex justify-between pt-3">
 				<span>Delivery Charges</span>
@@ -19,7 +21,9 @@
 			<mat-divider />
 			<div class="flex justify-between pt-3">
 				<span>Total Amount</span>
-				<span class="text-green-700">{{ cart()?.totalDiscountedPrice }}</span>
+				<span class="text-green-700">{{
+					cart()?.totalDiscountedPrice | currency: "INR"
+				}}</span>
 			</div>
 		</div>
 

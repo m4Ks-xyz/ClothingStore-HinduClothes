@@ -25,6 +25,7 @@ import {
 } from '../../data-access/store/products/products.selectors';
 import { ProductModel, ProductModelRes } from '../../models/product.model';
 import { cartActions } from '../../../cart/data-access/store/cart/cart.actions';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
 	selector: 'app-product-details',
@@ -37,6 +38,7 @@ import { cartActions } from '../../../cart/data-access/store/cart/cart.actions';
 		ProductCardComponent,
 		ReactiveFormsModule,
 		RouterLink,
+		CurrencyPipe,
 	],
 	templateUrl: './product-details.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

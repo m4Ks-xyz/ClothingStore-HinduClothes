@@ -15,68 +15,135 @@
 					<h2 class="mb-5 text-2xl font-semibold">Add Shipping Address</h2>
 
 					<div
-						class="flex flex-col items-center justify-between gap-x-4 md:flex-row"
+						class="flex flex-col items-center justify-between gap-4 md:flex-row"
 					>
-						<mat-form-field class="w-full">
-							<mat-label>First Name</mat-label>
-							<input
-								matInput
-								formControlName="firstName"
-								type="text"
-								placeholder="Jan"
-						/></mat-form-field>
-						<mat-form-field class="w-full">
-							<mat-label>Last Name</mat-label>
-							<input
-								matInput
-								formControlName="lastName"
-								type="text"
-								placeholder="Kowalski"
-							/>
-						</mat-form-field>
+						<div class="w-full">
+							<mat-form-field class="w-full">
+								<mat-label>First Name</mat-label>
+								<input
+									matInput
+									formControlName="firstName"
+									type="text"
+									placeholder="Jan"
+								/>
+								@if (this.form.controls.firstName.hasError("required")) {
+									<mat-error
+										>First name is <strong>required</strong>
+									</mat-error>
+								} @else if (this.form.controls.firstName.hasError("pattern")) {
+									<mat-error
+										>Only <strong>letters</strong>, first
+										<strong>capital</strong>, 5-20
+										<strong>characters</strong>
+									</mat-error>
+								}
+							</mat-form-field>
+						</div>
+
+						<div class="w-full">
+							<mat-form-field class="w-full">
+								<mat-label>Last Name</mat-label>
+								<input
+									matInput
+									formControlName="lastName"
+									type="text"
+									placeholder="Kowalski"
+								/>
+								@if (this.form.controls.lastName.hasError("required")) {
+									<mat-error>Last name is <strong>required</strong> </mat-error>
+								} @else if (this.form.controls.lastName.hasError("pattern")) {
+									<mat-error
+										>Only <strong>letters</strong>, first
+										<strong>capital</strong>, 5-20
+										<strong>characters</strong>
+									</mat-error>
+								}
+							</mat-form-field>
+						</div>
 					</div>
 
 					<div
-						class="grid grid-cols-1 items-center justify-between gap-x-4 md:grid-cols-2 md:flex-row"
+						class="grid grid-cols-1 items-center justify-between gap-4 md:grid-cols-2 md:flex-row"
 					>
-						<mat-form-field class="w-full">
-							<mat-label>City</mat-label>
-							<input
-								matInput
-								formControlName="city"
-								type="text"
-								placeholder="Warsaw"
-							/>
-						</mat-form-field>
-						<mat-form-field class="w-full">
-							<mat-label>Zip code</mat-label>
-							<input
-								matInput
-								formControlName="zipCode"
-								type="text"
-								placeholder="00-000"
-							/>
-						</mat-form-field>
-						<mat-form-field class="w-full">
-							<mat-label>Street</mat-label>
-							<input
-								matInput
-								formControlName="street"
-								type="text"
-								placeholder="Krakowska"
-							/> </mat-form-field
-						><mat-form-field class="w-full">
-							<mat-label>Home/Flat number</mat-label>
-							<input
-								matInput
-								formControlName="number"
-								type="text"
-								placeholder="6"
-							/>
-						</mat-form-field>
+						<div class="w-full">
+							<mat-form-field class="w-full">
+								<mat-label>City</mat-label>
+								<input
+									matInput
+									formControlName="city"
+									type="text"
+									placeholder="Warsaw"
+								/>
+								@if (this.form.controls.city.hasError("required")) {
+									<mat-error>City is <strong>required</strong> </mat-error>
+								} @else if (this.form.controls.city.hasError("pattern")) {
+									<mat-error
+										>Invalid <strong>city</strong> name, first letter
+										<strong>capital</strong>
+									</mat-error>
+								}
+							</mat-form-field>
+						</div>
+						<div class="w-full">
+							<mat-form-field class="w-full">
+								<mat-label>Zip code</mat-label>
+								<input
+									matInput
+									formControlName="zipCode"
+									type="text"
+									placeholder="00-000"
+								/>
+								@if (this.form.controls.zipCode.hasError("required")) {
+									<mat-error>Zip code is <strong>required</strong> </mat-error>
+								} @else if (this.form.controls.zipCode.hasError("pattern")) {
+									<mat-error
+										>Invalid <strong>ZIP code</strong> format.
+									</mat-error>
+								}
+							</mat-form-field>
+						</div>
+						<div class="w-full">
+							<mat-form-field class="w-full">
+								<mat-label>Street</mat-label>
+								<input
+									matInput
+									formControlName="street"
+									type="text"
+									placeholder="Krakowska"
+								/>
+								@if (this.form.controls.street.hasError("required")) {
+									<mat-error>Street is <strong>required</strong> </mat-error>
+								} @else if (this.form.controls.street.hasError("pattern")) {
+									<mat-error
+										>Invalid <strong>street</strong> name, first letter
+										<strong>capital</strong>
+									</mat-error>
+								}
+							</mat-form-field>
+						</div>
+						<div class="w-full">
+							<mat-form-field class="w-full">
+								<mat-label>Home/Flat number</mat-label>
+								<input
+									matInput
+									formControlName="number"
+									type="text"
+									placeholder="1,24A, 1/B, 12-3, 7B/2, 103/A"
+								/>
+								@if (this.form.controls.number.hasError("required")) {
+									<mat-error
+										>Property number is <strong>required</strong>
+									</mat-error>
+								} @else if (this.form.controls.number.hasError("pattern")) {
+									<mat-error
+										>Invalid <strong>home/flat</strong> number
+									</mat-error>
+								}
+							</mat-form-field>
+						</div>
 					</div>
 
-					<div>
+					<div class="w-full">
 						<mat-form-field class="w-full">
 							<mat-label>Phone number</mat-label>
 							<input
@@ -84,7 +151,15 @@
 								formControlName="phoneNumber"
 								type="text"
 								placeholder="+44 123 456 789"
-						/></mat-form-field>
+							/>
+							@if (this.form.controls.phoneNumber.hasError("required")) {
+								<mat-error
+									>Phone number is <strong>required</strong>
+								</mat-error>
+							} @else if (this.form.controls.phoneNumber.hasError("pattern")) {
+								<mat-error>Invalid <strong>phone</strong> number </mat-error>
+							}
+						</mat-form-field>
 					</div>
 
 					<button

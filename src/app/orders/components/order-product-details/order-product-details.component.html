@@ -29,9 +29,10 @@
 				<p class="text-sm">
 					<!--					TODO bład na backendzie z przypisywaniem disocuntedPrice-->
 					{{
-						order().discountedPrice !== 0
+						(order().discountedPrice !== 0
 							? order().product.price * order().quantity
 							: order().product.discountedPrice! * order().quantity
+						) | currency: "INR"
 					}}
 				</p>
 			</div>

@@ -1,6 +1,7 @@
 import {
 	ApplicationConfig,
 	isDevMode,
+	LOCALE_ID,
 	provideZoneChangeDetection,
 } from '@angular/core';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
@@ -23,6 +24,8 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 export const appConfig: ApplicationConfig = {
 	providers: [
+		{ provide: LOCALE_ID, useValue: 'en-IN' },
+
 		provideZoneChangeDetection({ eventCoalescing: true }),
 		provideRouter(routes, withComponentInputBinding()),
 
