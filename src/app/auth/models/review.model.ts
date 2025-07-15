@@ -1,9 +1,13 @@
-import { ProductModel } from '../../products/models/product.model';
-import { UserProfileModel } from '../../user/models/user.model';
-
 export interface Review {
+	_id: string;
 	review: string;
-	product: ProductModel;
-	user: UserProfileModel;
+	product: string;
+	user: UserReviewModel;
 	createdAt: Date;
+}
+
+export interface UserReviewModel {
+	firstName: string;
+	lastName: string;
+	imageUrl?: string;
 }

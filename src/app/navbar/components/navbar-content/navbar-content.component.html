@@ -7,6 +7,10 @@
 			(hideMenu)="hideNavContent.emit()"
 			[content]="content()"
 		/>
-		<app-featured-mega-menu-content class="max-w-1/2" [content]="content()" />
+		<app-featured-mega-menu-content
+			class="max-w-1/2"
+			[content]="content()"
+			(closeMegaMenu)="hideNavContent.emit()"
+		/>
 	</div>
 </div>

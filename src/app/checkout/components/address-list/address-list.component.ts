@@ -17,6 +17,7 @@ import { Addresses } from '../../../auth/models/addresses.model';
 })
 export class AddressListComponent {
 	readonly addresses = input.required<Addresses[] | undefined>();
+	readonly mode = input.required<'delete' | 'delivery'>();
 
 	readonly orderAddress = output<Addresses>();
 }

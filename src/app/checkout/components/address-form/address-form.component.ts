@@ -16,6 +16,8 @@ import { Router } from '@angular/router';
 import { selectOrder } from '../../../orders/data-access/store/order.selectors';
 import { OrderRes } from '../../../orders/models/order-res.model';
 import { orderActions } from '../../../orders/data-access/store/order.actions';
+import { selectCart } from '../../../cart/data-access/store/cart/cart.selectors';
+import { Cart } from '../../../cart/models/cart.model';
 
 @Component({
 	selector: 'app-address-form',
@@ -40,6 +42,8 @@ export class AddressFormComponent {
 	);
 
 	readonly order = this.#store.selectSignal<OrderRes | undefined>(selectOrder);
+
+	readonly cart = this.#store.selectSignal<Cart | undefined>(selectCart);
 
 	readonly form = this.#fb.group({
 		firstName: [
@@ -80,7 +84,6 @@ export class AddressFormComponent {
 
 	createOrder(existingAddress?: Addresses) {
 		if (existingAddress) {
-			this.#router.navigate(['/checkout/payment', this.order()?._id]);
 			return this.#store.dispatch(
 				orderActions.createOrderRequest(existingAddress),
 			);
@@ -89,7 +92,6 @@ export class AddressFormComponent {
 		this.form.markAllAsTouched();
 
 		if (this.form.valid) {
-			this.#router.navigate(['/checkout/payment', this.order()?._id]);
 			this.#store.dispatch(
 				orderActions.createOrderRequest(this.form.getRawValue()),
 			);

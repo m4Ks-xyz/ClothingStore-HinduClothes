@@ -16,7 +16,7 @@
 			</div>
 
 			<mat-menu class="profile-menu bg-white!" #menu="matMenu">
-				<a routerLink="/" mat-menu-item>
+				<a routerLink="profile" mat-menu-item>
 					<mat-icon class="text-font!">manage_accounts</mat-icon>
 					<span class="text-font!">Profile</span>
 				</a>
@@ -24,10 +24,10 @@
 					<mat-icon class="text-font!">shopping_bag</mat-icon>
 					<span class="text-font!">Orders </span>
 				</a>
-				<button mat-menu-item (click)="logout()">
+				<a routerLink="/" mat-menu-item (click)="logout()">
 					<mat-icon class="text-font!">logout</mat-icon>
 					<span class="text-font!"> Logout</span>
-				</button>
+				</a>
 			</mat-menu>
 		</div>
 	} @else {

@@ -1,0 +1,36 @@
+<form [formGroup]="form" class="flex flex-col">
+	<h2 mat-dialog-title class="text-white!">Rate product</h2>
+	<mat-dialog-content class="space-y-4">
+		<mat-form-field class="w-full">
+			<mat-label>Description</mat-label>
+			<input
+				formControlName="message"
+				matInput
+				#message
+				maxlength="100"
+				placeholder="Describe your impressions"
+			/>
+			<mat-hint align="end">{{ message.value.length }} / 100</mat-hint>
+			@if (form.controls.message.hasError("required")) {
+				<mat-error>Message is <strong>required</strong></mat-error>
+			} @else if (form.controls.message.hasError("maxlength")) {
+				<mat-error>Max characters is <strong>100</strong></mat-error>
+			}
+		</mat-form-field>
+		<mat-form-field class="w-full">
+			<mat-label>Rate</mat-label>
+			<mat-select formControlName="rating">
+				@for (rate of RATE_PRODUCT_DIALOG_RATINGS; track rate.id) {
+					<mat-option [value]="rate.name">{{ rate.name }}</mat-option>
+				}
+			</mat-select>
+			@if (form.controls.rating.hasError("required")) {
+				<mat-error>Rating is <strong>required</strong></mat-error>
+			}
+		</mat-form-field>
+	</mat-dialog-content>
+	<mat-dialog-actions>
+		<button mat-raised-button mat-dialog-close>Close</button>
+		<button mat-raised-button (click)="onSubmit()">Add Rating</button>
+	</mat-dialog-actions>
+</form>

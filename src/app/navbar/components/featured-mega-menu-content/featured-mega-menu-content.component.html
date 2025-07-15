@@ -4,6 +4,7 @@
 			<div class="relative">
 				<img
 					[routerLink]="['/products/id', featured._id]"
+					(click)="closeMegaMenu.emit()"
 					aria-label="featured item photo"
 					class="cursor-pointer rounded-2xl object-cover object-top"
 					[src]="featured.src"

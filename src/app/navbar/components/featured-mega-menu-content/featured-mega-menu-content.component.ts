@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	input,
+	output,
+} from '@angular/core';
 import { MenuCategory } from '../../models/menu-content.model';
 import { RouterLink } from '@angular/router';
 
@@ -10,4 +15,6 @@ import { RouterLink } from '@angular/router';
 })
 export class FeaturedMegaMenuContentComponent {
 	readonly content = input.required<MenuCategory>();
+
+	readonly closeMegaMenu = output<void>();
 }

@@ -8,7 +8,7 @@
 				mat-raised-button
 				(click)="orderAddress.emit(address)"
 			>
-				Deliver Here
+				{{ mode() === "delivery" ? "Deliver Here" : "Delete Address" }}
 			</button>
 
 			@if (!last) {

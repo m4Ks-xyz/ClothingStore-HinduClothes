@@ -47,4 +47,13 @@ export const routes: Routes = [
 		loadComponent: () =>
 			import('./orders/components/order-details/order-details.component'),
 	},
+	{
+		path: 'profile',
+		loadComponent: () =>
+			import('./user/components/profile-page/profile-page.component'),
+	},
+	{
+		path: '**',
+		loadComponent: () => import('./not-found/not-found.component'),
+	},
 ];

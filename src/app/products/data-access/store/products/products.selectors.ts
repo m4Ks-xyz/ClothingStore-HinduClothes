@@ -10,4 +10,5 @@ export const {
 	selectProducts,
 	selectSelectedProductById,
 	selectTotalProducts,
+	selectSelectedProductsReviews,
 } = ProductsFeature;

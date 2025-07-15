@@ -1,16 +1,20 @@
 <div class="container">
 	<div class="grid grid-cols-1 gap-4 px-5 lg:grid-cols-12 lg:px-20">
-		@if (addresses()) {
-			<div class="col-span-1 lg:col-span-5">
-				<app-address-list
-					(orderAddress)="createOrder($event)"
-					[addresses]="addresses()"
-				/>
-			</div>
+		@if (cart()?.cartItems?.length !== 0) {
+			@if (addresses()?.length !== 0) {
+				<div class="col-span-1 lg:col-span-5">
+					<app-address-list
+						(orderAddress)="createOrder($event)"
+						[addresses]="addresses()"
+						[mode]="'delivery'"
+					/>
+				</div>
+			}
 
 			<div
 				class="col-span-1 lg:col-span-7"
-				[class.lg:col-start-3]="!addresses()"
+				[class.lg:col-start-3]="addresses()?.length === 0"
+				[class.lg:col-span-8]="addresses()?.length === 0"
 			>
 				<div class="box rounded-md p-5 shadow-md">
 					<form [formGroup]="form" class="flex flex-col md:gap-y-5">
@@ -187,7 +191,7 @@
 		} @else {
 			<p class="col-span-12 text-center">
 				if nothings appeared here, <strong>log in</strong> or
-				<strong> sing in </strong>
+				<strong> sing in </strong> or <strong>add something to cart</strong>
 			</p>
 		}
 	</div>

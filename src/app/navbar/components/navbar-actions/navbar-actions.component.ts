@@ -23,5 +23,6 @@ import { RouterLink } from '@angular/router';
 })
 export class NavbarActionsComponent {
 	readonly sidenavStatus = input.required<boolean>();
+
 	readonly sidenavToggle = output<boolean>();
 }

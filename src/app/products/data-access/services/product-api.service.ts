@@ -4,9 +4,9 @@ import {
 	BASE_API_URL,
 	TOKEN_STORAGE_KEY,
 } from '../../../auth/data-acces/config/api';
-import { Store } from '@ngrx/store';
 import { ProductsSearchResponseModel } from '../../models/products-search.response.model';
 import { ProductModelRes } from '../../models/product.model';
+import { Review } from '../../../auth/models/review.model';
 
 export interface ProductParams {
 	color?: string | null;
@@ -28,7 +28,6 @@ export interface ProductParams {
 })
 export class ProductApiService {
 	readonly #httpClient = inject(HttpClient);
-	readonly #store = inject(Store);
 	readonly #baseApiUrl = `${BASE_API_URL}/api`;
 
 	private getHeader(): HttpHeaders {
@@ -56,6 +55,27 @@ export class ProductApiService {
 	findProductsById(productId: string) {
 		return this.#httpClient.get<ProductModelRes>(
 			`${this.#baseApiUrl}/products/id/${productId}`,
+			{
+				headers: this.getHeader(),
+			},
+		);
+	}
+
+	getProductReviews(productId: string) {
+		return this.#httpClient.get<Review[]>(
+			`${this.#baseApiUrl}/reviews/product/${productId}`,
+			{
+				headers: this.getHeader(),
+			},
+		);
+	}
+
+	addProductReview(data: { productId: string; review: string }) {
+		return this.#httpClient.post<{ review: Review[] }>(
+			`${this.#baseApiUrl}/reviews/create`,
+			{
+				data,
+			},
 			{
 				headers: this.getHeader(),
 			},

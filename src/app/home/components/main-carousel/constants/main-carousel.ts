@@ -2,27 +2,18 @@ import { MainCarouselDataModel } from '../models/main-carousel-data-model';
 
 export const MAIN_CAROUSEL_DATA: MainCarouselDataModel[] = [
 	{
-		image:
-			'https://ethnicplus.in/media/mageplaza/bannerslider/banner/image/1/0/10_5.jpg',
-		path: '/women/clothing/lengha_choli',
-		category: 'lengha choli',
+		image: 'carousel_1.jpg',
+		path: 'products/women/clothing/dress',
+		category: 'women_dress',
 	},
 	{
-		image:
-			'https://ethnicplus.in/media/mageplaza/bannerslider/banner/image/1/2/12_4.jpg',
-		path: '/women/clothing/women_dress',
-		category: 'lengha choli',
+		image: 'carousel_2.jpg',
+		path: 'products/women/clothing/saree',
+		category: 'women_saree',
 	},
 	{
-		image:
-			'https://ethnicplus.in/media/mageplaza/bannerslider/banner/image/9/_/9_8.jpg',
-		path: '/women/clothing/women_dress',
-		category: 'lengha choli',
-	},
-	{
-		image:
-			'https://ethnicplus.in/media/mageplaza/bannerslider/banner/image/1/1/11_4.jpg',
-		path: '/women/clothing/women_saree',
-		category: 'lengha choli',
+		image: 'carousel_3.jpg',
+		path: 'products/women/clothing/lengha-choli',
+		category: 'women_lengha-choli',
 	},
 ];
