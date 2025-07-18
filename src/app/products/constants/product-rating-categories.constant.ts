@@ -1,22 +1,24 @@
-export const RATING_CATEGORIES = [
+import { RatingCategory } from '../models/num-ratings.model';
+
+export const RATING_CATEGORIES: RatingCategory[] = [
 	{
-		id: 'excellent',
-		name: 'Excellent',
+		id: '1',
+		name: 'Poor',
 	},
 	{
-		id: 'very good',
-		name: 'Very Good',
-	},
-	{
-		id: 'good',
-		name: 'Good',
-	},
-	{
-		id: 'average',
+		id: '2',
 		name: 'Average',
 	},
 	{
-		id: 'poor',
-		name: 'Poor',
+		id: '3',
+		name: 'Good',
+	},
+	{
+		id: '4',
+		name: 'Very Good',
+	},
+	{
+		id: '5',
+		name: 'Excellent',
 	},
 ];

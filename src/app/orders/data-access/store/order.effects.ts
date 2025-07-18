@@ -47,7 +47,7 @@ export class OrderEffects implements OnInitEffects {
 					}),
 					catchError((err) => {
 						this.#snackBar.open(`Order creation failed`, undefined, {
-							duration: 5000,
+							duration: 10000,
 							verticalPosition: 'bottom',
 							horizontalPosition: 'end',
 							panelClass: ['snackbar-error'],

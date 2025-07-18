@@ -122,7 +122,7 @@ export default class ProductsComponent {
 
 	readonly totalProducts = this.#store.selectSignal(selectTotalProducts);
 
-	readonly MAX_ALLOWED_PRICE = 2000;
+	readonly MAX_ALLOWED_PRICE = 5000;
 	readonly MIN_ALLOWED_PRICE = 10;
 
 	constructor() {

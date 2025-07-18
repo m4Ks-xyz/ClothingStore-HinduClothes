@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	effect,
+	inject,
+	input,
+} from '@angular/core';
 import { AddressCardComponent } from '../address-card/address-card.component';
 import { CartItemListComponent } from '../../../cart/components/cart-item-list/cart-item-list.component';
 import { OrderSummaryComponent } from '../../../cart/components/order-summary/order-summary.component';
@@ -7,6 +13,7 @@ import { selectCart } from '../../../cart/data-access/store/cart/cart.selectors'
 import { selectOrderShippingAddress } from '../../../orders/data-access/store/order.selectors';
 import { Address } from '../../models/address.model';
 import { Cart } from '../../../cart/models/cart.model';
+import { orderActions } from '../../../orders/data-access/store/order.actions';
 
 @Component({
 	selector: 'app-payment',
@@ -17,8 +24,20 @@ import { Cart } from '../../../cart/models/cart.model';
 export default class PaymentComponent {
 	readonly #store = inject(Store);
 
+	//query params
+	readonly id = input.required<string>();
+
 	readonly products = this.#store.selectSignal<Cart | undefined>(selectCart);
 	readonly addresses = this.#store.selectSignal<Address | undefined>(
 		selectOrderShippingAddress,
 	);
+
+	constructor() {
+		effect(() => {
+			return this.#store.dispatch(
+				orderActions.getOrderById({ orderId: this.id() }),
+			);
+		});
+	}
 }
+// product validation failed: numRatings: Cast to Object failed for value "1" (type number) at path "numRatings"

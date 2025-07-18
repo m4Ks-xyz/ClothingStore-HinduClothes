@@ -1,5 +1,9 @@
-@for (star of RATING_STARS; track star.id) {
-	<mat-icon class="text-md!" [class.text-primary!]="star.id <= rating()!.rating"
-		>star</mat-icon
-	>
-}
+<div class="flex items-center">
+	@for (star of RATING_STARS; track star.id) {
+		<mat-icon
+			class="text-md!"
+			[class.text-primary!]="star.id <= (rating() ?? 0)"
+			>star
+		</mat-icon>
+	}
+</div>

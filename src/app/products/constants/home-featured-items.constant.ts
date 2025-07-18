@@ -36,7 +36,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/xif0q/lehenga-choli/y/g/m/l-sleeveless-shset95222-shae-by-sassafras-original-imaggjzkwyyyezzg.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685ad242889250097a0e9609',
 					name: 'lengha-choli',
@@ -76,7 +76,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/knyxqq80/salwar-kurta-dupatta/q/i/q/32-skd7385-biba-original-imag2jag2zzz3shw.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685ad242889250097a0e9609',
 					name: 'lengha-choli',
@@ -116,7 +116,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/krme93k0/lehenga-choli/9/t/e/free-half-sleeve-ghaghra-choli-coconut-original-imag5df5ktsnnypv.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685ad242889250097a0e9609',
 					name: 'lengha-choli',
@@ -156,7 +156,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/xif0q/lehenga-choli/l/x/d/free-full-sleeve-lehenga-lehenga-for-women-lehenga-choli-net-original-imaggcwfb3pjh2hf.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685ad242889250097a0e9609',
 					name: 'lengha-choli',
@@ -196,7 +196,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/kp78e4w0/lehenga-choli/n/n/d/free-short-sleeve-baby-pink-choli-trivety-original-imag3hbpwczdj2hu.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685ad242889250097a0e9609',
 					name: 'lengha-choli',
@@ -236,7 +236,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/xif0q/lehenga-choli/g/0/m/free-sleeveless-zip1434-zinariya-fab-original-imagnftyaaaqjexa.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685ad242889250097a0e9609',
 					name: 'lengha-choli',
@@ -282,7 +282,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/kw5ag7k0/kurta/f/j/g/xxl-sg1011-sanganeri-feb-original-imag8w9xbbakjkju.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685ad1a5889250097a0e9543',
 					name: 'gouns',
@@ -322,7 +322,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/xif0q/gown/9/5/7/na-s-3-4-sleeve-stitched-sho31krred-saponharsh-na-original-imagmufurbc2znpg.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685ad1a5889250097a0e9543',
 					name: 'gouns',
@@ -362,7 +362,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/kzfvzww0/gown/l/z/g/16-s-short-sleeve-stitched-gown-badami-ne-style-60-original-imagbg8m9dpz4wtw.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685ad1a5889250097a0e9543',
 					name: 'gouns',
@@ -402,7 +402,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/kzfvzww0/gown/n/t/z/17-xl-short-sleeve-stitched-gown-rama-green-ne-style-60-original-imagbg8mwdhswgzh.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685ad1a5889250097a0e9543',
 					name: 'gouns',
@@ -442,7 +442,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/kzfvzww0/gown/v/z/l/18-l-short-sleeve-stitched-gown-nevy-blue-trikon-ne-style-60-original-imagbg8jhfhkjynd.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685ad1a5889250097a0e9543',
 					name: 'gouns',
@@ -482,7 +482,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/xif0q/shopsy-gown/q/b/k/free-half-sleeve-semi-stitched-ss-ng-1-r4mila-original-imaggnskhergruu4.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685ad1a5889250097a0e9543',
 					name: 'gouns',
@@ -529,7 +529,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/xif0q/jean/h/y/g/34-jeans-bt008-laheja-original-imagqqbsfgmdhcvn.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685adc72889250097a0e9ad9',
 					name: 'jeans',
@@ -570,7 +570,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/kmns7m80/jean/9/5/o/36-black-36-coper-buck-original-imagfg9edbsneu2s.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685adc72889250097a0e9ad9',
 					name: 'jeans',
@@ -611,7 +611,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/xif0q/jean/z/n/u/32-ecskn-01bb-002-spykar-original-imaghxqwuw67ywfy.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685adc72889250097a0e9ad9',
 					name: 'jeans',
@@ -652,7 +652,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/xif0q/jean/a/w/t/30-ud0030-united-denim-original-imagf9n9efexz68u-bb.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685adc72889250097a0e9ad9',
 					name: 'jeans',
@@ -693,7 +693,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/ky0g58w0/shopsy-jean/8/p/y/28-black-knee-cut-jeans-comfits-original-imagaccjjya9gqzn.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685adc72889250097a0e9ad9',
 					name: 'jeans',
@@ -734,7 +734,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/kwfaj680/jean/3/c/s/38-hljn001891-highlander-original-imag93tpnjyyvpkg.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685adc72889250097a0e9ad9',
 					name: 'jeans',
@@ -781,7 +781,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/l5h2xe80/kurta/x/6/n/xl-kast-tile-green-majestic-man-original-imagg4z33hu4kzpv.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685adcc5889250097a0e9ba4',
 					name: 'kurta',
@@ -822,7 +822,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/l/f/r/xl-k-spl668-yellow-sg-leman-original-imagznqcrahgq9rf.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685adcc5889250097a0e9ba4',
 					name: 'kurta',
@@ -863,7 +863,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/g/6/k/m-sksh-dt1105-pcbl-fubar-original-imafux247zhqym2z-bb.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685adcc5889250097a0e9ba4',
 					name: 'kurta',
@@ -904,7 +904,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/i/v/x/xxl-br-ad-kt-105-adwyn-peter-original-imagj4zyd2q7t6cg.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685adcc5889250097a0e9ba4',
 					name: 'kurta',
@@ -945,7 +945,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/j/a/r/l-poch521835-peter-england-original-imag7jg47g7cxhg3-bb.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685adcc5889250097a0e9ba4',
 					name: 'kurta',
@@ -986,7 +986,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/y/c/x/xl-kast107hp-majestic-man-original-imafw49u5uty4agx-bb.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685adcc5889250097a0e9ba4',
 					name: 'kurta',
@@ -1032,7 +1032,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/xif0q/ethnic-set/b/4/m/m-na-kurta-set-010-rama-woxen-original-imagzkgg8mnyxmcg.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685ad502889250097a0e979f',
 					name: 'kurta',
@@ -1072,7 +1072,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/xif0q/ethnic-set/2/l/r/l-6909-blue-libas-original-imafygzxftqzszfx-bb.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685ad502889250097a0e979f',
 					name: 'kurta',
@@ -1112,7 +1112,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/l3t2fm80/ethnic-set/o/q/7/m-9kbd183-samah-original-imageuh5a8hgwusj.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685ad502889250097a0e979f',
 					name: 'kurta',
@@ -1152,7 +1152,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/l2z26q80/ethnic-set/s/n/m/xxl-blue-indigoset-klosia-original-image7c4dckmy2tt.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685ad502889250097a0e979f',
 					name: 'kurta',
@@ -1192,7 +1192,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/l0mr7gw0/ethnic-set/e/r/w/m-palazoo-set-kenix-world-original-imagcdtgpszm7cdy.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685ad502889250097a0e979f',
 					name: 'kurta',
@@ -1232,7 +1232,7 @@ export const HOME_FEATURED_ITEMS: HomeFeaturedItems[] = [
 					'https://rukminim1.flixcart.com/image/612/612/xif0q/ethnic-set/c/t/z/l-vj-1-maroon-dupatta-set-prisca-original-imagb7evryurffsz-bb.jpeg?q=70',
 				ratings: [],
 				reviews: [],
-				numRatings: 0,
+				numRatings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 				category: {
 					_id: '685ad502889250097a0e979f',
 					name: 'kurta',

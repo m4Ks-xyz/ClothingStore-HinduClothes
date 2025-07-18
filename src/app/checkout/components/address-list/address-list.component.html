@@ -1,4 +1,4 @@
-<div class="custom-scrollbar box overflow-y-scroll rounded-md py-5 shadow-md">
+<div class="custom-scrollbar overflow-y-auto rounded-md py-5 shadow-md">
 	<div class="flex cursor-pointer flex-col gap-4 p-5 py-7">
 		@for (address of addresses(); track address; let last = $last) {
 			<app-address-card [address]="address" />

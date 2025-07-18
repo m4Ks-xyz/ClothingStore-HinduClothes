@@ -42,6 +42,10 @@
 							<p class="text-lg text-gray-700 line-through">
 								{{ product()?.details?.price | currency: "INR" }}
 							</p>
+						} @else {
+							<p class="text-2xl">
+								{{ product()?.details?.price | currency: "INR" }}
+							</p>
 						}
 					</div>
 					<form class="col-span-1 mt-10 space-y-10 lg:mt-0" [formGroup]="form">
@@ -92,24 +96,33 @@
 			<section class="space-y-5 pt-20 pb-10">
 				<h2 class="text-xl font-semibold">Recent Review & Rating</h2>
 
-				<div class="rounded-md p-5">
-					<div class="grid-cols-12 gap-7 lg:grid">
-						<div class="col-span-7">
-							<div class="space-y-6">
-								@for (review of reviews(); track review.user) {
-									<div>
-										<app-product-review-card
-											[review]="review"
-											[rating]="getRatingOfUser(review.user._id)"
-										/>
-									</div>
-								}
+				<div class="rounded-md p-4">
+					@if (reviews()?.length !== 0) {
+						<div class="grid-cols-12 gap-7 lg:grid">
+							<div class="col-span-7">
+								<div
+									class="custom-scrollbar max-h-[80vh] space-y-6 overflow-y-auto p-2"
+								>
+									@for (review of reviews(); track review.user) {
+										<div>
+											<app-product-review-card
+												[review]="review"
+												[rating]="getRatingOfUser(review.user._id)"
+											/>
+										</div>
+									}
+								</div>
+							</div>
+							<div class="col-span-5 mt-10 lg:mt-0">
+								<app-product-rating
+									[ratings]="product()?.details?.numRatings"
+									[numberOfRatings]="product()?.details?.ratings?.length"
+								/>
 							</div>
 						</div>
-						<div class="col-span-5 mt-10 lg:mt-0">
-							<app-product-rating />
-						</div>
-					</div>
+					} @else {
+						<p>No one rated this product, be the first one</p>
+					}
 				</div>
 			</section>
 

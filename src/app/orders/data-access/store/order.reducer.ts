@@ -19,7 +19,8 @@ export const OrderReducer = createReducer(
 	on(orderActions.createOrderRequestSuccess, (state, action) => {
 		return {
 			...state,
-			order: action.order,
+			order: { ...action.order },
+			ordersHistory: [...(state.ordersHistory ?? []), action.order],
 		};
 	}),
 	on(

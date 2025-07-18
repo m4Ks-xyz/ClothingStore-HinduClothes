@@ -116,7 +116,7 @@ export class ProductsEffects {
 						),
 						catchError((err) => {
 							this.#snackBar.open(err.error.error, undefined, {
-								duration: 5000,
+								duration: 10000,
 								verticalPosition: 'bottom',
 								horizontalPosition: 'end',
 								panelClass: ['snackbar-error'],

@@ -2,23 +2,24 @@
 	<h3 class="pb-1 text-lg font-semibold">Product Ratings</h3>
 
 	<div class="flex items-center gap-x-3 pb-10">
-		<!--		TODO after revier i ratings i zluczaniu-->
-		<!--		<app-star-rating />-->
-		<p class="opacity-60">54323 Ratings</p>
+		<app-star-rating [rating]="mostPopularRating()" />
+		<p class="opacity-60">{{ numberOfRatings() }}</p>
 	</div>
 
 	<div class="space-y-3 text-center">
-		<div class="grid grid-cols-12 items-center justify-around gap-2 text-left">
-			<!-- TODO dodac do kazdego produktu ratings, i na podstawie tego wyswietlac -->
+		<div class="grid grid-cols-12 items-center justify-around gap-2">
 			@for (rating of ratingCategories; track rating.id) {
-				<div class="col-span-2">
+				<div class="col-span-3 text-left">
 					<span>{{ rating.name }}</span>
 				</div>
-				<div class="col-span-8 px-4">
-					<mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+				<div class="col-span-6 px-4">
+					<mat-progress-bar
+						mode="determinate"
+						[value]="ratings()![rating.id]"
+					></mat-progress-bar>
 				</div>
-				<div class="col-span-2">
-					<span class="opacity-50">31233</span>
+				<div class="col-span-3">
+					<span class="opacity-50">{{ ratings()![rating.id] }}</span>
 				</div>
 			}
 		</div>

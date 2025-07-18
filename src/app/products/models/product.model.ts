@@ -1,6 +1,7 @@
 import { Rating } from '../../auth/models/ratings.model';
 import { Review } from '../../auth/models/review.model';
 import { Category } from '../../auth/models/category.model';
+import { NumRatings } from './num-ratings.model';
 
 export interface ProductModel {
 	_id: string;
@@ -21,7 +22,7 @@ export interface ProductModel {
 	imageUrl: string;
 	ratings?: Rating[];
 	reviews?: Review[];
-	numRatings?: number;
+	numRatings?: NumRatings;
 	category?: Category;
 	level?: number;
 	topLevelCategory?: string;
