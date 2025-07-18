@@ -3,4 +3,4 @@ export interface RateProductDialogData {
 	rating: Rating;
 }
 
-export type Rating = 'Poor' | 'Average' | 'Good' | 'Very Good' | 'Excellent';
+export type Rating = 1 | 2 | 3 | 4 | 5;

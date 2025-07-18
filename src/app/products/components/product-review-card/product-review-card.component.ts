@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { StarRatingComponent } from '../star-rating/star-rating.component';
 import { Review } from '../../../auth/models/review.model';
 import { DatePipe } from '@angular/common';
+import { Rating } from '../../../auth/models/ratings.model';
 
 @Component({
 	selector: 'app-product-review-card',
@@ -12,4 +13,5 @@ import { DatePipe } from '@angular/common';
 })
 export class ProductReviewCardComponent {
 	readonly review = input.required<Review>();
+	readonly rating = input.required<Rating | undefined>();
 }

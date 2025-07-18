@@ -1,5 +1,5 @@
-<mat-icon class="text-md! text-primary!">star</mat-icon>
-<mat-icon class="text-md! text-primary!">star</mat-icon>
-<mat-icon class="text-md! text-primary!">star</mat-icon>
-<mat-icon class="text-md!">star</mat-icon>
-<mat-icon class="text-md!">star</mat-icon>
+@for (star of RATING_STARS; track star.id) {
+	<mat-icon class="text-md!" [class.text-primary!]="star.id <= rating()!.rating"
+		>star</mat-icon
+	>
+}

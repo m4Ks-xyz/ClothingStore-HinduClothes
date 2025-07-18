@@ -1,27 +1,27 @@
 export const RATE_PRODUCT_DIALOG_RATINGS: RateProductDialogRatings[] = [
 	{
-		id: 'poor',
+		id: 1,
 		name: 'Poor',
 	},
 	{
-		id: 'average',
+		id: 2,
 		name: 'Average',
 	},
 	{
-		id: 'good',
+		id: 3,
 		name: 'Good',
 	},
 	{
-		id: 'very Good',
+		id: 4,
 		name: 'Very Good',
 	},
 	{
-		id: 'excellent',
+		id: 5,
 		name: 'Excellent',
 	},
 ];
 
 export interface RateProductDialogRatings {
-	id: string;
+	id: 1 | 2 | 3 | 4 | 5;
 	name: string;
 }

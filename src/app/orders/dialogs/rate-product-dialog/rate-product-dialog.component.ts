@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { RateProductDialogResault } from '../rate-product-dialog-resault.model';
+import { RateProductDialogResult } from '../rate-product-dialog-resault.model';
 import {
 	FormBuilder,
 	FormsModule,
@@ -41,7 +41,7 @@ import {
 export class RateProductDialogComponent {
 	readonly #fb = inject(FormBuilder);
 
-	readonly dialogRef = inject(MatDialogRef<RateProductDialogResault>);
+	readonly dialogRef = inject(MatDialogRef<RateProductDialogResult>);
 
 	readonly RATE_PRODUCT_DIALOG_RATINGS: RateProductDialogRatings[] =
 		RATE_PRODUCT_DIALOG_RATINGS;

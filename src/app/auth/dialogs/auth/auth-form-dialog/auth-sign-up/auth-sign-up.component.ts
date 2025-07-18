@@ -52,11 +52,11 @@ export class AuthSignUpComponent {
 		],
 		firstName: [
 			'',
-			[Validators.required, Validators.pattern(/^[A-Z][a-zA-Z'-]{1,20}$/)],
+			[Validators.required, Validators.pattern(/^\p{Lu}[\p{L}'-]{1,20}$/u)],
 		],
 		lastName: [
 			'',
-			[Validators.required, Validators.pattern(/^[A-Z][a-zA-Z'-]{1,20}$/)],
+			[Validators.required, Validators.pattern(/^\p{Lu}[\p{L}'-]{1,20}$/u)],
 		],
 	});
 

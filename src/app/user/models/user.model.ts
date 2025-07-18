@@ -9,7 +9,7 @@ export interface UserProfileModel {
 	phoneNumber: string;
 	address?: Addresses[];
 	paymentInformation: any;
-	ratings?: any;
-	reviews?: any;
+	ratings?: string[];
+	reviews?: string[];
 	createdAt?: Date;
 }

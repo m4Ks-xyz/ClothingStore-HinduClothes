@@ -1,4 +1,4 @@
-import { Ratings } from '../../auth/models/ratings.model';
+import { Rating } from '../../auth/models/ratings.model';
 import { Review } from '../../auth/models/review.model';
 import { Category } from '../../auth/models/category.model';
 
@@ -19,7 +19,7 @@ export interface ProductModel {
 	}[];
 
 	imageUrl: string;
-	ratings?: Ratings[];
+	ratings?: Rating[];
 	reviews?: Review[];
 	numRatings?: number;
 	category?: Category;

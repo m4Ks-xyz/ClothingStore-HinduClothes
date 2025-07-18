@@ -21,7 +21,7 @@
 			<mat-label>Rate</mat-label>
 			<mat-select formControlName="rating">
 				@for (rate of RATE_PRODUCT_DIALOG_RATINGS; track rate.id) {
-					<mat-option [value]="rate.name">{{ rate.name }}</mat-option>
+					<mat-option [value]="rate.id">{{ rate.name }}</mat-option>
 				}
 			</mat-select>
 			@if (form.controls.rating.hasError("required")) {

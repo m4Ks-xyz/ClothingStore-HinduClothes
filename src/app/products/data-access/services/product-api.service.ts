@@ -7,6 +7,7 @@ import {
 import { ProductsSearchResponseModel } from '../../models/products-search.response.model';
 import { ProductModelRes } from '../../models/product.model';
 import { Review } from '../../../auth/models/review.model';
+import { Rating } from '../../../auth/models/ratings.model';
 
 export interface ProductParams {
 	color?: string | null;
@@ -79,6 +80,26 @@ export class ProductApiService {
 			{
 				headers: this.getHeader(),
 			},
+		);
+	}
+
+	getProductRatings(productId: string) {
+		return this.#httpClient.get<Rating[]>(
+			`${this.#baseApiUrl}/ratings/product/${productId}`,
+			{
+				headers: this.getHeader(),
+			},
+		);
+	}
+
+	addProductRating(data: { productId: string; rating: number }) {
+		return this.#httpClient.post<Rating[]>(
+			`${this.#baseApiUrl}/ratings/create`,
+			{
+				productId: data.productId,
+				rating: data.rating,
+			},
+			{ headers: this.getHeader() },
 		);
 	}
 }

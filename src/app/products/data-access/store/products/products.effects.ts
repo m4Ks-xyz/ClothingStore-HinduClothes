@@ -111,6 +111,7 @@ export class ProductsEffects {
 								duration: 5000,
 								verticalPosition: 'bottom',
 								horizontalPosition: 'end',
+								panelClass: ['snackbar-success'],
 							}),
 						),
 						catchError((err) => {
@@ -118,11 +119,59 @@ export class ProductsEffects {
 								duration: 5000,
 								verticalPosition: 'bottom',
 								horizontalPosition: 'end',
+								panelClass: ['snackbar-error'],
 							});
 							return of(
 								productsActions.addProductReviewFailure({ error: err.error }),
 							);
 						}),
+					);
+			}),
+		),
+	);
+
+	readonly getProductRatings = createEffect(() =>
+		this.#actions$.pipe(
+			ofType(productsActions.findProductByIdSuccess),
+			switchMap((payload) => {
+				return this.#productsService
+					.getProductRatings(payload.product.details._id)
+					.pipe(
+						switchMap((payload) =>
+							of(productsActions.getProductRatingSuccess({ rating: payload })),
+						),
+						catchError((err) =>
+							of(
+								productsActions.getProductRatingFailure({
+									error: err.error.error,
+								}),
+							),
+						),
+					);
+			}),
+		),
+	);
+
+	readonly addProductRatings = createEffect(() =>
+		this.#actions$.pipe(
+			ofType(productsActions.addProductRating),
+			switchMap((payload) => {
+				return this.#productsService
+					.addProductRating({
+						productId: payload.product.productId,
+						rating: payload.product.rating,
+					})
+					.pipe(
+						switchMap((payload) =>
+							of(productsActions.addProductRatingSuccess({ rating: payload })),
+						),
+						catchError((err) =>
+							of(
+								productsActions.addProductRatingFailure({
+									error: err.error.error,
+								}),
+							),
+						),
 					);
 			}),
 		),

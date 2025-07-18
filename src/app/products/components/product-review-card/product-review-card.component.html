@@ -15,7 +15,7 @@
 					<p class="opacity-70">{{ review().createdAt | date }}</p>
 				</div>
 				<p>{{ review().review }}</p>
-				<app-star-rating />
+				<app-star-rating [rating]="rating()" />
 			</div>
 		</div>
 	</div>

@@ -76,6 +76,24 @@ body {
 	scrollbar-color: #666 rgba(255, 255, 255, 0.1);
 }
 
+.snackbar-error .mat-mdc-snackbar-surface {
+	background-color: #f44336 !important; /* Red for error */
+	color: #fff !important;
+	font-weight: bold;
+}
+
+.snackbar-success .mat-mdc-snackbar-surface {
+	background-color: #4caf50 !important; /* Green for success */
+	color: #fff !important;
+	font-weight: bold;
+}
+
+.snackbar-info .mat-mdc-snackbar-surface {
+	background-color: #2196f3 !important; /* Blue for info */
+	color: #fff !important;
+	font-weight: bold;
+}
+
 html,
 body {
 	height: 100%;

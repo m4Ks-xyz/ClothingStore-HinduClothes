@@ -1,6 +1,6 @@
 import { Rating } from './rate-product-dialog-data.model';
 
-export interface RateProductDialogResault {
+export interface RateProductDialogResult {
 	message: string;
 	rating: Rating;
 }

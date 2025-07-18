@@ -35,6 +35,7 @@ export class CartEffects implements OnInitEffects {
 							duration: 5000,
 							verticalPosition: 'bottom',
 							horizontalPosition: 'end',
+							panelClass: ['snackbar-success'],
 						}),
 					),
 					catchError((err) => {
@@ -42,6 +43,7 @@ export class CartEffects implements OnInitEffects {
 							duration: 5000,
 							verticalPosition: 'bottom',
 							horizontalPosition: 'end',
+							panelClass: ['snackbar-error'],
 						});
 						return of(cartActions.addItemToCartFailure({ err: err.error }));
 					}),

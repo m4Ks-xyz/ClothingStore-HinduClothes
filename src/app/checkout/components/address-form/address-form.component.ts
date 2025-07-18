@@ -12,7 +12,6 @@ import { AddressListComponent } from '../address-list/address-list.component';
 import { Store } from '@ngrx/store';
 import { selectAddresses } from '../../../user/store/user.selectors';
 import { Addresses } from '../../../auth/models/addresses.model';
-import { Router } from '@angular/router';
 import { selectOrder } from '../../../orders/data-access/store/order.selectors';
 import { OrderRes } from '../../../orders/models/order-res.model';
 import { orderActions } from '../../../orders/data-access/store/order.actions';
@@ -35,7 +34,6 @@ import { Cart } from '../../../cart/models/cart.model';
 export class AddressFormComponent {
 	readonly #fb = inject(FormBuilder);
 	readonly #store = inject(Store);
-	readonly #router = inject(Router);
 
 	readonly addresses = this.#store.selectSignal<Addresses[] | undefined>(
 		selectAddresses,
@@ -48,26 +46,26 @@ export class AddressFormComponent {
 	readonly form = this.#fb.group({
 		firstName: [
 			null,
-			[Validators.required, Validators.pattern(/^[A-Z][a-zA-Z'-]{1,20}$/)],
+			[Validators.required, Validators.pattern(/^\p{Lu}[\p{L}'-]{1,20}$/u)],
 		],
 		lastName: [
 			null,
-			[Validators.required, Validators.pattern(/^[A-Z][a-zA-Z'-]{1,20}$/)],
+			[Validators.required, Validators.pattern(/^\p{Lu}[\p{L}'-]{1,20}$/u)],
 		],
 		street: [
 			null,
 			[
 				Validators.required,
-				Validators.pattern(/^[A-Z][a-zA-Z0-9\s.'-]{2,100}$/),
+				Validators.pattern(/^\p{Lu}[\p{L}0-9\s.'-]{2,100}$/u),
 			],
 		],
 		city: [
 			null,
-			[Validators.required, Validators.pattern(/^[A-Z][a-zA-Z\s-]{1,49}$/)],
+			[Validators.required, Validators.pattern(/^\p{Lu}[\p{L}\s-]{1,49}$/u)],
 		],
 		zipCode: [
 			null,
-			[Validators.required, Validators.pattern(/^[A-Za-z0-9\s-]{3,10}$/)],
+			[Validators.required, Validators.pattern(/^[\p{L}0-9\s-]{3,10}$/u)],
 		],
 		number: [
 			null,

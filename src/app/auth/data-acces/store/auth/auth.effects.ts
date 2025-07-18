@@ -31,6 +31,7 @@ export class AuthEffects {
 							duration: 5000,
 							verticalPosition: 'bottom',
 							horizontalPosition: 'end',
+							panelClass: ['snackbar-success'],
 						}),
 					),
 					catchError((err) => {
@@ -38,6 +39,7 @@ export class AuthEffects {
 							duration: 5000,
 							verticalPosition: 'bottom',
 							horizontalPosition: 'end',
+							panelClass: ['snackbar-error'],
 						});
 						return of(
 							AuthActions.loginFailure({ errorMsg: err.error.message }),
@@ -85,6 +87,7 @@ export class AuthEffects {
 							duration: 5000,
 							verticalPosition: 'bottom',
 							horizontalPosition: 'end',
+							panelClass: ['snackbar-success'],
 						}),
 					),
 					catchError((err) => {
@@ -92,6 +95,7 @@ export class AuthEffects {
 							duration: 5000,
 							verticalPosition: 'bottom',
 							horizontalPosition: 'end',
+							panelClass: ['snackbar-error'],
 						});
 
 						return of(

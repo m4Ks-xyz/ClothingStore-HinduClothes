@@ -1,6 +1,7 @@
 import {
 	ChangeDetectionStrategy,
 	Component,
+	computed,
 	DestroyRef,
 	inject,
 	input,
@@ -14,6 +15,7 @@ import { RateProductDialogService } from '../../dialogs/rate-product-dialog.serv
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Store } from '@ngrx/store';
 import { productsActions } from '../../../products/data-access/store/products/products.actions';
+import { selectUserRatings } from '../../../user/store/user.selectors';
 
 @Component({
 	selector: 'app-order-product-details',
@@ -28,6 +30,19 @@ export class OrderProductDetailsComponent {
 
 	readonly item = input.required<OrderItems>();
 	readonly status = input.required<OrderStatus | undefined>();
+
+	readonly userRatings = this.#store.selectSignal<string[] | undefined>(
+		selectUserRatings,
+	);
+
+	alreadyCommented = computed(() => {
+		const productRatings = this.item()?.product?.ratings ?? [];
+		console.log(productRatings);
+		const userRatings = this.userRatings() ?? [];
+		console.log(userRatings);
+
+		return productRatings.some((rating) => userRatings.includes(rating));
+	});
 
 	async openRateDialogComponent() {
 		const dialogRef =
@@ -47,7 +62,14 @@ export class OrderProductDetailsComponent {
 						}),
 					);
 
-					// 	TODO dispatch action na rating gdzie przekazuje data.rating
+					this.#store.dispatch(
+						productsActions.addProductRating({
+							product: {
+								productId: this.item().product._id,
+								rating: data.rating,
+							},
+						}),
+					);
 				}
 			});
 	}

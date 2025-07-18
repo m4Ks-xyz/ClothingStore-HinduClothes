@@ -11,6 +11,8 @@ export interface BaseProduct {
 		name: string;
 		quantity: number;
 	}[];
+	ratings?: string[];
+	reviews?: string[];
 	quantity?: number;
 	topLevelCategory?: string;
 	secondLevelCategory?: string;

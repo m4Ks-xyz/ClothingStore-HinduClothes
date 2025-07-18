@@ -38,14 +38,14 @@
 				</p>
 			</div>
 		</a>
-		@if (status() === "delivered") {
-			<button
-				(click)="openRateDialogComponent()"
-				mat-raised-button
-				class="col-span-1 self-end rounded-md!"
-			>
-				Rate this product
-			</button>
-		}
+
+		<button
+			(click)="openRateDialogComponent()"
+			[disabled]="alreadyCommented() && status() === `delivered`"
+			mat-raised-button
+			class="col-span-1 self-end rounded-md!"
+		>
+			{{ alreadyCommented() && status() === `delivered` ? 'Rated' : 'Rate' }}
+		</button>
 	</div>
 </div>

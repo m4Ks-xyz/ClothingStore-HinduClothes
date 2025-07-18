@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RateProductDialogComponent } from './rate-product-dialog/rate-product-dialog.component';
 import { RateProductDialogData } from './rate-product-dialog-data.model';
-import { RateProductDialogResault } from './rate-product-dialog-resault.model';
+import { RateProductDialogResult } from './rate-product-dialog-resault.model';
 
 @Injectable({ providedIn: 'root' })
 export class RateProductDialogService {
@@ -16,7 +16,7 @@ export class RateProductDialogService {
 		return this.#dialog.open<
 			RateProductDialogComponent,
 			RateProductDialogData,
-			RateProductDialogResault
+			RateProductDialogResult
 		>(dialogCmp);
 	}
 }

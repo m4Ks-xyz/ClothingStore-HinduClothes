@@ -2,12 +2,14 @@ import { ProductModel, ProductModelRes } from '../../../models/product.model';
 import { createReducer, on } from '@ngrx/store';
 import { productsActions } from './products.actions';
 import { Review } from '../../../../auth/models/review.model';
+import { Rating } from '../../../../auth/models/ratings.model';
 
 export interface ProductsState {
 	products: ProductModel[];
 	totalProducts: number | undefined;
 	selectedProductById: ProductModelRes | undefined;
 	selectedProductsReviews: Review[] | undefined;
+	selectedProductsRatings: Rating[] | undefined;
 	loading: boolean;
 	error: string | undefined;
 }
@@ -17,6 +19,7 @@ export const initialState: ProductsState = {
 	totalProducts: undefined,
 	selectedProductById: undefined,
 	selectedProductsReviews: undefined,
+	selectedProductsRatings: undefined,
 	loading: false,
 	error: undefined,
 };
@@ -39,6 +42,8 @@ export const ProductsReducer = createReducer(
 		productsActions.findProductByIdFailure,
 		productsActions.getProductReviewsFailure,
 		productsActions.addProductReviewFailure,
+		productsActions.getProductRatingFailure,
+		productsActions.addProductRatingFailure,
 		(state, action) => ({
 			...state,
 			error: action.error,
@@ -50,6 +55,14 @@ export const ProductsReducer = createReducer(
 		(state, action) => ({
 			...state,
 			selectedProductsReviews: action.review,
+		}),
+	),
+	on(
+		productsActions.getProductRatingSuccess,
+		productsActions.addProductRatingSuccess,
+		(state, action) => ({
+			...state,
+			selectedProductsRatings: action.rating,
 		}),
 	),
 );

@@ -21,6 +21,7 @@ import { productsActions } from '../../data-access/store/products/products.actio
 import {
 	selectProducts,
 	selectSelectedProductById,
+	selectSelectedProductsRatings,
 	selectSelectedProductsReviews,
 } from '../../data-access/store/products/products.selectors';
 import { ProductModel, ProductModelRes } from '../../models/product.model';
@@ -28,6 +29,7 @@ import { cartActions } from '../../../cart/data-access/store/cart/cart.actions';
 import { CurrencyPipe } from '@angular/common';
 import { ProductReviewCardComponent } from '../product-review-card/product-review-card.component';
 import { Review } from '../../../auth/models/review.model';
+import { Rating } from '../../../auth/models/ratings.model';
 
 @Component({
 	selector: 'app-product-details',
@@ -61,6 +63,10 @@ export default class ProductDetailsComponent {
 		selectSelectedProductsReviews,
 	);
 
+	readonly ratings = this.#store.selectSignal<Rating[] | undefined>(
+		selectSelectedProductsRatings,
+	);
+
 	/// query params
 	readonly id = input.required<string>();
 
@@ -88,5 +94,9 @@ export default class ProductDetailsComponent {
 			);
 			this.#router.navigate(['cart']);
 		}
+	}
+
+	getRatingOfUser(userId: string) {
+		return this.ratings()?.find((rating) => rating.user === userId);
 	}
 }

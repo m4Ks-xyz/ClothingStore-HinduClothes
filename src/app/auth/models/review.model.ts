@@ -10,4 +10,5 @@ export interface UserReviewModel {
 	firstName: string;
 	lastName: string;
 	imageUrl?: string;
+	_id: string;
 }
