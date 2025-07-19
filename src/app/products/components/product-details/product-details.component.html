@@ -1,140 +1,24 @@
 <div class="flex items-center justify-center">
 	@if (product()) {
 		<div class="container mt-10 p-5 lg:p-10">
-			<a
-				[routerLink]="[
-					'/products',
-					product()?.path?.categoryOne,
-					product()?.path?.categoryTwo,
-					product()?.path?.categoryThree,
-				]"
-				><p class="py-10 text-gray-500">
-					{{ `${product()?.path?.categoryOne}/${product()?.path?.categoryTwo}/${product()?.path?.categoryThree}` }}
-				</p></a
-			>
+			<app-product-details-path [path]="product()?.path" />
 
-			<section class="grid-cols-3 lg:grid lg:gap-10">
-				<div class="col-span-2 flex flex-col items-center">
-					<img
-						[src]="product()?.details?.imageUrl"
-						[alt]="product()?.details?.title"
-					/>
-				</div>
-
-				<div class="col-span-1 mt-10 space-y-10 lg:mt-0">
-					<div class="space-y-2">
-						<p class="text-lg font-semibold text-gray-600">
-							{{ product()?.details?.brand }}
-						</p>
-						<h1 class="text-2xl">{{ product()?.details?.title }}</h1>
-					</div>
-					<div class="flex flex-col items-start space-x-5">
-						@let discount = product()?.details?.discount ?? 0;
-						@if (discount > 0) {
-							<div class="flex items-center gap-4">
-								<p class="text-2xl">
-									{{ product()?.details?.discountedPrice | currency: "INR" }}
-								</p>
-								<div class="rounded bg-red-500 px-2 py-1 text-xl text-white">
-									{{ `${product()?.details?.discount} %` }}
-								</div>
-							</div>
-							<p class="text-lg text-gray-700 line-through">
-								{{ product()?.details?.price | currency: "INR" }}
-							</p>
-						} @else {
-							<p class="text-2xl">
-								{{ product()?.details?.price | currency: "INR" }}
-							</p>
-						}
-					</div>
-					<form class="col-span-1 mt-10 space-y-10 lg:mt-0" [formGroup]="form">
-						<div>
-							<p class="text-lg font-semibold">Size</p>
-							<mat-radio-group
-								formControlName="size"
-								class="space-x-5"
-								aria-label="Select an option"
-							>
-								@for (size of product()?.details?.sizes; track size.name) {
-									@if (size.quantity > 0) {
-										<mat-radio-button [value]="size.name"
-											>{{ size.name }}
-										</mat-radio-button>
-									}
-								}
-							</mat-radio-group>
-						</div>
-						<div class="flex justify-center gap-2">
-							<input
-								type="number"
-								formControlName="quantity"
-								class="w-1/2 rounded-xl bg-white p-2 text-black lg:w-24"
-								[defaultValue]="1"
-								[min]="1"
-							/>
-							<button
-								(click)="onSubmit()"
-								[disabled]="product()?.details?.quantity === 0"
-								mat-raised-button
-								class="w-1/2 rounded-xl! p-6 lg:w-full"
-							>
-								Add To Cart
-							</button>
-						</div>
-						@if (product()?.details?.quantity === 0) {
-							<p class="text-center text-red-500 uppercase">
-								Product is out of stock
-							</p>
-						}
-					</form>
-					<p class="text-justify">
-						{{ product()?.details?.description }}
-					</p>
-				</div>
+			<section>
+				<app-product-details-product-info
+					[productDetails]="product()?.details"
+				/>
 			</section>
-			<section class="space-y-5 pt-20 pb-10">
-				<h2 class="text-xl font-semibold">Recent Review & Rating</h2>
-
-				<div class="rounded-md p-4">
-					@if (reviews()?.length !== 0) {
-						<div class="grid-cols-12 gap-7 lg:grid">
-							<div class="col-span-7">
-								<div
-									class="custom-scrollbar max-h-[80vh] space-y-6 overflow-y-auto p-2"
-								>
-									@for (review of reviews(); track review.user) {
-										<div>
-											<app-product-review-card
-												[review]="review"
-												[rating]="getRatingOfUser(review.user._id)"
-											/>
-										</div>
-									}
-								</div>
-							</div>
-							<div class="col-span-5 mt-10 lg:mt-0">
-								<app-product-rating
-									[ratings]="product()?.details?.numRatings"
-									[numberOfRatings]="product()?.details?.ratings?.length"
-								/>
-							</div>
-						</div>
-					} @else {
-						<p>No one rated this product, be the first one</p>
-					}
-				</div>
+			<section>
+				<app-product-details-reviews
+					[numRatings]="product()?.details?.numRatings"
+					[ratings]="ratings()"
+					[reviews]="reviews()"
+				/>
 			</section>
 
-			<div class="mt-10">
-				<h3 class="py-5 text-xl font-semibold">Related Products</h3>
-
-				<div class="flex flex-wrap justify-around">
-					@for (item of relatedProducts(); track item._id) {
-						<app-product-card [item]="item" />
-					}
-				</div>
-			</div>
+			<app-product-details-related-products
+				[relatedProducts]="relatedProducts()"
+			/>
 		</div>
 	} @else {
 		<div class="flex min-h-[70vh] items-center justify-center">

@@ -5,17 +5,9 @@ import {
 	inject,
 	input,
 } from '@angular/core';
-import {
-	FormBuilder,
-	FormsModule,
-	ReactiveFormsModule,
-	Validators,
-} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
-import { ProductCardComponent } from '../../../shared/components/product-card/product-card.component';
-import { ProductRatingComponent } from '../product-rating/product-rating.component';
-import { Router, RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { productsActions } from '../../data-access/store/products/products.actions';
 import {
@@ -25,11 +17,12 @@ import {
 	selectSelectedProductsReviews,
 } from '../../data-access/store/products/products.selectors';
 import { ProductModel, ProductModelRes } from '../../models/product.model';
-import { cartActions } from '../../../cart/data-access/store/cart/cart.actions';
-import { CurrencyPipe } from '@angular/common';
-import { ProductReviewCardComponent } from '../product-review-card/product-review-card.component';
 import { Review } from '../../../auth/models/review.model';
 import { Rating } from '../../../auth/models/ratings.model';
+import { ProductDetailsProductInfoComponent } from '../product-details-product-info/product-details-product-info.component';
+import { ProductDetailsPathComponent } from '../product-details-path/product-details-path.component';
+import { ProductDetailsReviewsComponent } from '../product-details-reviews/product-details-reviews.component';
+import { ProductDetailsRelatedProductsComponent } from '../product-details-related-products/product-details-related-products.component';
 
 @Component({
 	selector: 'app-product-details',
@@ -37,19 +30,16 @@ import { Rating } from '../../../auth/models/ratings.model';
 		MatRadioModule,
 		FormsModule,
 		MatButtonModule,
-		ProductRatingComponent,
-		ProductCardComponent,
 		ReactiveFormsModule,
-		RouterLink,
-		CurrencyPipe,
-		ProductReviewCardComponent,
+		ProductDetailsProductInfoComponent,
+		ProductDetailsPathComponent,
+		ProductDetailsReviewsComponent,
+		ProductDetailsRelatedProductsComponent,
 	],
 	templateUrl: './product-details.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class ProductDetailsComponent {
-	readonly #router = inject(Router);
-	readonly #fb = inject(FormBuilder);
 	readonly #store = inject(Store);
 
 	readonly product = this.#store.selectSignal<ProductModelRes | undefined>(
@@ -74,29 +64,5 @@ export default class ProductDetailsComponent {
 		effect(() => {
 			this.#store.dispatch(productsActions.findProductById({ _id: this.id() }));
 		});
-	}
-
-	form = this.#fb.group({
-		size: ['S', [Validators.required]],
-		quantity: [1, [Validators.required]],
-	});
-
-	onSubmit(): void {
-		if (this.form.valid) {
-			this.#store.dispatch(
-				cartActions.addItemToCart({
-					data: {
-						productId: this.id(),
-						quantity: this.form.controls.quantity.value,
-						size: this.form.controls.size.value,
-					},
-				}),
-			);
-			this.#router.navigate(['cart']);
-		}
-	}
-
-	getRatingOfUser(userId: string) {
-		return this.ratings()?.find((rating) => rating.user === userId);
 	}
 }

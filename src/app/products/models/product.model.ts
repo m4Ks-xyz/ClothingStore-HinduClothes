@@ -30,7 +30,13 @@ export interface ProductModel {
 	thirdLevelCategory?: string;
 }
 
+export interface ProductModelPath {
+	categoryOne: string;
+	categoryThree: string;
+	categoryTwo: string;
+}
+
 export interface ProductModelRes {
 	details: ProductModel;
-	path: { categoryOne: string; categoryThree: string; categoryTwo: string };
+	path: ProductModelPath;
 }
