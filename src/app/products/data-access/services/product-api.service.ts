@@ -62,44 +62,26 @@ export class ProductApiService {
 		);
 	}
 
+	addProductReview(data: {
+		productId: string;
+		review: string;
+		rating: 1 | 2 | 3 | 4 | 5;
+	}) {
+		return this.#httpClient.post<{ review: Review[]; rating: Rating[] }>(
+			`${this.#baseApiUrl}/reviews/create`,
+			data,
+			{
+				headers: this.getHeader(),
+			},
+		);
+	}
+
 	getProductReviews(productId: string) {
-		return this.#httpClient.get<Review[]>(
+		return this.#httpClient.get<{ review: Review[]; rating: Rating[] }>(
 			`${this.#baseApiUrl}/reviews/product/${productId}`,
 			{
 				headers: this.getHeader(),
 			},
-		);
-	}
-
-	addProductReview(data: { productId: string; review: string }) {
-		return this.#httpClient.post<{ review: Review[] }>(
-			`${this.#baseApiUrl}/reviews/create`,
-			{
-				data,
-			},
-			{
-				headers: this.getHeader(),
-			},
-		);
-	}
-
-	getProductRatings(productId: string) {
-		return this.#httpClient.get<Rating[]>(
-			`${this.#baseApiUrl}/ratings/product/${productId}`,
-			{
-				headers: this.getHeader(),
-			},
-		);
-	}
-
-	addProductRating(data: { productId: string; rating: number }) {
-		return this.#httpClient.post<Rating[]>(
-			`${this.#baseApiUrl}/ratings/create`,
-			{
-				productId: data.productId,
-				rating: data.rating,
-			},
-			{ headers: this.getHeader() },
 		);
 	}
 }

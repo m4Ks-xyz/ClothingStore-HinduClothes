@@ -42,27 +42,19 @@ export const ProductsReducer = createReducer(
 		productsActions.findProductByIdFailure,
 		productsActions.getProductReviewsFailure,
 		productsActions.addProductReviewFailure,
-		productsActions.getProductRatingFailure,
-		productsActions.addProductRatingFailure,
 		(state, action) => ({
 			...state,
 			error: action.error,
 		}),
 	),
-	on(
-		productsActions.getProductReviewsSuccess,
-		productsActions.addProductReviewSuccess,
-		(state, action) => ({
-			...state,
-			selectedProductsReviews: action.review,
-		}),
-	),
-	on(
-		productsActions.getProductRatingSuccess,
-		productsActions.addProductRatingSuccess,
-		(state, action) => ({
-			...state,
-			selectedProductsRatings: action.rating,
-		}),
-	),
+	on(productsActions.getProductReviewsSuccess, (state, action) => ({
+		...state,
+		selectedProductsReviews: action.review,
+		selectedProductsRatings: action.rating,
+	})),
+	on(productsActions.addProductReviewSuccess, (state, action) => ({
+		...state,
+		selectedProductsReviews: action.review,
+		selectedProductsRatings: action.rating,
+	})),
 );

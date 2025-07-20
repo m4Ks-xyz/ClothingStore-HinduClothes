@@ -5,11 +5,13 @@ import {
 	output,
 } from '@angular/core';
 import {
+	AbstractControl,
 	ControlContainer,
 	FormBuilder,
 	FormGroupDirective,
 	FormsModule,
 	ReactiveFormsModule,
+	ValidatorFn,
 	Validators,
 } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -41,24 +43,55 @@ export class AuthSignUpComponent {
 
 	readonly toggleAccountStatus = output<void>();
 
-	form = this.#fb.group({
-		email: [null, [Validators.email, Validators.required]],
-		password: [
-			null,
-			[
-				Validators.required,
-				Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/),
+	form = this.#fb.group(
+		{
+			email: [null, [Validators.email, Validators.required]],
+			password: [
+				null,
+				[
+					Validators.required,
+					Validators.pattern(
+						/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/,
+					),
+				],
 			],
-		],
-		firstName: [
-			'',
-			[Validators.required, Validators.pattern(/^\p{Lu}[\p{L}'-]{1,20}$/u)],
-		],
-		lastName: [
-			'',
-			[Validators.required, Validators.pattern(/^\p{Lu}[\p{L}'-]{1,20}$/u)],
-		],
-	});
+			confirmPassword: [null, Validators.required],
+			firstName: [
+				'',
+				[Validators.required, Validators.pattern(/^\p{Lu}[\p{L}'-]{1,20}$/u)],
+			],
+			lastName: [
+				'',
+				[Validators.required, Validators.pattern(/^\p{Lu}[\p{L}'-]{1,20}$/u)],
+			],
+		},
+		{
+			validators: this.confirmPasswordValidator('password', 'confirmPassword'),
+		},
+	);
+
+	confirmPasswordValidator(
+		controlOneName: string,
+		controlTwoName: string,
+	): ValidatorFn {
+		return (group: AbstractControl) => {
+			const controlOne = group.get(controlOneName);
+			const controlTwo = group.get(controlTwoName);
+
+			if (!controlOne || !controlTwo) return null;
+
+			if (controlOne.value !== controlTwo.value) {
+				controlTwo.setErrors({ match_error: true });
+			} else {
+				if (controlTwo.hasError(`match_error`)) {
+					const errors = { ...controlTwo.errors };
+					delete errors['match_error'];
+					controlTwo.setErrors(Object.keys(errors).length ? errors : null);
+				}
+			}
+			return null;
+		};
+	}
 
 	onSubmit() {
 		this.form.markAllAsTouched();

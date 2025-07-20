@@ -3,7 +3,6 @@ import {
 	Component,
 	computed,
 	DestroyRef,
-	effect,
 	inject,
 	input,
 } from '@angular/core';
@@ -17,7 +16,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Store } from '@ngrx/store';
 import { productsActions } from '../../../products/data-access/store/products/products.actions';
 import { selectUserRatings } from '../../../user/data-access/store/user.selectors';
-import { UserActions } from '../../../user/data-access/store/user.actions';
+import { selectSelectedProductsRatings } from '../../../products/data-access/store/products/products.selectors';
+import { Rating } from '../../../auth/models/ratings.model';
 
 @Component({
 	selector: 'app-order-product-details',
@@ -37,19 +37,16 @@ export class OrderProductDetailsComponent {
 		selectUserRatings,
 	);
 
+	readonly productRatings = this.#store.selectSignal<Rating[] | undefined>(
+		selectSelectedProductsRatings,
+	);
+
+	// TODO not really working, needed live update and use productRatings store slector
 	alreadyCommented = computed(() => {
 		const productRatings = this.item()?.product?.ratings ?? [];
 		const userRatings = this.userRatings() ?? [];
-
 		return productRatings.some((rating) => userRatings.includes(rating));
 	});
-
-	constructor() {
-		effect(() => {
-			this.alreadyCommented();
-			return this.#store.dispatch(UserActions.getUserProfile());
-		});
-	}
 
 	async openRateDialogComponent() {
 		const dialogRef =
@@ -65,13 +62,6 @@ export class OrderProductDetailsComponent {
 							product: {
 								productId: this.item().product._id,
 								review: data.message,
-							},
-						}),
-					);
-					this.#store.dispatch(
-						productsActions.addProductRating({
-							product: {
-								productId: this.item().product._id,
 								rating: data.rating,
 							},
 						}),
@@ -80,4 +70,3 @@ export class OrderProductDetailsComponent {
 			});
 	}
 }
-// 685adcc6889250097a0e9bc4 685adcc7889250097a0e9c1e

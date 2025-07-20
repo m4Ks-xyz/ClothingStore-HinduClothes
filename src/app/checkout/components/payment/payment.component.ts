@@ -40,4 +40,3 @@ export default class PaymentComponent {
 		});
 	}
 }
-// product validation failed: numRatings: Cast to Object failed for value "1" (type number) at path "numRatings"

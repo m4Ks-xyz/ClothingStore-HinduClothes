@@ -67,28 +67,6 @@ export class ProductsEffects {
 		),
 	);
 
-	readonly getProductReviews = createEffect(() =>
-		this.#actions$.pipe(
-			ofType(productsActions.findProductByIdSuccess),
-			switchMap((payload) => {
-				return this.#productsService
-					.getProductReviews(payload.product.details._id)
-					.pipe(
-						switchMap((payload) => {
-							return of(
-								productsActions.getProductReviewsSuccess({ review: payload }),
-							);
-						}),
-						catchError((err) =>
-							of(
-								productsActions.getProductReviewsFailure({ error: err.error }),
-							),
-						),
-					);
-			}),
-		),
-	);
-
 	readonly addProductReview = createEffect(() =>
 		this.#actions$.pipe(
 			ofType(productsActions.addProductReview),
@@ -97,12 +75,14 @@ export class ProductsEffects {
 					.addProductReview({
 						productId: payload.product.productId,
 						review: payload.product.review,
+						rating: payload.product.rating,
 					})
 					.pipe(
 						switchMap((payload) =>
 							of(
 								productsActions.addProductReviewSuccess({
 									review: payload.review,
+									rating: payload.rating,
 								}),
 							),
 						),
@@ -130,46 +110,24 @@ export class ProductsEffects {
 		),
 	);
 
-	readonly getProductRatings = createEffect(() =>
+	readonly getProductReviews = createEffect(() =>
 		this.#actions$.pipe(
 			ofType(productsActions.findProductByIdSuccess),
 			switchMap((payload) => {
 				return this.#productsService
-					.getProductRatings(payload.product.details._id)
+					.getProductReviews(payload.product.details._id)
 					.pipe(
-						switchMap((payload) =>
-							of(productsActions.getProductRatingSuccess({ rating: payload })),
-						),
+						switchMap((payload) => {
+							return of(
+								productsActions.getProductReviewsSuccess({
+									review: payload.review,
+									rating: payload.rating,
+								}),
+							);
+						}),
 						catchError((err) =>
 							of(
-								productsActions.getProductRatingFailure({
-									error: err.error.error,
-								}),
-							),
-						),
-					);
-			}),
-		),
-	);
-
-	readonly addProductRatings = createEffect(() =>
-		this.#actions$.pipe(
-			ofType(productsActions.addProductRating),
-			switchMap((payload) => {
-				return this.#productsService
-					.addProductRating({
-						productId: payload.product.productId,
-						rating: payload.product.rating,
-					})
-					.pipe(
-						switchMap((payload) =>
-							of(productsActions.addProductRatingSuccess({ rating: payload })),
-						),
-						catchError((err) =>
-							of(
-								productsActions.addProductRatingFailure({
-									error: err.error.error,
-								}),
+								productsActions.getProductReviewsFailure({ error: err.error }),
 							),
 						),
 					);
