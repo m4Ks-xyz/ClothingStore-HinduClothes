@@ -4,7 +4,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { AuthActions } from './auth.actions';
 import { catchError, of, switchMap, tap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { UserActions } from '../../../../user/store/user.actions';
+import { UserActions } from '../../../../user/data-access/store/user.actions';
 import { TOKEN_STORAGE_KEY } from '../../config/api';
 import { cartActions } from '../../../../cart/data-access/store/cart/cart.actions';
 

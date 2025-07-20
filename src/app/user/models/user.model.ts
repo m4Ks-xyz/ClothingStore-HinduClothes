@@ -12,4 +12,5 @@ export interface UserProfileModel {
 	ratings?: string[];
 	reviews?: string[];
 	createdAt?: Date;
+	avatarImg?: string;
 }

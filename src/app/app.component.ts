@@ -4,7 +4,7 @@ import { FooterComponent } from './footer/components/footer/footer.component';
 import { NavbarComponent } from './navbar/components/navbar/navbar.component';
 import { TOKEN_STORAGE_KEY } from './auth/data-acces/config/api';
 import { Store } from '@ngrx/store';
-import { UserActions } from './user/store/user.actions';
+import { UserActions } from './user/data-access/store/user.actions';
 
 @Component({
 	selector: 'app-root',

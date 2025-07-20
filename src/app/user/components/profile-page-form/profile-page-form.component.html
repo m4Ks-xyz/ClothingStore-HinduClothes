@@ -1,0 +1,131 @@
+<form
+	[formGroup]="form"
+	class="flex flex-col justify-center rounded-md bg-[#111826] px-4 py-4 sm:px-8"
+>
+	<div class="space-y-8">
+		<div>
+			<div class="flex items-center gap-2">
+				<mat-icon fontIcon="person" />
+				<h1 class="text-2xl">Profile Settings</h1>
+			</div>
+			<p class="text-gray-400">
+				Update your profile information and preferences
+			</p>
+		</div>
+
+		<div class="space-y-2">
+			<div class="flex items-center gap-2 text-sm">
+				<mat-icon fontIcon="image" class="text-md!" />
+				<h3>Avatar Image URL</h3>
+			</div>
+			<mat-form-field class="w-full">
+				<input
+					type="text"
+					formControlName="avatarImg"
+					matInput
+					placeholder="https://example.com/avatar.jpg"
+				/>
+				@if (form.controls.avatarImg.hasError("pattern")) {
+					<mat-error>
+						Invalid URL: must start with <strong>http://</strong> or
+						<strong>https://</strong></mat-error
+					>
+				}
+			</mat-form-field>
+
+			<mat-divider />
+		</div>
+
+		<div class="space-y-2">
+			<div class="flex items-center gap-2 text-sm">
+				<mat-icon fontIcon="alternate_email" class="text-md!" />
+				<h3>Email</h3>
+			</div>
+			<mat-form-field class="w-full">
+				<input
+					type="text"
+					formControlName="email"
+					matInput
+					placeholder="example@email.com"
+				/>
+				@if (form.controls.email.hasError("email")) {
+					<mat-error
+						>Please enter a valid <strong>email</strong> address</mat-error
+					>
+				}
+			</mat-form-field>
+			<mat-divider />
+		</div>
+
+		<div class="flex flex-col space-y-2">
+			<div class="mb-8 space-y-1 text-sm">
+				<div class="flex items-center gap-2">
+					<mat-icon fontIcon="lock" class="text-md!" />
+					<h3>Password</h3>
+				</div>
+				<p class="text-gray-400">
+					Complete all fields to change your password, or leave empty.
+				</p>
+			</div>
+
+			<div class="space-y-8">
+				<mat-form-field class="w-full">
+					<mat-label>Current password</mat-label>
+					<input
+						type="password"
+						formControlName="currentPassword"
+						matInput
+						placeholder="Enter current password"
+					/>
+					@if (form.controls.currentPassword.hasError("required")) {
+						<mat-error>Current password is <strong>required</strong></mat-error>
+					}
+				</mat-form-field>
+				<mat-form-field class="w-full">
+					<mat-label>New password</mat-label>
+					<input
+						type="password"
+						formControlName="newPassword"
+						matInput
+						placeholder="Enter new password"
+					/>
+					@if (form.controls.newPassword.hasError("pattern")) {
+						<mat-error
+							>Password must be at least <strong>8 characters</strong> and
+							include
+							<strong
+								>uppercase, lowercase, number, and special character</strong
+							>
+							.</mat-error
+						>
+					} @else if (form.controls.newPassword.hasError("required")) {
+						<mat-error>New password is <strong>required</strong></mat-error>
+					}
+				</mat-form-field>
+				<mat-form-field class="w-full">
+					<mat-label>Confirm new password</mat-label>
+					<input
+						type="password"
+						formControlName="confirmNewPassword"
+						matInput
+						placeholder="Enter new password again"
+					/>
+					@if (form.controls.confirmNewPassword.hasError("match_error")) {
+						<mat-error>Passwords do not <strong>match</strong></mat-error>
+					} @else if (form.controls.confirmNewPassword.hasError("required")) {
+						<mat-error
+							>Confirming your password is <strong>required</strong></mat-error
+						>
+					}
+				</mat-form-field>
+			</div>
+			<button
+				mat-raised-button
+				class="self-end rounded-sm!"
+				(click)="onSubmit()"
+			>
+				Save Changes
+			</button>
+		</div>
+	</div>
+</form>

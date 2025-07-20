@@ -1,4 +1,4 @@
-import { UserProfileModel } from '../models/user.model';
+import { UserProfileModel } from '../../models/user.model';
 import { createReducer, on } from '@ngrx/store';
 import { UserActions } from './user.actions';
 
@@ -21,9 +21,17 @@ export const userReducer = createReducer(
 		...state,
 		userProfile: action.userProfile,
 	})),
-	on(UserActions.getUserProfileFailure, (state, action) => ({
+	on(
+		UserActions.getUserProfileFailure,
+		UserActions.editUserProfileFailure,
+		(state, action) => ({
+			...state,
+			errorMsg: action.error,
+		}),
+	),
+	on(UserActions.editUserProfileSuccess, (state, action) => ({
 		...state,
-		errorMsg: action.error,
+		userProfile: action.user,
 	})),
 	on(UserActions.logout, () => initialState),
 );

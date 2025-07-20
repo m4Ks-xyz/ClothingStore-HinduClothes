@@ -1,5 +1,6 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { UserProfileModel } from '../models/user.model';
+import { UserProfileModel } from '../../models/user.model';
+import { UserEditReq } from '../user-edit-req.model';
 
 export const UserActions = createActionGroup({
 	source: 'User',
@@ -7,6 +8,10 @@ export const UserActions = createActionGroup({
 		getUserProfile: emptyProps(),
 		getUserProfileSuccess: props<{ userProfile: UserProfileModel }>(),
 		getUserProfileFailure: props<{ error: string }>(),
+
+		editUserProfile: props<UserEditReq>(),
+		editUserProfileSuccess: props<{ user: UserProfileModel }>(),
+		editUserProfileFailure: props<{ error: string }>(),
 
 		logout: emptyProps(),
 

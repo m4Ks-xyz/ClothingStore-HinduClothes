@@ -5,7 +5,7 @@ import { catchError, of, switchMap, tap } from 'rxjs';
 import { OrderDataAccessService } from '../service/order-data-access.service';
 import { Action } from '@ngrx/store';
 import { TOKEN_STORAGE_KEY } from '../../../auth/data-acces/config/api';
-import { UserActions } from '../../../user/store/user.actions';
+import { UserActions } from '../../../user/data-access/store/user.actions';
 import { AuthActions } from '../../../auth/data-acces/store/auth/auth.actions';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';

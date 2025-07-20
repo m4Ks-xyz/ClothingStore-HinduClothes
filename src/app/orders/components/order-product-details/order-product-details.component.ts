@@ -16,8 +16,8 @@ import { RateProductDialogService } from '../../dialogs/rate-product-dialog.serv
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Store } from '@ngrx/store';
 import { productsActions } from '../../../products/data-access/store/products/products.actions';
-import { selectUserRatings } from '../../../user/store/user.selectors';
-import { UserActions } from '../../../user/store/user.actions';
+import { selectUserRatings } from '../../../user/data-access/store/user.selectors';
+import { UserActions } from '../../../user/data-access/store/user.actions';
 
 @Component({
 	selector: 'app-order-product-details',

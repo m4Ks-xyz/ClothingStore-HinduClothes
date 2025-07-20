@@ -13,9 +13,9 @@ import { AuthFormDialogService } from '../../../auth/dialogs/services/auth-form-
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Store } from '@ngrx/store';
 import { AuthActions } from '../../../auth/data-acces/store/auth/auth.actions';
-import { userFeature } from '../../../user/store/user.selectors';
+import { userFeature } from '../../../user/data-access/store/user.selectors';
 import { UserProfileModel } from '../../../user/models/user.model';
-import { UserService } from '../../../user/services/user/user.service';
+import { UserService } from '../../../user/data-access/user.service';
 
 @Component({
 	selector: 'app-navbar-user-profile',

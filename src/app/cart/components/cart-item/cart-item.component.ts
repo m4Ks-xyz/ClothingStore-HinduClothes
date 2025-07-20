@@ -20,6 +20,7 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class CartItemComponent {
 	readonly #store = inject(Store);
+
 	readonly showButtons = input.required<boolean>();
 	readonly cartItem = input.required<CartItem>();
 

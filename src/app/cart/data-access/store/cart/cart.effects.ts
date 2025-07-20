@@ -6,7 +6,7 @@ import { cartActions } from './cart.actions';
 import { catchError, of, switchMap, tap } from 'rxjs';
 import { Action } from '@ngrx/store';
 import { TOKEN_STORAGE_KEY } from '../../../../auth/data-acces/config/api';
-import { UserActions } from '../../../../user/store/user.actions';
+import { UserActions } from '../../../../user/data-access/store/user.actions';
 import { AuthActions } from '../../../../auth/data-acces/store/auth/auth.actions';
 
 @Injectable()

@@ -10,7 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AddressListComponent } from '../address-list/address-list.component';
 import { Store } from '@ngrx/store';
-import { selectAddresses } from '../../../user/store/user.selectors';
+import { selectAddresses } from '../../../user/data-access/store/user.selectors';
 import { Addresses } from '../../../auth/models/addresses.model';
 import { selectOrder } from '../../../orders/data-access/store/order.selectors';
 import { OrderRes } from '../../../orders/models/order-res.model';
