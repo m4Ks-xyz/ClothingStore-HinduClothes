@@ -27,6 +27,7 @@ export const OrderReducer = createReducer(
 		orderActions.createOrderRequestFailure,
 		orderActions.getOrderByIdFailure,
 		orderActions.getOrderHistoryRequestFailure,
+		orderActions.payOrderFailure,
 		(state, action) => {
 			return {
 				...state,
@@ -44,6 +45,12 @@ export const OrderReducer = createReducer(
 		return {
 			...state,
 			ordersHistory: action.orders,
+		};
+	}),
+	on(orderActions.payOrderSuccess, (state, action) => {
+		return {
+			...state,
+			order: action.order,
 		};
 	}),
 );

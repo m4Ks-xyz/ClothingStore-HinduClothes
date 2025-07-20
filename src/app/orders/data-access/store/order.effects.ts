@@ -94,4 +94,32 @@ export class OrderEffects implements OnInitEffects {
 			}),
 		),
 	);
+
+	readonly payOrder = createEffect(() =>
+		this.#actions.pipe(
+			ofType(orderActions.payOrder),
+			switchMap((payload) => {
+				return this.#orderService.payOrder(payload.id).pipe(
+					switchMap((order) => of(orderActions.payOrderSuccess({ order }))),
+					tap(() =>
+						this.#snackBar.open(`Payed successfully`, undefined, {
+							duration: 5000,
+							verticalPosition: 'bottom',
+							horizontalPosition: 'end',
+							panelClass: ['snackbar-success'],
+						}),
+					),
+					catchError((err) => {
+						this.#snackBar.open(`Error: ${err.error}`, undefined, {
+							duration: 10000,
+							verticalPosition: 'bottom',
+							horizontalPosition: 'end',
+							panelClass: ['snackbar-error'],
+						});
+						return of(orderActions.payOrderFailure({ err: err.error }));
+					}),
+				);
+			}),
+		),
+	);
 }

@@ -42,4 +42,13 @@ export class OrderDataAccessService {
 			headers: this.getHeader(),
 		});
 	}
+
+	payOrder(id: string) {
+		return this.#httpClient.post<OrderRes>(
+			`${this.#BASE_URL_ORDER}/${id}/pay`,
+			{
+				headers: this.getHeader(),
+			},
+		);
+	}
 }

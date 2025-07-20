@@ -16,5 +16,9 @@ export const orderActions = createActionGroup({
 		getOrderHistoryRequest: emptyProps(),
 		getOrderHistoryRequestSuccess: props<{ orders: OrderRes[] }>(),
 		getOrderHistoryRequestFailure: props<{ err: string }>(),
+
+		payOrder: props<{ id: string }>(),
+		payOrderSuccess: props<{ order: OrderRes }>(),
+		payOrderFailure: props<{ err: string }>(),
 	},
 });
