@@ -13,21 +13,21 @@
 	// Angular Material button styling
 	--mat-sys-on-primary: white;
 	--mat-sys-primary: #89361b;
-	--mdc-filled-button-label-text-color: white;
-	--mdc-filled-button-container-color: black;
-	--mdc-protected-button-container-color: white;
-	--mdc-protected-button-label-text-color: black;
-	--mdc-protected-button-hover-state-layer-color: black;
+	--mat-button-filled-label-text-color: white;
+	--mat-button-filled-container-color: black;
+	--mat-button-protected-container-color: white;
+	--mat-button-protected-label-text-color: black;
+	--mat-button-protected-hover-state-layer-color: black;
 
 	// Angular Material form theming
-	--mdc-filled-text-field-container-color: white;
-	--mdc-filled-text-field-input-text-color: #000000;
-	--mdc-filled-text-field-label-text-color: #000000;
+	--mat-form-field-filled-container-color: white;
+	--mat-form-field-filled-input-text-color: #000000;
+	--mat-form-field-filled-label-text-color: #000000;
 	--mat-sys-on-surface-variant: #89361b;
 	--mat-sys-on-error-container: #ff0000;
-	--mdc-filled-text-field-error-label-text-color: #ff0000;
-	--mdc-filled-text-field-error-focus-label-text-color: #ff0000;
-	--mdc-filled-text-field-focus-label-text-color: #89361b;
+	--mat-form-field-filled-error-label-text-color: #ff0000;
+	--mat-form-field-filled-error-focus-label-text-color: #ff0000;
+	--mat-form-field-filled-focus-label-text-color: #89361b;
 }
 
 .mat-mdc-dialog-container {
