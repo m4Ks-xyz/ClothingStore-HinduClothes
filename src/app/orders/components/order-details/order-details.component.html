@@ -1,16 +1,36 @@
 <main class="flex items-center justify-center">
 	<div class="container p-4 lg:px-20 lg:py-10">
 		@if (order()) {
-			<div class="py-20 text-white lg:px-16">
-				<h2 class="py-2 text-2xl font-semibold">Order status</h2>
+			<div class="space-y-4 py-20 text-white lg:px-16">
+				<div>
+					<h1 class="py-2 text-2xl font-semibold">Order details</h1>
 
-				<app-progres-track
-					[activeStep]="order()?.orderStatus ?? 'placed'"
-					[steps]="steps()"
-				/>
+					<app-progres-track
+						[activeStep]="order()?.orderStatus ?? 'placed'"
+						[steps]="steps()"
+					/>
+				</div>
+
+				<div>
+					<h2 class="py-5 text-xl font-semibold">Payment Status</h2>
+
+					@if (order()?.paymentDetails?.paymentStatus === "completed") {
+						<p>Payment is <strong class="text-green-500">completed</strong></p>
+					} @else {
+						<div class="flex flex-col gap-4">
+							<p>Payment is <strong class="text-red-500">required</strong></p>
+							<a
+								mat-raised-button
+								class="rounded-md!"
+								[routerLink]="['/checkout', 'payment', order()?._id]"
+								>PAY NOW</a
+							>
+						</div>
+					}
+				</div>
 
 				<div class="space-y-10">
-					<h1 class="py-5 text-xl font-semibold">Shipping Address</h1>
+					<h2 class="py-5 text-xl font-semibold">Shipping Address</h2>
 
 					<div class="box">
 						<app-address-card [address]="order()?.shippingAddress" />

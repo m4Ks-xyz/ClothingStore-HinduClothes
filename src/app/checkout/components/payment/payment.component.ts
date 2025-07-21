@@ -14,6 +14,7 @@ import { MatDivider } from '@angular/material/divider';
 import { ProductItemComponent } from '../../../cart/components/product-item/product-item.component';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { OrderRes } from '../../../orders/models/order-res.model';
 
 @Component({
 	selector: 'app-payment',
@@ -34,7 +35,7 @@ export default class PaymentComponent {
 	//query params
 	readonly id = input.required<string>();
 
-	readonly order = this.#store.selectSignal(selectOrder);
+	readonly order = this.#store.selectSignal<OrderRes | undefined>(selectOrder);
 
 	constructor() {
 		effect(() => {
@@ -42,5 +43,10 @@ export default class PaymentComponent {
 				orderActions.getOrderById({ orderId: this.id() }),
 			);
 		});
+	}
+
+	payOrder() {
+		console.log(this.order()?._id);
+		this.#store.dispatch(orderActions.payOrder({ id: this.order()!._id }));
 	}
 }

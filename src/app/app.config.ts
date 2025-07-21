@@ -23,6 +23,7 @@ import { ProductsEffects } from './products/data-access/store/products/products.
 import { cartFeature } from './cart/data-access/store/cart/cart.selectors';
 import { CartEffects } from './cart/data-access/store/cart/cart.effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { provideOrdersState } from './orders/data-access/provide-orders-state';
 
 export const appConfig: ApplicationConfig = {
 	providers: [
@@ -39,6 +40,7 @@ export const appConfig: ApplicationConfig = {
 		),
 
 		provideStore(),
+		provideOrdersState(),
 		provideState(authFeature),
 		provideState(userFeature),
 		provideState(ProductsFeature),

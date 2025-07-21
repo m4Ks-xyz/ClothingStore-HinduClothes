@@ -82,6 +82,7 @@ export class AddressFormComponent {
 
 	createOrder(existingAddress?: Addresses) {
 		if (existingAddress) {
+			console.log(existingAddress);
 			return this.#store.dispatch(
 				orderActions.createOrderRequest({ address: existingAddress }),
 			);

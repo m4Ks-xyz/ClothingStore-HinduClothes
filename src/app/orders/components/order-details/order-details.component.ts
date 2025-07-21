@@ -14,6 +14,8 @@ import { selectOrder } from '../../data-access/store/order.selectors';
 import { OrderRes } from '../../models/order-res.model';
 import { orderActions } from '../../data-access/store/order.actions';
 import { OrderProductDetailsComponent } from '../order-product-details/order-product-details.component';
+import { MatButton } from '@angular/material/button';
+import { RouterLink } from '@angular/router';
 
 @Component({
 	selector: 'app-order-details',
@@ -21,6 +23,8 @@ import { OrderProductDetailsComponent } from '../order-product-details/order-pro
 		AddressCardComponent,
 		OrderTrackerComponent,
 		OrderProductDetailsComponent,
+		MatButton,
+		RouterLink,
 	],
 	templateUrl: './order-details.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

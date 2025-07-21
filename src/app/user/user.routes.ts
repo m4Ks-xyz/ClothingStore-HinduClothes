@@ -1,5 +1,9 @@
 import { Routes } from '@angular/router';
-import { provideOrdersState } from '../orders/data-access/provide-orders-state';
+import { orderActions } from '../orders/data-access/store/order.actions';
+import { UserActions } from './data-access/store/user.actions';
+import { TOKEN_STORAGE_KEY } from '../auth/data-acces/config/api';
+import { Store } from '@ngrx/store';
+import { inject } from '@angular/core';
 
 export const userRoutes: Routes = [
 	{
@@ -10,7 +14,17 @@ export const userRoutes: Routes = [
 	},
 	{
 		path: 'orders',
-		providers: [provideOrdersState()],
+		resolve: {
+			loadOrders: () => {
+				const store = inject(Store);
+				if (localStorage.getItem(TOKEN_STORAGE_KEY)) {
+					store.dispatch(orderActions.getOrderHistoryRequest());
+				}
+				store.dispatch(UserActions.skipLoadingUserProfile());
+
+				return true;
+			},
+		},
 		children: [
 			{
 				path: '',
