@@ -79,9 +79,6 @@ export class ProductApiService {
 	getProductReviews(productId: string) {
 		return this.#httpClient.get<{ review: Review[]; rating: Rating[] }>(
 			`${this.#baseApiUrl}/reviews/product/${productId}`,
-			{
-				headers: this.getHeader(),
-			},
 		);
 	}
 }

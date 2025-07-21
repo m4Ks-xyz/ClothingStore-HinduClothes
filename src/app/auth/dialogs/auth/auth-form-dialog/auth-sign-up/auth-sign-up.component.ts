@@ -5,13 +5,11 @@ import {
 	output,
 } from '@angular/core';
 import {
-	AbstractControl,
 	ControlContainer,
 	FormBuilder,
 	FormGroupDirective,
 	FormsModule,
 	ReactiveFormsModule,
-	ValidatorFn,
 	Validators,
 } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -20,6 +18,7 @@ import { MatInput } from '@angular/material/input';
 import { AuthFormDialogStatusComponent } from '../auth-form-dialog-status/auth-form-dialog-status.component';
 import { AuthFormDialogResults } from '../../../types/auth-form-dialog.model';
 import { MatDialogRef } from '@angular/material/dialog';
+import { matchFieldsValidator } from '../../../../../shared/validators/match-fields-validator';
 
 @Component({
 	selector: 'app-auth-sign-up',
@@ -66,32 +65,9 @@ export class AuthSignUpComponent {
 			],
 		},
 		{
-			validators: this.confirmPasswordValidator('password', 'confirmPassword'),
+			validators: matchFieldsValidator('password', 'confirmPassword'),
 		},
 	);
-
-	confirmPasswordValidator(
-		controlOneName: string,
-		controlTwoName: string,
-	): ValidatorFn {
-		return (group: AbstractControl) => {
-			const controlOne = group.get(controlOneName);
-			const controlTwo = group.get(controlTwoName);
-
-			if (!controlOne || !controlTwo) return null;
-
-			if (controlOne.value !== controlTwo.value) {
-				controlTwo.setErrors({ match_error: true });
-			} else {
-				if (controlTwo.hasError(`match_error`)) {
-					const errors = { ...controlTwo.errors };
-					delete errors['match_error'];
-					controlTwo.setErrors(Object.keys(errors).length ? errors : null);
-				}
-			}
-			return null;
-		};
-	}
 
 	onSubmit() {
 		this.form.markAllAsTouched();

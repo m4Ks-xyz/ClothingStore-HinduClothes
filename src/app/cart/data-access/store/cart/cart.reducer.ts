@@ -1,6 +1,8 @@
 import { createReducer, on } from '@ngrx/store';
 import { Cart } from '../../../models/cart.model';
 import { cartActions } from './cart.actions';
+import { UserActions } from '../../../../user/data-access/store/user.actions';
+import { orderActions } from '../../../../orders/data-access/store/order.actions';
 
 export interface CartState {
 	cart: Cart | undefined;
@@ -61,5 +63,6 @@ export const CartReducer = createReducer(
 	on(cartActions.updateCartItemFailure, (state, action) => {
 		return { ...state, errorMsg: action.err };
 	}),
-	on(cartActions.resetCart, () => initialState),
+	on(UserActions.logout, () => initialState),
+	on(orderActions.createOrderRequestSuccess, () => initialState),
 );

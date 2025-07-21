@@ -9,6 +9,6 @@ export interface Review {
 export interface UserReviewModel {
 	firstName: string;
 	lastName: string;
-	imageUrl?: string;
+	avatarImg?: string;
 	_id: string;
 }

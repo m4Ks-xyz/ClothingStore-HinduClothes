@@ -7,7 +7,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserProfileModel } from '../models/user.model';
 import { Store } from '@ngrx/store';
 import { UserActions } from './store/user.actions';
-import { cartActions } from '../../cart/data-access/store/cart/cart.actions';
 import { UserEditReq } from './user-edit-req.model';
 
 @Injectable({
@@ -49,6 +48,5 @@ export class UserService {
 
 	logout() {
 		this.#store.dispatch(UserActions.logout());
-		this.#store.dispatch(cartActions.resetCart());
 	}
 }

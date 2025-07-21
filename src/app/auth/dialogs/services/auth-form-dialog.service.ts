@@ -21,6 +21,6 @@ export class AuthFormDialogService {
 			AuthFormDialogComponent,
 			AuthFormDialogData,
 			AuthFormDialogResults
-		>(dialogCmp, { width: '1' });
+		>(dialogCmp);
 	}
 }

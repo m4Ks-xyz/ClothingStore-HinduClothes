@@ -22,12 +22,19 @@ export class ProductRatingComponent {
 	readonly ratingCategories: RatingCategory[] = RATING_CATEGORIES;
 
 	mostPopularRating = computed(() => {
-		const ratings = this.ratings();
-		if (!ratings) return null;
+		const ratings = Object.entries(this.ratings() ?? {});
+		let mostRated = 0;
+		let mostRatedKey = '';
 
-		const entries = Object.entries(ratings) as [string, number][];
-		entries.sort((a, b) => b[1] - a[1]);
+		for (let i = 0; i < ratings.length; i++) {
+			const key = ratings[i][0];
+			const value = ratings[i][1];
 
-		return Number(entries[0][0]);
+			if (value > mostRated) {
+				mostRatedKey = key;
+				mostRated = value;
+			}
+		}
+		return +mostRatedKey;
 	});
 }

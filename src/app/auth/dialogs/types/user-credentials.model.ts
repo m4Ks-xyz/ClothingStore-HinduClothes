@@ -1,6 +1,6 @@
 export interface UserCredentials {
-	email: string;
-	password: string;
+	email: string | undefined;
+	password: string | undefined;
 	firstName?: string;
 	lastName?: string;
 }

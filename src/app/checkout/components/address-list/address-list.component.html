@@ -6,7 +6,11 @@
 			<button
 				class="w-full! rounded-md! bg-gray-500! p-7!"
 				mat-raised-button
-				(click)="orderAddress.emit(address)"
+				(click)="
+					mode() === 'delivery'
+						? orderAddress.emit(address)
+						: deleteAddressId.emit(address._id)
+				"
 			>
 				{{ mode() === "delivery" ? "Deliver Here" : "Delete Address" }}
 			</button>

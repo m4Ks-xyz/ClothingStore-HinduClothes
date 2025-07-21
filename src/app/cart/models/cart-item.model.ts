@@ -1,12 +1,6 @@
-import { BaseProduct } from '../../products/models/base-product.model';
+import { ProductWrapper } from '../../products/types/product-wrapper.model';
 
-export interface CartItem {
+export interface CartItem extends ProductWrapper {
 	_id: string;
 	cart: string;
-	product: BaseProduct;
-	size: string;
-	quantity: number;
-	price: number;
-	discountedPrice: number;
-	userId: string;
 }

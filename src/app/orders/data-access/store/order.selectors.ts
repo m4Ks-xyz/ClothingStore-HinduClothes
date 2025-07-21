@@ -1,4 +1,4 @@
-import { createFeature, createSelector } from '@ngrx/store';
+import { createFeature } from '@ngrx/store';
 import { OrderReducer } from './order.reducer';
 
 export const orderFeature = createFeature({
@@ -7,10 +7,3 @@ export const orderFeature = createFeature({
 });
 
 export const { selectOrder, selectOrdersHistory } = orderFeature;
-
-export const selectOrderShippingAddress = createSelector(
-	[selectOrder],
-	(order) => {
-		return order?.shippingAddress;
-	},
-);

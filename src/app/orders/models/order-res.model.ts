@@ -9,7 +9,7 @@ export interface OrderRes {
 	orderDate: string;
 	deliveryDate: string;
 	shippingAddress: Addresses;
-	paymentDetails: any;
+	paymentDetails: { paymentStatus: string; paymentMethod: string };
 	totalPrice: number;
 	totalDiscountedPrice: number;
 	discount: number;

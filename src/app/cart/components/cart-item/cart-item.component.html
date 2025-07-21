@@ -1,74 +1,36 @@
-<div class="p-5 shadow-lg">
-	<div class="flex items-center">
-		<div class="size-20 lg:size-36">
-			<img
-				class="h-full w-full object-cover object-top"
-				[src]="cartItem().product.imageUrl"
-				alt=""
-			/>
-		</div>
-
-		<div class="ml-5 space-y-1">
-			<p class="font-semibold">{{ cartItem().product.title }}</p>
-			<p class="text-gray-500">
-				Size: {{ cartItem().size }}, {{ cartItem().product.color }}
-			</p>
-			<p class="text-gray-500">Seller : {{ cartItem().product.brand }}</p>
-
-			@if (cartItem().product.discount === 0) {
-				<p class="text-xl">
-					{{ cartItem().product.price | currency: "INR" }}
-				</p>
-			} @else {
-				<div class="flex flex-col justify-center gap-x-2 pt-3">
-					<div class="flex items-center gap-4">
-						<p class="text-xl">
-							{{ cartItem().product.discountedPrice | currency: "INR" }}
-						</p>
-						<div class="text-md rounded bg-red-500 px-2 py-1 text-white">
-							{{ cartItem().product.discount }} %
-						</div>
-					</div>
-					<p class="text-md text-gray-700 line-through">
-						{{ cartItem().product.price | currency: "INR" }}
-					</p>
-				</div>
-			}
-		</div>
-	</div>
+<div class="p-5">
+	<app-product-item [productWrapper]="cartItem()" />
 
 	<div class="flex items-center justify-between pt-6 lg:space-x-10">
-		@if (showButtons()) {
-			<div
-				class="flex w-full flex-col items-center justify-center gap-6 sm:flex-row sm:justify-between"
-			>
-				<div class="button-group flex items-center gap-4">
-					<button
-						class="rounded-full! bg-gray-800!"
-						aria-label="Decrease amount by 1"
-						mat-mini-fab
-						[disabled]="count() === 1"
-						(click)="decrement()"
-					>
-						<mat-icon class="text-gray-300!">remove</mat-icon>
-					</button>
-					<span class="rounded-sm border border-gray-800 px-7 py-1">
-						<p>{{ count() }}</p>
-					</span>
-					<button
-						class="rounded-full! bg-gray-500!"
-						mat-mini-fab
-						aria-label="Increase amount by 1"
-						(click)="increment()"
-					>
-						<mat-icon class="text-gray-900!">add</mat-icon>
-					</button>
-				</div>
-
-				<button (click)="removeItem()" class="rounded-md!" mat-raised-button>
-					Remove
+		<div
+			class="flex w-full flex-col items-center justify-center gap-6 sm:flex-row sm:justify-between"
+		>
+			<div class="button-group flex items-center gap-4">
+				<button
+					class="rounded-full! bg-gray-800!"
+					aria-label="Decrease amount by 1"
+					mat-mini-fab
+					[disabled]="count() === 1"
+					(click)="decrement()"
+				>
+					<mat-icon class="text-gray-300!">remove</mat-icon>
+				</button>
+				<span class="rounded-sm border border-gray-800 px-7 py-1">
+					<p>{{ count() }}</p>
+				</span>
+				<button
+					class="rounded-full! bg-gray-500!"
+					mat-mini-fab
+					aria-label="Increase amount by 1"
+					(click)="increment()"
+				>
+					<mat-icon class="text-gray-900!">add</mat-icon>
 				</button>
 			</div>
-		}
+
+			<button (click)="removeItem()" class="rounded-md!" mat-raised-button>
+				Remove
+			</button>
+		</div>
 	</div>
 </div>

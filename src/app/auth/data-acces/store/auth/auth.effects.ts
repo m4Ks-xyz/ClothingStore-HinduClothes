@@ -36,7 +36,7 @@ export class AuthEffects {
 					),
 					catchError((err) => {
 						this.#snackBar.open(`${err.error.message}`, undefined, {
-							duration: 10000,
+							duration: 5000,
 							verticalPosition: 'bottom',
 							horizontalPosition: 'end',
 							panelClass: ['snackbar-error'],
@@ -92,7 +92,7 @@ export class AuthEffects {
 					),
 					catchError((err) => {
 						this.#snackBar.open(`${err.error.message}`, undefined, {
-							duration: 10000,
+							duration: 5000,
 							verticalPosition: 'bottom',
 							horizontalPosition: 'end',
 							panelClass: ['snackbar-error'],

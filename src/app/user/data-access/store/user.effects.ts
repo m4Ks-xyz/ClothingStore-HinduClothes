@@ -47,6 +47,7 @@ export class UserEffects implements OnInitEffects {
 						currentPassword: payload.currentPassword,
 						newPassword: payload.newPassword,
 						email: payload.email,
+						deleteAddressId: payload.deleteAddressId,
 					})
 					.pipe(
 						switchMap((payload) =>
@@ -65,7 +66,7 @@ export class UserEffects implements OnInitEffects {
 								err?.error?.error || 'An unexpected error occurred';
 
 							this.#snackBar.open(errorMessage, undefined, {
-								duration: 10000,
+								duration: 5000,
 								verticalPosition: 'bottom',
 								horizontalPosition: 'end',
 								panelClass: ['snackbar-error'],

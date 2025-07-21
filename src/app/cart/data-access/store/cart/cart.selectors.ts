@@ -8,6 +8,6 @@ export const cartFeature = createFeature({
 
 export const { selectCart } = cartFeature;
 
-export const selectCartItems = createSelector([selectCart], (cart) => {
-	return cart?.cartItems;
+export const selectTotalCartItems = createSelector([selectCart], (cart) => {
+	return cart?.totalItem;
 });

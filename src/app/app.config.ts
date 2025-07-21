@@ -4,7 +4,11 @@ import {
 	LOCALE_ID,
 	provideZoneChangeDetection,
 } from '@angular/core';
-import { provideRouter, withComponentInputBinding } from '@angular/router';
+import {
+	provideRouter,
+	withComponentInputBinding,
+	withInMemoryScrolling,
+} from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideState, provideStore } from '@ngrx/store';
@@ -18,8 +22,6 @@ import { ProductsFeature } from './products/data-access/store/products/products.
 import { ProductsEffects } from './products/data-access/store/products/products.effects';
 import { cartFeature } from './cart/data-access/store/cart/cart.selectors';
 import { CartEffects } from './cart/data-access/store/cart/cart.effects';
-import { orderFeature } from './orders/data-access/store/order.selectors';
-import { OrderEffects } from './orders/data-access/store/order.effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 export const appConfig: ApplicationConfig = {
@@ -27,23 +29,22 @@ export const appConfig: ApplicationConfig = {
 		{ provide: LOCALE_ID, useValue: 'en-IN' },
 
 		provideZoneChangeDetection({ eventCoalescing: true }),
-		provideRouter(routes, withComponentInputBinding()),
+		provideRouter(
+			routes,
+			withComponentInputBinding(),
+			withInMemoryScrolling({
+				scrollPositionRestoration: 'enabled',
+				anchorScrolling: 'enabled',
+			}),
+		),
 
 		provideStore(),
 		provideState(authFeature),
 		provideState(userFeature),
 		provideState(ProductsFeature),
 		provideState(cartFeature),
-		provideState(orderFeature),
 		provideHttpClient(),
-		provideEffects([
-			AuthEffects,
-			UserEffects,
-			ProductsEffects,
-			OrderEffects,
-			CartEffects,
-			UserEffects,
-		]),
+		provideEffects([AuthEffects, ProductsEffects, CartEffects, UserEffects]),
 		provideStoreDevtools({
 			maxAge: 25, // Retains last 25 states
 			logOnly: !isDevMode(), // Restrict extension to log-only mode

@@ -1,15 +1,13 @@
 import { createReducer, on } from '@ngrx/store';
-import { UserCredentials } from '../../../dialogs/types/user-credentials.model';
 import { AuthActions } from './auth.actions';
+import { UserActions } from '../../../../user/data-access/store/user.actions';
 
 export interface UserState {
-	user: UserCredentials;
 	token: string | undefined;
 	errorMsg: string | undefined;
 }
 
 export const initialState: UserState = {
-	user: { email: '', password: '' },
 	token: undefined,
 	errorMsg: undefined,
 };
@@ -28,4 +26,5 @@ export const authReducer = createReducer(
 	on(AuthActions.registerFailure, (state, action) => {
 		return { ...state, errorMsg: action.errorMsg };
 	}),
+	on(UserActions.logout, () => initialState),
 );

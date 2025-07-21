@@ -1,7 +1,6 @@
 import {
 	ChangeDetectionStrategy,
 	Component,
-	computed,
 	DestroyRef,
 	inject,
 	input,
@@ -15,9 +14,6 @@ import { RateProductDialogService } from '../../dialogs/rate-product-dialog.serv
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Store } from '@ngrx/store';
 import { productsActions } from '../../../products/data-access/store/products/products.actions';
-import { selectUserRatings } from '../../../user/data-access/store/user.selectors';
-import { selectSelectedProductsRatings } from '../../../products/data-access/store/products/products.selectors';
-import { Rating } from '../../../auth/models/ratings.model';
 
 @Component({
 	selector: 'app-order-product-details',
@@ -32,21 +28,6 @@ export class OrderProductDetailsComponent {
 
 	readonly item = input.required<OrderItems>();
 	readonly status = input.required<OrderStatus | undefined>();
-
-	readonly userRatings = this.#store.selectSignal<string[] | undefined>(
-		selectUserRatings,
-	);
-
-	readonly productRatings = this.#store.selectSignal<Rating[] | undefined>(
-		selectSelectedProductsRatings,
-	);
-
-	// TODO not really working, needed live update and use productRatings store slector
-	alreadyCommented = computed(() => {
-		const productRatings = this.item()?.product?.ratings ?? [];
-		const userRatings = this.userRatings() ?? [];
-		return productRatings.some((rating) => userRatings.includes(rating));
-	});
 
 	async openRateDialogComponent() {
 		const dialogRef =

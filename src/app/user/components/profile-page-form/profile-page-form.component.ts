@@ -1,10 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
-	AbstractControl,
 	FormBuilder,
 	FormsModule,
 	ReactiveFormsModule,
-	ValidatorFn,
 	Validators,
 } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
@@ -14,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Store } from '@ngrx/store';
 import { UserActions } from '../../data-access/store/user.actions';
+import { matchFieldsValidator } from '../../../shared/validators/match-fields-validator';
 
 @Component({
 	selector: 'app-profile-page-form',
@@ -28,7 +27,11 @@ import { UserActions } from '../../data-access/store/user.actions';
 		MatInputModule,
 	],
 	templateUrl: './profile-page-form.component.html',
-	styleUrl: './profile-page-form.component.scss',
+	styles: `
+		form {
+			--mat-sys-on-surface-variant: black;
+		}
+	`,
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfilePageFormComponent {
@@ -47,35 +50,9 @@ export class ProfilePageFormComponent {
 			currentPassword: [undefined],
 		},
 		{
-			validators: this.confirmPasswordValidator(
-				'newPassword',
-				'confirmNewPassword',
-			),
+			validators: matchFieldsValidator(`newPassword`, `confirmNewPassword`),
 		},
 	);
-
-	confirmPasswordValidator(
-		controlOneName: string,
-		controlTwoName: string,
-	): ValidatorFn {
-		return (group: AbstractControl) => {
-			const controlOne = group.get(controlOneName);
-			const controlTwo = group.get(controlTwoName);
-
-			if (!controlOne || !controlTwo) return null;
-
-			if (controlOne.value !== controlTwo.value) {
-				controlTwo.setErrors({ match_error: true });
-			} else {
-				if (controlTwo.hasError('match_error')) {
-					const errors = { ...controlTwo.errors };
-					delete errors['match_error'];
-					controlTwo.setErrors(Object.keys(errors).length ? errors : null);
-				}
-			}
-			return null;
-		};
-	}
 
 	onSubmit() {
 		if (

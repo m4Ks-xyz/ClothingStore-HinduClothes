@@ -1,7 +1,7 @@
 <main class="flex items-center justify-center">
 	<div class="container mt-24 px-5 lg:px-20">
 		<div class="box my-5 rounded-md p-5 shadow-lg">
-			<app-address-card [address]="addresses()" />
+			<app-address-card [address]="order()?.shippingAddress" />
 		</div>
 
 		<div
@@ -9,15 +9,36 @@
 		>
 			<div class="col-span-2">
 				<div class="box space-y-3 rounded-md">
-					<app-cart-item-list
-						[cartProducts]="products()?.cartItems"
-						[showButtons]="false"
-					/>
+					@for (item of order()?.orderItems; track item._id; let last = $last) {
+						<app-product-item [productWrapper]="item" />
+						@if (!last) {
+							<mat-divider />
+						}
+					}
 				</div>
 			</div>
 
 			<section class="sticky top-0 col-span-1 mt-5 h-screen lg:mt-0">
-				<app-order-summary [cart]="products()" buttonMode="payment" />
+				<app-order-summary
+					[discount]="order()?.discount"
+					[totalDiscountedPrice]="order()?.totalDiscountedPrice"
+					[totalPrice]="order()?.totalPrice"
+				>
+					@if (order()?.paymentDetails?.paymentStatus !== "completed") {
+						<a routerLink="/payment">
+							<button class="w-full rounded-md!" mat-raised-button>
+								PAY NOW
+							</button>
+						</a>
+					} @else {
+						<a
+							mat-raised-button
+							class="w-full rounded-md!"
+							[routerLink]="['/order', id()]"
+							>Payment complete</a
+						>
+					}
+				</app-order-summary>
 			</section>
 		</div>
 	</div>

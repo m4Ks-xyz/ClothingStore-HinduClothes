@@ -1,7 +1,7 @@
 <main class="flex min-h-[80vh] flex-col items-center">
 	<div class="container p-4 lg:px-20 lg:py-10">
-		<h1 class="my-24 text-center text-xl font-bold">My Orders</h1>
-		@if (orders()?.length !== 0) {
+		@if (orders()) {
+			<h1 class="my-24 text-center text-xl font-bold">My Orders</h1>
 			<div class="flex flex-col items-center justify-center">
 				<div class="space-y-5">
 					<div class="flex flex-col gap-y-8">
@@ -12,7 +12,9 @@
 				</div>
 			</div>
 		} @else {
-			<p class="text-center">YOU HAVE NO ORDERS YET OR LOG IN</p>
+			<div class="flex h-[90vh] items-center justify-center">
+				<p class="text-2xl">YOU HAVE NO ORDERS YET OR LOG IN</p>
+			</div>
 		}
 	</div>
 </main>

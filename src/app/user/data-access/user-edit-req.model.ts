@@ -3,4 +3,5 @@ export interface UserEditReq {
 	newPassword?: string;
 	currentPassword?: string;
 	avatarImg?: string;
+	deleteAddressId?: string;
 }

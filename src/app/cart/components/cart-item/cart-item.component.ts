@@ -5,16 +5,16 @@ import {
 	inject,
 	input,
 } from '@angular/core';
-import { MatButton, MatMiniFabButton } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CartItem } from '../../models/cart-item.model';
 import { Store } from '@ngrx/store';
 import { cartActions } from '../../data-access/store/cart/cart.actions';
-import { CurrencyPipe } from '@angular/common';
+import { ProductItemComponent } from '../product-item/product-item.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
 	selector: 'app-cart-item',
-	imports: [MatMiniFabButton, MatIconModule, MatButton, CurrencyPipe],
+	imports: [MatIconModule, ProductItemComponent, MatButtonModule],
 	templateUrl: './cart-item.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })

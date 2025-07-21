@@ -39,19 +39,10 @@ export const routes: Routes = [
 			import('./checkout/components/payment-success/payment-success.component'),
 	},
 	{
-		path: 'account/orders',
-		loadComponent: () => import('./orders/components/orders/orders.component'),
+		path: 'account',
+		loadChildren: () => import('./user/user.routes').then((m) => m.userRoutes),
 	},
-	{
-		path: 'order/:id',
-		loadComponent: () =>
-			import('./orders/components/order-details/order-details.component'),
-	},
-	{
-		path: 'profile',
-		loadComponent: () =>
-			import('./user/components/profile-page/profile-page.component'),
-	},
+
 	{
 		path: '**',
 		loadComponent: () => import('./not-found/not-found.component'),

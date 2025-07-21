@@ -83,7 +83,7 @@ export class AddressFormComponent {
 	createOrder(existingAddress?: Addresses) {
 		if (existingAddress) {
 			return this.#store.dispatch(
-				orderActions.createOrderRequest(existingAddress),
+				orderActions.createOrderRequest({ address: existingAddress }),
 			);
 		}
 
@@ -91,7 +91,7 @@ export class AddressFormComponent {
 
 		if (this.form.valid) {
 			this.#store.dispatch(
-				orderActions.createOrderRequest(this.form.getRawValue()),
+				orderActions.createOrderRequest({ address: this.form.getRawValue() }),
 			);
 		}
 	}

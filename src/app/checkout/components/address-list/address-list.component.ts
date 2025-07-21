@@ -20,4 +20,5 @@ export class AddressListComponent {
 	readonly mode = input.required<'delete' | 'delivery'>();
 
 	readonly orderAddress = output<Addresses>();
+	readonly deleteAddressId = output<string>();
 }

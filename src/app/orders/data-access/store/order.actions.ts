@@ -5,7 +5,7 @@ import { Address } from '../../../checkout/models/address.model';
 export const orderActions = createActionGroup({
 	source: 'Order',
 	events: {
-		createOrderRequest: props<Address>(),
+		createOrderRequest: props<{ address: Address }>(),
 		createOrderRequestSuccess: props<{ order: OrderRes }>(),
 		createOrderRequestFailure: props<{ err: string }>(),
 

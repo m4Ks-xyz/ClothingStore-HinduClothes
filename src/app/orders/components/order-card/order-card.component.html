@@ -1,9 +1,11 @@
-<a [routerLink]="['/order', order()._id]">
-	<div class="box flex flex-col items-center md:block">
+<a [routerLink]="['/account', 'orders', order()._id]">
+	<div class="box container flex flex-col items-center md:block">
 		<div class="grid gap-4 sm:grid-cols-4 md:grid-cols-5">
-			<div class="flex w-full flex-col gap-y-4 md:flex-row md:gap-y-0">
+			<div
+				class="flex w-full flex-col items-center gap-y-4 md:flex-row md:gap-y-0"
+			>
 				<img
-					class="size-36 rounded-md"
+					class="size-36 rounded-md object-cover object-top"
 					[src]="order().orderItems[0].product.imageUrl"
 					alt="Product Image"
 				/>

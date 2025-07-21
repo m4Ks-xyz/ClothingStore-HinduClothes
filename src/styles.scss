@@ -99,3 +99,7 @@ body {
 	height: 100%;
 	font-size: 16px;
 }
+
+.mat-mdc-dialog-content {
+	max-height: unset !important;
+}

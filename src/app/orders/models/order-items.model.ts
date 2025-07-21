@@ -1,11 +1,5 @@
-import { BaseProduct } from '../../products/models/base-product.model';
+import { ProductWrapper } from '../../products/types/product-wrapper.model';
 
-export interface OrderItems {
-	product: BaseProduct;
-	size: string;
-	quantity: number;
-	price: number;
-	discountedPrice: number;
-	userId: string;
+export interface OrderItems extends ProductWrapper {
 	deliveryDate: string;
 }
