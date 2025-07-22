@@ -1,15 +1,20 @@
 import { inject, Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Actions, createEffect, ofType, OnInitEffects } from '@ngrx/effects';
 import { productsActions } from './products.actions';
 import { catchError, exhaustMap, of, switchMap, tap } from 'rxjs';
 import { ProductApiService } from '../../services/product-api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Action } from '@ngrx/store';
 
 @Injectable()
-export class ProductsEffects {
+export class ProductsEffects implements OnInitEffects {
 	readonly #actions$ = inject(Actions);
 	readonly #productsService = inject(ProductApiService);
 	readonly #snackBar = inject(MatSnackBar);
+
+	ngrxOnInitEffects(): Action {
+		return productsActions.getHomePageProducts();
+	}
 
 	readonly getProductByCategory = createEffect(() =>
 		this.#actions$.pipe(
@@ -131,6 +136,28 @@ export class ProductsEffects {
 							),
 						),
 					);
+			}),
+		),
+	);
+
+	readonly getHomePageProducts = createEffect(() =>
+		this.#actions$.pipe(
+			ofType(productsActions.getHomePageProducts),
+			switchMap(() => {
+				return this.#productsService.getHomePageProducts().pipe(
+					switchMap((payload) => {
+						return of(
+							productsActions.getHomePageProductsSuccess({
+								products: payload.products,
+							}),
+						);
+					}),
+					catchError((err) =>
+						of(
+							productsActions.getHomePageProductsFailure({ error: err.error }),
+						),
+					),
+				);
 			}),
 		),
 	);

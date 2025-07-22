@@ -34,15 +34,9 @@ export const routes: Routes = [
 			import('./checkout/components/payment/payment.component'),
 	},
 	{
-		path: 'payment-success',
-		loadComponent: () =>
-			import('./checkout/components/payment-success/payment-success.component'),
-	},
-	{
 		path: 'account',
 		loadChildren: () => import('./user/user.routes').then((m) => m.userRoutes),
 	},
-
 	{
 		path: '**',
 		loadComponent: () => import('./not-found/not-found.component'),

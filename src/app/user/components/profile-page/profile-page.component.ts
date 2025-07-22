@@ -8,7 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { AddressListComponent } from '../../../checkout/components/address-list/address-list.component';
 import { ProfilePageFormComponent } from '../profile-page-form/profile-page-form.component';
-import { UserActions } from '../../data-access/store/user.actions';
+import { userActions } from '../../data-access/store/user.actions';
+import { EmptyStateMessageComponent } from '../../../shared/components/empty-state-message/empty-state-message.component';
 
 {
 }
@@ -22,6 +23,7 @@ import { UserActions } from '../../data-access/store/user.actions';
 		MatInputModule,
 		AddressListComponent,
 		ProfilePageFormComponent,
+		EmptyStateMessageComponent,
 	],
 	templateUrl: './profile-page.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
@@ -35,7 +37,7 @@ export default class ProfilePageComponent {
 
 	deleteAddress(addressId: string) {
 		this.#store.dispatch(
-			UserActions.editUserProfile({ deleteAddressId: addressId }),
+			userActions.editUserProfile({ deleteAddressId: addressId }),
 		);
 	}
 }

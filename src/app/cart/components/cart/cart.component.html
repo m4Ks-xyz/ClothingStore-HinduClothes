@@ -1,7 +1,7 @@
 @let hasItemsInCart = cart()?.cartItems?.length !== 0;
-<main class="mt-20 flex items-center justify-center">
-	<div class="container min-h-[90vh]">
-		@if (cart()) {
+<main class="flex items-center justify-center">
+	@if (cart()) {
+		<div class="container mt-20 min-h-[90vh]">
 			<div class="relative grid-cols-3 py-10 lg:grid lg:px-16">
 				<section
 					class="lg:col-span-2 lg:px-5"
@@ -34,12 +34,10 @@
 					</section>
 				}
 			</div>
-		} @else {
-			<div
-				class="flex h-screen items-center justify-center p-2 text-center text-xl"
-			>
-				<p>LOGIN OR REGISTER TO SEE YOUR CART</p>
-			</div>
-		}
-	</div>
+		</div>
+	} @else {
+		<app-empty-state-message>
+			LOGIN OR REGISTER TO SEE YOUR CART
+		</app-empty-state-message>
+	}
 </main>

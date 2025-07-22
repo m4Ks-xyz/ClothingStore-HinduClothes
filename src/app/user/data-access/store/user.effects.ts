@@ -1,12 +1,12 @@
 import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType, OnInitEffects } from '@ngrx/effects';
 import { UserService } from '../user.service';
-import { UserActions } from './user.actions';
+import { userActions } from './user.actions';
 import { catchError, of, switchMap, tap } from 'rxjs';
-import { Action } from '@ngrx/store';
 import { TOKEN_STORAGE_KEY } from '../../../auth/data-acces/config/api';
-import { AuthActions } from '../../../auth/data-acces/store/auth/auth.actions';
+import { AuthActions } from '../../../auth/data-acces/store/auth.actions';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Action } from '@ngrx/store';
 
 @Injectable()
 export class UserEffects implements OnInitEffects {
@@ -16,21 +16,21 @@ export class UserEffects implements OnInitEffects {
 
 	ngrxOnInitEffects(): Action {
 		if (localStorage.getItem(TOKEN_STORAGE_KEY)) {
-			return UserActions.getUserProfile();
+			return userActions.getUserProfile();
 		}
-		return UserActions.skipLoadingUserProfile();
+		return userActions.skipLoadingUserProfile();
 	}
 
 	readonly getUserProfile = createEffect(() =>
 		this.#actions$.pipe(
-			ofType(UserActions.getUserProfile, AuthActions.loginSuccess),
+			ofType(userActions.getUserProfile, AuthActions.loginSuccess),
 			switchMap(() => {
 				return this.#userService.getUserProfile().pipe(
 					switchMap((user) => {
-						return of(UserActions.getUserProfileSuccess({ userProfile: user }));
+						return of(userActions.getUserProfileSuccess({ userProfile: user }));
 					}),
 					catchError((err) => {
-						return of(UserActions.getUserProfileFailure({ error: err }));
+						return of(userActions.getUserProfileFailure({ error: err }));
 					}),
 				);
 			}),
@@ -39,7 +39,7 @@ export class UserEffects implements OnInitEffects {
 
 	readonly editUserProfile = createEffect(() =>
 		this.#actions$.pipe(
-			ofType(UserActions.editUserProfile),
+			ofType(userActions.editUserProfile),
 			switchMap((payload) => {
 				return this.#userService
 					.editUserProfile({
@@ -51,7 +51,7 @@ export class UserEffects implements OnInitEffects {
 					})
 					.pipe(
 						switchMap((payload) =>
-							of(UserActions.editUserProfileSuccess({ user: payload })),
+							of(userActions.editUserProfileSuccess({ user: payload })),
 						),
 						tap(() =>
 							this.#snackBar.open(`User updated successfully`, undefined, {
@@ -71,7 +71,7 @@ export class UserEffects implements OnInitEffects {
 								horizontalPosition: 'end',
 								panelClass: ['snackbar-error'],
 							});
-							return of(UserActions.editUserProfileFailure({ error: err }));
+							return of(userActions.editUserProfileFailure({ error: err }));
 						}),
 					);
 			}),
@@ -81,7 +81,7 @@ export class UserEffects implements OnInitEffects {
 	readonly logout = createEffect(
 		() =>
 			this.#actions$.pipe(
-				ofType(UserActions.logout),
+				ofType(userActions.logout),
 				tap(() => localStorage.removeItem(TOKEN_STORAGE_KEY)),
 			),
 		{ dispatch: false },

@@ -1,12 +1,12 @@
 import { inject, Injectable } from '@angular/core';
-import { AuthService } from '../../../services/auth/auth.service';
+import { AuthService } from './auth.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { AuthActions } from './auth.actions';
 import { catchError, of, switchMap, tap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { UserActions } from '../../../../user/data-access/store/user.actions';
-import { TOKEN_STORAGE_KEY } from '../../config/api';
-import { cartActions } from '../../../../cart/data-access/store/cart/cart.actions';
+import { userActions } from '../../../user/data-access/store/user.actions';
+import { cartActions } from '../../../cart/data-access/store/cart/cart.actions';
+import { TOKEN_STORAGE_KEY } from '../config/api';
 
 @Injectable()
 export class AuthEffects {
@@ -50,7 +50,7 @@ export class AuthEffects {
 		),
 	);
 
-	readonly saveToken = createEffect(
+	readonly saveTokenToLocalStorage = createEffect(
 		() =>
 			this.#actions$.pipe(
 				ofType(AuthActions.loginSuccess, AuthActions.registerSuccess),
@@ -78,7 +78,7 @@ export class AuthEffects {
 							AuthActions.registerSuccess({
 								user: { token: res.token, message: res.message },
 							}),
-							UserActions.getUserProfile(),
+							userActions.getUserProfile(),
 							cartActions.getCartRequest(),
 						),
 					),

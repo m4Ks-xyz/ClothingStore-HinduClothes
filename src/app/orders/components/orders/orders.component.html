@@ -1,6 +1,6 @@
-<main class="flex min-h-[80vh] flex-col items-center">
-	<div class="container p-4 lg:px-20 lg:py-10">
-		@if (orders()) {
+<main class="flex min-h-[90vh] flex-col items-center">
+	@if (orders()) {
+		<div class="container p-4 md:py-16 lg:px-20">
 			<h1 class="my-24 text-center text-xl font-bold">My Orders</h1>
 			<div class="flex flex-col items-center justify-center">
 				<div class="space-y-5">
@@ -11,10 +11,10 @@
 					</div>
 				</div>
 			</div>
-		} @else {
-			<div class="flex h-[90vh] items-center justify-center">
-				<p class="text-2xl">YOU HAVE NO ORDERS YET OR LOG IN</p>
-			</div>
-		}
-	</div>
+		</div>
+	} @else {
+		<app-empty-state-message
+			>YOU HAVE NO ORDERS YET OR LOG IN</app-empty-state-message
+		>
+	}
 </main>

@@ -3,24 +3,25 @@ import { createReducer, on } from '@ngrx/store';
 import { productsActions } from './products.actions';
 import { Review } from '../../../../auth/models/review.model';
 import { Rating } from '../../../../auth/models/ratings.model';
+import { HomeFeaturedItems } from '../../../models/home-featured-items.model';
 
 export interface ProductsState {
 	products: ProductModel[];
 	totalProducts: number | undefined;
+	homePageProducts: HomeFeaturedItems[] | undefined;
 	selectedProductById: ProductModelRes | undefined;
 	selectedProductsReviews: Review[] | undefined;
 	selectedProductsRatings: Rating[] | undefined;
-	loading: boolean;
 	error: string | undefined;
 }
 
 export const initialState: ProductsState = {
 	products: [],
 	totalProducts: undefined,
+	homePageProducts: undefined,
 	selectedProductById: undefined,
 	selectedProductsReviews: undefined,
 	selectedProductsRatings: undefined,
-	loading: false,
 	error: undefined,
 };
 
@@ -37,16 +38,6 @@ export const ProductsReducer = createReducer(
 		...state,
 		selectedProductById: action.product,
 	})),
-	on(
-		productsActions.findProductByIdFailure,
-		productsActions.findProductByIdFailure,
-		productsActions.getProductReviewsFailure,
-		productsActions.addProductReviewFailure,
-		(state, action) => ({
-			...state,
-			error: action.error,
-		}),
-	),
 	on(productsActions.getProductReviewsSuccess, (state, action) => ({
 		...state,
 		selectedProductsReviews: action.review,
@@ -57,4 +48,19 @@ export const ProductsReducer = createReducer(
 		selectedProductsReviews: action.review,
 		selectedProductsRatings: action.rating,
 	})),
+	on(productsActions.getHomePageProductsSuccess, (state, action) => ({
+		...state,
+		homePageProducts: action.products,
+	})),
+	on(
+		productsActions.findProductByIdFailure,
+		productsActions.findProductByIdFailure,
+		productsActions.getProductReviewsFailure,
+		productsActions.addProductReviewFailure,
+		productsActions.getHomePageProductsFailure,
+		(state, action) => ({
+			...state,
+			error: action.error,
+		}),
+	),
 );

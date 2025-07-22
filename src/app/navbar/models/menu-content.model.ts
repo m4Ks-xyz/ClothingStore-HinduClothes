@@ -1,3 +1,5 @@
+import { ProductModel } from '../../products/models/product.model';
+
 export interface MenuItem {
 	name: string;
 	id: string;
@@ -9,16 +11,9 @@ export interface MenuSection {
 	items: MenuItem[];
 }
 
-export interface FeaturedItem {
-	src: string;
-	title: string;
-	name: string;
-	_id: string;
-}
-
 export interface MenuCategory {
 	id: string;
 	name: string;
-	featured: FeaturedItem[];
+	featured: ProductModel[];
 	sections: MenuSection[];
 }

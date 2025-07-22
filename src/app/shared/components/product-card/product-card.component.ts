@@ -7,7 +7,20 @@ import { ProductModel } from '../../../products/models/product.model';
 	selector: 'app-product-card',
 	standalone: true,
 	imports: [CurrencyPipe, RouterModule],
-	styleUrl: './product-card.component.scss',
+	styles: `
+		.productCard .text {
+			box-shadow: transparent 1px 1px 1px;
+			transition: transform 0.3s ease-in-out;
+		}
+
+		.productCard:hover .text {
+			transform: translateY(-1rem);
+		}
+
+		.productCard:hover .text {
+			box-shadow: #000000 0 5px 15px;
+		}
+	`,
 	templateUrl: './product-card.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })

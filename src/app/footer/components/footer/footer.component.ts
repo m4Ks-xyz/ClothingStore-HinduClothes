@@ -5,6 +5,10 @@ import { AccordionComponent } from '../../../shared/components/accordion/accordi
 import { FOOTER_CONTENT } from '../../constants/footer-content.constants';
 import { FooterContent } from '../../models/footer-content-model';
 import { RouterLink } from '@angular/router';
+import {
+	FOOTER_CONTACT,
+	FooterContact,
+} from '../../constants/footer-contact.constants';
 
 @Component({
 	selector: 'app-footer',
@@ -14,4 +18,5 @@ import { RouterLink } from '@angular/router';
 })
 export class FooterComponent {
 	readonly footerContent = signal<FooterContent>(FOOTER_CONTENT);
+	readonly footerContact = signal<FooterContact[]>(FOOTER_CONTACT);
 }

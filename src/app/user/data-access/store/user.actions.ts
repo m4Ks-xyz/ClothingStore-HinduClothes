@@ -2,7 +2,7 @@ import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { UserProfileModel } from '../../models/user.model';
 import { UserEditReq } from '../user-edit-req.model';
 
-export const UserActions = createActionGroup({
+export const userActions = createActionGroup({
 	source: 'User',
 	events: {
 		getUserProfile: emptyProps(),
@@ -14,7 +14,6 @@ export const UserActions = createActionGroup({
 		editUserProfileFailure: props<{ error: string }>(),
 
 		logout: emptyProps(),
-
 		skipLoadingUserProfile: emptyProps(),
 	},
 });

@@ -4,10 +4,11 @@ import { Actions, createEffect, ofType, OnInitEffects } from '@ngrx/effects';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { cartActions } from './cart.actions';
 import { catchError, of, switchMap, tap } from 'rxjs';
+import { AuthActions } from '../../../../auth/data-acces/store/auth.actions';
 import { Action } from '@ngrx/store';
 import { TOKEN_STORAGE_KEY } from '../../../../auth/data-acces/config/api';
-import { UserActions } from '../../../../user/data-access/store/user.actions';
-import { AuthActions } from '../../../../auth/data-acces/store/auth/auth.actions';
+import { userActions } from '../../../../user/data-access/store/user.actions';
+import { orderActions } from '../../../../orders/data-access/store/order.actions';
 
 @Injectable()
 export class CartEffects implements OnInitEffects {
@@ -19,7 +20,7 @@ export class CartEffects implements OnInitEffects {
 		if (localStorage.getItem(TOKEN_STORAGE_KEY)) {
 			return cartActions.getCartRequest();
 		}
-		return UserActions.skipLoadingUserProfile();
+		return userActions.skipLoadingUserProfile();
 	}
 
 	readonly addItemToCart = createEffect(() =>
@@ -58,6 +59,7 @@ export class CartEffects implements OnInitEffects {
 				cartActions.getCartRequest,
 				cartActions.updateCartItemSuccess,
 				cartActions.removeCartItemSuccess,
+				orderActions.createOrderRequestSuccess,
 				AuthActions.loginSuccess,
 			),
 			switchMap(() => {

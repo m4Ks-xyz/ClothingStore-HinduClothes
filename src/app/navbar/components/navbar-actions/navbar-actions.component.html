@@ -4,7 +4,7 @@
 >
 	<a routerLink="cart" class="relative flex items-center p-3">
 		<mat-icon
-			class="icon text-primary! md:hover:text-primary! cursor-pointer md:text-black!"
+			class="icon md:hover:text-primary! cursor-pointer text-black! md:text-black!"
 			>shopping_cart</mat-icon
 		>
 		@if (cartItemsCount()) {
@@ -21,7 +21,7 @@
 		mat-icon-button
 		(click)="sidenavToggle.emit(!sidenavStatus())"
 	>
-		<mat-icon class="text-primary! h-16 w-16 items-center justify-center">
+		<mat-icon class="h-16 w-16 items-center justify-center text-black!">
 			menu</mat-icon
 		>
 	</button>

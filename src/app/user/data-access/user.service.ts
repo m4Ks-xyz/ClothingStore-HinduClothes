@@ -6,7 +6,7 @@ import {
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserProfileModel } from '../models/user.model';
 import { Store } from '@ngrx/store';
-import { UserActions } from './store/user.actions';
+import { userActions } from './store/user.actions';
 import { UserEditReq } from './user-edit-req.model';
 
 @Injectable({
@@ -24,14 +24,10 @@ export class UserService {
 	}
 
 	getUserProfile() {
-		const tokenString = localStorage.getItem(TOKEN_STORAGE_KEY);
-		const token = tokenString ? JSON.parse(tokenString).token : '';
-		const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-
 		return this.#httpClient.get<UserProfileModel>(
 			`${this.#apiUrl}/users/profile`,
 			{
-				headers,
+				headers: this.getHeader(),
 			},
 		);
 	}
@@ -47,6 +43,6 @@ export class UserService {
 	}
 
 	logout() {
-		this.#store.dispatch(UserActions.logout());
+		this.#store.dispatch(userActions.logout());
 	}
 }

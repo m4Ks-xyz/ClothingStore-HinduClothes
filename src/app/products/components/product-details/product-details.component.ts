@@ -23,6 +23,7 @@ import { ProductDetailsProductInfoComponent } from '../product-details-product-i
 import { ProductDetailsPathComponent } from '../product-details-path/product-details-path.component';
 import { ProductDetailsReviewsComponent } from '../product-details-reviews/product-details-reviews.component';
 import { ProductDetailsRelatedProductsComponent } from '../product-details-related-products/product-details-related-products.component';
+import { EmptyStateMessageComponent } from '../../../shared/components/empty-state-message/empty-state-message.component';
 
 @Component({
 	selector: 'app-product-details',
@@ -35,6 +36,7 @@ import { ProductDetailsRelatedProductsComponent } from '../product-details-relat
 		ProductDetailsPathComponent,
 		ProductDetailsReviewsComponent,
 		ProductDetailsRelatedProductsComponent,
+		EmptyStateMessageComponent,
 	],
 	templateUrl: './product-details.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

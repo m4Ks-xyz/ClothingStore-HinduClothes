@@ -13,7 +13,6 @@ import { CartItem } from '../../models/cart-item.model';
 })
 export class CartDataAccessService {
 	readonly #httpClient = inject(HttpClient);
-
 	readonly #BASE_API_URL_CART = `${BASE_API_URL}/api/cart`;
 
 	private getHeader(): HttpHeaders {

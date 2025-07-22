@@ -21,8 +21,8 @@
 			/>
 		</div>
 	} @else {
-		<div class="flex min-h-[70vh] items-center justify-center">
-			<p class="text-center text-2xl text-red-500">PRODUCT NOT FOUND</p>
-		</div>
+		<app-empty-state-message class="text-red-500"
+			>PRODUCT NOT FOUND</app-empty-state-message
+		>
 	}
 </div>

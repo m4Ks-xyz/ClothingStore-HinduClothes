@@ -11,6 +11,7 @@ import { selectCart } from '../../data-access/store/cart/cart.selectors';
 import { Cart } from '../../models/cart.model';
 import { MatButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
+import { EmptyStateMessageComponent } from '../../../shared/components/empty-state-message/empty-state-message.component';
 
 @Component({
 	selector: 'app-cart',
@@ -19,6 +20,7 @@ import { RouterLink } from '@angular/router';
 		OrderSummaryComponent,
 		MatButton,
 		RouterLink,
+		EmptyStateMessageComponent,
 	],
 	templateUrl: './cart.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

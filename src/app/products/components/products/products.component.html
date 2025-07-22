@@ -43,7 +43,9 @@
 	<mat-divider class="hidden! lg:block!" />
 
 	<section class="pt-6">
-		<div class="grid grid-cols-1 gap-8 gap-y-10 lg:grid-cols-4">
+		<div
+			class="grid gap-8 gap-y-10 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5"
+		>
 			<div
 				class="custom-scrollbar hidden h-[90vh] overflow-x-hidden overflow-y-scroll pr-4 lg:sticky lg:top-20 lg:block"
 			>
@@ -72,15 +74,20 @@
 				</form>
 			</div>
 
-			<div class="lg:col-span-3">
-				<div class="flex flex-wrap justify-evenly">
+			<div class="md:col-span-3 lg:col-span-3 xl:col-span-4">
+				<div
+					class="grid min-h-[100vh] w-full grid-cols-1 items-start md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+				>
 					@if (productState().length === 0) {
-						<p class="py-54 text-center text-lg text-red-500 uppercase">
+						<p
+							class="col-span-full py-54 text-center text-lg text-red-500 uppercase"
+						>
 							no product found with this criteria
 						</p>
 					} @else {
 						@for (item of productState(); track item._id) {
 							<app-product-card
+								class="flex items-center justify-center"
 								[routerLink]="['/products', 'id', item._id]"
 								[item]="item"
 							/>
@@ -88,7 +95,7 @@
 					}
 					@if (productState().length !== 0) {
 						<mat-paginator
-							class="w-full"
+							class="col-span-full self-end"
 							[length]="totalProducts()"
 							(page)="handlePageEvent($event)"
 							[pageSizeOptions]="[12, 24, 36]"

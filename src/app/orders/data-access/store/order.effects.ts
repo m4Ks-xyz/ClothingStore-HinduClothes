@@ -3,7 +3,6 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { orderActions } from './order.actions';
 import { catchError, of, switchMap, tap } from 'rxjs';
 import { OrderDataAccessService } from '../service/order-data-access.service';
-import { AuthActions } from '../../../auth/data-acces/store/auth/auth.actions';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -69,7 +68,7 @@ export class OrderEffects {
 
 	readonly getOrderHistory = createEffect(() =>
 		this.#actions.pipe(
-			ofType(orderActions.getOrderHistoryRequest, AuthActions.loginSuccess),
+			ofType(orderActions.getOrderHistoryRequest),
 			switchMap(() => {
 				return this.#orderService.getOrderHistory().pipe(
 					switchMap(function (orders) {

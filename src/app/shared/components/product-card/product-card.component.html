@@ -1,16 +1,15 @@
 <a
 	[routerLink]="[`/products/id/${item()._id}`]"
 	routerLinkActive="router-link-active"
-	class="productCard m-3 block w-56 transition-all hover:shadow-lg"
+	class="productCard m-3 block w-56 transition-all"
 >
 	<div class="relative h-80">
 		<img
-			class="h-full w-full object-cover"
+			class="h-full w-full rounded-t-md object-cover object-top"
 			[src]="item().imageUrl"
 			[alt]="item().title"
 		/>
 
-		<!-- Discount badge -->
 		@if (item().discount > 0) {
 			<div
 				class="absolute top-2 right-2 rounded bg-red-500 px-2 py-1 text-white"
@@ -21,17 +20,14 @@
 	</div>
 
 	<div
-		class="text bg-background z-50 p-4 transition-all duration-300 ease-in-out"
+		class="text z-50 rounded-b-md bg-[#1C1C1C] p-4 transition-all duration-300 ease-in-out"
 	>
-		<!-- Brand -->
-		<p class="text-sm font-medium text-gray-600">{{ item().brand }}</p>
+		<p class="text-sm font-medium text-gray-500">{{ item().brand }}</p>
 
-		<!-- Title -->
 		<h3 class="mt-1 line-clamp-2 text-base font-semibold text-white">
 			{{ item().title }}
 		</h3>
 
-		<!-- Price and discount -->
 		<div class="mt-2 flex items-center gap-2">
 			<span class="text-lg font-bold">{{
 				item().price * (1 - item().discount / 100) | currency: "INR"
@@ -43,7 +39,6 @@
 			}
 		</div>
 
-		<!-- Available sizes -->
 		<div class="mt-2 flex gap-2">
 			@for (size of item().sizes; track size.name) {
 				<span

@@ -11,19 +11,14 @@ import {
 } from '@angular/router';
 
 import { routes } from './app.routes';
-import { provideState, provideStore } from '@ngrx/store';
+import { provideStore } from '@ngrx/store';
 import { provideHttpClient } from '@angular/common/http';
-import { provideEffects } from '@ngrx/effects';
-import { AuthEffects } from './auth/data-acces/store/auth/auth.effects';
-import { authFeature } from './auth/data-acces/store/auth/auth.selectors';
-import { userFeature } from './user/data-access/store/user.selectors';
-import { UserEffects } from './user/data-access/store/user.effects';
-import { ProductsFeature } from './products/data-access/store/products/products.selectors';
-import { ProductsEffects } from './products/data-access/store/products/products.effects';
-import { cartFeature } from './cart/data-access/store/cart/cart.selectors';
-import { CartEffects } from './cart/data-access/store/cart/cart.effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideOrdersState } from './orders/data-access/provide-orders-state';
+import { provideAuthState } from './auth/data-acces/store/provide-auth-state';
+import { provideUserState } from './user/data-access/store/provide-user-state';
+import { provideProductsState } from './products/data-access/store/products/provide-products-state';
+import { provideCartState } from './cart/data-access/store/cart/provide-cart-state';
 
 export const appConfig: ApplicationConfig = {
 	providers: [
@@ -41,12 +36,12 @@ export const appConfig: ApplicationConfig = {
 
 		provideStore(),
 		provideOrdersState(),
-		provideState(authFeature),
-		provideState(userFeature),
-		provideState(ProductsFeature),
-		provideState(cartFeature),
+		provideAuthState(),
+		provideUserState(),
+		provideProductsState(),
+		provideCartState(),
 		provideHttpClient(),
-		provideEffects([AuthEffects, ProductsEffects, CartEffects, UserEffects]),
+
 		provideStoreDevtools({
 			maxAge: 25, // Retains last 25 states
 			logOnly: !isDevMode(), // Restrict extension to log-only mode

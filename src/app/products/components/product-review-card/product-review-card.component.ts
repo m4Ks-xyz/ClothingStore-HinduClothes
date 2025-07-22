@@ -8,7 +8,12 @@ import { Rating } from '../../../auth/models/ratings.model';
 	selector: 'app-product-review-card',
 	imports: [StarRatingComponent, DatePipe],
 	templateUrl: './product-review-card.component.html',
-	styleUrl: './product-review-card.component.scss',
+	styles: `
+		.container {
+			box-shadow: #000000 0 5px 15px;
+			padding: 15px;
+		}
+	`,
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductReviewCardComponent {

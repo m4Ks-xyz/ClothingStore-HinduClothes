@@ -3,10 +3,11 @@ import { OrderCardComponent } from '../order-card/order-card.component';
 import { Store } from '@ngrx/store';
 import { selectOrdersHistory } from '../../data-access/store/order.selectors';
 import { OrderRes } from '../../models/order-res.model';
+import { EmptyStateMessageComponent } from '../../../shared/components/empty-state-message/empty-state-message.component';
 
 @Component({
 	selector: 'app-orders',
-	imports: [OrderCardComponent],
+	imports: [OrderCardComponent, EmptyStateMessageComponent],
 	templateUrl: './orders.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })

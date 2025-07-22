@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { AuthActions } from './auth.actions';
-import { UserActions } from '../../../../user/data-access/store/user.actions';
+import { userActions } from '../../../user/data-access/store/user.actions';
 
 export interface UserState {
 	token: string | undefined;
@@ -26,5 +26,5 @@ export const authReducer = createReducer(
 	on(AuthActions.registerFailure, (state, action) => {
 		return { ...state, errorMsg: action.errorMsg };
 	}),
-	on(UserActions.logout, () => initialState),
+	on(userActions.logout, () => initialState),
 );

@@ -8,6 +8,7 @@ import { ProductsSearchResponseModel } from '../../models/products-search.respon
 import { ProductModelRes } from '../../models/product.model';
 import { Review } from '../../../auth/models/review.model';
 import { Rating } from '../../../auth/models/ratings.model';
+import { HomeFeaturedItems } from '../../models/home-featured-items.model';
 
 export interface ProductParams {
 	color?: string | null;
@@ -79,6 +80,12 @@ export class ProductApiService {
 	getProductReviews(productId: string) {
 		return this.#httpClient.get<{ review: Review[]; rating: Rating[] }>(
 			`${this.#baseApiUrl}/reviews/product/${productId}`,
+		);
+	}
+
+	getHomePageProducts() {
+		return this.#httpClient.get<{ products: HomeFeaturedItems[] }>(
+			`${this.#baseApiUrl}/products/home-page`,
 		);
 	}
 }

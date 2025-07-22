@@ -1,32 +1,38 @@
 <div
-	class="box flex h-full cursor-pointer flex-col overflow-hidden rounded-lg transition-all duration-500"
+	class="productCard flex h-full cursor-pointer flex-col overflow-hidden rounded-lg bg-[#1C1C1C] shadow-lg transition-all duration-300"
 	role="article"
 	[attr.aria-labelledby]="'product-title-' + product()._id"
 	[routerLink]="['/products/id', product()._id]"
 >
 	<div class="relative h-80">
 		<img
-			class="h-full w-full object-cover object-top hover:object-scale-down"
+			class="h-full w-full object-cover object-top"
 			[src]="product().imageUrl"
 			[alt]="product().title"
 		/>
 	</div>
 
-	<p
-		class="text-s mt-2 line-clamp-2 leading-tight"
-		[id]="'product-title-' + product()._id"
-	>
-		{{ product().title }}
-	</p>
+	<div class="text p-2">
+		<p
+			class="text-s mt-2 line-clamp-2 leading-tight"
+			[id]="'product-title-' + product()._id"
+		>
+			{{ product().title }}
+		</p>
 
-	<div class="mt-2 flex items-center gap-2">
-		<span class="text-lg font-bold">{{
-			product().price * (1 - product().discount / 100) | currency: "INR"
-		}}</span>
-		@if (product().discount > 0) {
-			<span class="text-sm text-red-500 line-through">{{
-				product().price | currency: "INR"
-			}}</span>
-		}
+		<div class="mt-2 flex items-center gap-2">
+			<span class="text-lg font-bold">
+				@if (product().discount > 0) {
+					{{ product().discountedPrice | currency: "INR" }}
+				} @else {
+					{{ product().price | currency: "INR" }}
+				}
+			</span>
+			@if (product().discount > 0) {
+				<span class="text-sm text-red-500 line-through">{{
+					product().price | currency: "INR"
+				}}</span>
+			}
+		</div>
 	</div>
 </div>

@@ -12,7 +12,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { AuthFormDialogService } from '../../../auth/dialogs/services/auth-form-dialog.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Store } from '@ngrx/store';
-import { AuthActions } from '../../../auth/data-acces/store/auth/auth.actions';
+import { AuthActions } from '../../../auth/data-acces/store/auth.actions';
 import { userFeature } from '../../../user/data-access/store/user.selectors';
 import { UserProfileModel } from '../../../user/models/user.model';
 import { UserService } from '../../../user/data-access/user.service';
@@ -28,7 +28,15 @@ import { UserService } from '../../../user/data-access/user.service';
 		MatIconButton,
 	],
 	templateUrl: './navbar-user-profile.component.html',
-	styleUrl: './navbar-user-profile.component.scss',
+	styles: `
+		.hide {
+			display: none;
+		}
+
+		.mat-mdc-icon-button {
+			color: #89361b;
+		}
+	`,
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarUserProfileComponent {

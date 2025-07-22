@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Store } from '@ngrx/store';
-import { UserActions } from '../../data-access/store/user.actions';
+import { userActions } from '../../data-access/store/user.actions';
 import { matchFieldsValidator } from '../../../shared/validators/match-fields-validator';
 
 @Component({
@@ -77,7 +77,7 @@ export class ProfilePageFormComponent {
 
 		if (this.form.valid) {
 			this.#store.dispatch(
-				UserActions.editUserProfile({
+				userActions.editUserProfile({
 					email: this.form.value.email ?? undefined,
 					avatarImg: this.form.value.avatarImg ?? undefined,
 					newPassword: this.form.value.newPassword ?? undefined,

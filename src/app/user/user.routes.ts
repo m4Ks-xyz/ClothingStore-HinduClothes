@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
 import { orderActions } from '../orders/data-access/store/order.actions';
-import { UserActions } from './data-access/store/user.actions';
-import { TOKEN_STORAGE_KEY } from '../auth/data-acces/config/api';
 import { Store } from '@ngrx/store';
 import { inject } from '@angular/core';
+import { TOKEN_STORAGE_KEY } from '../auth/data-acces/config/api';
+import { userActions } from './data-access/store/user.actions';
 
 export const userRoutes: Routes = [
 	{
@@ -20,7 +20,7 @@ export const userRoutes: Routes = [
 				if (localStorage.getItem(TOKEN_STORAGE_KEY)) {
 					store.dispatch(orderActions.getOrderHistoryRequest());
 				}
-				store.dispatch(UserActions.skipLoadingUserProfile());
+				store.dispatch(userActions.skipLoadingUserProfile());
 
 				return true;
 			},

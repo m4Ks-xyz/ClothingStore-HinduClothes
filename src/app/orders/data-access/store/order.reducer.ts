@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import { OrderRes } from '../../models/order-res.model';
 import { orderActions } from './order.actions';
-import { UserActions } from '../../../user/data-access/store/user.actions';
+import { userActions } from '../../../user/data-access/store/user.actions';
 
 export interface OrderState {
 	order: OrderRes | undefined;
@@ -54,5 +54,5 @@ export const OrderReducer = createReducer(
 			order: action.order,
 		};
 	}),
-	on(UserActions.logout, () => initialState),
+	on(userActions.logout, () => initialState),
 );

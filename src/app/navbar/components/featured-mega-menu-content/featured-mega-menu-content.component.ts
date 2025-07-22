@@ -5,11 +5,11 @@ import {
 	output,
 } from '@angular/core';
 import { MenuCategory } from '../../models/menu-content.model';
-import { RouterLink } from '@angular/router';
+import { ProductCardComponent } from '../../../shared/components/product-card/product-card.component';
 
 @Component({
 	selector: 'app-featured-mega-menu-content',
-	imports: [RouterLink],
+	imports: [ProductCardComponent],
 	templateUrl: './featured-mega-menu-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -1,7 +1,7 @@
 import { createFeature } from '@ngrx/store';
 import { ProductsReducer } from './products.reducer';
 
-export const ProductsFeature = createFeature({
+export const productsFeature = createFeature({
 	name: 'products',
 	reducer: ProductsReducer,
 });
@@ -12,4 +12,5 @@ export const {
 	selectTotalProducts,
 	selectSelectedProductsReviews,
 	selectSelectedProductsRatings,
-} = ProductsFeature;
+	selectHomePageProducts,
+} = productsFeature;

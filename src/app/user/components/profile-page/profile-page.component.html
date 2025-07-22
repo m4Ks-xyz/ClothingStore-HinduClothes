@@ -1,6 +1,6 @@
-<main class="mx-4 my-20 flex min-h-[70vh] flex-col items-center justify-center">
+<main class="mx-4 flex min-h-[90vh] flex-col items-center justify-center">
 	@if (userProfile()) {
-		<div class="container space-y-6 lg:max-w-[70vw] xl:max-w-[50vw]">
+		<div class="container my-16 space-y-6 lg:max-w-[70vw] xl:max-w-[50vw]">
 			<section
 				class="mt-16 flex flex-col items-center gap-2 rounded-md bg-[#111826] py-4"
 			>
@@ -40,8 +40,8 @@
 			</section>
 		</div>
 	} @else {
-		<div class="flex items-center justify-center">
-			<p class="text-2xl">LOG IN TO SEE YOUR PROFILE</p>
-		</div>
+		<app-empty-state-message
+			>LOG IN TO SEE YOUR PROFILE</app-empty-state-message
+		>
 	}
 </main>

@@ -14,7 +14,24 @@ import { MainCarouselDataModel } from './models/main-carousel-data-model';
 	selector: 'app-main-carousel',
 	imports: [RouterModule],
 	templateUrl: './main-carousel.component.html',
-	styleUrl: './main-carousel.component.scss',
+	styles: `
+		.carousel {
+			display: flex;
+			width: 100vw;
+			transition: transform 0.6s ease-in-out;
+			aspect-ratio: 1000/375;
+
+			&__item {
+				flex: 0 0 auto;
+				width: 100vw;
+
+				img {
+					width: 100vw;
+					object-fit: revert;
+				}
+			}
+		}
+	`,
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainCarouselComponent implements OnInit {

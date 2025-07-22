@@ -64,7 +64,16 @@ const parseQueryParam = (splitCharacter = ',') => {
 		ProductsFiltersComponent,
 	],
 	templateUrl: './products.component.html',
-	styleUrl: './products.component.scss',
+	styles: `
+		:host {
+			@apply flex justify-center;
+		}
+
+		.mat-mdc-fab {
+			background-color: white;
+			color: #89361b;
+		}
+	`,
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class ProductsComponent {

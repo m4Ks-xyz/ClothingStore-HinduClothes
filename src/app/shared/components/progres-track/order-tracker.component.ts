@@ -12,7 +12,13 @@ import { OrderStatus } from '../../../orders/types/order-status.type';
 	selector: 'app-progres-track',
 	imports: [MatIconModule],
 	templateUrl: './order-tracker.component.html',
-	styleUrl: './order-tracker.component.scss',
+	styles: `
+		.icon {
+			font-size: 36px;
+			width: 36px;
+			height: 36px;
+		}
+	`,
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OrderTrackerComponent {
