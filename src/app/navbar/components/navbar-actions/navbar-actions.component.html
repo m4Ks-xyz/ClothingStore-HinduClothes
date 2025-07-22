@@ -2,11 +2,18 @@
 	[class]="{ 'hidden!': sidenavStatus() }"
 	class="flex items-center justify-center gap-x-2"
 >
-	<a routerLink="cart" class="flex items-center p-3">
+	<a routerLink="cart" class="relative flex items-center p-3">
 		<mat-icon
-			class="icon text-primary! md:hover:text-primary! cursor-pointer md:text-black!"
+			class="icon md:hover:text-primary! cursor-pointer text-black! md:text-black!"
 			>shopping_cart</mat-icon
 		>
+		@if (cartItemsCount()) {
+			<div
+				class="absolute top-2 right-0 flex size-4 items-center justify-center rounded-full bg-red-500 text-center text-xs"
+			>
+				{{ cartItemsCount() }}
+			</div>
+		}
 	</a>
 	<app-navbar-user-profile />
 	<button
@@ -14,7 +21,7 @@
 		mat-icon-button
 		(click)="sidenavToggle.emit(!sidenavStatus())"
 	>
-		<mat-icon class="text-primary! h-16 w-16 items-center justify-center">
+		<mat-icon class="h-16 w-16 items-center justify-center text-black!">
 			menu</mat-icon
 		>
 	</button>

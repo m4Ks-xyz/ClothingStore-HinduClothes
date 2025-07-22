@@ -1,0 +1,47 @@
+<main class="mx-4 flex min-h-[90vh] flex-col items-center justify-center">
+	@if (userProfile()) {
+		<div class="container my-16 space-y-6 lg:max-w-[70vw] xl:max-w-[50vw]">
+			<section
+				class="mt-16 flex flex-col items-center gap-2 rounded-md bg-[#111826] py-4"
+			>
+				<img
+					[src]="userProfile()?.avatarImg ?? 'default-user-icon.png'"
+					class="w-40 rounded-full bg-white"
+				/>
+				<h2 class="text-2xl">
+					{{ `${userProfile()!.firstName} ${userProfile()!.lastName}` }}
+				</h2>
+				<div class="flex items-center gap-2">
+					<mat-icon fontIcon="mail" class="text-center" />
+					<span>{{ userProfile()?.email }}</span>
+				</div>
+			</section>
+			<section>
+				<app-profile-page-form />
+			</section>
+			<section class="rounded-md bg-[#111826]">
+				<div class="flex flex-col gap-2 px-8 py-8 text-sm">
+					<div class="flex items-center gap-2">
+						<mat-icon fontIcon="lock" class="text-md!" />
+						<h3>Delete Address</h3>
+					</div>
+					<p class="text-gray-400">
+						U can add new address later in checkout page
+					</p>
+				</div>
+				@if (userProfile()?.address?.length !== 0) {
+					<app-address-list
+						class="bg"
+						[addresses]="userProfile()?.address"
+						(deleteAddressId)="deleteAddress($event)"
+						[mode]="'delete'"
+					/>
+				}
+			</section>
+		</div>
+	} @else {
+		<app-empty-state-message
+			>LOG IN TO SEE YOUR PROFILE</app-empty-state-message
+		>
+	}
+</main>

@@ -10,7 +10,7 @@ export const routes: Routes = [
 		loadComponent: () => import('./home/components/home/home.component'),
 	},
 	{
-		path: 'products/:category',
+		path: 'products/:levelOne/:levelTwo/:levelThree',
 		loadComponent: () =>
 			import('./products/components/products/products.component'),
 	},
@@ -19,7 +19,7 @@ export const routes: Routes = [
 		loadComponent: () => import('./cart/components/cart/cart.component'),
 	},
 	{
-		path: 'product-details/:id',
+		path: 'products/id/:id',
 		loadComponent: () =>
 			import('./products/components/product-details/product-details.component'),
 	},
@@ -34,17 +34,11 @@ export const routes: Routes = [
 			import('./checkout/components/payment/payment.component'),
 	},
 	{
-		path: 'payment-success',
-		loadComponent: () =>
-			import('./checkout/components/payment-success/payment-success.component'),
+		path: 'account',
+		loadChildren: () => import('./user/user.routes').then((m) => m.userRoutes),
 	},
 	{
-		path: 'account/orders',
-		loadComponent: () => import('./orders/components/orders/orders.component'),
-	},
-	{
-		path: 'order/:id',
-		loadComponent: () =>
-			import('./orders/components/order-details/order-details.component'),
+		path: '**',
+		loadComponent: () => import('./not-found/not-found.component'),
 	},
 ];

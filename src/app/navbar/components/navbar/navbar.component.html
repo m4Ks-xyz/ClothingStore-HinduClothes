@@ -27,6 +27,7 @@
 	</div>
 	@for (category of content(); track category.id) {
 		<app-navbar-content
+			(hideNavContent)="activeContent.set('')"
 			[content]="category"
 			[activeContent]="activeContent()"
 			(mouseleave)="activeContent.set('')"

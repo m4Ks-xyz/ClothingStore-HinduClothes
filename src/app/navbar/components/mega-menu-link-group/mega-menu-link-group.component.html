@@ -1,11 +1,15 @@
-<div class="flex items-start justify-center gap-12">
+<div class="grid grid-cols-3 items-start justify-center gap-12">
 	@for (section of content().sections; track section.id) {
 		<div class="flex items-center justify-center">
 			<div class="flex flex-col justify-center">
 				<h3 class="mb-2 text-2xl font-bold">{{ section.name }}</h3>
 
 				@for (item of section.items; track item.id) {
-					<a class="hover:text-primary cursor-pointer p-1" routerLink="/">
+					<a
+						(click)="hideMenu.emit()"
+						class="hover:text-primary cursor-pointer p-1"
+						[routerLink]="['products', content().id, section.id, item.id]"
+					>
 						{{ item.name }}
 					</a>
 				}

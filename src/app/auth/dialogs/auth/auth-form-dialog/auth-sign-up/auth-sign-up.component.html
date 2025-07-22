@@ -1,0 +1,91 @@
+<form
+	(keydown.enter)="onSubmit()"
+	[formGroup]="form"
+	class="flex flex-col items-center justify-center gap-4"
+>
+	<mat-form-field class="w-full">
+		<mat-label>First Name</mat-label>
+		<input
+			type="text"
+			matInput
+			formControlName="firstName"
+			placeholder="Name"
+		/>
+		@if (this.form.controls.firstName.hasError("required")) {
+			<mat-error>First name is <strong>required</strong> </mat-error>
+		} @else if (this.form.controls.firstName.hasError("pattern")) {
+			<mat-error
+				>Only <strong>letters</strong>, first <strong>capital</strong>, maximum
+				20
+				<strong>characters</strong>
+			</mat-error>
+		}
+	</mat-form-field>
+
+	<mat-form-field class="w-full">
+		<mat-label>Last Name</mat-label>
+		<input
+			type="text"
+			matInput
+			formControlName="lastName"
+			placeholder="Last Name"
+		/>
+		@if (this.form.controls.lastName.hasError("required")) {
+			<mat-error>Last name is <strong>required</strong> </mat-error>
+		} @else if (this.form.controls.lastName.hasError("pattern")) {
+			<mat-error
+				>Only <strong>letters</strong>, first <strong>capital</strong>, maximum
+				20
+				<strong>characters</strong>
+			</mat-error>
+		}
+	</mat-form-field>
+
+	<mat-form-field class="w-full">
+		<mat-label>E-mail</mat-label>
+		<input
+			type="email"
+			matInput
+			formControlName="email"
+			placeholder="name@example.com"
+		/>
+		@if (form.controls.email.hasError("email")) {
+			<mat-error>Please enter a <strong>valid</strong> email address</mat-error>
+		} @else if (form.controls.email.hasError("required")) {
+			<mat-error>Email is <strong>required</strong></mat-error>
+		}
+	</mat-form-field>
+	<div class="w-full space-y-4">
+		<mat-form-field class="w-full">
+			<mat-label>Password</mat-label>
+			<input type="password" matInput formControlName="password" />
+			@if (form.controls.password.hasError("pattern")) {
+				<mat-error
+					>At least <strong>8 characters</strong> and one
+					<strong>uppercase, number, and special character</strong>
+					.
+				</mat-error>
+			} @else if (form.controls.password.hasError("required")) {
+				<mat-error>Password is <strong>required</strong></mat-error>
+			}
+		</mat-form-field>
+		<mat-form-field class="w-full">
+			<mat-label>Confirm password</mat-label>
+			<input type="password" matInput formControlName="confirmPassword" />
+			@if (form.controls.confirmPassword.hasError("match_error")) {
+				<mat-error>Passwords do not <strong>match</strong></mat-error>
+			} @else if (form.controls.confirmPassword.hasError("required")) {
+				<mat-error>Confirming password is <strong>required</strong></mat-error>
+			}
+		</mat-form-field>
+	</div>
+	<app-auth-form-dialog-status
+		class="self-start"
+		(haveAccountToggle)="toggleAccountStatus.emit()"
+		><p accountStatusText>Already have account ?</p>
+		<span accountStatusButtonText>Sign In</span></app-auth-form-dialog-status
+	>
+	<app-auth-form-dialog-actions class="self-end" (formSubmited)="onSubmit()">
+		<span submitButtonText>Register</span>
+	</app-auth-form-dialog-actions>
+</form>

@@ -1,18 +1,20 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { FILTER_OPTIONS } from '../../constants/filter-options.constant';
-import { MatCheckbox } from '@angular/material/checkbox';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { OrderCardComponent } from '../order-card/order-card.component';
+import { Store } from '@ngrx/store';
+import { selectOrdersHistory } from '../../data-access/store/order.selectors';
+import { OrderRes } from '../../models/order-res.model';
+import { EmptyStateMessageComponent } from '../../../shared/components/empty-state-message/empty-state-message.component';
 
 @Component({
 	selector: 'app-orders',
-	imports: [MatCheckbox, OrderCardComponent],
+	imports: [OrderCardComponent, EmptyStateMessageComponent],
 	templateUrl: './orders.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class OrdersComponent {
-	readonly filterOptions: { value: string; label: string }[] = FILTER_OPTIONS;
-	readonly orders = signal([
-		[1, 2, 3],
-		[1, 2, 3],
-	]);
+	readonly #store = inject(Store);
+
+	readonly orders = this.#store.selectSignal<OrderRes[] | undefined>(
+		selectOrdersHistory,
+	);
 }

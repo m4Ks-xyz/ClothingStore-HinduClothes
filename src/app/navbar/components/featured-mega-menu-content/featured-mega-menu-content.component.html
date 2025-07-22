@@ -1,15 +1,5 @@
 <div class="flex gap-4">
-	@for (featured of content().featured; track featured.src) {
-		<div class="flex w-64 flex-col gap-2">
-			<div class="relative">
-				<img
-					aria-label="featured item photo"
-					class="cursor-pointer rounded-2xl object-cover object-top"
-					[src]="featured.src"
-				/>
-			</div>
-			<p class="text-sm">{{ featured.name }}</p>
-			<p class="text-sm">{{ featured.title }}</p>
-		</div>
+	@for (featured of content().featured; track featured._id) {
+		<app-product-card class="bg-none text-white" [item]="featured" />
 	}
 </div>

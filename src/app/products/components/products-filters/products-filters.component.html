@@ -1,0 +1,27 @@
+<app-price-filter
+	(priceMinMaxChange)="priceFilters($event)"
+	[maxPrice]="maxAllowedPrice()"
+	[minPrice]="minAllowedPrice()"
+	[currentMinPrice]="minPrice()"
+	[currentMaxPrice]="maxPrice()"
+/>
+<app-multiselect-filter
+	[selectedFilter]="color()"
+	(changeStock)="selectMultipleFilters(FILTER_CONTENT.color.id, $event)"
+	[filter]="FILTER_CONTENT.color"
+/>
+<app-multiselect-filter
+	[selectedFilter]="size()"
+	(changeStock)="selectMultipleFilters(FILTER_CONTENT.size.id, $event)"
+	[filter]="FILTER_CONTENT.size"
+/>
+<app-multiselect-filter
+	[selectedFilter]="discount()"
+	(changeStock)="selectMultipleFilters(FILTER_CONTENT.discount.id, $event)"
+	[filter]="FILTER_CONTENT.discount"
+/>
+<app-stock-filter
+	[selectedStock]="stock()"
+	(changeStock)="toggleStock($event)"
+	[stock]="FILTER_CONTENT.stock"
+/>

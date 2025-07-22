@@ -1,0 +1,14 @@
+<div class="py-4 md:p-4">
+	<h2 class="md:mt-4!" mat-dialog-title>Hindu store</h2>
+	<mat-dialog-content class="mt-8! space-y-4">
+		@if (haveAccount()) {
+			<app-auth-sign-in
+				(toggleAccountStatus)="haveAccount.set(!haveAccount())"
+			/>
+		} @else {
+			<app-auth-sign-up
+				(toggleAccountStatus)="haveAccount.set(!haveAccount())"
+			/>
+		}
+	</mat-dialog-content>
+</div>

@@ -1,9 +1,17 @@
-<div class="hidden lg:block">
+<div class="container hidden lg:block">
 	<div
 		[class]="activeContent() === content().id ? 'block' : 'hidden'"
-		class="bg-accent text-font border-primary absolute top-16 left-0 z-55 flex w-screen items-start justify-center gap-16 border-t-2 border-solid p-16"
+		class="bg-accent text-font border-primary absolute top-16 left-0 z-55 flex w-screen items-start justify-evenly border-t-2 border-solid p-8"
 	>
-		<app-mega-menu-link-group [content]="content()" />
-		<app-featured-mega-menu-content class="max-w-1/2" [content]="content()" />
+		<app-mega-menu-link-group
+			class="max-w-1/2"
+			(hideMenu)="hideNavContent.emit()"
+			[content]="content()"
+		/>
+		<app-featured-mega-menu-content
+			class="max-w-1/2"
+			[content]="content()"
+			(closeMegaMenu)="hideNavContent.emit()"
+		/>
 	</div>
 </div>

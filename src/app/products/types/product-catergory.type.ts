@@ -1,7 +1,15 @@
 export type ProductCategory =
-	| 'menJeans'
-	| 'womenGouns'
-	| 'womenKurta'
-	| 'menKurta'
+	| 'women'
+	| 'men'
+	| 'clothing'
+	| 'dress'
 	| 'shoes'
-	| 'lenghaCholi';
+	| 'gouns'
+	| 'lengha-choli'
+	| 'kurta'
+	| 'jeans'
+	| 'top'
+	| 'unisex'
+	| 'shirt'
+	| 'accessories'
+	| 'saree';

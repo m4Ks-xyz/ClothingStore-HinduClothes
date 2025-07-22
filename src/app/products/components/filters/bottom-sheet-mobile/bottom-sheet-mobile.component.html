@@ -1,0 +1,21 @@
+<div class="overflow-hidden">
+	<app-products-filters
+		(productFilter)="saveFilters($event)"
+		[minPrice]="filtersData().minPrice"
+		[maxPrice]="filtersData().maxPrice"
+		[stock]="filtersData().stock"
+		[color]="filtersData().color"
+		[discount]="filtersData().discount"
+		[maxAllowedPrice]="bottomSheetConfig.maxAllowed"
+		[minAllowedPrice]="bottomSheetConfig.minAllowed"
+		[size]="filtersData().sizes"
+	/>
+
+	<button
+		(click)="applyFilters()"
+		class="my-4! w-full rounded-sm!"
+		mat-raised-button
+	>
+		Apply
+	</button>
+</div>

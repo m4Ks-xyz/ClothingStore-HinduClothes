@@ -1,0 +1,11 @@
+<a
+	[routerLink]="[
+		'/products',
+		path()?.categoryOne,
+		path()?.categoryTwo,
+		path()?.categoryThree,
+	]"
+	><p class="py-10 text-gray-500">
+		{{ `${path()?.categoryOne}/${path()?.categoryTwo}/${path()?.categoryThree}` }}
+	</p></a
+>

@@ -1,0 +1,36 @@
+<form
+	(keydown.enter)="onSubmit()"
+	[formGroup]="form"
+	class="flex flex-col items-center justify-center gap-4"
+>
+	<mat-form-field class="w-full">
+		<mat-label>E-mail</mat-label>
+		<input
+			type="email"
+			matInput
+			formControlName="email"
+			placeholder="name@example.com"
+		/>
+		@if (form.controls.email.hasError("email")) {
+			<mat-error>Please enter a valid email address</mat-error>
+		} @else if (form.controls.email.hasError("required")) {
+			<mat-error>Email is <strong>required</strong></mat-error>
+		}
+	</mat-form-field>
+	<mat-form-field class="w-full">
+		<mat-label>Password</mat-label>
+		<input type="password" matInput formControlName="password" />
+		@if (form.controls.password.hasError("required")) {
+			<mat-error>Password is <strong>required</strong></mat-error>
+		}
+	</mat-form-field>
+	<app-auth-form-dialog-status
+		class="self-start"
+		(haveAccountToggle)="toggleAccountStatus.emit()"
+		><p accountStatusText>Don`t have an account?</p>
+		<span accountStatusButtonText>Sign Up</span></app-auth-form-dialog-status
+	>
+	<app-auth-form-dialog-actions class="md:self-end" (formSubmited)="onSubmit()">
+		<span submitButtonText>Login</span>
+	</app-auth-form-dialog-actions>
+</form>

@@ -1,24 +1,29 @@
 import {
 	ChangeDetectionStrategy,
 	Component,
+	effect,
 	inject,
 	input,
-	signal,
 } from '@angular/core';
-import {
-	FormBuilder,
-	FormsModule,
-	ReactiveFormsModule,
-	Validators,
-} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
-import { ProductCardComponent } from '../../../shared/components/product-card/product-card.component';
-import { MEN_KURTA } from '../../constants/Men/men-kurta.constant';
-import { BaseProduct } from '../../models/base-product.model';
-import { ProductRatingComponent } from '../product-rating/product-rating.component';
-import { ProductReviewCardComponent } from '../product-review-card/product-review-card.component';
-import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { productsActions } from '../../data-access/store/products/products.actions';
+import {
+	selectProducts,
+	selectSelectedProductById,
+	selectSelectedProductsRatings,
+	selectSelectedProductsReviews,
+} from '../../data-access/store/products/products.selectors';
+import { ProductModel, ProductModelRes } from '../../models/product.model';
+import { Review } from '../../../auth/models/review.model';
+import { Rating } from '../../../auth/models/ratings.model';
+import { ProductDetailsProductInfoComponent } from '../product-details-product-info/product-details-product-info.component';
+import { ProductDetailsPathComponent } from '../product-details-path/product-details-path.component';
+import { ProductDetailsReviewsComponent } from '../product-details-reviews/product-details-reviews.component';
+import { ProductDetailsRelatedProductsComponent } from '../product-details-related-products/product-details-related-products.component';
+import { EmptyStateMessageComponent } from '../../../shared/components/empty-state-message/empty-state-message.component';
 
 @Component({
 	selector: 'app-product-details',
@@ -26,32 +31,40 @@ import { Router } from '@angular/router';
 		MatRadioModule,
 		FormsModule,
 		MatButtonModule,
-		ProductReviewCardComponent,
-		ProductRatingComponent,
-		ProductCardComponent,
 		ReactiveFormsModule,
+		ProductDetailsProductInfoComponent,
+		ProductDetailsPathComponent,
+		ProductDetailsReviewsComponent,
+		ProductDetailsRelatedProductsComponent,
+		EmptyStateMessageComponent,
 	],
 	templateUrl: './product-details.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class ProductDetailsComponent {
-	readonly #router = inject(Router);
-	readonly #fb = inject(FormBuilder);
+	readonly #store = inject(Store);
 
-	readonly id = input<string>();
+	readonly product = this.#store.selectSignal<ProductModelRes | undefined>(
+		selectSelectedProductById,
+	);
 
-	reviews = [1, 2, 3];
+	readonly relatedProducts =
+		this.#store.selectSignal<ProductModel[]>(selectProducts);
 
-	testProduct = signal<BaseProduct[]>(MEN_KURTA);
+	readonly reviews = this.#store.selectSignal<Review[] | undefined>(
+		selectSelectedProductsReviews,
+	);
 
-	form = this.#fb.group({
-		size: ['S', [Validators.required]],
-		quantity: [1, [Validators.required]],
-	});
+	readonly ratings = this.#store.selectSignal<Rating[] | undefined>(
+		selectSelectedProductsRatings,
+	);
 
-	onSubmit(): void {
-		if (this.form.valid) {
-			this.#router.navigate(['cart']);
-		}
+	/// query params
+	readonly id = input.required<string>();
+
+	constructor() {
+		effect(() => {
+			this.#store.dispatch(productsActions.findProductById({ _id: this.id() }));
+		});
 	}
 }

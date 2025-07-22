@@ -1,21 +1,23 @@
-<div class="container">
-	<div class="grid grid-cols-12 gap-3">
-		<div class="col-span-3 lg:col-span-2 xl:col-span-1">
-			<div class="h-12 w-12">
+<div class="container shadow-2xs">
+	<div class="grid justify-center gap-3 sm:grid-cols-6">
+		<div
+			class="col-span-5 justify-self-center sm:col-span-1 sm:justify-self-start"
+		>
+			<div class="flex w-full items-center">
 				<img
-					class="rounded-full"
-					src="https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-1/420107857_2721349724700925_3944996530882860180_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=e99d92&_nc_ohc=9x6XaBdTL1wQ7kNvwElbr4X&_nc_oc=AdnQgMIv-BQfZ58Ck4TDbs4PDjRzJr4adrccDtkmRwEBR-ta0f9XpIktfNsGhQ36ZxU&_nc_zt=24&_nc_ht=scontent-waw2-1.xx&_nc_gid=KX552cezZzMEKbE4ove7Fg&oh=00_AfK8e466wzVNtNJH4z9Jqtka9yt2VOZMf6fvFlfEWaL90Q&oe=6835751F"
+					class="w-16 rounded-full bg-white"
+					[src]="review().user.avatarImg ?? 'default-user-icon.png'"
 				/>
 			</div>
 		</div>
-		<div class="col-span-6 lg:col-span-10">
+		<div class="col-span-5">
 			<div class="space-y-2">
 				<div>
-					<p class="font-bold">Max</p>
-					<p class="opacity-70">22 Maj, 2025</p>
+					<p class="font-bold">{{ review().user.firstName }}</p>
+					<p class="opacity-70">{{ review().createdAt | date }}</p>
 				</div>
-				<app-star-rating />
-				<p>I like this kurta a lot</p>
+				<p>{{ review().review }}</p>
+				<app-star-rating [rating]="rating()?.rating" />
 			</div>
 		</div>
 	</div>

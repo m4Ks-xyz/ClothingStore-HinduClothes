@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { UnknownProduct } from '../../../products/types/unknown-product.type';
 import { HomeProductCardComponent } from '../home-product-card/home-product-card.component';
+import { ProductModel } from '../../../products/models/product.model';
 
 @Component({
 	selector: 'app-product-slider',
@@ -10,5 +10,5 @@ import { HomeProductCardComponent } from '../home-product-card/home-product-card
 })
 export class ProductSliderComponent {
 	readonly title = input.required<string>();
-	readonly products = input.required<UnknownProduct[]>();
+	readonly products = input.required<ProductModel[]>();
 }

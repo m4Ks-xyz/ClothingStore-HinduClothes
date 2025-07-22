@@ -1,6 +1,7 @@
 export interface FooterItem {
 	id: string;
 	name: string;
+	gender?: 'men' | 'women';
 }
 
 export interface FooterSection {

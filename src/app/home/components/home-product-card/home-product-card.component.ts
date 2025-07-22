@@ -1,19 +1,26 @@
 import { CurrencyPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { WomenGouns } from '../../../products/models/gouns-model';
-import { MenJeans } from '../../../products/models/men-jeans.model';
-import { MenKurta } from '../../../products/models/men-kurta-model';
-import { Shoes } from '../../../products/models/shoes-model';
-import { WomenKurta } from '../../../products/models/women-kurta-model';
+import { RouterLink } from '@angular/router';
+import { ProductModel } from '../../../products/models/product.model';
 
 @Component({
 	selector: 'app-home-product-card',
-	imports: [CurrencyPipe],
+	imports: [CurrencyPipe, RouterLink],
+	styles: `
+		.productCard .text {
+			transition: transform 0.3s ease-in-out;
+		}
+		.productCard:hover .text {
+			transform: translateY(-1rem);
+		}
+
+		.productCard:hover {
+			box-shadow: #000000 0 5px 15px;
+		}
+	`,
 	templateUrl: './home-product-card.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeProductCardComponent {
-	readonly product = input.required<
-		MenJeans | WomenGouns | WomenKurta | MenKurta | Shoes
-	>();
+	readonly product = input.required<ProductModel>();
 }

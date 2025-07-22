@@ -1,11 +1,14 @@
 <address>
 	<div class="space-y-3">
-		<p class="font-semibold">Hindu Store</p>
-		<p>Polska, Śmigiel</p>
+		<p class="font-semibold">
+			{{ `${address()?.firstName} ${address()?.lastName}` }}
+		</p>
+		<p>{{ `${address()?.zipCode}, ${address()?.city}` }}</p>
+		<p>{{ `${address()?.street}, ${address()?.number}` }}</p>
 
 		<div class="space-y-1">
 			<p class="font-semibold">Phone Number</p>
-			<p>+48 434 432 432</p>
+			<p>{{ address()?.phoneNumber }}</p>
 		</div>
 	</div>
 </address>

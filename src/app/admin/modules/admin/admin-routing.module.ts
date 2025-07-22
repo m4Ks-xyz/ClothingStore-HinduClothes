@@ -21,10 +21,6 @@ const adminRoutes: Routes = [
 					import('../../components/admin-orders/admin-orders.component'),
 			},
 			{
-				path: 'customers',
-				loadComponent: () => import('../../../customers/customers.component'),
-			},
-			{
 				path: 'new-product',
 				loadComponent: () =>
 					import('../../components/new-product/new-product.component'),

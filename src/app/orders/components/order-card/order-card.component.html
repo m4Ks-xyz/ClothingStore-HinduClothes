@@ -1,30 +1,34 @@
-<a routerLink="/order/2c05a73a-2a35-429b-b758-0092ef8b0667">
-	<div class="box flex flex-col items-center md:block">
-		<div class="grid grid-cols-1 gap-4 md:grid-cols-5">
+<a [routerLink]="['/account', 'orders', order()._id]">
+	<div class="box container flex flex-col items-center md:block">
+		<div class="grid gap-4 sm:grid-cols-4 md:grid-cols-5">
 			<div
-				class="flex w-full flex-col gap-y-4 md:col-span-3 md:flex-row md:gap-y-0"
+				class="flex w-full flex-col items-center gap-y-4 md:flex-row md:gap-y-0"
 			>
 				<img
-					class="size-36 rounded-md"
-					src="https://picsum.photos/200/300?random=1"
+					class="size-36 rounded-md object-cover object-top"
+					[src]="order().orderItems[0].product.imageUrl"
 					alt="Product Image"
 				/>
-
-				<div class="self-start md:ml-5">
-					<div class="text-lg font-semibold">Product details</div>
-					<div class="text-gray-400">Lenga pants bla blasds</div>
-					<div class="text-gray-400">Size: M</div>
-					<div class="text-gray-400">Color: Blue</div>
-				</div>
 			</div>
-
+			<div class="self-start md:ml-5">
+				<p class="text-lg font-semibold">Order details</p>
+				<p class="text-gray-400">Order date: {{ order().orderDate | date }}</p>
+				<p class="text-gray-400">Products: {{ order().orderItems.length }}</p>
+			</div>
 			<div>
-				<p class="text-lg font-semibold">Price</p>
-				<p class="text-sm">₹ 2000</p>
+				<p class="text-lg font-semibold">Total Price</p>
+				<p class="text-sm">
+					{{
+						(order().discount !== 0
+							? order().totalDiscountedPrice
+							: order().totalPrice
+						) | currency: "INR"
+					}}
+				</p>
 			</div>
 			<div>
 				<p class="text-lg font-semibold">Status</p>
-				<p class="text-sm">Expected delivery on 30 May</p>
+				<p class="text-sm uppercase">{{ order().orderStatus }}</p>
 			</div>
 		</div>
 	</div>
