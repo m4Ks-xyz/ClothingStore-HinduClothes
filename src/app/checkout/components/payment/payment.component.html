@@ -1,6 +1,6 @@
 <main class="flex items-center justify-center">
-	<section class="container mt-16 px-5 lg:px-20">
-		@if (order()) {
+	@if (order()) {
+		<section class="container mt-16 px-5 lg:px-20">
 			<div class="box my-5 rounded-md p-5 shadow-lg">
 				<app-address-card [address]="order()?.shippingAddress" />
 			</div>
@@ -50,12 +50,10 @@
 					</app-order-summary>
 				</section>
 			</div>
-		} @else {
-			<p
-				class="flex h-screen items-center justify-center p-2 text-center text-2xl"
-			>
-				LOGIN OR REGISTER TO SEE YOUR PAYMENT STATUS
-			</p>
-		}
-	</section>
+		</section>
+	} @else {
+		<app-empty-state-message>
+			LOGIN OR REGISTER TO SEE YOUR PAYMENT STATUS
+		</app-empty-state-message>
+	}
 </main>

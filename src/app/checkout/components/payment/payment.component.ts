@@ -15,6 +15,7 @@ import { ProductItemComponent } from '../../../cart/components/product-item/prod
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { OrderRes } from '../../../orders/models/order-res.model';
+import { EmptyStateMessageComponent } from '../../../shared/components/empty-state-message/empty-state-message.component';
 
 @Component({
 	selector: 'app-payment',
@@ -25,6 +26,7 @@ import { OrderRes } from '../../../orders/models/order-res.model';
 		ProductItemComponent,
 		RouterLink,
 		MatButtonModule,
+		EmptyStateMessageComponent,
 	],
 	templateUrl: './payment.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
@@ -46,7 +48,6 @@ export default class PaymentComponent {
 	}
 
 	payOrder() {
-		console.log(this.order()?._id);
 		this.#store.dispatch(orderActions.payOrder({ id: this.order()!._id }));
 	}
 }

@@ -44,6 +44,5 @@ export default class CheckoutComponent {
 
 	createOrder(address: Address) {
 		this.#store.dispatch(orderActions.createOrderRequest({ address: address }));
-		console.log(address);
 	}
 }

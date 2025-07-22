@@ -18,7 +18,7 @@ import { ProductModel } from '../../../products/models/product.model';
 		}
 
 		.productCard:hover .text {
-			box-shadow: #000000 0 5px 15px;
+			box-shadow: #000000 0 5px 10px;
 		}
 	`,
 	templateUrl: './product-card.component.html',
