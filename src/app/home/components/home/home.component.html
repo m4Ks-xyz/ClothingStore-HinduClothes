@@ -2,7 +2,9 @@
 	<div>
 		<app-main-carousel />
 	</div>
-	@if (featuredProducts()) {
+	@if (homePageLoading()) {
+		<app-loading-cirle class="flex min-h-[90vh] items-center justify-center" />
+	} @else if (featuredProducts()) {
 		@for (product of featuredProducts(); track product.id) {
 			<div class="pt-10">
 				<app-product-slider [title]="product.name" [products]="product.items" />

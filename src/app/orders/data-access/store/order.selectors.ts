@@ -6,4 +6,5 @@ export const orderFeature = createFeature({
 	reducer: OrderReducer,
 });
 
-export const { selectOrder, selectOrdersHistory } = orderFeature;
+export const { selectOrder, selectOrdersHistory, selectOrderLoading } =
+	orderFeature;

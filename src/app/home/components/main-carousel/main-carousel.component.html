@@ -1,5 +1,5 @@
 <div class="relative">
-	<div class="carousel-container mt-16 overflow-x-hidden">
+	<div class="carousel-container mt-16 overflow-hidden">
 		<div
 			class="carousel"
 			[style.transform]="`translateX(-${this.currentSlide() * 100}%)`"
@@ -7,8 +7,11 @@
 			@for (item of carouselData(); track item.image) {
 				<a [routerLink]="item.path" class="carousel__item">
 					<img
-						[src]="item.image"
-						alt="carousel item "
+						[ngSrc]="item.image"
+						width="1500"
+						height="563"
+						priority
+						alt="carousel item"
 						[attr.aria-label]="`Image of ${item.category}`"
 					/>
 				</a>

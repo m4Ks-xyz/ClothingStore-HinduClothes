@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MenuCategory } from '../../models/menu-content.model';
 import { MobileCategoryAccordionComponent } from '../mobile-category-accordion/mobile-category-accordion.component';
 import { RouterLink } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
 	selector: 'app-mobile-navbar',
@@ -18,6 +19,7 @@ import { RouterLink } from '@angular/router';
 		MatIconModule,
 		MobileCategoryAccordionComponent,
 		RouterLink,
+		NgOptimizedImage,
 	],
 	templateUrl: './mobile-navbar.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

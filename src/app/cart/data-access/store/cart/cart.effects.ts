@@ -4,11 +4,11 @@ import { Actions, createEffect, ofType, OnInitEffects } from '@ngrx/effects';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { cartActions } from './cart.actions';
 import { catchError, of, switchMap, tap } from 'rxjs';
-import { AuthActions } from '../../../../auth/data-acces/store/auth.actions';
 import { Action } from '@ngrx/store';
 import { TOKEN_STORAGE_KEY } from '../../../../auth/data-acces/config/api';
 import { userActions } from '../../../../user/data-access/store/user.actions';
 import { orderActions } from '../../../../orders/data-access/store/order.actions';
+import { authActions } from '../../../../auth/data-acces/store/auth.actions';
 
 @Injectable()
 export class CartEffects implements OnInitEffects {
@@ -60,7 +60,7 @@ export class CartEffects implements OnInitEffects {
 				cartActions.updateCartItemSuccess,
 				cartActions.removeCartItemSuccess,
 				orderActions.createOrderRequestSuccess,
-				AuthActions.loginSuccess,
+				authActions.loginSuccess,
 			),
 			switchMap(() => {
 				return this.#cartService.getCart().pipe(

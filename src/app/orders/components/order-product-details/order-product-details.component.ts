@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { OrderItems } from '../../models/order-items.model';
-import { CurrencyPipe } from '@angular/common';
+import { CurrencyPipe, NgOptimizedImage } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { OrderStatus } from '../../types/order-status.type';
 import { RateProductDialogService } from '../../dialogs/rate-product-dialog.service';
@@ -17,7 +17,7 @@ import { productsActions } from '../../../products/data-access/store/products/pr
 
 @Component({
 	selector: 'app-order-product-details',
-	imports: [RouterLink, CurrencyPipe, MatButton],
+	imports: [RouterLink, CurrencyPipe, MatButton, NgOptimizedImage],
 	templateUrl: './order-product-details.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })

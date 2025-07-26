@@ -4,11 +4,13 @@ import { userActions } from './user.actions';
 
 export interface UserProfile {
 	userProfile: UserProfileModel | undefined;
+	profileLoading: boolean;
 	errorMsg: string | undefined;
 }
 
 export const initialState: UserProfile = {
 	userProfile: undefined,
+	profileLoading: false,
 	errorMsg: undefined,
 };
 
@@ -18,6 +20,7 @@ export const userReducer = createReducer(
 	on(userActions.getUserProfileSuccess, (state, action) => ({
 		...state,
 		userProfile: action.userProfile,
+		profileLoading: false,
 	})),
 	on(
 		userActions.getUserProfileFailure,
@@ -25,11 +28,17 @@ export const userReducer = createReducer(
 		(state, action) => ({
 			...state,
 			errorMsg: action.error,
+			profileLoading: false,
 		}),
 	),
+	on(userActions.editUserProfile, (state) => ({
+		...state,
+		profileLoading: true,
+	})),
 	on(userActions.editUserProfileSuccess, (state, action) => ({
 		...state,
 		userProfile: action.user,
+		profileLoading: false,
 	})),
 	on(userActions.logout, () => initialState),
 );

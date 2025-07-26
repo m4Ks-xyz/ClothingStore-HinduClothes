@@ -7,8 +7,10 @@
 	<div class="relative h-80">
 		<img
 			class="h-full w-full object-cover object-top"
-			[src]="product().imageUrl"
-			[alt]="product().title"
+			width="352"
+			height="320"
+			[ngSrc]="product().imageUrl"
+			[alt]="`image of ${product().title}`"
 		/>
 	</div>
 

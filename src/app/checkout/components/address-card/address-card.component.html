@@ -1,13 +1,22 @@
-<address>
-	<div class="space-y-3">
-		<p class="font-semibold">
-			{{ `${address()?.firstName} ${address()?.lastName}` }}
-		</p>
-		<p>{{ `${address()?.zipCode}, ${address()?.city}` }}</p>
-		<p>{{ `${address()?.street}, ${address()?.number}` }}</p>
+<address class="h-[253px]">
+	<div class="space-y-4">
+		<div>
+			<p class="text-xl font-bold text-gray-500">Name</p>
+			<p>
+				{{ `${address()?.firstName} ${address()?.lastName}` }}
+			</p>
+		</div>
+		<div>
+			<p class="text-xl font-bold text-gray-500">Postal code, City</p>
+			<p>{{ `${address()?.zipCode}, ${address()?.city}` }}</p>
+		</div>
+		<div>
+			<p class="text-xl font-bold text-gray-500">Street, Number</p>
+			<p>{{ `${address()?.street}, ${address()?.number}` }}</p>
+		</div>
 
-		<div class="space-y-1">
-			<p class="font-semibold">Phone Number</p>
+		<div>
+			<p class="text-xl font-bold text-gray-500">Phone Number</p>
 			<p>{{ address()?.phoneNumber }}</p>
 		</div>
 	</div>

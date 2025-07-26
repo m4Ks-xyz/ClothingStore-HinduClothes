@@ -12,10 +12,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { AuthFormDialogService } from '../../../auth/dialogs/services/auth-form-dialog.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Store } from '@ngrx/store';
-import { AuthActions } from '../../../auth/data-acces/store/auth.actions';
 import { userFeature } from '../../../user/data-access/store/user.selectors';
 import { UserProfileModel } from '../../../user/models/user.model';
 import { UserService } from '../../../user/data-access/user.service';
+import { NgOptimizedImage } from '@angular/common';
+import { authActions } from '../../../auth/data-acces/store/auth.actions';
 
 @Component({
 	selector: 'app-navbar-user-profile',
@@ -26,11 +27,16 @@ import { UserService } from '../../../user/data-access/user.service';
 		MatMenuModule,
 		MatButton,
 		MatIconButton,
+		NgOptimizedImage,
 	],
 	templateUrl: './navbar-user-profile.component.html',
 	styles: `
 		.hide {
 			display: none;
+		}
+
+		.mat-icon {
+			color: black;
 		}
 
 		.mat-mdc-icon-button {
@@ -56,10 +62,10 @@ export class NavbarUserProfileComponent {
 			.subscribe((data) => {
 				if (data) {
 					if (data.status === 'login') {
-						this.#store.dispatch(AuthActions.login({ user: data.credentials }));
+						this.#store.dispatch(authActions.login({ user: data.credentials }));
 					} else {
 						this.#store.dispatch(
-							AuthActions.register({ user: data.credentials }),
+							authActions.register({ user: data.credentials }),
 						);
 					}
 				}

@@ -13,4 +13,6 @@ export const {
 	selectSelectedProductsReviews,
 	selectSelectedProductsRatings,
 	selectHomePageProducts,
+	selectHomePageLoading,
+	selectProductsLoading,
 } = productsFeature;

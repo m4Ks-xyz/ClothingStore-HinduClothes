@@ -3,8 +3,12 @@ import { ProductSliderComponent } from '../product-slider/product-slider.compone
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { HomeFeaturedItems } from '../../../products/models/home-featured-items.model';
 import { Store } from '@ngrx/store';
-import { selectHomePageProducts } from '../../../products/data-access/store/products/products.selectors';
+import {
+	selectHomePageLoading,
+	selectHomePageProducts,
+} from '../../../products/data-access/store/products/products.selectors';
 import { EmptyStateMessageComponent } from '../../../shared/components/empty-state-message/empty-state-message.component';
+import { LoadingCirleComponent } from '../../../shared/components/loading-cirle/loading-cirle.component';
 
 @Component({
 	selector: 'app-home',
@@ -12,6 +16,7 @@ import { EmptyStateMessageComponent } from '../../../shared/components/empty-sta
 		MainCarouselComponent,
 		ProductSliderComponent,
 		EmptyStateMessageComponent,
+		LoadingCirleComponent,
 	],
 	templateUrl: './home.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,4 +27,8 @@ export default class HomeComponent {
 	readonly featuredProducts = this.#store.selectSignal<
 		HomeFeaturedItems[] | undefined
 	>(selectHomePageProducts);
+
+	readonly homePageLoading = this.#store.selectSignal<boolean>(
+		selectHomePageLoading,
+	);
 }

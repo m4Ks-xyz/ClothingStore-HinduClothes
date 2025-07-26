@@ -9,10 +9,11 @@ import {
 import { RouterModule } from '@angular/router';
 import { MAIN_CAROUSEL_DATA } from './constants/main-carousel';
 import { MainCarouselDataModel } from './models/main-carousel-data-model';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
 	selector: 'app-main-carousel',
-	imports: [RouterModule],
+	imports: [RouterModule, NgOptimizedImage],
 	templateUrl: './main-carousel.component.html',
 	styles: `
 		.carousel {

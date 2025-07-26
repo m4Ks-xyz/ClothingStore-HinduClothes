@@ -4,9 +4,9 @@ import { UserService } from '../user.service';
 import { userActions } from './user.actions';
 import { catchError, of, switchMap, tap } from 'rxjs';
 import { TOKEN_STORAGE_KEY } from '../../../auth/data-acces/config/api';
-import { AuthActions } from '../../../auth/data-acces/store/auth.actions';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Action } from '@ngrx/store';
+import { authActions } from '../../../auth/data-acces/store/auth.actions';
 
 @Injectable()
 export class UserEffects implements OnInitEffects {
@@ -23,7 +23,7 @@ export class UserEffects implements OnInitEffects {
 
 	readonly getUserProfile = createEffect(() =>
 		this.#actions$.pipe(
-			ofType(userActions.getUserProfile, AuthActions.loginSuccess),
+			ofType(userActions.getUserProfile, authActions.loginSuccess),
 			switchMap(() => {
 				return this.#userService.getUserProfile().pipe(
 					switchMap((user) => {

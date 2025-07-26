@@ -21,6 +21,7 @@ import { Store } from '@ngrx/store';
 import { productsActions } from '../../data-access/store/products/products.actions';
 import {
 	selectProducts,
+	selectProductsLoading,
 	selectTotalProducts,
 } from '../../data-access/store/products/products.selectors';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
@@ -36,6 +37,7 @@ import {
 } from '../filters/bottom-sheet-mobile/bottom-sheet-mobile-data.type';
 import { ProductFilters } from '../../types/product-filters.type';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { LoadingCirleComponent } from '../../../shared/components/loading-cirle/loading-cirle.component';
 
 const parseQueryParam = (splitCharacter = ',') => {
 	return (queryParam: string | undefined): string[] => {
@@ -62,6 +64,7 @@ const parseQueryParam = (splitCharacter = ',') => {
 		ProductCardComponent,
 		RouterLink,
 		ProductsFiltersComponent,
+		LoadingCirleComponent,
 	],
 	templateUrl: './products.component.html',
 	styles: `
@@ -108,6 +111,7 @@ export default class ProductsComponent {
 			return isNaN(parsed) ? this.MAX_ALLOWED_PRICE : parsed;
 		},
 	});
+	//
 
 	readonly productParams = computed((): ProductParams => {
 		return {
@@ -130,6 +134,8 @@ export default class ProductsComponent {
 		this.#store.selectSignal(selectProducts);
 
 	readonly totalProducts = this.#store.selectSignal(selectTotalProducts);
+
+	readonly productsLoading = this.#store.selectSignal(selectProductsLoading);
 
 	readonly MAX_ALLOWED_PRICE = 5000;
 	readonly MIN_ALLOWED_PRICE = 10;

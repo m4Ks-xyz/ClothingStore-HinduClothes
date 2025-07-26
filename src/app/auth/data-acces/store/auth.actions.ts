@@ -2,7 +2,7 @@ import { createActionGroup, props } from '@ngrx/store';
 import { UserCredentials } from '../../dialogs/types/user-credentials.model';
 import { AuthResponseModel } from '../../models/auth-response.model';
 
-export const AuthActions = createActionGroup({
+export const authActions = createActionGroup({
 	source: 'Auth',
 	events: {
 		login: props<{ user: UserCredentials }>(),

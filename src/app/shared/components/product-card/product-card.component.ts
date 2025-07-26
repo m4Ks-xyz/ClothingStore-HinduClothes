@@ -1,4 +1,4 @@
-import { CurrencyPipe } from '@angular/common';
+import { CurrencyPipe, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ProductModel } from '../../../products/models/product.model';
@@ -6,7 +6,7 @@ import { ProductModel } from '../../../products/models/product.model';
 @Component({
 	selector: 'app-product-card',
 	standalone: true,
-	imports: [CurrencyPipe, RouterModule],
+	imports: [CurrencyPipe, RouterModule, NgOptimizedImage],
 	styles: `
 		.productCard .text {
 			box-shadow: transparent 1px 1px 1px;

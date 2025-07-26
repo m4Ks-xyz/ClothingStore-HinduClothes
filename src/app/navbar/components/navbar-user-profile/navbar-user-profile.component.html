@@ -8,9 +8,11 @@
 				class="flex cursor-pointer items-center space-x-2 rounded-3xl p-2 transition-all duration-300 ease-in-out"
 			>
 				<img
-					class="mr-0 w-8 rounded-2xl border-1 border-solid md:mr-2!"
-					[src]="user()?.avatarImg ?? 'default-user-icon.png'"
-					aria-label="your avatar"
+					class="mr-0 w-10 rounded-full border-1 border-solid md:mr-2!"
+					[ngSrc]="user()?.avatarImg ?? 'default-user-icon.png'"
+					width="40"
+					height="40"
+					aria-label="user avatar"
 				/>
 				<p class="hidden md:inline">{{ user()?.firstName }}</p>
 			</div>

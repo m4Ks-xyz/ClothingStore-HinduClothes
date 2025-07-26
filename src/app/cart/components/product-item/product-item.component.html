@@ -1,16 +1,18 @@
 <div class="flex flex-col items-center gap-4 p-4 lg:flex-row">
-	<div class="size-40 lg:size-36">
+	<div class="size-42">
 		<img
 			class="h-full w-full rounded-sm object-cover object-top"
-			[src]="productWrapper().product.imageUrl"
-			alt=""
+			[ngSrc]="productWrapper().product.imageUrl"
+			width="168"
+			height="168"
+			[alt]="`image of ${productWrapper().product.title}`"
 		/>
 	</div>
 
 	<div class="ml-5 space-y-1">
 		<p class="font-semibold">{{ productWrapper().product.title }}</p>
 		<p class="text-gray-500">
-			Size: {{ productWrapper().product.size }},
+			Size: {{ productWrapper().size }},
 			{{ productWrapper().product.color }}
 		</p>
 		<p class="text-gray-500">Seller : {{ productWrapper().product.brand }}</p>

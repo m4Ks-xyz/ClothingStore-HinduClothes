@@ -12,6 +12,8 @@ export interface ProductsState {
 	selectedProductById: ProductModelRes | undefined;
 	selectedProductsReviews: Review[] | undefined;
 	selectedProductsRatings: Rating[] | undefined;
+	productsLoading: boolean;
+	homePageLoading: boolean;
 	error: string | undefined;
 }
 
@@ -22,21 +24,32 @@ export const initialState: ProductsState = {
 	selectedProductById: undefined,
 	selectedProductsReviews: undefined,
 	selectedProductsRatings: undefined,
+	productsLoading: false,
+	homePageLoading: false,
 	error: undefined,
 };
 
 export const ProductsReducer = createReducer(
 	initialState,
+	on(productsActions.findProductByCategory, (state) => ({
+		...state,
+		productsLoading: true,
+	})),
 	on(productsActions.findProductByCategorySuccess, (state, action) => ({
 		...state,
 		products: action.products.content,
 		totalProducts: action.products.totalProducts,
+		productsLoading: false,
 		error: undefined,
-		loading: false,
+	})),
+	on(productsActions.findProductById, (state) => ({
+		...state,
+		productsLoading: true,
 	})),
 	on(productsActions.findProductByIdSuccess, (state, action) => ({
 		...state,
 		selectedProductById: action.product,
+		productsLoading: false,
 	})),
 	on(productsActions.getProductReviewsSuccess, (state, action) => ({
 		...state,
@@ -48,19 +61,26 @@ export const ProductsReducer = createReducer(
 		selectedProductsReviews: action.review,
 		selectedProductsRatings: action.rating,
 	})),
+	on(productsActions.getHomePageProducts, (state) => ({
+		...state,
+		homePageLoading: true,
+	})),
 	on(productsActions.getHomePageProductsSuccess, (state, action) => ({
 		...state,
 		homePageProducts: action.products,
+		homePageLoading: false,
 	})),
 	on(
-		productsActions.findProductByIdFailure,
 		productsActions.findProductByIdFailure,
 		productsActions.getProductReviewsFailure,
 		productsActions.addProductReviewFailure,
 		productsActions.getHomePageProductsFailure,
+		productsActions.findProductByCategoryFailure,
 		(state, action) => ({
 			...state,
 			error: action.error,
+			productsLoading: false,
+			homePageLoading: false,
 		}),
 	),
 );

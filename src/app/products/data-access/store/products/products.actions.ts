@@ -14,7 +14,7 @@ export const productsActions = createActionGroup({
 		findProductByCategorySuccess: props<{
 			products: ProductsSearchResponseModel;
 		}>(),
-		findProductByCategoryFailure: props<{ error: Error }>(),
+		findProductByCategoryFailure: props<{ error: string }>(),
 
 		findProductById: props<{ _id: string }>(),
 		findProductByIdSuccess: props<{ product: ProductModelRes }>(),

@@ -1,5 +1,9 @@
 <div class="flex gap-4">
 	@for (featured of content().featured; track featured._id) {
-		<app-product-card class="bg-none text-white" [item]="featured" />
+		<app-product-card
+			(click)="closeMegaMenu.emit()"
+			class="bg-none text-white"
+			[item]="featured"
+		/>
 	}
 </div>

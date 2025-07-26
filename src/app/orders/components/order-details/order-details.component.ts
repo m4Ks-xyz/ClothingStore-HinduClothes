@@ -10,12 +10,18 @@ import { AddressCardComponent } from '../../../checkout/components/address-card/
 import { FILTER_STEPS } from '../../constants/order-status-steps.constant';
 import { OrderTrackerComponent } from '../../../shared/components/progres-track/order-tracker.component';
 import { Store } from '@ngrx/store';
-import { selectOrder } from '../../data-access/store/order.selectors';
+import {
+	selectOrder,
+	selectOrderLoading,
+} from '../../data-access/store/order.selectors';
 import { OrderRes } from '../../models/order-res.model';
 import { orderActions } from '../../data-access/store/order.actions';
 import { OrderProductDetailsComponent } from '../order-product-details/order-product-details.component';
 import { MatButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
+import { OrderSummaryComponent } from '../../../cart/components/order-summary/order-summary.component';
+import { LoadingCirleComponent } from '../../../shared/components/loading-cirle/loading-cirle.component';
+import { DatePipe } from '@angular/common';
 
 @Component({
 	selector: 'app-order-details',
@@ -25,6 +31,9 @@ import { RouterLink } from '@angular/router';
 		OrderProductDetailsComponent,
 		MatButton,
 		RouterLink,
+		OrderSummaryComponent,
+		LoadingCirleComponent,
+		DatePipe,
 	],
 	templateUrl: './order-details.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
@@ -38,6 +47,8 @@ export default class OrderDetailsComponent {
 	readonly order = this.#store.selectSignal<OrderRes | undefined>(selectOrder);
 
 	readonly steps = signal(FILTER_STEPS);
+
+	readonly orderLoading = this.#store.selectSignal<boolean>(selectOrderLoading);
 
 	constructor() {
 		effect(() => {

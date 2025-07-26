@@ -1,7 +1,10 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Store } from '@ngrx/store';
-import { selectUserProfile } from '../../data-access/store/user.selectors';
+import {
+	selectProfileLoading,
+	selectUserProfile,
+} from '../../data-access/store/user.selectors';
 import { UserProfileModel } from '../../models/user.model';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -10,6 +13,8 @@ import { AddressListComponent } from '../../../checkout/components/address-list/
 import { ProfilePageFormComponent } from '../profile-page-form/profile-page-form.component';
 import { userActions } from '../../data-access/store/user.actions';
 import { EmptyStateMessageComponent } from '../../../shared/components/empty-state-message/empty-state-message.component';
+import { NgOptimizedImage } from '@angular/common';
+import { LoadingCirleComponent } from '../../../shared/components/loading-cirle/loading-cirle.component';
 
 {
 }
@@ -24,6 +29,8 @@ import { EmptyStateMessageComponent } from '../../../shared/components/empty-sta
 		AddressListComponent,
 		ProfilePageFormComponent,
 		EmptyStateMessageComponent,
+		NgOptimizedImage,
+		LoadingCirleComponent,
 	],
 	templateUrl: './profile-page.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
@@ -34,6 +41,8 @@ export default class ProfilePageComponent {
 	readonly userProfile = this.#store.selectSignal<UserProfileModel | undefined>(
 		selectUserProfile,
 	);
+
+	readonly profileLoading = this.#store.selectSignal(selectProfileLoading);
 
 	deleteAddress(addressId: string) {
 		this.#store.dispatch(

@@ -1,5 +1,9 @@
 <div class="flex items-center justify-center">
-	@if (product()) {
+	@if (productLoading()) {
+		<app-loading-cirle
+			class="flex h-[90vh] items-center justify-center pt-16"
+		/>
+	} @else if (product()) {
 		<div class="container mt-10 p-5 lg:p-10">
 			<app-product-details-path [path]="product()?.path" />
 

@@ -6,7 +6,7 @@ export const userFeature = createFeature({
 	reducer: userReducer,
 });
 
-export const { selectUserProfile } = userFeature;
+export const { selectUserProfile, selectProfileLoading } = userFeature;
 
 export const selectAddresses = createSelector([selectUserProfile], (user) => {
 	return user?.address;

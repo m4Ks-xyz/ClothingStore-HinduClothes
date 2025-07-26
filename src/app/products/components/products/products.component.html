@@ -78,7 +78,11 @@
 				<div
 					class="grid min-h-[100vh] w-full grid-cols-1 items-start md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
 				>
-					@if (productState().length === 0) {
+					@if (productsLoading()) {
+						<app-loading-cirle
+							class="col-span-full flex h-[90vh] items-center justify-center"
+						/>
+					} @else if (productState().length === 0) {
 						<p
 							class="col-span-full py-54 text-center text-lg text-red-500 uppercase"
 						>

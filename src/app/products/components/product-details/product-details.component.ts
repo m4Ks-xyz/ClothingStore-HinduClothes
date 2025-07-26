@@ -12,6 +12,7 @@ import { Store } from '@ngrx/store';
 import { productsActions } from '../../data-access/store/products/products.actions';
 import {
 	selectProducts,
+	selectProductsLoading,
 	selectSelectedProductById,
 	selectSelectedProductsRatings,
 	selectSelectedProductsReviews,
@@ -24,6 +25,7 @@ import { ProductDetailsPathComponent } from '../product-details-path/product-det
 import { ProductDetailsReviewsComponent } from '../product-details-reviews/product-details-reviews.component';
 import { ProductDetailsRelatedProductsComponent } from '../product-details-related-products/product-details-related-products.component';
 import { EmptyStateMessageComponent } from '../../../shared/components/empty-state-message/empty-state-message.component';
+import { LoadingCirleComponent } from '../../../shared/components/loading-cirle/loading-cirle.component';
 
 @Component({
 	selector: 'app-product-details',
@@ -37,6 +39,7 @@ import { EmptyStateMessageComponent } from '../../../shared/components/empty-sta
 		ProductDetailsReviewsComponent,
 		ProductDetailsRelatedProductsComponent,
 		EmptyStateMessageComponent,
+		LoadingCirleComponent,
 	],
 	templateUrl: './product-details.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
@@ -57,6 +60,10 @@ export default class ProductDetailsComponent {
 
 	readonly ratings = this.#store.selectSignal<Rating[] | undefined>(
 		selectSelectedProductsRatings,
+	);
+
+	readonly productLoading = this.#store.selectSignal<boolean>(
+		selectProductsLoading,
 	);
 
 	/// query params

@@ -1,16 +1,24 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { MatAnchor } from '@angular/material/button';
+import { MatAnchor, MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
 	selector: 'app-not-found',
-	imports: [MatAnchor, RouterLink],
+	imports: [MatAnchor, RouterLink, NgOptimizedImage, MatButtonModule],
 	template: `
 		<main class="mt-10 flex min-h-[70vh] items-center justify-center">
 			<div
 				class="container flex flex-col items-center justify-center gap-4 p-4"
 			>
-				<img src="logo.png" class="w-60" />
+				<img
+					ngSrc="logo.png"
+					width="240"
+					priority
+					height="240"
+					class="w-60"
+					aria-label="store logo"
+				/>
 				<h1 class="text-center text-xl">
 					Looks like this page is so last season — it doesn’t exist anymore.
 				</h1>

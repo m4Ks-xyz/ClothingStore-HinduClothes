@@ -1,12 +1,12 @@
 import { inject, Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { AuthActions } from './auth.actions';
 import { catchError, of, switchMap, tap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { userActions } from '../../../user/data-access/store/user.actions';
 import { cartActions } from '../../../cart/data-access/store/cart/cart.actions';
 import { TOKEN_STORAGE_KEY } from '../config/api';
+import { authActions } from './auth.actions';
 
 @Injectable()
 export class AuthEffects {
@@ -16,12 +16,12 @@ export class AuthEffects {
 
 	readonly login = createEffect(() =>
 		this.#actions$.pipe(
-			ofType(AuthActions.login),
+			ofType(authActions.login),
 			switchMap((actionPayload) => {
 				return this.#authService.login(actionPayload.user).pipe(
 					switchMap((res) => {
 						return of(
-							AuthActions.loginSuccess({
+							authActions.loginSuccess({
 								user: { token: res.token, message: res.message },
 							}),
 						);
@@ -42,7 +42,7 @@ export class AuthEffects {
 							panelClass: ['snackbar-error'],
 						});
 						return of(
-							AuthActions.loginFailure({ errorMsg: err.error.message }),
+							authActions.loginFailure({ errorMsg: err.error.message }),
 						);
 					}),
 				);
@@ -53,7 +53,7 @@ export class AuthEffects {
 	readonly saveTokenToLocalStorage = createEffect(
 		() =>
 			this.#actions$.pipe(
-				ofType(AuthActions.loginSuccess, AuthActions.registerSuccess),
+				ofType(authActions.loginSuccess, authActions.registerSuccess),
 				switchMap((actionPayload) => {
 					localStorage.setItem(
 						TOKEN_STORAGE_KEY,
@@ -70,12 +70,12 @@ export class AuthEffects {
 
 	readonly register = createEffect(() =>
 		this.#actions$.pipe(
-			ofType(AuthActions.register),
+			ofType(authActions.register),
 			switchMap((actionPayload) => {
 				return this.#authService.register(actionPayload.user).pipe(
 					switchMap((res) =>
 						of(
-							AuthActions.registerSuccess({
+							authActions.registerSuccess({
 								user: { token: res.token, message: res.message },
 							}),
 							userActions.getUserProfile(),
@@ -99,7 +99,7 @@ export class AuthEffects {
 						});
 
 						return of(
-							AuthActions.registerFailure({ errorMsg: err.error.error }),
+							authActions.registerFailure({ errorMsg: err.error.error }),
 						);
 					}),
 				);

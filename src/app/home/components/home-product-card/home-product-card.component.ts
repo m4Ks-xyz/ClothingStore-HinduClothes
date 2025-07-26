@@ -1,11 +1,11 @@
-import { CurrencyPipe } from '@angular/common';
+import { CurrencyPipe, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ProductModel } from '../../../products/models/product.model';
 
 @Component({
 	selector: 'app-home-product-card',
-	imports: [CurrencyPipe, RouterLink],
+	imports: [CurrencyPipe, RouterLink, NgOptimizedImage],
 	styles: `
 		.productCard .text {
 			transition: transform 0.3s ease-in-out;

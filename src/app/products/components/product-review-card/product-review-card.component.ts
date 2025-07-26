@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { StarRatingComponent } from '../star-rating/star-rating.component';
 import { Review } from '../../../auth/models/review.model';
-import { DatePipe } from '@angular/common';
+import { DatePipe, NgOptimizedImage } from '@angular/common';
 import { Rating } from '../../../auth/models/ratings.model';
 
 @Component({
 	selector: 'app-product-review-card',
-	imports: [StarRatingComponent, DatePipe],
+	imports: [StarRatingComponent, DatePipe, NgOptimizedImage],
 	templateUrl: './product-review-card.component.html',
 	styles: `
 		.container {

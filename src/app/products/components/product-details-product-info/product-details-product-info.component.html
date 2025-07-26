@@ -1,6 +1,12 @@
 <div class="grid-cols-3 lg:grid lg:gap-10">
 	<div class="col-span-2 flex flex-col items-center">
-		<img [src]="productDetails()?.imageUrl" [alt]="productDetails()?.title" />
+		<img
+			[ngSrc]="productDetails()?.imageUrl ?? ''"
+			width="400"
+			height="600"
+			priority
+			[alt]="`image of ${productDetails()?.title}`"
+		/>
 	</div>
 
 	<div class="col-span-1 mt-10 space-y-10 lg:mt-0">
@@ -57,11 +63,11 @@
 				/>
 				<button
 					(click)="onSubmit()"
-					[disabled]="productDetails()?.quantity === 0"
+					[disabled]="productDetails()?.quantity === 0 || !user()"
 					mat-raised-button
 					class="w-1/2 rounded-xl! p-6 lg:w-full"
 				>
-					Add To Cart
+					{{user() ? `Add To Cart` : `Not logged` }}
 				</button>
 			</div>
 			@if (productDetails()?.quantity === 0) {

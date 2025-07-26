@@ -6,8 +6,10 @@
 	<div class="relative h-80">
 		<img
 			class="h-full w-full rounded-t-md object-cover object-top"
-			[src]="item().imageUrl"
-			[alt]="item().title"
+			[ngSrc]="item().imageUrl"
+			width="224"
+			height="320"
+			[alt]="`image of ${item().title}`"
 		/>
 
 		@if (item().discount > 0) {

@@ -68,7 +68,7 @@ export class OrderEffects {
 
 	readonly getOrderHistory = createEffect(() =>
 		this.#actions.pipe(
-			ofType(orderActions.getOrderHistoryRequest),
+			ofType(orderActions.getOrderHistoryRequest, orderActions.payOrderSuccess),
 			switchMap(() => {
 				return this.#orderService.getOrderHistory().pipe(
 					switchMap(function (orders) {

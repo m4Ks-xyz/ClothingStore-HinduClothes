@@ -1,23 +1,45 @@
 <a [routerLink]="['/account', 'orders', order()._id]">
 	<div class="box container flex flex-col items-center md:block">
-		<div class="grid gap-4 sm:grid-cols-4 md:grid-cols-5">
+		<div class="grid gap-4 sm:grid-cols-5 md:grid-cols-6">
 			<div
 				class="flex w-full flex-col items-center gap-y-4 md:flex-row md:gap-y-0"
 			>
 				<img
-					class="size-36 rounded-md object-cover object-top"
-					[src]="order().orderItems[0].product.imageUrl"
-					alt="Product Image"
+					class="size-42 rounded-md object-cover object-top"
+					[ngSrc]="order().orderItems[0].product.imageUrl"
+					height="168"
+					width="168"
+					aria-label="first product of order image"
 				/>
 			</div>
+
 			<div class="self-start md:ml-5">
 				<p class="text-lg font-semibold">Order details</p>
-				<p class="text-gray-400">Order date: {{ order().orderDate | date }}</p>
+				<p class="text-gray-400">Ordered: {{ order().orderDate | date }}</p>
 				<p class="text-gray-400">Products: {{ order().orderItems.length }}</p>
 			</div>
+
+			@if (
+				order().paymentDetails.paymentStatus === `completed` && order().orderStatus !== `delivered`
+			) {
+				<div>
+					<p class="text-lg font-semibold">Estimate delivery</p>
+					<p class="text-gray-400">
+						{{ order().deliveryDate | date: "fullDate" }}
+					</p>
+				</div>
+			}
+
+			<div>
+				<p class="text-lg font-semibold">Status</p>
+				<p class="text-gray-400 first-letter:uppercase">
+					{{ order().orderStatus }}
+				</p>
+			</div>
+
 			<div>
 				<p class="text-lg font-semibold">Total Price</p>
-				<p class="text-sm">
+				<p class="text-gray-400">
 					{{
 						(order().discount !== 0
 							? order().totalDiscountedPrice
@@ -25,10 +47,6 @@
 						) | currency: "INR"
 					}}
 				</p>
-			</div>
-			<div>
-				<p class="text-lg font-semibold">Status</p>
-				<p class="text-sm uppercase">{{ order().orderStatus }}</p>
 			</div>
 		</div>
 	</div>

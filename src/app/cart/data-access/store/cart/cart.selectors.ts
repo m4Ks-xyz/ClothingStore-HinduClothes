@@ -6,7 +6,7 @@ export const cartFeature = createFeature({
 	reducer: CartReducer,
 });
 
-export const { selectCart } = cartFeature;
+export const { selectCart, selectCartLoading } = cartFeature;
 
 export const selectTotalCartItems = createSelector([selectCart], (cart) => {
 	return cart?.totalItem;

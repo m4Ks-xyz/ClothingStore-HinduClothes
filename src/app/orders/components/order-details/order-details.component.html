@@ -1,7 +1,9 @@
 <main class="flex items-center justify-center">
-	<div class="container p-4 lg:px-20 lg:py-10">
-		@if (order()) {
-			<div class="space-y-4 py-20 text-white lg:px-16">
+	@if (orderLoading()) {
+		<app-loading-cirle class="flex h-[90vh] items-center justify-center p-16" />
+	} @else if (order()) {
+		<div class="container p-4 lg:px-20 lg:py-10">
+			<div class="space-y-12 py-20 text-white lg:px-16">
 				<div>
 					<h1 class="py-2 text-2xl font-semibold">Order details</h1>
 
@@ -11,34 +13,57 @@
 					/>
 				</div>
 
-				<div>
-					<h2 class="py-5 text-xl font-semibold">Payment Status</h2>
+				<div class="space-y-8">
+					<div>
+						<h2 class="py-6 text-xl font-semibold">Payment Status</h2>
 
-					@if (order()?.paymentDetails?.paymentStatus === "completed") {
-						<p>Payment is <strong class="text-green-500">completed</strong></p>
-					} @else {
-						<div class="flex flex-col gap-4">
-							<p>Payment is <strong class="text-red-500">required</strong></p>
-							<a
-								mat-raised-button
-								class="rounded-md!"
-								[routerLink]="['/checkout', 'payment', order()?._id]"
-								>PAY NOW</a
-							>
+						@if (order()?.paymentDetails?.paymentStatus === "completed") {
+							<p>
+								Payment is <strong class="text-green-500">completed</strong>
+							</p>
+						} @else {
+							<div class="flex flex-col gap-4">
+								<p>Payment is <strong class="text-red-500">required</strong></p>
+								<a
+									mat-raised-button
+									class="rounded-md!"
+									[routerLink]="['/checkout', 'payment', order()?._id]"
+									>PAY NOW</a
+								>
+							</div>
+						}
+					</div>
+					@if (
+						order()?.paymentDetails?.paymentStatus === `completed` && order()?.orderStatus !== `delivered`
+					) {
+						<div>
+							<h2 class="py-6 text-xl font-semibold">Estimate delivery date</h2>
+							<p>{{order()?.deliveryDate | date:`fullDate`}}</p>
 						</div>
 					}
 				</div>
 
-				<div class="space-y-10">
-					<h2 class="py-5 text-xl font-semibold">Shipping Address</h2>
+				<div class="grid gap-8 md:grid-cols-2">
+					<div>
+						<h2 class="py-8 text-xl font-semibold">Shipping Address</h2>
+						<div class="box rounded-md">
+							<app-address-card [address]="order()?.shippingAddress" />
+						</div>
+					</div>
 
-					<div class="box">
-						<app-address-card [address]="order()?.shippingAddress" />
+					<div class="h-full">
+						<h2 class="py-8 text-xl font-semibold">Price summary</h2>
+						<app-order-summary
+							class="h-full"
+							[discount]="order()?.discount"
+							[totalDiscountedPrice]="order()?.totalDiscountedPrice"
+							[totalPrice]="order()?.totalPrice"
+						/>
 					</div>
 				</div>
 
 				<div class="mt-12 flex flex-col justify-center gap-y-6 md:mt-20">
-					<h1 class="pt-5 text-xl font-semibold">Products</h1>
+					<h2 class="pt-5 text-xl font-semibold">Products</h2>
 					@for (item of order()?.orderItems; track item.product._id) {
 						<app-order-product-details
 							[status]="order()?.orderStatus"
@@ -47,10 +72,10 @@
 					}
 				</div>
 			</div>
-		} @else {
-			<div class="flex h-[90vh] items-center justify-center">
-				<p class="text-2xl">LOG IN TO SEE YOUR ORDER DETAILS</p>
-			</div>
-		}
-	</div>
+		</div>
+	} @else {
+		<div class="flex h-[90vh] items-center justify-center">
+			<p class="text-2xl">LOG IN TO SEE YOUR ORDER DETAILS</p>
+		</div>
+	}
 </main>
