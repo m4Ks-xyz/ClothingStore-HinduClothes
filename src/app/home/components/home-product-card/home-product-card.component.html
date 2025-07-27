@@ -1,5 +1,5 @@
 <div
-	class="productCard flex h-full cursor-pointer flex-col overflow-hidden rounded-lg bg-[#1C1C1C] shadow-lg transition-all duration-300"
+	class="productCard flex max-w-80 cursor-pointer flex-col overflow-hidden rounded-lg bg-[#1C1C1C] shadow-lg transition-all duration-300 md:h-full"
 	role="article"
 	[attr.aria-labelledby]="'product-title-' + product()._id"
 	[routerLink]="['/products/id', product()._id]"
