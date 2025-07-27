@@ -70,7 +70,8 @@ export class AddressFormComponent {
 	});
 
 	createOrder() {
-		this.form.markAllAsDirty();
+		this.form.markAllAsTouched();
+
 		if (this.form.valid) {
 			this.address.emit(this.form.getRawValue());
 		}
