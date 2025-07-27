@@ -1,4 +1,4 @@
-<div class="box flex flex-col items-center md:block">
+<div class="box flex flex-col items-center rounded-xl md:block">
 	<div class="flex flex-col gap-4 md:w-auto md:grid-cols-5">
 		<a
 			[routerLink]="['/products/id', item().product._id]"
@@ -31,9 +31,9 @@
 				<p class="text-lg font-semibold">Price</p>
 				<p class="text-sm">
 					{{
-						(item().discountedPrice === 0
-							? item().price
-							: item().discountedPrice
+						(item().product.discountedPrice === 0
+							? item().product.price
+							: item().product.discountedPrice
 						) | currency: "INR"
 					}}
 				</p>

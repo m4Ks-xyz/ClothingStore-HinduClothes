@@ -7,7 +7,7 @@ import { NgOptimizedImage } from '@angular/common';
 	selector: 'app-not-found',
 	imports: [MatAnchor, RouterLink, NgOptimizedImage, MatButtonModule],
 	template: `
-		<main class="mt-10 flex min-h-[70vh] items-center justify-center">
+		<main class="mt-10 flex min-h-[90vh] items-center justify-center">
 			<div
 				class="container flex flex-col items-center justify-center gap-4 p-4"
 			>

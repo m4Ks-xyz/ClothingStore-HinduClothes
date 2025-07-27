@@ -4,7 +4,7 @@
 	} @else if (userProfile()) {
 		<div class="container my-16 space-y-6 lg:max-w-[70vw] xl:max-w-[50vw]">
 			<section
-				class="mt-16 flex flex-col items-center gap-2 rounded-md bg-[#111826] py-4"
+				class="mt-16 flex flex-col items-center gap-2 rounded-md bg-[#1C1C1C] py-4"
 			>
 				<img
 					[ngSrc]="userProfile()?.avatarImg ?? 'default-user-icon.png'"
@@ -24,7 +24,7 @@
 			<section>
 				<app-profile-page-form />
 			</section>
-			<section class="rounded-md bg-[#111826]">
+			<section class="rounded-md bg-[#1C1C1C]">
 				<div class="flex flex-col gap-2 px-8 py-8 text-sm">
 					<div class="flex items-center gap-2">
 						<mat-icon fontIcon="lock" class="text-md!" />

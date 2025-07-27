@@ -1,49 +1,63 @@
 {
-  "name": "clothing-store",
-  "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
-  },
-  "private": true,
-  "dependencies": {
-    "@angular/cdk": "^20.1.2",
-    "@angular/common": "^20.1.2",
-    "@angular/compiler": "^20.1.2",
-    "@angular/core": "^20.1.2",
-    "@angular/forms": "^20.1.2",
-    "@angular/material": "^20.1.2",
-    "@angular/platform-browser": "^20.1.2",
-    "@angular/platform-browser-dynamic": "^20.1.2",
-    "@angular/router": "^20.1.2",
-    "@ngrx/effects": "^19.2.1",
-    "@ngrx/store": "^19.2.1",
-    "@ngrx/store-devtools": "^19.2.1",
-    "@ngx-env/builder": "^20.1.0",
-    "@tailwindcss/postcss": "^4.1.5",
-    "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
-    "zone.js": "~0.15.0"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "^20.1.1",
-    "@angular/cli": "^20.1.1",
-    "@angular/compiler-cli": "^20.1.2",
-    "@types/jasmine": "~5.1.0",
-    "autoprefixer": "^10.4.21",
-    "jasmine-core": "~5.6.0",
-    "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.2.0",
-    "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
-    "postcss": "^8.5.3",
-    "prettier": "^3.5.3",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "tailwindcss": "^4.1.7",
-    "typescript": "~5.8.3"
-  }
+	"name": "clothing-store",
+	"version": "0.0.0",
+	"scripts": {
+		"ng": "ng",
+		"start": "ng serve",
+		"build": "ng build",
+		"watch": "ng build --watch --configuration development",
+		"test": "ng test"
+	},
+	"private": true,
+	"dependencies": {
+		"@angular/cdk": "^20.1.2",
+		"@angular/common": "^20.1.2",
+		"@angular/compiler": "^20.1.2",
+		"@angular/core": "^20.1.2",
+		"@angular/forms": "^20.1.2",
+		"@angular/material": "^20.1.2",
+		"@angular/platform-browser": "^20.1.2",
+		"@angular/platform-browser-dynamic": "^20.1.2",
+		"@angular/router": "^20.1.2",
+		"@ngrx/effects": "^19.2.1",
+		"@ngrx/store": "^19.2.1",
+		"@ngrx/store-devtools": "^19.2.1",
+		"@ngx-env/builder": "^20.1.0",
+		"@tailwindcss/postcss": "^4.1.5",
+		"rxjs": "~7.8.0",
+		"tslib": "^2.3.0",
+		"zone.js": "~0.15.0"
+	},
+	"devDependencies": {
+		"@angular-devkit/build-angular": "^20.1.1",
+		"@angular/cli": "^20.1.1",
+		"@angular/compiler-cli": "^20.1.2",
+		"@types/jasmine": "~5.1.0",
+		"autoprefixer": "^10.4.21",
+		"jasmine-core": "~5.6.0",
+		"karma": "~6.4.0",
+		"karma-chrome-launcher": "~3.2.0",
+		"karma-coverage": "~2.2.0",
+		"karma-jasmine": "~5.1.0",
+		"karma-jasmine-html-reporter": "~2.1.0",
+		"postcss": "^8.5.3",
+		"prettier": "^3.5.3",
+		"prettier-plugin-tailwindcss": "^0.6.11",
+		"tailwindcss": "^4.1.7",
+		"typescript": "~5.8.3"
+	},
+	"overrides": {
+		"@ngrx/effects": {
+			"@angular/common": "20.1.2",
+			"@angular/core": "20.1.2"
+		},
+		"@ngrx/store": {
+			"@angular/common": "20.1.2",
+			"@angular/core": "20.1.2"
+		},
+		"@ngrx/store-devtools": {
+			"@angular/common": "20.1.2",
+			"@angular/core": "20.1.2"
+		}
+	}
 }

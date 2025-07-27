@@ -2,13 +2,16 @@
 <main class="flex items-center justify-center">
 	@if (cart()) {
 		<div class="container mt-20 min-h-[90vh]">
-			<div class="relative grid-cols-3 py-10 lg:grid lg:px-16">
+			<div class="relative grid-cols-3 px-4 py-10 lg:grid lg:px-16">
 				@if (!cartLoading()) {
 					<section
 						class="lg:col-span-2 lg:px-5"
 						[class.lg:col-span-3]="!hasItemsInCart"
 					>
-						<div class="box space-y-3 p-5">
+						<div
+							class="box space-y-3 rounded-xl p-5"
+							[class.bg-gray-500]="!hasItemsInCart"
+						>
 							@if (hasItemsInCart) {
 								<app-cart-item-list
 									[cartProducts]="cart()?.cartItems"

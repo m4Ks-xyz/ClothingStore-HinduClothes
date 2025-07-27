@@ -40,7 +40,7 @@ export class CartEffects implements OnInitEffects {
 						}),
 					),
 					catchError((err) => {
-						this.#snackBar.open(`Error: ${err.error}`, undefined, {
+						this.#snackBar.open(err.error.text, undefined, {
 							duration: 5000,
 							verticalPosition: 'bottom',
 							horizontalPosition: 'end',
